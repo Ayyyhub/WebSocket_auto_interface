@@ -1,0 +1,24 @@
+# 测试账号
+test_user:
+  -
+    "checkCode":   "3d6a3e94beb8fd038b91716e0f55acf5"
+    "password":    "e2ab3ddd4ae58fd3b2320b418f96f7f5"
+    "name":        "AE1"
+  -
+    "name":        "test001"
+    "password":    "47caa5fff7d4b4c35770720c32f4b726"
+    "checkCode":   "2e82a766a99427d97c4819904d85d60d"
+  -
+    "name":        "AE11"
+    "checkCode":   "7221bd31c87d5ef884f9782b547435c3"
+    "password":    "a5c73bd6ba8b939a17acad53caf85a2c"
+
+
+# 获取token
+"gte_token_url": "http://10.20.220.251/rlrob/rest/signIn/default"
+
+# 退出登录
+"logout_url": "http://10.20.220.251/rlrob/rest/user/signOut"
+
+# websocket链接地址
+"ws_url": "ws://10.20.220.251/wspod/rest/rlws"
