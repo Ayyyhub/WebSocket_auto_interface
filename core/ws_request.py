@@ -10,7 +10,6 @@ from Message.dispatcher import (
 )
 
 _dispatchers = {}
-_seq_counters = {}      # 全局字典：为每个WebSocket客户端维护独立的id自增序列
 
 # 从消息层拿数据
 def _get_dispatcher(ws_client):
@@ -20,6 +19,13 @@ def _get_dispatcher(ws_client):
     if key not in _dispatchers:
         _dispatchers[key] = MessageDispatcher(ws_client)
     return _dispatchers[key]
+
+
+""" 手动清理当前 ws_client 对应的 dispatcher 缓存 """
+def ws_clear_pending(ws_client):
+    if ws_client:
+        dispatcher = _get_dispatcher(ws_client)
+        dispatcher.clear_pending()
 
 
 """ 封装具体的【发送请求--接收响应并断言】的处理 """
@@ -106,11 +112,11 @@ def ws_send_and_wait(req, desc, expect_success=True, expect_ret=None, max_none_r
                 "recv_req": json.dumps(parsed_response, ensure_ascii=False)
             })
             if continue_on_error:
-                logger.error(f"{desc} 失败: {parsed_response} (已忽略错误)")
+                logger.error(f"{desc} 失败: {parsed_response} ")
                 return parsed_response
             raise AssertionError(f"{desc} 失败: {parsed_response}")
 
-    # expect_ret不为None且ret != expect_ret
+    # expect_ret不为None时，断言ret的值
     if expect_ret is not None and isinstance(parsed_response, dict):
         if parsed_response.get("ret") != expect_ret:
             fail_reason = f"ret不符, ret: {parsed_response.get('ret', '')}"
@@ -125,7 +131,7 @@ def ws_send_and_wait(req, desc, expect_success=True, expect_ret=None, max_none_r
                 "recv_req": json.dumps(parsed_response, ensure_ascii=False)
             })
             if continue_on_error:
-                logger.error(f"{desc} 返回ret不符: {parsed_response} (已忽略错误)")
+                logger.error(f"{desc} 返回ret不符: {parsed_response} ")
                 return parsed_response
             raise AssertionError(f"{desc} 返回ret不符: {parsed_response}")
 

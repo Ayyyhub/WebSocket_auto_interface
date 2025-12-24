@@ -1,0 +1,24 @@
+2025-12-24 14:53:54 | INFO | - | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2025-12-24 14:53:54 | INFO | - | - | conftest:ws_client:43 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2025-12-24 14:53:54 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 14:53:54 | INFO | - | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2025-12-24 14:53:54 | INFO | - | - | dispatcher:_parse_raw:68 - enable controller 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 14:53:55 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"id":"amStart_1766559234995212","error":"{\n\"level\": 2,\n\"message\": \"启动控制器失败\",\n\"time\": 1766559233\n}"}
+2025-12-24 14:53:55 | INFO | - | - | ws_request:ws_send_and_wait:83 - enable controller 请求: {'func': 'simArcs.amStart', 'args': [0], 'id': 'amStart_1766559234995212'} 
+响应: {'success': False, 'id': 'amStart_1766559234995212', 'error': '{\n"level": 2,\n"message": "启动控制器失败",\n"time": 1766559233\n}'}
+2025-12-24 14:53:55 | ERROR | - | - | ws_request:ws_send_and_wait:115 - enable controller 失败: {'success': False, 'id': 'amStart_1766559234995212', 'error': '{\n"level": 2,\n"message": "启动控制器失败",\n"time": 1766559233\n}'} 
+2025-12-24 14:53:55 | WARNING | - | - | harness:send_request:53 - amStart_1766559234995212 断言失败！
+2025-12-24 14:53:55 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amSetEnableButtonState_1766559235035591","ret":[true]}
+2025-12-24 14:53:55 | INFO | - | - | ws_request:ws_send_and_wait:83 - req_amSetEnableButtonState 使能上电 请求: {'func': 'simArcs.amSetEnableButtonState', 'args': [0, True], 'id': 'amSetEnableButtonState_1766559235035591'} 
+响应: {'success': True, 'id': 'amSetEnableButtonState_1766559235035591', 'ret': [True]}
+2025-12-24 14:53:55 | INFO | - | - | ws_request:ws_send_and_wait:140 - req_amSetEnableButtonState 使能上电响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:53:55 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amSwitchChannel_1766559235466318","ret":[true]}
+2025-12-24 14:53:55 | INFO | - | - | ws_request:ws_send_and_wait:83 - amSwitchChannel 切换通道 请求: {'func': 'simArcs.amSwitchChannel', 'args': [0, 0], 'id': 'amSwitchChannel_1766559235466318'} 
+响应: {'success': True, 'id': 'amSwitchChannel_1766559235466318', 'ret': [True]}
+2025-12-24 14:53:55 | INFO | - | - | ws_request:ws_send_and_wait:140 - amSwitchChannel 切换通道响应成功，总耗时: 0.20s，None重试: 0次
+2025-12-24 14:53:56 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamStartPushMessageForTeachingPath_1766559235981414","ret":[]}
+2025-12-24 14:53:56 | INFO | - | - | ws_request:ws_send_and_wait:83 - StartPushMessage 请求: {'func': 'simArcs.aamStartPushMessageForTeachingPath', 'args': [0, 0, 'collect_point_path'], 'id': 'aamStartPushMessageForTeachingPath_1766559235981414'} 
+响应: {'success': True, 'id': 'aamStartPushMessageForTeachingPath_1766559235981414', 'ret': []}
+2025-12-24 14:53:56 | INFO | - | - | ws_request:ws_send_and_wait:87 - StartPushMessage 响应为空数组[]，已跳过断言
+2025-12-24 14:53:56 | INFO | - | - | ws_mock:send_ws_mock:34 - [MOCK] 接口名称: simArcs.amStartJog ,接口描述：start jog 
+2025-12-24 14:53:56 | INFO | - | - | ws_mock:send_ws_mock:64 - [MOCK] amStartJog 校验通过: Axis=1, Dir=1

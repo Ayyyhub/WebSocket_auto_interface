@@ -1,47 +1,54 @@
-from core.ws_request import ws_send_and_wait
+from core.harness import send_request
 
 """ 执行1-15号初始化接口 """
 
 def ws_init_chain(ws_client):
     
     # 1-15号接口
-    # 1. 加载后端simArcs的入口（第一次调用可能触发后端冷启动，给更长的等待时间和重试次数）
-    ws_send_and_wait(
-        {"func": "wsRemoteApi.require", "args": ["simArcs", "simAssimp", "simStepOrIges", "simIK"], "id": "require"},
-        "wsRemoteApi.require 加载后端simArcs的入口",
-        ws_client=ws_client,
-    )
+    # 1. 加载后端simArcs的入口
+    send_request(ws_client, "wsRemoteApi.require", ["simArcs", "simAssimp", "simStepOrIges", "simIK"], "wsRemoteApi.require 加载后端simArcs的入口")
+    
     # 2. 获取所有场景（新）
-    ws_send_and_wait({"func": "simArcs.webGetAllSceneNames", "args": [], "id": "webGetAllSceneNames"}, "webGetAllSceneNames 获取所有场景",ws_client=ws_client)
+    send_request(ws_client, "simArcs.webGetAllSceneNames", [], "webGetAllSceneNames 获取所有场景")
+    
     # 3. 当前场景id
-    ws_send_and_wait({"func": "sim.getSelectedSceneID", "id": "getSelectedSceneID"}, "getSelectedSceneID 当前场景id",ws_client=ws_client)
+    send_request(ws_client, "sim.getSelectedSceneID", [], "getSelectedSceneID 当前场景id")
+    
     # 4. 切换场景
-    ws_send_and_wait({"func": "sim.switchToScene", "args": [0], "id": "switchToScene"}, "switchToScene 切换场景",ws_client=ws_client)
+    send_request(ws_client, "sim.switchToScene", [0], "switchToScene 切换场景")
+    
     # 5. 获取所有坐标信息
-    ws_send_and_wait({"func": "simArcs.afmGetAll", "id": "afmGetAll"}, "afmGetAll 获取所有坐标信息",ws_client=ws_client)
+    send_request(ws_client, "simArcs.afmGetAll", [], "afmGetAll 获取所有坐标信息")
+    
     # 6. 获取机器人配置
-    ws_send_and_wait({"func": "simArcs.rmGetAll", "args": [], "id": "rmGetAll"}, "rmGetAll 获取机器人配置",ws_client=ws_client)
+    send_request(ws_client, "simArcs.rmGetAll", [], "rmGetAll 获取机器人配置")
+    
     # 7. 获取所有控制器
-    ws_send_and_wait({"func": "simArcs.amGetAll", "args": [], "id": "amGetAll"}, "amGetAll 获取所有控制器",ws_client=ws_client)
+    send_request(ws_client, "simArcs.amGetAll", [], "amGetAll 获取所有控制器")
+    
     # 8. 获取所有arl程序信息
-    ws_send_and_wait({"func": "simArcs.aamGetAll", "args": [], "id": "aamGetAll"}, "aamGetAll 获取所有arl程序信息",ws_client=ws_client)
+    send_request(ws_client, "simArcs.aamGetAll", [], "aamGetAll 获取所有arl程序信息")
+    
     # 9. 重新构建树
-    ws_send_and_wait({"func": "simArcs.ahmRebuildHierarchy", "args": [], "id": "ahmRebuildHierarchy"}, "ahmRebuildHierarchy 重新构建树",ws_client=ws_client)
+    send_request(ws_client, "simArcs.ahmRebuildHierarchy", [], "ahmRebuildHierarchy 重新构建树")
+    
     # 10. 获取场景树
-    ws_send_and_wait({"func": "simArcs.ahmGetHierarchy", "args": [], "id": "ahmGetHierarchy"}, "ahmGetHierarchy 获取场景树",ws_client=ws_client)
-    # 11. 获取所有外部轴信息（为什么要调用这个接口呢，是不是不太合理呢？）
-    ws_send_and_wait({"func": "simArcs.ejmGetAll", "args": [], "id": "ejmGetAll"}, "ejmGetAll 获取所有外部轴信息",ws_client=ws_client)
+    send_request(ws_client, "simArcs.ahmGetHierarchy", [], "ahmGetHierarchy 获取场景树")
+    
+    # 11. 获取所有外部轴信息
+    send_request(ws_client, "simArcs.ejmGetAll", [], "ejmGetAll 获取所有外部轴信息")
+    
     # 12. 得到当前场景中信号的属性信息
-    ws_send_and_wait({"func": "simArcs.iomGetAllIOSignalActions", "id": "iomGetAllIOSignalActions"}, "iomGetAllIOSignalActions 得到当前场景中信号的属性信息",ws_client=ws_client)
+    send_request(ws_client, "simArcs.iomGetAllIOSignalActions", [], "iomGetAllIOSignalActions 得到当前场景中信号的属性信息")
+    
     # 13. 获取所有控制器
-    ws_send_and_wait({"func": "simArcs.amGetAll", "args": [], "id": "amGetAll_2"}, "amGetAll_2 获取所有控制器",ws_client=ws_client)
+    send_request(ws_client, "simArcs.amGetAll", [], "amGetAll_2 获取所有控制器")
+    
     # 14. 获取可视化仿真状态
-    ws_send_and_wait({"func": "simArcs.amGetVisualSimulationState", "args": [], "id": "amGetVisualSimulationState"}, "amGetVisualSimulationState 获取可视化仿真状态",ws_client=ws_client)
+    send_request(ws_client, "simArcs.amGetVisualSimulationState", [], "amGetVisualSimulationState 获取可视化仿真状态")
+    
     # 15. 获取碰撞检测状态
-    ws_send_and_wait({"func": "simArcs.webGetCollisionDetectionStatus","args":[], "id": "webGetCollisionDetectionStatus"}, "webGetCollisionDetectionStatus 获取碰撞检测状态",ws_client=ws_client)
-
-    # # 16. 获取全局bool属性
-    # safe_ws_call({"func":"sim.getBoolParam","args":[],"id":"getBoolParam"}, "getBoolParam")
+    send_request(ws_client, "simArcs.webGetCollisionDetectionStatus", [], "webGetCollisionDetectionStatus 获取碰撞检测状态")
 
 
 

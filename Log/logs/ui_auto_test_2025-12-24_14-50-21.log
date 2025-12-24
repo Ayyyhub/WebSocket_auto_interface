@@ -1,0 +1,8 @@
+2025-12-24 14:50:21 | INFO | - | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2025-12-24 14:50:21 | INFO | - | - | conftest:ws_client:43 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2025-12-24 14:50:22 | INFO | - | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2025-12-24 14:50:22 | INFO | - | - | test_amteaching:test_full_teaching_workflow:24 - Step 1: Initialization
+2025-12-24 14:50:22 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 14:50:22 | INFO | - | - | dispatcher:_parse_raw:68 - wsRemoteApi.require 加载后端simArcs的入口 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 14:50:27 | INFO | - | - | dispatcher:wait_for_response:94 - wsRemoteApi.require 加载后端simArcs的入口收到None，重试(1/3)...
+2025-12-24 14:50:32 | INFO | - | - | dispatcher:wait_for_response:94 - wsRemoteApi.require 加载后端simArcs的入口收到None，重试(2/3)...

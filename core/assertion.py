@@ -7,7 +7,7 @@ def assert_resp_true(resp):
     if "success" not in resp:
         raise AssertionError(f"响应结果缺少 success: {resp}")
 
-    if not resp["success"]:
+    if  resp["success"] != True:
         return False
 
     if "ret" not in resp:

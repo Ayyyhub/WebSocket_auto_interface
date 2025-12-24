@@ -1,0 +1,14 @@
+2025-12-24 13:44:38 | INFO | - | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2025-12-24 13:44:39 | INFO | - | - | conftest:ws_client:38 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2025-12-24 13:44:39 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 13:44:39 | INFO | - | - | dispatcher:clear_pending:56 - 已手动清空 MessageDispatcher 的待决消息缓存
+2025-12-24 13:44:39 | INFO | - | - | ws_mock:send_ws_mock:34 - [MOCK] 接口名称: simArcs.amStart ,接口描述：enable controller 
+2025-12-24 13:44:39 | WARNING | - | - | ws_mock:send_ws_mock:78 - [MOCK] No mock data found for simArcs.amStart, returning generic success.
+2025-12-24 13:44:39 | INFO | - | - | ws_mock:send_ws_mock:34 - [MOCK] 接口名称: simArcs.amSetEnableButtonState ,接口描述：req_amSetEnableButtonState 使能上电 
+2025-12-24 13:44:39 | WARNING | - | - | ws_mock:send_ws_mock:78 - [MOCK] No mock data found for simArcs.amSetEnableButtonState, returning generic success.
+2025-12-24 13:44:39 | INFO | - | - | ws_mock:send_ws_mock:34 - [MOCK] 接口名称: simArcs.amSwitchChannel ,接口描述：amSwitchChannel 切换通道（使能情况下） 
+2025-12-24 13:44:39 | WARNING | - | - | ws_mock:send_ws_mock:78 - [MOCK] No mock data found for simArcs.amSwitchChannel, returning generic success.
+2025-12-24 13:44:39 | INFO | - | - | ws_mock:send_ws_mock:34 - [MOCK] 接口名称: simArcs.aamStartPushMessageForTeachingPath ,接口描述：aamStartPushMessageForTeachingPath 打开示教器界面开始推流 
+2025-12-24 13:44:39 | WARNING | - | - | ws_mock:send_ws_mock:78 - [MOCK] No mock data found for simArcs.aamStartPushMessageForTeachingPath, returning generic success.
+2025-12-24 13:44:39 | INFO | - | - | ws_mock:send_ws_mock:34 - [MOCK] 接口名称: simArcs.amStartJog ,接口描述：start jog 
+2025-12-24 13:44:39 | INFO | - | - | ws_mock:send_ws_mock:64 - [MOCK] amStartJog 校验通过: Axis=1, Dir=1

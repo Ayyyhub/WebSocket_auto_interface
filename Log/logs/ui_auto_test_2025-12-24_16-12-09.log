@@ -1,0 +1,32 @@
+2025-12-24 16:12:09 | INFO | - | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2025-12-24 16:12:09 | ERROR | - | - | token_util:get_token:53 - Login failed for AE1. Response: {'data': None, 'message': '当前账号已有人员操作，请稍后重试！', 'code': 500}
+2025-12-24 16:12:09 | INFO | - | - | token_util:get_token:39 - 正在使用用户 test001 进行登录！
+2025-12-24 16:12:09 | INFO | - | - | conftest:ws_client:43 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2025-12-24 16:12:09 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 16:12:09 | INFO | - | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2025-12-24 16:12:09 | INFO | - | - | dispatcher:_parse_raw:68 - enable controller 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 16:12:10 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.amStart","success":false,"id":"amStart_1766563929957366"}
+2025-12-24 16:12:10 | INFO | - | - | ws_request:ws_send_and_wait:83 - enable controller 请求: {'func': 'simArcs.amStart', 'args': [0], 'id': 'amStart_1766563929957366'} 
+响应: {'error': 'No such function: simArcs.amStart', 'success': False, 'id': 'amStart_1766563929957366'}
+2025-12-24 16:12:10 | ERROR | - | - | ws_request:ws_send_and_wait:115 - enable controller 失败: {'error': 'No such function: simArcs.amStart', 'success': False, 'id': 'amStart_1766563929957366'} 
+2025-12-24 16:12:10 | WARNING | - | - | harness:send_request:63 - amStart_1766563929957366 断言失败！
+2025-12-24 16:12:10 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.amSetEnableButtonState","success":false,"id":"amSetEnableButtonState_1766563930037336"}
+2025-12-24 16:12:10 | INFO | - | - | ws_request:ws_send_and_wait:83 - req_amSetEnableButtonState 使能上电 请求: {'func': 'simArcs.amSetEnableButtonState', 'args': [0, True], 'id': 'amSetEnableButtonState_1766563930037336'} 
+响应: {'error': 'No such function: simArcs.amSetEnableButtonState', 'success': False, 'id': 'amSetEnableButtonState_1766563930037336'}
+2025-12-24 16:12:10 | ERROR | - | - | ws_request:ws_send_and_wait:115 - req_amSetEnableButtonState 使能上电 失败: {'error': 'No such function: simArcs.amSetEnableButtonState', 'success': False, 'id': 'amSetEnableButtonState_1766563930037336'} 
+2025-12-24 16:12:10 | WARNING | - | - | harness:send_request:63 - amSetEnableButtonState_1766563930037336 断言失败！
+2025-12-24 16:12:10 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.amSwitchChannel","success":false,"id":"amSwitchChannel_1766563930164091"}
+2025-12-24 16:12:10 | INFO | - | - | ws_request:ws_send_and_wait:83 - amSwitchChannel 切换通道 请求: {'func': 'simArcs.amSwitchChannel', 'args': [0, 0], 'id': 'amSwitchChannel_1766563930164091'} 
+响应: {'error': 'No such function: simArcs.amSwitchChannel', 'success': False, 'id': 'amSwitchChannel_1766563930164091'}
+2025-12-24 16:12:10 | ERROR | - | - | ws_request:ws_send_and_wait:115 - amSwitchChannel 切换通道 失败: {'error': 'No such function: simArcs.amSwitchChannel', 'success': False, 'id': 'amSwitchChannel_1766563930164091'} 
+2025-12-24 16:12:10 | WARNING | - | - | harness:send_request:63 - amSwitchChannel_1766563930164091 断言失败！
+2025-12-24 16:12:10 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.aamStartPushMessageForTeachingPath","success":false,"id":"aamStartPushMessageForTeachingPath_1766563930289156"}
+2025-12-24 16:12:10 | INFO | - | - | ws_request:ws_send_and_wait:83 - StartPushMessage 请求: {'func': 'simArcs.aamStartPushMessageForTeachingPath', 'args': [0, 0, 'collect_point_path'], 'id': 'aamStartPushMessageForTeachingPath_1766563930289156'} 
+响应: {'error': 'No such function: simArcs.aamStartPushMessageForTeachingPath', 'success': False, 'id': 'aamStartPushMessageForTeachingPath_1766563930289156'}
+2025-12-24 16:12:10 | ERROR | - | - | ws_request:ws_send_and_wait:115 - StartPushMessage 失败: {'error': 'No such function: simArcs.aamStartPushMessageForTeachingPath', 'success': False, 'id': 'aamStartPushMessageForTeachingPath_1766563930289156'} 
+2025-12-24 16:12:10 | WARNING | - | - | harness:send_request:63 - aamStartPushMessageForTeachingPath_1766563930289156 断言失败！
+2025-12-24 16:12:10 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.amStartJog","success":false,"id":"amStartJog_1766563930413371"}
+2025-12-24 16:12:10 | INFO | - | - | ws_request:ws_send_and_wait:83 - start jog 请求: {'func': 'simArcs.amStartJog', 'args': [0, 1, 1], 'id': 'amStartJog_1766563930413371'} 
+响应: {'error': 'No such function: simArcs.amStartJog', 'success': False, 'id': 'amStartJog_1766563930413371'}
+2025-12-24 16:12:10 | ERROR | - | - | ws_request:ws_send_and_wait:115 - start jog 失败: {'error': 'No such function: simArcs.amStartJog', 'success': False, 'id': 'amStartJog_1766563930413371'} 
+2025-12-24 16:12:10 | WARNING | - | - | harness:send_request:63 - amStartJog_1766563930413371 断言失败！

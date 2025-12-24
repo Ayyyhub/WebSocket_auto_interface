@@ -1,0 +1,153 @@
+2025-12-24 14:09:02 | INFO | - | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2025-12-24 14:09:02 | ERROR | - | - | token_util:get_token:53 - Login failed for AE1. Response: {'data': None, 'message': '当前账号已有人员操作，请稍后重试！', 'code': 500}
+2025-12-24 14:09:02 | INFO | - | - | token_util:get_token:39 - 正在使用用户 test001 进行登录！
+2025-12-24 14:09:02 | INFO | - | - | conftest:ws_client:38 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2025-12-24 14:09:02 | INFO | - | - | dispatcher:clear_pending:56 - 已手动清空 MessageDispatcher 的待决消息缓存
+2025-12-24 14:09:02 | INFO | - | - | test_amteaching:test_full_teaching_workflow:24 - Step 1: Initialization
+2025-12-24 14:09:03 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 14:09:03 | INFO | - | - | dispatcher:_parse_raw:68 - wsRemoteApi.require 加载后端simArcs的入口 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 14:09:08 | INFO | - | - | dispatcher:wait_for_response:94 - wsRemoteApi.require 加载后端simArcs的入口收到None，重试(1/3)...
+2025-12-24 14:09:13 | INFO | - | - | dispatcher:wait_for_response:94 - wsRemoteApi.require 加载后端simArcs的入口收到None，重试(2/3)...
+2025-12-24 14:09:18 | INFO | - | - | ws_request:ws_send_and_wait:49 - wsRemoteApi.require 加载后端simArcs的入口连续3次无响应
+2025-12-24 14:09:18 | ERROR | - | - | ws_request:ws_send_and_wait:62 - wsRemoteApi.require 加载后端simArcs的入口连续3次无响应 (已忽略错误)
+2025-12-24 14:09:18 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"webGetAllSceneNames_1766556558849786","success":false,"error":"No such function: simArcs.webGetAllSceneNames"}
+2025-12-24 14:09:18 | INFO | - | - | ws_request:ws_send_and_wait:83 - webGetAllSceneNames 获取所有场景 请求: {'func': 'simArcs.webGetAllSceneNames', 'args': [], 'id': 'webGetAllSceneNames_1766556558849786'} 
+响应: {'id': 'webGetAllSceneNames_1766556558849786', 'success': False, 'error': 'No such function: simArcs.webGetAllSceneNames'}
+2025-12-24 14:09:18 | ERROR | - | - | ws_request:ws_send_and_wait:115 - webGetAllSceneNames 获取所有场景 失败: {'id': 'webGetAllSceneNames_1766556558849786', 'success': False, 'error': 'No such function: simArcs.webGetAllSceneNames'} 
+2025-12-24 14:09:18 | WARNING | - | - | harness:send_request:53 - webGetAllSceneNames_1766556558849786 断言失败！
+2025-12-24 14:09:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"ret":[0],"id":"getSelectedSceneID_1766556558957094","success":true}
+2025-12-24 14:09:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - getSelectedSceneID 当前场景id 请求: {'func': 'sim.getSelectedSceneID', 'args': [], 'id': 'getSelectedSceneID_1766556558957094'} 
+响应: {'ret': [0], 'id': 'getSelectedSceneID_1766556558957094', 'success': True}
+2025-12-24 14:09:19 | INFO | - | - | ws_request:ws_send_and_wait:140 - getSelectedSceneID 当前场景id响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:09:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"ret":[0],"id":"switchToScene_1766556559395568","success":true}
+2025-12-24 14:09:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - switchToScene 切换场景 请求: {'func': 'sim.switchToScene', 'args': [0], 'id': 'switchToScene_1766556559395568'} 
+响应: {'ret': [0], 'id': 'switchToScene_1766556559395568', 'success': True}
+2025-12-24 14:09:19 | INFO | - | - | ws_request:ws_send_and_wait:140 - switchToScene 切换场景响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:09:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"afmGetAll_1766556559768748","success":false,"error":"No such function: simArcs.afmGetAll"}
+2025-12-24 14:09:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - afmGetAll 获取所有坐标信息 请求: {'func': 'simArcs.afmGetAll', 'args': [], 'id': 'afmGetAll_1766556559768748'} 
+响应: {'id': 'afmGetAll_1766556559768748', 'success': False, 'error': 'No such function: simArcs.afmGetAll'}
+2025-12-24 14:09:19 | ERROR | - | - | ws_request:ws_send_and_wait:115 - afmGetAll 获取所有坐标信息 失败: {'id': 'afmGetAll_1766556559768748', 'success': False, 'error': 'No such function: simArcs.afmGetAll'} 
+2025-12-24 14:09:19 | WARNING | - | - | harness:send_request:53 - afmGetAll_1766556559768748 断言失败！
+2025-12-24 14:09:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"rmGetAll_1766556559836796","success":false,"error":"No such function: simArcs.rmGetAll"}
+2025-12-24 14:09:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - rmGetAll 获取机器人配置 请求: {'func': 'simArcs.rmGetAll', 'args': [], 'id': 'rmGetAll_1766556559836796'} 
+响应: {'id': 'rmGetAll_1766556559836796', 'success': False, 'error': 'No such function: simArcs.rmGetAll'}
+2025-12-24 14:09:19 | ERROR | - | - | ws_request:ws_send_and_wait:115 - rmGetAll 获取机器人配置 失败: {'id': 'rmGetAll_1766556559836796', 'success': False, 'error': 'No such function: simArcs.rmGetAll'} 
+2025-12-24 14:09:19 | WARNING | - | - | harness:send_request:53 - rmGetAll_1766556559836796 断言失败！
+2025-12-24 14:09:20 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"amGetAll_1766556559963287","success":false,"error":"No such function: simArcs.amGetAll"}
+2025-12-24 14:09:20 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetAll 获取所有控制器 请求: {'func': 'simArcs.amGetAll', 'args': [], 'id': 'amGetAll_1766556559963287'} 
+响应: {'id': 'amGetAll_1766556559963287', 'success': False, 'error': 'No such function: simArcs.amGetAll'}
+2025-12-24 14:09:20 | ERROR | - | - | ws_request:ws_send_and_wait:115 - amGetAll 获取所有控制器 失败: {'id': 'amGetAll_1766556559963287', 'success': False, 'error': 'No such function: simArcs.amGetAll'} 
+2025-12-24 14:09:20 | WARNING | - | - | harness:send_request:53 - amGetAll_1766556559963287 断言失败！
+2025-12-24 14:09:20 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"aamGetAll_1766556560080321","success":false,"error":"No such function: simArcs.aamGetAll"}
+2025-12-24 14:09:20 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamGetAll 获取所有arl程序信息 请求: {'func': 'simArcs.aamGetAll', 'args': [], 'id': 'aamGetAll_1766556560080321'} 
+响应: {'id': 'aamGetAll_1766556560080321', 'success': False, 'error': 'No such function: simArcs.aamGetAll'}
+2025-12-24 14:09:20 | ERROR | - | - | ws_request:ws_send_and_wait:115 - aamGetAll 获取所有arl程序信息 失败: {'id': 'aamGetAll_1766556560080321', 'success': False, 'error': 'No such function: simArcs.aamGetAll'} 
+2025-12-24 14:09:20 | WARNING | - | - | harness:send_request:53 - aamGetAll_1766556560080321 断言失败！
+2025-12-24 14:09:20 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"ahmRebuildHierarchy_1766556560207854","success":false,"error":"No such function: simArcs.ahmRebuildHierarchy"}
+2025-12-24 14:09:20 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmRebuildHierarchy 重新构建树 请求: {'func': 'simArcs.ahmRebuildHierarchy', 'args': [], 'id': 'ahmRebuildHierarchy_1766556560207854'} 
+响应: {'id': 'ahmRebuildHierarchy_1766556560207854', 'success': False, 'error': 'No such function: simArcs.ahmRebuildHierarchy'}
+2025-12-24 14:09:20 | ERROR | - | - | ws_request:ws_send_and_wait:115 - ahmRebuildHierarchy 重新构建树 失败: {'id': 'ahmRebuildHierarchy_1766556560207854', 'success': False, 'error': 'No such function: simArcs.ahmRebuildHierarchy'} 
+2025-12-24 14:09:20 | WARNING | - | - | harness:send_request:53 - ahmRebuildHierarchy_1766556560207854 断言失败！
+2025-12-24 14:09:20 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"ahmGetHierarchy_1766556560332329","success":false,"error":"No such function: simArcs.ahmGetHierarchy"}
+2025-12-24 14:09:20 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmGetHierarchy 获取场景树 请求: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1766556560332329'} 
+响应: {'id': 'ahmGetHierarchy_1766556560332329', 'success': False, 'error': 'No such function: simArcs.ahmGetHierarchy'}
+2025-12-24 14:09:20 | ERROR | - | - | ws_request:ws_send_and_wait:115 - ahmGetHierarchy 获取场景树 失败: {'id': 'ahmGetHierarchy_1766556560332329', 'success': False, 'error': 'No such function: simArcs.ahmGetHierarchy'} 
+2025-12-24 14:09:20 | WARNING | - | - | harness:send_request:53 - ahmGetHierarchy_1766556560332329 断言失败！
+2025-12-24 14:09:20 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"ejmGetAll_1766556560460971","success":false,"error":"No such function: simArcs.ejmGetAll"}
+2025-12-24 14:09:20 | INFO | - | - | ws_request:ws_send_and_wait:83 - ejmGetAll 获取所有外部轴信息 请求: {'func': 'simArcs.ejmGetAll', 'args': [], 'id': 'ejmGetAll_1766556560460971'} 
+响应: {'id': 'ejmGetAll_1766556560460971', 'success': False, 'error': 'No such function: simArcs.ejmGetAll'}
+2025-12-24 14:09:20 | ERROR | - | - | ws_request:ws_send_and_wait:115 - ejmGetAll 获取所有外部轴信息 失败: {'id': 'ejmGetAll_1766556560460971', 'success': False, 'error': 'No such function: simArcs.ejmGetAll'} 
+2025-12-24 14:09:20 | WARNING | - | - | harness:send_request:53 - ejmGetAll_1766556560460971 断言失败！
+2025-12-24 14:09:20 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"iomGetAllIOSignalActions_1766556560582583","success":false,"error":"No such function: simArcs.iomGetAllIOSignalActions"}
+2025-12-24 14:09:20 | INFO | - | - | ws_request:ws_send_and_wait:83 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息 请求: {'func': 'simArcs.iomGetAllIOSignalActions', 'args': [], 'id': 'iomGetAllIOSignalActions_1766556560582583'} 
+响应: {'id': 'iomGetAllIOSignalActions_1766556560582583', 'success': False, 'error': 'No such function: simArcs.iomGetAllIOSignalActions'}
+2025-12-24 14:09:20 | ERROR | - | - | ws_request:ws_send_and_wait:115 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息 失败: {'id': 'iomGetAllIOSignalActions_1766556560582583', 'success': False, 'error': 'No such function: simArcs.iomGetAllIOSignalActions'} 
+2025-12-24 14:09:20 | WARNING | - | - | harness:send_request:53 - iomGetAllIOSignalActions_1766556560582583 断言失败！
+2025-12-24 14:09:20 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"amGetAll_1766556560706413","success":false,"error":"No such function: simArcs.amGetAll"}
+2025-12-24 14:09:20 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetAll_2 获取所有控制器 请求: {'func': 'simArcs.amGetAll', 'args': [], 'id': 'amGetAll_1766556560706413'} 
+响应: {'id': 'amGetAll_1766556560706413', 'success': False, 'error': 'No such function: simArcs.amGetAll'}
+2025-12-24 14:09:20 | ERROR | - | - | ws_request:ws_send_and_wait:115 - amGetAll_2 获取所有控制器 失败: {'id': 'amGetAll_1766556560706413', 'success': False, 'error': 'No such function: simArcs.amGetAll'} 
+2025-12-24 14:09:20 | WARNING | - | - | harness:send_request:53 - amGetAll_1766556560706413 断言失败！
+2025-12-24 14:09:20 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"amGetVisualSimulationState_1766556560833491","success":false,"error":"No such function: simArcs.amGetVisualSimulationState"}
+2025-12-24 14:09:20 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetVisualSimulationState 获取可视化仿真状态 请求: {'func': 'simArcs.amGetVisualSimulationState', 'args': [], 'id': 'amGetVisualSimulationState_1766556560833491'} 
+响应: {'id': 'amGetVisualSimulationState_1766556560833491', 'success': False, 'error': 'No such function: simArcs.amGetVisualSimulationState'}
+2025-12-24 14:09:20 | ERROR | - | - | ws_request:ws_send_and_wait:115 - amGetVisualSimulationState 获取可视化仿真状态 失败: {'id': 'amGetVisualSimulationState_1766556560833491', 'success': False, 'error': 'No such function: simArcs.amGetVisualSimulationState'} 
+2025-12-24 14:09:20 | WARNING | - | - | harness:send_request:53 - amGetVisualSimulationState_1766556560833491 断言失败！
+2025-12-24 14:09:21 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"webGetCollisionDetectionStatus_1766556560964734","success":false,"error":"No such function: simArcs.webGetCollisionDetectionStatus"}
+2025-12-24 14:09:21 | INFO | - | - | ws_request:ws_send_and_wait:83 - webGetCollisionDetectionStatus 获取碰撞检测状态 请求: {'func': 'simArcs.webGetCollisionDetectionStatus', 'args': [], 'id': 'webGetCollisionDetectionStatus_1766556560964734'} 
+响应: {'id': 'webGetCollisionDetectionStatus_1766556560964734', 'success': False, 'error': 'No such function: simArcs.webGetCollisionDetectionStatus'}
+2025-12-24 14:09:21 | ERROR | - | - | ws_request:ws_send_and_wait:115 - webGetCollisionDetectionStatus 获取碰撞检测状态 失败: {'id': 'webGetCollisionDetectionStatus_1766556560964734', 'success': False, 'error': 'No such function: simArcs.webGetCollisionDetectionStatus'} 
+2025-12-24 14:09:21 | WARNING | - | - | harness:send_request:53 - webGetCollisionDetectionStatus_1766556560964734 断言失败！
+2025-12-24 14:09:21 | INFO | - | - | test_amteaching:test_full_teaching_workflow:28 - Step 2: Load Model
+2025-12-24 14:09:21 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"ret":[15],"id":"loadModel_1766556561081658","success":true}
+2025-12-24 14:09:21 | INFO | - | - | ws_request:ws_send_and_wait:83 - loadModel 加载模型 请求: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1766556561081658'} 
+响应: {'ret': [15], 'id': 'loadModel_1766556561081658', 'success': True}
+2025-12-24 14:09:21 | INFO | - | - | ws_request:ws_send_and_wait:140 - loadModel 加载模型响应成功，总耗时: 0.87s，None重试: 0次
+2025-12-24 14:09:22 | INFO | - | - | loadmodel_chain:ws_loadmodel_chain:21 - [PERF] loadModel 加载模型成功，对象ID: 15
+2025-12-24 14:09:22 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1766556562256834","success":true}
+2025-12-24 14:09:22 | INFO | - | - | ws_request:ws_send_and_wait:83 - getObjectPosition 获取对象位置 请求: {'func': 'sim.getObjectPosition', 'args': [15, -1], 'id': 'getObjectPosition_1766556562256834'} 
+响应: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1766556562256834', 'success': True}
+2025-12-24 14:09:22 | INFO | - | - | ws_request:ws_send_and_wait:140 - getObjectPosition 获取对象位置响应成功，总耗时: 0.11s，None重试: 0次
+2025-12-24 14:09:22 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"webMoveObject_1766556562677068","success":false,"error":"No such function: simArcs.webMoveObject"}
+2025-12-24 14:09:22 | INFO | - | - | ws_request:ws_send_and_wait:83 - webMoveObject 对象移动 请求: {'func': 'simArcs.webMoveObject', 'args': [15, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1766556562677068'} 
+响应: {'id': 'webMoveObject_1766556562677068', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2025-12-24 14:09:22 | ERROR | - | - | ws_request:ws_send_and_wait:115 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1766556562677068', 'success': False, 'error': 'No such function: simArcs.webMoveObject'} 
+2025-12-24 14:09:22 | WARNING | - | - | harness:send_request:53 - webMoveObject_1766556562677068 断言失败！
+2025-12-24 14:09:22 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"webGetHandleType_1766556562741653","success":false,"error":"No such function: simArcs.webGetHandleType"}
+2025-12-24 14:09:22 | INFO | - | - | ws_request:ws_send_and_wait:83 - webGetHandleType 获取加载模型的handle类型 请求: {'func': 'simArcs.webGetHandleType', 'args': [15], 'id': 'webGetHandleType_1766556562741653'} 
+响应: {'id': 'webGetHandleType_1766556562741653', 'success': False, 'error': 'No such function: simArcs.webGetHandleType'}
+2025-12-24 14:09:22 | ERROR | - | - | ws_request:ws_send_and_wait:115 - webGetHandleType 获取加载模型的handle类型 失败: {'id': 'webGetHandleType_1766556562741653', 'success': False, 'error': 'No such function: simArcs.webGetHandleType'} 
+2025-12-24 14:09:22 | WARNING | - | - | harness:send_request:53 - webGetHandleType_1766556562741653 断言失败！
+2025-12-24 14:09:22 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"ahmCreateHierarchyElement_1766556562865254","success":false,"error":"No such function: simArcs.ahmCreateHierarchyElement"}
+2025-12-24 14:09:22 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmCreateHierarchyElement 创建节点 请求: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [0, 1], 'id': 'ahmCreateHierarchyElement_1766556562865254'} 
+响应: {'id': 'ahmCreateHierarchyElement_1766556562865254', 'success': False, 'error': 'No such function: simArcs.ahmCreateHierarchyElement'}
+2025-12-24 14:09:22 | ERROR | - | - | ws_request:ws_send_and_wait:115 - ahmCreateHierarchyElement 创建节点 失败: {'id': 'ahmCreateHierarchyElement_1766556562865254', 'success': False, 'error': 'No such function: simArcs.ahmCreateHierarchyElement'} 
+2025-12-24 14:09:22 | WARNING | - | - | harness:send_request:53 - ahmCreateHierarchyElement_1766556562865254 断言失败！
+2025-12-24 14:09:22 | WARNING | - | - | loadmodel_chain:ws_loadmodel_chain:46 - [PERF] ahmCreateHierarchyElement 创建节点失败或返回空: {'id': 'ahmCreateHierarchyElement_1766556562865254', 'success': False, 'error': 'No such function: simArcs.ahmCreateHierarchyElement'}
+2025-12-24 14:09:23 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"ahmSetElementParent_1766556562991746","success":false,"error":"No such function: simArcs.ahmSetElementParent"}
+2025-12-24 14:09:23 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmSetElementParent1 设置工作台父节点 请求: {'func': 'simArcs.ahmSetElementParent', 'args': [None, 0], 'id': 'ahmSetElementParent_1766556562991746'} 
+响应: {'id': 'ahmSetElementParent_1766556562991746', 'success': False, 'error': 'No such function: simArcs.ahmSetElementParent'}
+2025-12-24 14:09:23 | ERROR | - | - | ws_request:ws_send_and_wait:115 - ahmSetElementParent1 设置工作台父节点 失败: {'id': 'ahmSetElementParent_1766556562991746', 'success': False, 'error': 'No such function: simArcs.ahmSetElementParent'} 
+2025-12-24 14:09:23 | WARNING | - | - | harness:send_request:53 - ahmSetElementParent_1766556562991746 断言失败！
+2025-12-24 14:09:23 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"ahmCreateHierarchyElement_1766556563118582","success":false,"error":"No such function: simArcs.ahmCreateHierarchyElement"}
+2025-12-24 14:09:23 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmCreateHierarchyElement 创建节点 请求: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [15, 2], 'id': 'ahmCreateHierarchyElement_1766556563118582'} 
+响应: {'id': 'ahmCreateHierarchyElement_1766556563118582', 'success': False, 'error': 'No such function: simArcs.ahmCreateHierarchyElement'}
+2025-12-24 14:09:23 | ERROR | - | - | ws_request:ws_send_and_wait:115 - ahmCreateHierarchyElement 创建节点 失败: {'id': 'ahmCreateHierarchyElement_1766556563118582', 'success': False, 'error': 'No such function: simArcs.ahmCreateHierarchyElement'} 
+2025-12-24 14:09:23 | WARNING | - | - | harness:send_request:53 - ahmCreateHierarchyElement_1766556563118582 断言失败！
+2025-12-24 14:09:23 | WARNING | - | - | loadmodel_chain:ws_loadmodel_chain:59 - [PERF] ahmCreateHierarchyElement 创建机器人的节点失败或返回空: {'id': 'ahmCreateHierarchyElement_1766556563118582', 'success': False, 'error': 'No such function: simArcs.ahmCreateHierarchyElement'}
+2025-12-24 14:09:23 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"ahmSetElementParent_1766556563255186","success":false,"error":"No such function: simArcs.ahmSetElementParent"}
+2025-12-24 14:09:23 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmSetElementParent 设置机器人的父节点 请求: {'func': 'simArcs.ahmSetElementParent', 'args': [None, None], 'id': 'ahmSetElementParent_1766556563255186'} 
+响应: {'id': 'ahmSetElementParent_1766556563255186', 'success': False, 'error': 'No such function: simArcs.ahmSetElementParent'}
+2025-12-24 14:09:23 | ERROR | - | - | ws_request:ws_send_and_wait:115 - ahmSetElementParent 设置机器人的父节点 失败: {'id': 'ahmSetElementParent_1766556563255186', 'success': False, 'error': 'No such function: simArcs.ahmSetElementParent'} 
+2025-12-24 14:09:23 | WARNING | - | - | harness:send_request:53 - ahmSetElementParent_1766556563255186 断言失败！
+2025-12-24 14:09:23 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"ahmGetHierarchy_1766556563367686","success":false,"error":"No such function: simArcs.ahmGetHierarchy"}
+2025-12-24 14:09:23 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmGetHierarchy 获取场景树 请求: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1766556563367686'} 
+响应: {'id': 'ahmGetHierarchy_1766556563367686', 'success': False, 'error': 'No such function: simArcs.ahmGetHierarchy'}
+2025-12-24 14:09:23 | ERROR | - | - | ws_request:ws_send_and_wait:115 - ahmGetHierarchy 获取场景树 失败: {'id': 'ahmGetHierarchy_1766556563367686', 'success': False, 'error': 'No such function: simArcs.ahmGetHierarchy'} 
+2025-12-24 14:09:23 | WARNING | - | - | harness:send_request:53 - ahmGetHierarchy_1766556563367686 断言失败！
+2025-12-24 14:09:23 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"afmGetAll_1766556563490289","success":false,"error":"No such function: simArcs.afmGetAll"}
+2025-12-24 14:09:23 | INFO | - | - | ws_request:ws_send_and_wait:83 - afmGetAll 获取所有坐标信息 请求: {'func': 'simArcs.afmGetAll', 'args': [], 'id': 'afmGetAll_1766556563490289'} 
+响应: {'id': 'afmGetAll_1766556563490289', 'success': False, 'error': 'No such function: simArcs.afmGetAll'}
+2025-12-24 14:09:23 | ERROR | - | - | ws_request:ws_send_and_wait:115 - afmGetAll 获取所有坐标信息 失败: {'id': 'afmGetAll_1766556563490289', 'success': False, 'error': 'No such function: simArcs.afmGetAll'} 
+2025-12-24 14:09:23 | WARNING | - | - | harness:send_request:53 - afmGetAll_1766556563490289 断言失败！
+2025-12-24 14:09:23 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"ejmGetAll_1766556563615707","success":false,"error":"No such function: simArcs.ejmGetAll"}
+2025-12-24 14:09:23 | INFO | - | - | ws_request:ws_send_and_wait:83 - ejmGetAll 获取所有外部轴信息 请求: {'func': 'simArcs.ejmGetAll', 'args': [], 'id': 'ejmGetAll_1766556563615707'} 
+响应: {'id': 'ejmGetAll_1766556563615707', 'success': False, 'error': 'No such function: simArcs.ejmGetAll'}
+2025-12-24 14:09:23 | ERROR | - | - | ws_request:ws_send_and_wait:115 - ejmGetAll 获取所有外部轴信息 失败: {'id': 'ejmGetAll_1766556563615707', 'success': False, 'error': 'No such function: simArcs.ejmGetAll'} 
+2025-12-24 14:09:23 | WARNING | - | - | harness:send_request:53 - ejmGetAll_1766556563615707 断言失败！
+2025-12-24 14:09:23 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"iomGetAllIOSignalActions_1766556563742295","success":false,"error":"No such function: simArcs.iomGetAllIOSignalActions"}
+2025-12-24 14:09:23 | INFO | - | - | ws_request:ws_send_and_wait:83 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息 请求: {'func': 'simArcs.iomGetAllIOSignalActions', 'args': [], 'id': 'iomGetAllIOSignalActions_1766556563742295'} 
+响应: {'id': 'iomGetAllIOSignalActions_1766556563742295', 'success': False, 'error': 'No such function: simArcs.iomGetAllIOSignalActions'}
+2025-12-24 14:09:23 | ERROR | - | - | ws_request:ws_send_and_wait:115 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息 失败: {'id': 'iomGetAllIOSignalActions_1766556563742295', 'success': False, 'error': 'No such function: simArcs.iomGetAllIOSignalActions'} 
+2025-12-24 14:09:23 | WARNING | - | - | harness:send_request:53 - iomGetAllIOSignalActions_1766556563742295 断言失败！
+2025-12-24 14:09:23 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"rmGetAll_1766556563867671","success":false,"error":"No such function: simArcs.rmGetAll"}
+2025-12-24 14:09:23 | INFO | - | - | ws_request:ws_send_and_wait:83 - rmGetAll_2 获取机器人配置 请求: {'func': 'simArcs.rmGetAll', 'args': [], 'id': 'rmGetAll_1766556563867671'} 
+响应: {'id': 'rmGetAll_1766556563867671', 'success': False, 'error': 'No such function: simArcs.rmGetAll'}
+2025-12-24 14:09:23 | ERROR | - | - | ws_request:ws_send_and_wait:115 - rmGetAll_2 获取机器人配置 失败: {'id': 'rmGetAll_1766556563867671', 'success': False, 'error': 'No such function: simArcs.rmGetAll'} 
+2025-12-24 14:09:23 | WARNING | - | - | harness:send_request:53 - rmGetAll_1766556563867671 断言失败！
+2025-12-24 14:09:23 | INFO | - | - | test_amteaching:test_full_teaching_workflow:35 - Step 3: Start Control
+2025-12-24 14:09:24 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"id":"amStart_1766556563990339","success":false,"error":"No such function: simArcs.amStart"}
+2025-12-24 14:09:24 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStart 开启使能 请求: {'func': 'simArcs.amStart', 'args': [0], 'id': 'amStart_1766556563990339'} 
+响应: {'id': 'amStart_1766556563990339', 'success': False, 'error': 'No such function: simArcs.amStart'}
+2025-12-24 14:09:24 | ERROR | - | - | ws_request:ws_send_and_wait:115 - amStart 开启使能 失败: {'id': 'amStart_1766556563990339', 'success': False, 'error': 'No such function: simArcs.amStart'} 
+2025-12-24 14:09:24 | WARNING | - | - | harness:send_request:53 - amStart_1766556563990339 断言失败！

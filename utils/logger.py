@@ -33,7 +33,7 @@ def configure_logger():
         rotation="1000 MB", # 这个1000MB是不是不太合理，如果我的日志多了超过1000了那不就糟了
         retention="3 days",
         level=log_level,
-        format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {extra[case]} | {extra[step]} | {module}:{function}:{line} - {message}",
+        format="{time:YYYY-MM-DD HH:mm:ss} | {level} |{module}:{function}:{line} - {message}",
         encoding="utf-8",
         enqueue=True,
     )
@@ -43,7 +43,7 @@ def configure_logger():
         sys.stderr,
         level=log_level,
         # 给不同字段加颜色标签
-        format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level}</level> | <cyan>{extra[case]}</cyan> | <cyan>{extra[step]}</cyan> | <cyan>{module}:{function}:{line}</cyan> - <level>{message}</level>",
+        format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level}</level> | <cyan>{module}:{function}:{line}</cyan> - <level>{message}</level>",
         enqueue=True,
         colorize=True,  # 已开启，不用改
     )

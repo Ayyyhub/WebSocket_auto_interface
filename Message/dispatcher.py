@@ -49,6 +49,12 @@ class MessageDispatcher:
         with self._lock:
             self._pending[req_id] = (message, time.time())
 
+    # 手动清理所有缓存（例如在测试用例开始前调用，防止上一条用例的残留消息干扰）
+    def clear_pending(self):
+        with self._lock:
+            self._pending.clear()
+            logger.info("已清空 MessageDispatcher 的待决消息缓存")
+
     # 消息的过滤
     def _parse_raw(self, raw: str, desc: str):
         # logger.info(f"{desc} 原始消息: {raw}")

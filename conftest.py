@@ -1,13 +1,22 @@
+import time
+
 import pytest
 import sys
 import os
 from Connection.websocket_client import WSClient
+from core.ws_request import ws_clear_pending
 from utils.token_util import load_config, get_token,logout
 from utils.logger import logger
+
+# 注册 unit_fixtures 插件
+pytest_plugins = [
+    "tests.unit_fixtures.amStartJog_context",
+]
 
 # 确保项目根目录在 sys.path 中，防止导入模块报错
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+# Session 级别的 fixture 只有在 所有测试用例都跑完 之后才会执行 teardown
 @pytest.fixture(scope="session")
 def ws_client():
     """
@@ -42,9 +51,17 @@ def ws_client():
     # WSClient.connect() 内部已实现了线程启动和连接等待逻辑
     try:
         client.connect()
+        time.sleep(5)
+        client.close()
+        time.sleep(3)
+        logger.info("主动断连后，再次Websocket connected！")
+        client.connect()
     except Exception as e:
         logger.error(f"WebSocket 连接失败: {e}")
         pytest.fail(f"WebSocket 连接失败: {e}")
+
+    # 连接建立后，清理消息层缓存
+    ws_clear_pending(client)
         
     # 5. 将客户端实例传递给测试用例
     yield client
@@ -53,6 +70,6 @@ def ws_client():
     if client.connected:
         client.close()
 
-    # 退出登录
+    # 7. 退出登录
     # if token:
     #     logout(token)

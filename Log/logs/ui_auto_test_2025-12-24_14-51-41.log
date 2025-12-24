@@ -1,0 +1,407 @@
+2025-12-24 14:51:42 | INFO | - | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2025-12-24 14:51:42 | INFO | - | - | conftest:ws_client:43 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2025-12-24 14:51:42 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 14:51:42 | INFO | - | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2025-12-24 14:51:42 | INFO | - | - | test_amteaching:test_full_teaching_workflow:24 - Step 1: Initialization
+2025-12-24 14:51:42 | INFO | - | - | dispatcher:_parse_raw:68 - wsRemoteApi.require 加载后端simArcs的入口 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-24 14:51:42 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"require_1766559102663791","ret":[]}
+2025-12-24 14:51:42 | INFO | - | - | ws_request:ws_send_and_wait:83 - wsRemoteApi.require 加载后端simArcs的入口 请求: {'func': 'wsRemoteApi.require', 'args': ['simArcs', 'simAssimp', 'simStepOrIges', 'simIK'], 'id': 'require_1766559102663791'} 
+响应: {'success': True, 'id': 'require_1766559102663791', 'ret': []}
+2025-12-24 14:51:42 | INFO | - | - | ws_request:ws_send_and_wait:87 - wsRemoteApi.require 加载后端simArcs的入口 响应为空数组[]，已跳过断言
+2025-12-24 14:51:42 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"webGetAllSceneNames_1766559102754068","ret":[["new_scene"]]}
+2025-12-24 14:51:42 | INFO | - | - | ws_request:ws_send_and_wait:83 - webGetAllSceneNames 获取所有场景 请求: {'func': 'simArcs.webGetAllSceneNames', 'args': [], 'id': 'webGetAllSceneNames_1766559102754068'} 
+响应: {'success': True, 'id': 'webGetAllSceneNames_1766559102754068', 'ret': [['new_scene']]}
+2025-12-24 14:51:42 | INFO | - | - | ws_request:ws_send_and_wait:140 - webGetAllSceneNames 获取所有场景响应成功，总耗时: 0.13s，None重试: 0次
+2025-12-24 14:51:43 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"getSelectedSceneID_1766559103196750","ret":[0]}
+2025-12-24 14:51:43 | INFO | - | - | ws_request:ws_send_and_wait:83 - getSelectedSceneID 当前场景id 请求: {'func': 'sim.getSelectedSceneID', 'args': [], 'id': 'getSelectedSceneID_1766559103196750'} 
+响应: {'success': True, 'id': 'getSelectedSceneID_1766559103196750', 'ret': [0]}
+2025-12-24 14:51:43 | INFO | - | - | ws_request:ws_send_and_wait:140 - getSelectedSceneID 当前场景id响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:43 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"switchToScene_1766559103568177","ret":[0]}
+2025-12-24 14:51:43 | INFO | - | - | ws_request:ws_send_and_wait:83 - switchToScene 切换场景 请求: {'func': 'sim.switchToScene', 'args': [0], 'id': 'switchToScene_1766559103568177'} 
+响应: {'success': True, 'id': 'switchToScene_1766559103568177', 'ret': [0]}
+2025-12-24 14:51:43 | INFO | - | - | ws_request:ws_send_and_wait:140 - switchToScene 切换场景响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:44 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"afmGetAll_1766559103944347","ret":[[]]}
+2025-12-24 14:51:44 | INFO | - | - | ws_request:ws_send_and_wait:83 - afmGetAll 获取所有坐标信息 请求: {'func': 'simArcs.afmGetAll', 'args': [], 'id': 'afmGetAll_1766559103944347'} 
+响应: {'success': True, 'id': 'afmGetAll_1766559103944347', 'ret': [[]]}
+2025-12-24 14:51:44 | INFO | - | - | ws_request:ws_send_and_wait:140 - afmGetAll 获取所有坐标信息响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:44 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"rmGetAll_1766559104321291","ret":[[{"joint_metrics":[7,7,7,7,7,7],"joint_min_strokes":[-170.00000000001,-110.00000000001,-108.00000000001,-200.00000000001,-118.00000000001,-350.0...
+2025-12-24 14:51:44 | INFO | - | - | ws_request:ws_send_and_wait:83 - rmGetAll 获取机器人配置 请求: {'func': 'simArcs.rmGetAll', 'args': [], 'id': 'rmGetAll_1766559104321291'} 
+响应: {'success': True, 'id': 'rmGetAll_1766559104321291', 'ret': [[{'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.00000000001, -110.00000000001, -108.00000000001, -200.00000000001, -118.00000000001, -350.00000000002], 'flange_handle': 36, 'arcs_name': 'off-line1', 'link_handles': [19, 22, 25, 28, 31, 34], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 15, 'joint_handles': [18, 21, 24, 27, 30, 33], 'channel': -1, 'joint_max_strokes': [170.00000000001, 120.00000000001, 152.00000000001, 200.00000000001, 118.00000000001, 350.00000000002], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 16, 'robot_name': 'AIR4_560A'}, {'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.00000000001, -110.00000000001, -108.00000000001, -200.00000000001, -118.00000000001, -350.00000000002], 'flange_handle': 58, 'arcs_name': 'off-line1', 'link_handles': [41, 44, 47, 50, 53, 56], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 37, 'joint_handles': [40, 43, 46, 49, 52, 55], 'channel': 0, 'joint_max_strokes': [170.00000000001, 120.00000000001, 152.00000000001, 200.00000000001, 118.00000000001, 350.00000000002], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 38, 'robot_name': 'AIR4_560A'}]]}
+2025-12-24 14:51:44 | INFO | - | - | ws_request:ws_send_and_wait:140 - rmGetAll 获取机器人配置响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:44 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetAll_1766559104695667","ret":[[{"port":50001,"ip":"127.0.0.1","state":2,"is_local":true,"name":"off-line1"},{"port":50001,"ip":"213.65.69.1","state":0,"is_local":false,"name"...
+2025-12-24 14:51:44 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetAll 获取所有控制器 请求: {'func': 'simArcs.amGetAll', 'args': [], 'id': 'amGetAll_1766559104695667'} 
+响应: {'success': True, 'id': 'amGetAll_1766559104695667', 'ret': [[{'port': 50001, 'ip': '127.0.0.1', 'state': 2, 'is_local': True, 'name': 'off-line1'}, {'port': 50001, 'ip': '213.65.69.1', 'state': 0, 'is_local': False, 'name': 'on-line1'}]]}
+2025-12-24 14:51:44 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetAll 获取所有控制器响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:45 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamGetAll_1766559105070742","ret":[[{"is_open":true,"arl_name":"program.arl","arl_text":"    pose pose1 = {x 368, y 0, z 611, a 0, b 90, c 0}\n    pose pose2 = {x 368, y 0, z 611...
+2025-12-24 14:51:45 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamGetAll 获取所有arl程序信息 请求: {'func': 'simArcs.aamGetAll', 'args': [], 'id': 'aamGetAll_1766559105070742'} 
+响应: {'success': True, 'id': 'aamGetAll_1766559105070742', 'ret': [[{'is_open': True, 'arl_name': 'program.arl', 'arl_text': '    pose pose1 = {x 368, y 0, z 611, a 0, b 90, c 0}\n    pose pose2 = {x 368, y 0, z 611, a 0, b 90, c 0}\n    pose pose3 = {x 368, y 0, z 611, a 0, b 90, c 0}\n\nfunc void main()\n    init()\n    pose cur_pose\n    $WOBJ_OFFSET={0,0,0,0,0,0}\n    $TOOL_OFFSET={0,0,0,0,0,0}\n\n    joint cur_joint = cjoint()\n    movej j:cur_joint, vp:30%\n\n    int a = 1\n    loop\n    cur_pose = cpose($FLANGE, $WORLD)\n    ptp p:pose1, vp:50%, sp:50%\n    cur_pose = cpose($FLANGE, $WORLD)\n    ptp p:pose2, vp:50%, sp:50%\n    cur_pose = cpose($FLANGE, $WORLD)\n    ptp p:pose3, vp:50%, sp:50%\n    if (--a == 0) break\n    endloop\nendfunc\n', 'channel': -1, 'is_loaded': False, 'arl_handle': 1073741823}]]}
+2025-12-24 14:51:45 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamGetAll 获取所有arl程序信息响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:45 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmRebuildHierarchy_1766559105445269","ret":[]}
+2025-12-24 14:51:45 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmRebuildHierarchy 重新构建树 请求: {'func': 'simArcs.ahmRebuildHierarchy', 'args': [], 'id': 'ahmRebuildHierarchy_1766559105445269'} 
+响应: {'success': True, 'id': 'ahmRebuildHierarchy_1766559105445269', 'ret': []}
+2025-12-24 14:51:45 | INFO | - | - | ws_request:ws_send_and_wait:87 - ahmRebuildHierarchy 重新构建树 响应为空数组[]，已跳过断言
+2025-12-24 14:51:45 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmGetHierarchy_1766559105511346","ret":["[\n{\n\"children\": [\n{\n\"children\": [\n{\n\"children\": [],\n\"obj_collapsed\": 0,\n\"obj_handle\": 37,\n\"obj_id\": 2,\n\"obj_layer...
+2025-12-24 14:51:45 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmGetHierarchy 获取场景树 请求: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1766559105511346'} 
+响应: {'success': True, 'id': 'ahmGetHierarchy_1766559105511346', 'ret': ['[\n{\n"children": [\n{\n"children": [\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 37,\n"obj_id": 2,\n"obj_layers": 1,\n"obj_name": "AIR4_560A(1)",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A(1)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 1,\n"obj_layers": 1,\n"obj_name": "Workbench1",\n"obj_selectable": 1,\n"obj_type": 1,\n"obj_unique_name": "Workbench1"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 0,\n"obj_layers": 1,\n"obj_name": "ARCS1",\n"obj_selectable": 1,\n"obj_type": 0,\n"obj_unique_name": "ARCS1"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 15,\n"obj_id": 8,\n"obj_layers": 1,\n"obj_name": "AIR4_560A",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741823,\n"obj_id": 9,\n"obj_layers": 1,\n"obj_name": "program.arl",\n"obj_selectable": 1,\n"obj_type": 8,\n"obj_unique_name": "program.arl"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741824,\n"obj_id": 10,\n"obj_layers": 1,\n"obj_name": "program_data",\n"obj_selectable": 1,\n"obj_type": 9,\n"obj_unique_name": "program_data"\n}\n]']}
+2025-12-24 14:51:45 | INFO | - | - | ws_request:ws_send_and_wait:140 - ahmGetHierarchy 获取场景树响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:51:46 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ejmGetAll_1766559105945345","ret":[[]]}
+2025-12-24 14:51:46 | INFO | - | - | ws_request:ws_send_and_wait:83 - ejmGetAll 获取所有外部轴信息 请求: {'func': 'simArcs.ejmGetAll', 'args': [], 'id': 'ejmGetAll_1766559105945345'} 
+响应: {'success': True, 'id': 'ejmGetAll_1766559105945345', 'ret': [[]]}
+2025-12-24 14:51:46 | INFO | - | - | ws_request:ws_send_and_wait:140 - ejmGetAll 获取所有外部轴信息响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:51:46 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"iomGetAllIOSignalActions_1766559106320323","ret":[[]]}
+2025-12-24 14:51:46 | INFO | - | - | ws_request:ws_send_and_wait:83 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息 请求: {'func': 'simArcs.iomGetAllIOSignalActions', 'args': [], 'id': 'iomGetAllIOSignalActions_1766559106320323'} 
+响应: {'success': True, 'id': 'iomGetAllIOSignalActions_1766559106320323', 'ret': [[]]}
+2025-12-24 14:51:46 | INFO | - | - | ws_request:ws_send_and_wait:140 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息响应成功，总耗时: 0.20s，None重试: 0次
+2025-12-24 14:51:46 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetAll_1766559106819416","ret":[[{"port":50001,"ip":"127.0.0.1","state":2,"is_local":true,"name":"off-line1"},{"port":50001,"ip":"213.65.69.1","state":0,"is_local":false,"name"...
+2025-12-24 14:51:46 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetAll_2 获取所有控制器 请求: {'func': 'simArcs.amGetAll', 'args': [], 'id': 'amGetAll_1766559106819416'} 
+响应: {'success': True, 'id': 'amGetAll_1766559106819416', 'ret': [[{'port': 50001, 'ip': '127.0.0.1', 'state': 2, 'is_local': True, 'name': 'off-line1'}, {'port': 50001, 'ip': '213.65.69.1', 'state': 0, 'is_local': False, 'name': 'on-line1'}]]}
+2025-12-24 14:51:46 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetAll_2 获取所有控制器响应成功，总耗时: 0.10s，None重试: 0次
+2025-12-24 14:51:47 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetVisualSimulationState_1766559107228692","ret":[false]}
+2025-12-24 14:51:47 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetVisualSimulationState 获取可视化仿真状态 请求: {'func': 'simArcs.amGetVisualSimulationState', 'args': [], 'id': 'amGetVisualSimulationState_1766559107228692'} 
+响应: {'success': True, 'id': 'amGetVisualSimulationState_1766559107228692', 'ret': [False]}
+2025-12-24 14:51:47 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetVisualSimulationState 获取可视化仿真状态响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:51:47 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"webGetCollisionDetectionStatus_1766559107618454","ret":[false]}
+2025-12-24 14:51:47 | INFO | - | - | ws_request:ws_send_and_wait:83 - webGetCollisionDetectionStatus 获取碰撞检测状态 请求: {'func': 'simArcs.webGetCollisionDetectionStatus', 'args': [], 'id': 'webGetCollisionDetectionStatus_1766559107618454'} 
+响应: {'success': True, 'id': 'webGetCollisionDetectionStatus_1766559107618454', 'ret': [False]}
+2025-12-24 14:51:47 | INFO | - | - | ws_request:ws_send_and_wait:140 - webGetCollisionDetectionStatus 获取碰撞检测状态响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:47 | INFO | - | - | test_amteaching:test_full_teaching_workflow:28 - Step 2: Load Model
+2025-12-24 14:51:48 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1766559107993841","ret":[59]}
+2025-12-24 14:51:48 | INFO | - | - | ws_request:ws_send_and_wait:83 - loadModel 加载模型 请求: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1766559107993841'} 
+响应: {'success': True, 'id': 'loadModel_1766559107993841', 'ret': [59]}
+2025-12-24 14:51:48 | INFO | - | - | ws_request:ws_send_and_wait:140 - loadModel 加载模型响应成功，总耗时: 0.76s，None重试: 0次
+2025-12-24 14:51:49 | INFO | - | - | loadmodel_chain:ws_loadmodel_chain:21 - [PERF] loadModel 加载模型成功，对象ID: 59
+2025-12-24 14:51:49 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1766559109054624","ret":[[0.0,0.0,0.0]]}
+2025-12-24 14:51:49 | INFO | - | - | ws_request:ws_send_and_wait:83 - getObjectPosition 获取对象位置 请求: {'func': 'sim.getObjectPosition', 'args': [59, -1], 'id': 'getObjectPosition_1766559109054624'} 
+响应: {'success': True, 'id': 'getObjectPosition_1766559109054624', 'ret': [[0.0, 0.0, 0.0]]}
+2025-12-24 14:51:49 | INFO | - | - | ws_request:ws_send_and_wait:140 - getObjectPosition 获取对象位置响应成功，总耗时: 0.11s，None重试: 0次
+2025-12-24 14:51:49 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"webMoveObject_1766559109473231","ret":[true]}
+2025-12-24 14:51:49 | INFO | - | - | ws_request:ws_send_and_wait:83 - webMoveObject 对象移动 请求: {'func': 'simArcs.webMoveObject', 'args': [59, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1766559109473231'} 
+响应: {'success': True, 'id': 'webMoveObject_1766559109473231', 'ret': [True]}
+2025-12-24 14:51:49 | INFO | - | - | ws_request:ws_send_and_wait:140 - webMoveObject 对象移动响应成功，总耗时: 0.08s，None重试: 0次
+2025-12-24 14:51:49 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1766559109860127","ret":[2]}
+2025-12-24 14:51:49 | INFO | - | - | ws_request:ws_send_and_wait:83 - webGetHandleType 获取加载模型的handle类型 请求: {'func': 'simArcs.webGetHandleType', 'args': [59], 'id': 'webGetHandleType_1766559109860127'} 
+响应: {'success': True, 'id': 'webGetHandleType_1766559109860127', 'ret': [2]}
+2025-12-24 14:51:49 | INFO | - | - | ws_request:ws_send_and_wait:140 - webGetHandleType 获取加载模型的handle类型响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:50 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmCreateHierarchyElement_1766559110235119","ret":[11]}
+2025-12-24 14:51:50 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmCreateHierarchyElement 创建节点 请求: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [0, 1], 'id': 'ahmCreateHierarchyElement_1766559110235119'} 
+响应: {'success': True, 'id': 'ahmCreateHierarchyElement_1766559110235119', 'ret': [11]}
+2025-12-24 14:51:50 | INFO | - | - | ws_request:ws_send_and_wait:140 - ahmCreateHierarchyElement 创建节点响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:50 | INFO | - | - | loadmodel_chain:ws_loadmodel_chain:44 - [PERF] ahmCreateHierarchyElement 创建工作台节点成功，对象ID: 11
+2025-12-24 14:51:50 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmSetElementParent_1766559110609097","ret":[]}
+2025-12-24 14:51:50 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmSetElementParent1 设置工作台父节点 请求: {'func': 'simArcs.ahmSetElementParent', 'args': [11, 0], 'id': 'ahmSetElementParent_1766559110609097'} 
+响应: {'success': True, 'id': 'ahmSetElementParent_1766559110609097', 'ret': []}
+2025-12-24 14:51:50 | INFO | - | - | ws_request:ws_send_and_wait:87 - ahmSetElementParent1 设置工作台父节点 响应为空数组[]，已跳过断言
+2025-12-24 14:51:50 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmCreateHierarchyElement_1766559110668939","ret":[12]}
+2025-12-24 14:51:50 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmCreateHierarchyElement 创建节点 请求: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [59, 2], 'id': 'ahmCreateHierarchyElement_1766559110668939'} 
+响应: {'success': True, 'id': 'ahmCreateHierarchyElement_1766559110668939', 'ret': [12]}
+2025-12-24 14:51:50 | INFO | - | - | ws_request:ws_send_and_wait:140 - ahmCreateHierarchyElement 创建节点响应成功，总耗时: 0.13s，None重试: 0次
+2025-12-24 14:51:51 | INFO | - | - | loadmodel_chain:ws_loadmodel_chain:57 - [PERF] ahmCreateHierarchyElement 创建机器人的节点成功，对象ID: 12
+2025-12-24 14:51:51 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmSetElementParent_1766559111106510","ret":[]}
+2025-12-24 14:51:51 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmSetElementParent 设置机器人的父节点 请求: {'func': 'simArcs.ahmSetElementParent', 'args': [12, 11], 'id': 'ahmSetElementParent_1766559111106510'} 
+响应: {'success': True, 'id': 'ahmSetElementParent_1766559111106510', 'ret': []}
+2025-12-24 14:51:51 | INFO | - | - | ws_request:ws_send_and_wait:87 - ahmSetElementParent 设置机器人的父节点 响应为空数组[]，已跳过断言
+2025-12-24 14:51:51 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmGetHierarchy_1766559111170763","ret":["[\n{\n\"children\": [\n{\n\"children\": [\n{\n\"children\": [],\n\"obj_collapsed\": 0,\n\"obj_handle\": 37,\n\"obj_id\": 2,\n\"obj_layer...
+2025-12-24 14:51:51 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmGetHierarchy 获取场景树 请求: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1766559111170763'} 
+响应: {'success': True, 'id': 'ahmGetHierarchy_1766559111170763', 'ret': ['[\n{\n"children": [\n{\n"children": [\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 37,\n"obj_id": 2,\n"obj_layers": 1,\n"obj_name": "AIR4_560A(1)",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A(1)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 1,\n"obj_layers": 1,\n"obj_name": "Workbench1",\n"obj_selectable": 1,\n"obj_type": 1,\n"obj_unique_name": "Workbench1"\n},\n{\n"children": [\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 59,\n"obj_id": 12,\n"obj_layers": 1,\n"obj_name": "AIR4_560A(2)",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A(2)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 11,\n"obj_layers": 1,\n"obj_name": "Workbench1(1)",\n"obj_selectable": 1,\n"obj_type": 1,\n"obj_unique_name": "Workbench1(1)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 0,\n"obj_layers": 1,\n"obj_name": "ARCS1",\n"obj_selectable": 1,\n"obj_type": 0,\n"obj_unique_name": "ARCS1"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 15,\n"obj_id": 8,\n"obj_layers": 1,\n"obj_name": "AIR4_560A",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741823,\n"obj_id": 9,\n"obj_layers": 1,\n"obj_name": "program.arl",\n"obj_selectable": 1,\n"obj_type": 8,\n"obj_unique_name": "program.arl"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741824,\n"obj_id": 10,\n"obj_layers": 1,\n"obj_name": "program_data",\n"obj_selectable": 1,\n"obj_type": 9,\n"obj_unique_name": "program_data"\n}\n]']}
+2025-12-24 14:51:51 | INFO | - | - | ws_request:ws_send_and_wait:140 - ahmGetHierarchy 获取场景树响应成功，总耗时: 0.13s，None重试: 0次
+2025-12-24 14:51:51 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"afmGetAll_1766559111607685","ret":[[]]}
+2025-12-24 14:51:51 | INFO | - | - | ws_request:ws_send_and_wait:83 - afmGetAll 获取所有坐标信息 请求: {'func': 'simArcs.afmGetAll', 'args': [], 'id': 'afmGetAll_1766559111607685'} 
+响应: {'success': True, 'id': 'afmGetAll_1766559111607685', 'ret': [[]]}
+2025-12-24 14:51:51 | INFO | - | - | ws_request:ws_send_and_wait:140 - afmGetAll 获取所有坐标信息响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:52 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ejmGetAll_1766559111982580","ret":[[]]}
+2025-12-24 14:51:52 | INFO | - | - | ws_request:ws_send_and_wait:83 - ejmGetAll 获取所有外部轴信息 请求: {'func': 'simArcs.ejmGetAll', 'args': [], 'id': 'ejmGetAll_1766559111982580'} 
+响应: {'success': True, 'id': 'ejmGetAll_1766559111982580', 'ret': [[]]}
+2025-12-24 14:51:52 | INFO | - | - | ws_request:ws_send_and_wait:140 - ejmGetAll 获取所有外部轴信息响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:51:52 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"iomGetAllIOSignalActions_1766559112355432","ret":[[]]}
+2025-12-24 14:51:52 | INFO | - | - | ws_request:ws_send_and_wait:83 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息 请求: {'func': 'simArcs.iomGetAllIOSignalActions', 'args': [], 'id': 'iomGetAllIOSignalActions_1766559112355432'} 
+响应: {'success': True, 'id': 'iomGetAllIOSignalActions_1766559112355432', 'ret': [[]]}
+2025-12-24 14:51:52 | INFO | - | - | ws_request:ws_send_and_wait:140 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:52 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"rmGetAll_1766559112727499","ret":[[{"joint_metrics":[7,7,7,7,7,7],"joint_min_strokes":[-170.00000000001,-110.00000000001,-108.00000000001,-200.00000000001,-118.00000000001,-350.0...
+2025-12-24 14:51:52 | INFO | - | - | ws_request:ws_send_and_wait:83 - rmGetAll_2 获取机器人配置 请求: {'func': 'simArcs.rmGetAll', 'args': [], 'id': 'rmGetAll_1766559112727499'} 
+响应: {'success': True, 'id': 'rmGetAll_1766559112727499', 'ret': [[{'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.00000000001, -110.00000000001, -108.00000000001, -200.00000000001, -118.00000000001, -350.00000000002], 'flange_handle': 36, 'arcs_name': 'off-line1', 'link_handles': [19, 22, 25, 28, 31, 34], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 15, 'joint_handles': [18, 21, 24, 27, 30, 33], 'channel': -1, 'joint_max_strokes': [170.00000000001, 120.00000000001, 152.00000000001, 200.00000000001, 118.00000000001, 350.00000000002], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 16, 'robot_name': 'AIR4_560A'}, {'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.0, -110.0, -108.0, -200.0, -118.0, -350.0], 'flange_handle': 58, 'arcs_name': 'off-line1', 'link_handles': [41, 44, 47, 50, 53, 56], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 37, 'joint_handles': [40, 43, 46, 49, 52, 55], 'channel': 0, 'joint_max_strokes': [170.0, 120.0, 152.0, 200.0, 118.0, 350.0], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 38, 'robot_name': 'AIR4_560A(1)'}, {'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.00000000001, -110.00000000001, -108.00000000001, -200.00000000001, -118.00000000001, -350.00000000002], 'flange_handle': 80, 'arcs_name': 'off-line1', 'link_handles': [63, 66, 69, 72, 75, 78], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 59, 'joint_handles': [62, 65, 68, 71, 74, 77], 'channel': 0, 'joint_max_strokes': [170.00000000001, 120.00000000001, 152.00000000001, 200.00000000001, 118.00000000001, 350.00000000002], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 60, 'robot_name': 'AIR4_560A'}]]}
+2025-12-24 14:51:52 | INFO | - | - | ws_request:ws_send_and_wait:140 - rmGetAll_2 获取机器人配置响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:51:53 | INFO | - | - | test_amteaching:test_full_teaching_workflow:35 - Step 3: Start Control
+2025-12-24 14:51:53 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"id":"amStart_1766559113116771","error":"{\n\"level\": 2,\n\"message\": \"启动控制器失败\",\n\"time\": 1766559111\n}"}
+2025-12-24 14:51:53 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStart 开启使能 请求: {'func': 'simArcs.amStart', 'args': [0], 'id': 'amStart_1766559113116771'} 
+响应: {'success': False, 'id': 'amStart_1766559113116771', 'error': '{\n"level": 2,\n"message": "启动控制器失败",\n"time": 1766559111\n}'}
+2025-12-24 14:51:53 | ERROR | - | - | ws_request:ws_send_and_wait:115 - amStart 开启使能 失败: {'success': False, 'id': 'amStart_1766559113116771', 'error': '{\n"level": 2,\n"message": "启动控制器失败",\n"time": 1766559111\n}'} 
+2025-12-24 14:51:53 | WARNING | - | - | harness:send_request:53 - amStart_1766559113116771 断言失败！
+2025-12-24 14:51:56 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetAll_1766559116187128","ret":[[{"port":50001,"ip":"127.0.0.1","state":2,"is_local":true,"name":"off-line1"},{"port":50001,"ip":"213.65.69.1","state":0,"is_local":false,"name"...
+2025-12-24 14:51:56 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetAll 获取所有控制器 请求: {'func': 'simArcs.amGetAll', 'args': [], 'id': 'amGetAll_1766559116187128'} 
+响应: {'success': True, 'id': 'amGetAll_1766559116187128', 'ret': [[{'port': 50001, 'ip': '127.0.0.1', 'state': 2, 'is_local': True, 'name': 'off-line1'}, {'port': 50001, 'ip': '213.65.69.1', 'state': 0, 'is_local': False, 'name': 'on-line1'}]]}
+2025-12-24 14:51:56 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetAll 获取所有控制器响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:51:56 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetVisualSimulationState_1766559116611507","ret":[false]}
+2025-12-24 14:51:56 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetVisualSimulationState 获取可视化仿真状态 请求: {'func': 'simArcs.amGetVisualSimulationState', 'args': [], 'id': 'amGetVisualSimulationState_1766559116611507'} 
+响应: {'success': True, 'id': 'amGetVisualSimulationState_1766559116611507', 'ret': [False]}
+2025-12-24 14:51:56 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetVisualSimulationState 获取可视化仿真状态响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:51:57 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetControlMode_1766559116986443","ret":[true,0]}
+2025-12-24 14:51:57 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetControlMode 获取控制模式 请求: {'func': 'simArcs.amGetControlMode', 'args': [0], 'id': 'amGetControlMode_1766559116986443'} 
+响应: {'success': True, 'id': 'amGetControlMode_1766559116986443', 'ret': [True, 0]}
+2025-12-24 14:51:57 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetControlMode 获取控制模式响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:51:57 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetPowerState_1766559117358097","ret":[true,false]}
+2025-12-24 14:51:57 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetPowerState 获取使能状态 请求: {'func': 'simArcs.amGetPowerState', 'args': [0], 'id': 'amGetPowerState_1766559117358097'} 
+响应: {'success': True, 'id': 'amGetPowerState_1766559117358097', 'ret': [True, False]}
+2025-12-24 14:51:57 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetPowerState 获取使能状态响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:51:57 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amSetEnableButtonState_1766559117747253","ret":[true]}
+2025-12-24 14:51:57 | INFO | - | - | ws_request:ws_send_and_wait:83 - req_amSetEnableButtonState 使能下电 请求: {'func': 'simArcs.amSetEnableButtonState', 'args': [0, False], 'id': 'amSetEnableButtonState_1766559117747253'} 
+响应: {'success': True, 'id': 'amSetEnableButtonState_1766559117747253', 'ret': [True]}
+2025-12-24 14:51:57 | INFO | - | - | ws_request:ws_send_and_wait:140 - req_amSetEnableButtonState 使能下电响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:51:58 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amSetEnableButtonState_1766559118123346","ret":[true]}
+2025-12-24 14:51:58 | INFO | - | - | ws_request:ws_send_and_wait:83 - req_amSetEnableButtonState 使能上电 请求: {'func': 'simArcs.amSetEnableButtonState', 'args': [0, True], 'id': 'amSetEnableButtonState_1766559118123346'} 
+响应: {'success': True, 'id': 'amSetEnableButtonState_1766559118123346', 'ret': [True]}
+2025-12-24 14:51:58 | INFO | - | - | ws_request:ws_send_and_wait:140 - req_amSetEnableButtonState 使能上电响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:01 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amSwitchChannel_1766559121507586","ret":[true]}
+2025-12-24 14:52:01 | INFO | - | - | ws_request:ws_send_and_wait:83 - amSwitchChannel 切换通道（使能情况下） 请求: {'func': 'simArcs.amSwitchChannel', 'args': [0, 0], 'id': 'amSwitchChannel_1766559121507586'} 
+响应: {'success': True, 'id': 'amSwitchChannel_1766559121507586', 'ret': [True]}
+2025-12-24 14:52:01 | INFO | - | - | ws_request:ws_send_and_wait:140 - amSwitchChannel 切换通道（使能情况下）响应成功，总耗时: 0.22s，None重试: 0次
+2025-12-24 14:52:02 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamStopPushMessageForTeachingPath_1766559122040881","ret":[]}
+2025-12-24 14:52:02 | INFO | - | - | ws_request:ws_send_and_wait:83 - simArcs.aamStopPushMessageForTeachingPath 关闭示教器界面停止推流 请求: {'func': 'simArcs.aamStopPushMessageForTeachingPath', 'args': [], 'id': 'aamStopPushMessageForTeachingPath_1766559122040881'} 
+响应: {'success': True, 'id': 'aamStopPushMessageForTeachingPath_1766559122040881', 'ret': []}
+2025-12-24 14:52:02 | INFO | - | - | ws_request:ws_send_and_wait:87 - simArcs.aamStopPushMessageForTeachingPath 关闭示教器界面停止推流 响应为空数组[]，已跳过断言
+2025-12-24 14:52:02 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamSetWobjToBaseTr_1766559122134658","ret":[[0.0,0.0,0.0,0.0,0.0,0.0,1.0]]}
+2025-12-24 14:52:02 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamSetWobjToBaseTr 设置工件坐标系和机器人base之间的pose 请求: {'func': 'simArcs.aamSetWobjToBaseTr', 'args': [0, 0, 'collect_point_path', -1], 'id': 'aamSetWobjToBaseTr_1766559122134658'} 
+响应: {'success': True, 'id': 'aamSetWobjToBaseTr_1766559122134658', 'ret': [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]}
+2025-12-24 14:52:02 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamSetWobjToBaseTr 设置工件坐标系和机器人base之间的pose响应成功，总耗时: 0.33s，None重试: 0次
+2025-12-24 14:52:02 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamStartPushMessageForTeachingPath_1766559122771337","ret":[]}
+2025-12-24 14:52:02 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamStartPushMessageForTeachingPath 打开示教器界面开始推流 请求: {'func': 'simArcs.aamStartPushMessageForTeachingPath', 'args': [0, 0, 'collect_point_path'], 'id': 'aamStartPushMessageForTeachingPath_1766559122771337'} 
+响应: {'success': True, 'id': 'aamStartPushMessageForTeachingPath_1766559122771337', 'ret': []}
+2025-12-24 14:52:02 | INFO | - | - | ws_request:ws_send_and_wait:87 - aamStartPushMessageForTeachingPath 打开示教器界面开始推流 响应为空数组[]，已跳过断言
+2025-12-24 14:52:02 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetManuSpeed_1766559122874803","ret":[true,100]}
+2025-12-24 14:52:02 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetManuSpeed 获取移动速率 请求: {'func': 'simArcs.amGetManuSpeed', 'args': [0, 0], 'id': 'amGetManuSpeed_1766559122874803'} 
+响应: {'success': True, 'id': 'amGetManuSpeed_1766559122874803', 'ret': [True, 100]}
+2025-12-24 14:52:02 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetManuSpeed 获取移动速率响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:52:03 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetManuAxisMode_1766559123300372","ret":[true,1]}
+2025-12-24 14:52:03 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetManuAxisMode 获取轴模式 请求: {'func': 'simArcs.amGetManuAxisMode', 'args': [0], 'id': 'amGetManuAxisMode_1766559123300372'} 
+响应: {'success': True, 'id': 'amGetManuAxisMode_1766559123300372', 'ret': [True, 1]}
+2025-12-24 14:52:03 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetManuAxisMode 获取轴模式响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:03 | INFO | - | - | test_amteaching:test_full_teaching_workflow:41 - Step 4: Teaching
+2025-12-24 14:52:03 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStartJog_1766559123674046","ret":[false]}
+2025-12-24 14:52:03 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStartJog 转动轴 请求: {'func': 'simArcs.amStartJog', 'args': [0, 1, 100], 'id': 'amStartJog_1766559123674046'} 
+响应: {'success': True, 'id': 'amStartJog_1766559123674046', 'ret': [False]}
+2025-12-24 14:52:03 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStartJog 转动轴响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:04 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStopJog_1766559124048194","ret":[true]}
+2025-12-24 14:52:04 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStopJog 停止转动 请求: {'func': 'simArcs.amStopJog', 'args': [0], 'id': 'amStopJog_1766559124048194'} 
+响应: {'success': True, 'id': 'amStopJog_1766559124048194', 'ret': [True]}
+2025-12-24 14:52:04 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStopJog 停止转动响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:04 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamCaptureCurrRobotAndExJointStatus_1766559124423825","ret":[]}
+2025-12-24 14:52:04 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamCaptureCurrRobotAndExJointStatus 采集点位 请求: {'func': 'simArcs.aamCaptureCurrRobotAndExJointStatus', 'args': [0, 0, 0, 'collect_point_path'], 'id': 'aamCaptureCurrRobotAndExJointStatus_1766559124423825'} 
+响应: {'success': True, 'id': 'aamCaptureCurrRobotAndExJointStatus_1766559124423825', 'ret': []}
+2025-12-24 14:52:04 | INFO | - | - | ws_request:ws_send_and_wait:87 - aamCaptureCurrRobotAndExJointStatus 采集点位 响应为空数组[]，已跳过断言
+2025-12-24 14:52:04 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amSetManuAxisMode_1766559124497008","ret":[true]}
+2025-12-24 14:52:04 | INFO | - | - | ws_request:ws_send_and_wait:83 - amSetManuAxisMode 请求: {'func': 'simArcs.amSetManuAxisMode', 'args': [0, 1], 'id': 'amSetManuAxisMode_1766559124497008'} 
+响应: {'success': True, 'id': 'amSetManuAxisMode_1766559124497008', 'ret': [True]}
+2025-12-24 14:52:04 | INFO | - | - | ws_request:ws_send_and_wait:140 - amSetManuAxisMode响应成功，总耗时: 0.13s，None重试: 0次
+2025-12-24 14:52:04 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStartJog_1766559124936517","ret":[false]}
+2025-12-24 14:52:04 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStartJog 笛卡尔模式下朝Z轴方向移动 请求: {'func': 'simArcs.amStartJog', 'args': [0, 3, 1], 'id': 'amStartJog_1766559124936517'} 
+响应: {'success': True, 'id': 'amStartJog_1766559124936517', 'ret': [False]}
+2025-12-24 14:52:04 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStartJog 笛卡尔模式下朝Z轴方向移动响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:05 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStopJog_1766559125309553","ret":[true]}
+2025-12-24 14:52:05 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStopJog 停止转动 请求: {'func': 'simArcs.amStopJog', 'args': [0], 'id': 'amStopJog_1766559125309553'} 
+响应: {'success': True, 'id': 'amStopJog_1766559125309553', 'ret': [True]}
+2025-12-24 14:52:05 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStopJog 停止转动响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:05 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStartJog_1766559125683615","ret":[false]}
+2025-12-24 14:52:05 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStartJog 绕Z轴旋转 请求: {'func': 'simArcs.amStartJog', 'args': [0, 4, 1], 'id': 'amStartJog_1766559125683615'} 
+响应: {'success': True, 'id': 'amStartJog_1766559125683615', 'ret': [False]}
+2025-12-24 14:52:05 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStartJog 绕Z轴旋转响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:06 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStopJog_1766559126058089","ret":[true]}
+2025-12-24 14:52:06 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStopJog 停止旋转 请求: {'func': 'simArcs.amStopJog', 'args': [0], 'id': 'amStopJog_1766559126058089'} 
+响应: {'success': True, 'id': 'amStopJog_1766559126058089', 'ret': [True]}
+2025-12-24 14:52:06 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStopJog 停止旋转响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:06 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamCaptureCurrRobotAndExJointStatus_1766559126432773","ret":[]}
+2025-12-24 14:52:06 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamCaptureCurrRobotAndExJointStatus 采集点位 请求: {'func': 'simArcs.aamCaptureCurrRobotAndExJointStatus', 'args': [0, 0, 0, 'collect_point_path'], 'id': 'aamCaptureCurrRobotAndExJointStatus_1766559126432773'} 
+响应: {'success': True, 'id': 'aamCaptureCurrRobotAndExJointStatus_1766559126432773', 'ret': []}
+2025-12-24 14:52:06 | INFO | - | - | ws_request:ws_send_and_wait:87 - aamCaptureCurrRobotAndExJointStatus 采集点位 响应为空数组[]，已跳过断言
+2025-12-24 14:52:06 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStartJog_1766559126496539","ret":[false]}
+2025-12-24 14:52:06 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStartJog 笛卡尔模式下朝X轴方向移动 请求: {'func': 'simArcs.amStartJog', 'args': [0, 1, 0], 'id': 'amStartJog_1766559126496539'} 
+响应: {'success': True, 'id': 'amStartJog_1766559126496539', 'ret': [False]}
+2025-12-24 14:52:06 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStartJog 笛卡尔模式下朝X轴方向移动响应成功，总耗时: 0.13s，None重试: 0次
+2025-12-24 14:52:06 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStopJog_1766559126933692","ret":[true]}
+2025-12-24 14:52:06 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStopJog 停止转动 请求: {'func': 'simArcs.amStopJog', 'args': [0], 'id': 'amStopJog_1766559126933692'} 
+响应: {'success': True, 'id': 'amStopJog_1766559126933692', 'ret': [True]}
+2025-12-24 14:52:06 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStopJog 停止转动响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:07 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamInsertRobotAndExJointStatus_1766559127310460","ret":[true]}
+2025-12-24 14:52:07 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamInsertRobotAndExJointStatus 插入点位 请求: {'func': 'simArcs.aamInsertRobotAndExJointStatus', 'args': [0, 0, 0, 'collect_point_path', 1], 'id': 'aamInsertRobotAndExJointStatus_1766559127310460'} 
+响应: {'success': True, 'id': 'aamInsertRobotAndExJointStatus_1766559127310460', 'ret': [True]}
+2025-12-24 14:52:07 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamInsertRobotAndExJointStatus 插入点位响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:07 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStartJog_1766559127684565","ret":[false]}
+2025-12-24 14:52:07 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStartJog 在笛卡尔模式下朝Y轴方向移动 请求: {'func': 'simArcs.amStartJog', 'args': [0, 2, 0], 'id': 'amStartJog_1766559127684565'} 
+响应: {'success': True, 'id': 'amStartJog_1766559127684565', 'ret': [False]}
+2025-12-24 14:52:07 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStartJog 在笛卡尔模式下朝Y轴方向移动响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:08 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amStopJog_1766559128054433","ret":[true]}
+2025-12-24 14:52:08 | INFO | - | - | ws_request:ws_send_and_wait:83 - amStopJog 停止转动 请求: {'func': 'simArcs.amStopJog', 'args': [0], 'id': 'amStopJog_1766559128054433'} 
+响应: {'success': True, 'id': 'amStopJog_1766559128054433', 'ret': [True]}
+2025-12-24 14:52:08 | INFO | - | - | ws_request:ws_send_and_wait:140 - amStopJog 停止转动响应成功，总耗时: 0.08s，None重试: 0次
+2025-12-24 14:52:08 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamReplaceRobotAndExJointStatus_1766559128445029","ret":[true]}
+2025-12-24 14:52:08 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamReplaceRobotAndExJointStatus 替换点位 请求: {'func': 'simArcs.aamReplaceRobotAndExJointStatus', 'args': [0, 0, 0, 'collect_point_path', 0], 'id': 'aamReplaceRobotAndExJointStatus_1766559128445029'} 
+响应: {'success': True, 'id': 'aamReplaceRobotAndExJointStatus_1766559128445029', 'ret': [True]}
+2025-12-24 14:52:08 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamReplaceRobotAndExJointStatus 替换点位响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:08 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"id":"aamTrajectoryBacktrackingPtpPose_1766559128803725","error":"185: in sim.genericFunctionHandler: too many arguments"}
+2025-12-24 14:52:08 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamTrajectoryBacktrackingPtpPose 轨迹回溯 请求: {'func': 'simArcs.aamTrajectoryBacktrackingPtpPose', 'args': [0, 0, 0, 'collect_point_path', 2, 59, 100], 'id': 'aamTrajectoryBacktrackingPtpPose_1766559128803725'} 
+响应: {'success': False, 'id': 'aamTrajectoryBacktrackingPtpPose_1766559128803725', 'error': '185: in sim.genericFunctionHandler: too many arguments'}
+2025-12-24 14:52:08 | ERROR | - | - | ws_request:ws_send_and_wait:115 - aamTrajectoryBacktrackingPtpPose 轨迹回溯 失败: {'success': False, 'id': 'aamTrajectoryBacktrackingPtpPose_1766559128803725', 'error': '185: in sim.genericFunctionHandler: too many arguments'} 
+2025-12-24 14:52:08 | WARNING | - | - | harness:send_request:53 - aamTrajectoryBacktrackingPtpPose_1766559128803725 断言失败！
+2025-12-24 14:52:09 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamSetSpeedRaitoOfPathPoint_1766559128877792","ret":[]}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamSetSpeedRaitoOfPathPoint 设置选中点位的速率 请求: {'func': 'simArcs.aamSetSpeedRaitoOfPathPoint', 'args': [0, 0, 'collect_point_path', [{'point_index': 0, 'speed': 50}, {'point_index': 1, 'speed': 50}, {'point_index': 2, 'speed': 50}]], 'id': 'aamSetSpeedRaitoOfPathPoint_1766559128877792'} 
+响应: {'success': True, 'id': 'aamSetSpeedRaitoOfPathPoint_1766559128877792', 'ret': []}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:87 - aamSetSpeedRaitoOfPathPoint 设置选中点位的速率 响应为空数组[]，已跳过断言
+2025-12-24 14:52:09 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamSetMoveModeOfPathPoint_1766559129002008","ret":[]}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamSetMoveModeOfPathPoint 设置选中点位的运动模式 请求: {'func': 'simArcs.aamSetMoveModeOfPathPoint', 'args': [0, 0, 'collect_point_path', [{'point_index': 0, 'move_mode': 0}, {'point_index': 1, 'move_mode': 0}, {'point_index': 2, 'move_mode': 0}]], 'id': 'aamSetMoveModeOfPathPoint_1766559129002008'} 
+响应: {'success': True, 'id': 'aamSetMoveModeOfPathPoint_1766559129002008', 'ret': []}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:87 - aamSetMoveModeOfPathPoint 设置选中点位的运动模式 响应为空数组[]，已跳过断言
+2025-12-24 14:52:09 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamSetSlipPercentageOfPathPoint_1766559129127094","ret":[]}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamSetSlipPercentageOfPathPoint 设置选中点位的平滑度百分比 请求: {'func': 'simArcs.aamSetSlipPercentageOfPathPoint', 'args': [0, 0, 'collect_point_path', [{'point_index': 0, 'slip_percentage': 50}, {'point_index': 1, 'slip_percentage': 50}, {'point_index': 2, 'slip_percentage': 50}]], 'id': 'aamSetSlipPercentageOfPathPoint_1766559129127094'} 
+响应: {'success': True, 'id': 'aamSetSlipPercentageOfPathPoint_1766559129127094', 'ret': []}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:87 - aamSetSlipPercentageOfPathPoint 设置选中点位的平滑度百分比 响应为空数组[]，已跳过断言
+2025-12-24 14:52:09 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamGenerateArlProgramFromRecords_1766559129252190","ret":[1073741825,"success"]}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamGenerateArlProgramFromRecords 根据示教器采集的点位生成arl程序 请求: {'func': 'simArcs.aamGenerateArlProgramFromRecords', 'args': [0, 0, 'collect_point_path', 1, 'program.arl', 0, [{'io_signal_groups': [{'io_index': -1, 'io_type': -1, 'io_status': True}]}, {'io_signal_groups': [{'io_index': -1, 'io_type': -1, 'io_status': True}]}, {'io_signal_groups': [{'io_index': -1, 'io_type': -1, 'io_status': True}]}]], 'id': 'aamGenerateArlProgramFromRecords_1766559129252190'} 
+响应: {'success': True, 'id': 'aamGenerateArlProgramFromRecords_1766559129252190', 'ret': [1073741825, 'success']}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamGenerateArlProgramFromRecords 根据示教器采集的点位生成arl程序响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:52:09 | INFO | - | - | teaching_chain:ws_teaching_chain:84 - 生成arl程序成功，对象ID：1073741825
+2025-12-24 14:52:09 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1766559129690581","ret":[8]}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:83 - webGetHandleType 获取handle类型 请求: {'func': 'simArcs.webGetHandleType', 'args': [1073741825], 'id': 'webGetHandleType_1766559129690581'} 
+响应: {'success': True, 'id': 'webGetHandleType_1766559129690581', 'ret': [8]}
+2025-12-24 14:52:09 | INFO | - | - | ws_request:ws_send_and_wait:140 - webGetHandleType 获取handle类型响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:10 | INFO | - | - | newpoint_chain:ws_newpoint_chain:18 - webGetHandleType 获取handle类型 成功，对象ID：8
+2025-12-24 14:52:10 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmCreateHierarchyElement_1766559130063855","ret":[13]}
+2025-12-24 14:52:10 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmCreateHierarchyElement 创建节点 请求: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [1073741825, 8], 'id': 'ahmCreateHierarchyElement_1766559130063855'} 
+响应: {'success': True, 'id': 'ahmCreateHierarchyElement_1766559130063855', 'ret': [13]}
+2025-12-24 14:52:10 | INFO | - | - | ws_request:ws_send_and_wait:140 - ahmCreateHierarchyElement 创建节点响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:10 | INFO | - | - | newpoint_chain:ws_newpoint_chain:31 - [PERF] ahmCreateHierarchyElement 创建节点成功，对象ID: 13
+2025-12-24 14:52:10 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmSetElementParent_1766559130439399","ret":[]}
+2025-12-24 14:52:10 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmSetElementParent 设置父节点 请求: {'func': 'simArcs.ahmSetElementParent', 'args': [13, -1], 'id': 'ahmSetElementParent_1766559130439399'} 
+响应: {'success': True, 'id': 'ahmSetElementParent_1766559130439399', 'ret': []}
+2025-12-24 14:52:10 | INFO | - | - | ws_request:ws_send_and_wait:87 - ahmSetElementParent 设置父节点 响应为空数组[]，已跳过断言
+2025-12-24 14:52:10 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmGetHierarchy_1766559130502115","ret":["[\n{\n\"children\": [\n{\n\"children\": [\n{\n\"children\": [],\n\"obj_collapsed\": 0,\n\"obj_handle\": 37,\n\"obj_id\": 2,\n\"obj_layer...
+2025-12-24 14:52:10 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmGetHierarchy 获取场景树 请求: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1766559130502115'} 
+响应: {'success': True, 'id': 'ahmGetHierarchy_1766559130502115', 'ret': ['[\n{\n"children": [\n{\n"children": [\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 37,\n"obj_id": 2,\n"obj_layers": 1,\n"obj_name": "AIR4_560A(1)",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A(1)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 1,\n"obj_layers": 1,\n"obj_name": "Workbench1",\n"obj_selectable": 1,\n"obj_type": 1,\n"obj_unique_name": "Workbench1"\n},\n{\n"children": [\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 59,\n"obj_id": 12,\n"obj_layers": 1,\n"obj_name": "AIR4_560A(2)",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A(2)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 11,\n"obj_layers": 1,\n"obj_name": "Workbench1(1)",\n"obj_selectable": 1,\n"obj_type": 1,\n"obj_unique_name": "Workbench1(1)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 0,\n"obj_layers": 1,\n"obj_name": "ARCS1",\n"obj_selectable": 1,\n"obj_type": 0,\n"obj_unique_name": "ARCS1"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 15,\n"obj_id": 8,\n"obj_layers": 1,\n"obj_name": "AIR4_560A",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741823,\n"obj_id": 9,\n"obj_layers": 1,\n"obj_name": "program.arl",\n"obj_selectable": 1,\n"obj_type": 8,\n"obj_unique_name": "program.arl"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741824,\n"obj_id": 10,\n"obj_layers": 1,\n"obj_name": "program_data",\n"obj_selectable": 1,\n"obj_type": 9,\n"obj_unique_name": "program_data"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741825,\n"obj_id": 13,\n"obj_layers": 1,\n"obj_name": "program(1).arl",\n"obj_selectable": 1,\n"obj_type": 8,\n"obj_unique_name": "program(1).arl"\n}\n]']}
+2025-12-24 14:52:10 | INFO | - | - | ws_request:ws_send_and_wait:140 - ahmGetHierarchy 获取场景树响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:52:11 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"afmGetAll_1766559130935634","ret":[[]]}
+2025-12-24 14:52:11 | INFO | - | - | ws_request:ws_send_and_wait:83 - afmGetAll 获取所有坐标信息 请求: {'func': 'simArcs.afmGetAll', 'args': [], 'id': 'afmGetAll_1766559130935634'} 
+响应: {'success': True, 'id': 'afmGetAll_1766559130935634', 'ret': [[]]}
+2025-12-24 14:52:11 | INFO | - | - | ws_request:ws_send_and_wait:140 - afmGetAll 获取所有坐标信息响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:11 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ejmGetAll_1766559131307719","ret":[[]]}
+2025-12-24 14:52:11 | INFO | - | - | ws_request:ws_send_and_wait:83 - ejmGetAll 获取所有外部轴信息 请求: {'func': 'simArcs.ejmGetAll', 'args': [], 'id': 'ejmGetAll_1766559131307719'} 
+响应: {'success': True, 'id': 'ejmGetAll_1766559131307719', 'ret': [[]]}
+2025-12-24 14:52:11 | INFO | - | - | ws_request:ws_send_and_wait:140 - ejmGetAll 获取所有外部轴信息响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:11 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"iomGetAllIOSignalActions_1766559131681370","ret":[[]]}
+2025-12-24 14:52:11 | INFO | - | - | ws_request:ws_send_and_wait:83 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息 请求: {'func': 'simArcs.iomGetAllIOSignalActions', 'args': [], 'id': 'iomGetAllIOSignalActions_1766559131681370'} 
+响应: {'success': True, 'id': 'iomGetAllIOSignalActions_1766559131681370', 'ret': [[]]}
+2025-12-24 14:52:11 | INFO | - | - | ws_request:ws_send_and_wait:140 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:12 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"rmGetAll_1766559132055713","ret":[[{"joint_metrics":[7,7,7,7,7,7],"joint_min_strokes":[-170.00000000001,-110.00000000001,-108.00000000001,-200.00000000001,-118.00000000001,-350.0...
+2025-12-24 14:52:12 | INFO | - | - | ws_request:ws_send_and_wait:83 - rmGetAll_2 获取机器人配置 请求: {'func': 'simArcs.rmGetAll', 'args': [], 'id': 'rmGetAll_1766559132055713'} 
+响应: {'success': True, 'id': 'rmGetAll_1766559132055713', 'ret': [[{'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.00000000001, -110.00000000001, -108.00000000001, -200.00000000001, -118.00000000001, -350.00000000002], 'flange_handle': 36, 'arcs_name': 'off-line1', 'link_handles': [19, 22, 25, 28, 31, 34], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 15, 'joint_handles': [18, 21, 24, 27, 30, 33], 'channel': -1, 'joint_max_strokes': [170.00000000001, 120.00000000001, 152.00000000001, 200.00000000001, 118.00000000001, 350.00000000002], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 16, 'robot_name': 'AIR4_560A'}, {'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.0, -110.0, -108.0, -200.0, -118.0, -350.0], 'flange_handle': 58, 'arcs_name': 'off-line1', 'link_handles': [41, 44, 47, 50, 53, 56], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 37, 'joint_handles': [40, 43, 46, 49, 52, 55], 'channel': 0, 'joint_max_strokes': [170.0, 120.0, 152.0, 200.0, 118.0, 350.0], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 38, 'robot_name': 'AIR4_560A(1)'}, {'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.00000000001, -110.00000000001, -108.00000000001, -200.00000000001, -118.00000000001, -350.00000000002], 'flange_handle': 80, 'arcs_name': 'off-line1', 'link_handles': [63, 66, 69, 72, 75, 78], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 59, 'joint_handles': [62, 65, 68, 71, 74, 77], 'channel': 0, 'joint_max_strokes': [170.00000000001, 120.00000000001, 152.00000000001, 200.00000000001, 118.00000000001, 350.00000000002], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 60, 'robot_name': 'AIR4_560A'}]]}
+2025-12-24 14:52:12 | INFO | - | - | ws_request:ws_send_and_wait:140 - rmGetAll_2 获取机器人配置响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:12 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamCreateTeachingPath_1766559132442819","ret":[1073741826]}
+2025-12-24 14:52:12 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamCreateTeachingPath 创建一条示教点集 请求: {'func': 'simArcs.aamCreateTeachingPath', 'args': ['program_data', 'collect_point_path', 59], 'id': 'aamCreateTeachingPath_1766559132442819'} 
+响应: {'success': True, 'id': 'aamCreateTeachingPath_1766559132442819', 'ret': [1073741826]}
+2025-12-24 14:52:12 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamCreateTeachingPath 创建一条示教点集响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:12 | INFO | - | - | teaching_chain:ws_teaching_chain:104 - 创建示教点集成功，对象ID：1073741826，我看看你类型<class 'int'>
+2025-12-24 14:52:12 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1766559132804884","ret":[9]}
+2025-12-24 14:52:12 | INFO | - | - | ws_request:ws_send_and_wait:83 - webGetHandleType 获取handle类型 请求: {'func': 'simArcs.webGetHandleType', 'args': [1073741826], 'id': 'webGetHandleType_1766559132804884'} 
+响应: {'success': True, 'id': 'webGetHandleType_1766559132804884', 'ret': [9]}
+2025-12-24 14:52:12 | INFO | - | - | ws_request:ws_send_and_wait:140 - webGetHandleType 获取handle类型响应成功，总耗时: 0.08s，None重试: 0次
+2025-12-24 14:52:13 | INFO | - | - | newpoint_chain:ws_newpoint_chain:18 - webGetHandleType 获取handle类型 成功，对象ID：9
+2025-12-24 14:52:13 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmCreateHierarchyElement_1766559133196728","ret":[14]}
+2025-12-24 14:52:13 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmCreateHierarchyElement 创建节点 请求: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [1073741826, 9], 'id': 'ahmCreateHierarchyElement_1766559133196728'} 
+响应: {'success': True, 'id': 'ahmCreateHierarchyElement_1766559133196728', 'ret': [14]}
+2025-12-24 14:52:13 | INFO | - | - | ws_request:ws_send_and_wait:140 - ahmCreateHierarchyElement 创建节点响应成功，总耗时: 0.06s，None重试: 0次
+2025-12-24 14:52:13 | INFO | - | - | newpoint_chain:ws_newpoint_chain:31 - [PERF] ahmCreateHierarchyElement 创建节点成功，对象ID: 14
+2025-12-24 14:52:13 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmSetElementParent_1766559133574877","ret":[]}
+2025-12-24 14:52:13 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmSetElementParent 设置父节点 请求: {'func': 'simArcs.ahmSetElementParent', 'args': [14, -1], 'id': 'ahmSetElementParent_1766559133574877'} 
+响应: {'success': True, 'id': 'ahmSetElementParent_1766559133574877', 'ret': []}
+2025-12-24 14:52:13 | INFO | - | - | ws_request:ws_send_and_wait:87 - ahmSetElementParent 设置父节点 响应为空数组[]，已跳过断言
+2025-12-24 14:52:13 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ahmGetHierarchy_1766559133632821","ret":["[\n{\n\"children\": [\n{\n\"children\": [\n{\n\"children\": [],\n\"obj_collapsed\": 0,\n\"obj_handle\": 37,\n\"obj_id\": 2,\n\"obj_layer...
+2025-12-24 14:52:13 | INFO | - | - | ws_request:ws_send_and_wait:83 - ahmGetHierarchy 获取场景树 请求: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1766559133632821'} 
+响应: {'success': True, 'id': 'ahmGetHierarchy_1766559133632821', 'ret': ['[\n{\n"children": [\n{\n"children": [\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 37,\n"obj_id": 2,\n"obj_layers": 1,\n"obj_name": "AIR4_560A(1)",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A(1)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 1,\n"obj_layers": 1,\n"obj_name": "Workbench1",\n"obj_selectable": 1,\n"obj_type": 1,\n"obj_unique_name": "Workbench1"\n},\n{\n"children": [\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 59,\n"obj_id": 12,\n"obj_layers": 1,\n"obj_name": "AIR4_560A(2)",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A(2)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 11,\n"obj_layers": 1,\n"obj_name": "Workbench1(1)",\n"obj_selectable": 1,\n"obj_type": 1,\n"obj_unique_name": "Workbench1(1)"\n}\n],\n"obj_collapsed": 0,\n"obj_handle": 0,\n"obj_id": 0,\n"obj_layers": 1,\n"obj_name": "ARCS1",\n"obj_selectable": 1,\n"obj_type": 0,\n"obj_unique_name": "ARCS1"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 15,\n"obj_id": 8,\n"obj_layers": 1,\n"obj_name": "AIR4_560A",\n"obj_selectable": 1,\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741823,\n"obj_id": 9,\n"obj_layers": 1,\n"obj_name": "program.arl",\n"obj_selectable": 1,\n"obj_type": 8,\n"obj_unique_name": "program.arl"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741824,\n"obj_id": 10,\n"obj_layers": 1,\n"obj_name": "program_data",\n"obj_selectable": 1,\n"obj_type": 9,\n"obj_unique_name": "program_data"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741825,\n"obj_id": 13,\n"obj_layers": 1,\n"obj_name": "program(1).arl",\n"obj_selectable": 1,\n"obj_type": 8,\n"obj_unique_name": "program(1).arl"\n},\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 1073741826,\n"obj_id": 14,\n"obj_layers": 1,\n"obj_name": "program(1)_data",\n"obj_selectable": 1,\n"obj_type": 9,\n"obj_unique_name": "program(1)_data"\n}\n]']}
+2025-12-24 14:52:13 | INFO | - | - | ws_request:ws_send_and_wait:140 - ahmGetHierarchy 获取场景树响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:52:14 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"afmGetAll_1766559134057086","ret":[[]]}
+2025-12-24 14:52:14 | INFO | - | - | ws_request:ws_send_and_wait:83 - afmGetAll 获取所有坐标信息 请求: {'func': 'simArcs.afmGetAll', 'args': [], 'id': 'afmGetAll_1766559134057086'} 
+响应: {'success': True, 'id': 'afmGetAll_1766559134057086', 'ret': [[]]}
+2025-12-24 14:52:14 | INFO | - | - | ws_request:ws_send_and_wait:140 - afmGetAll 获取所有坐标信息响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:14 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"ejmGetAll_1766559134432191","ret":[[]]}
+2025-12-24 14:52:14 | INFO | - | - | ws_request:ws_send_and_wait:83 - ejmGetAll 获取所有外部轴信息 请求: {'func': 'simArcs.ejmGetAll', 'args': [], 'id': 'ejmGetAll_1766559134432191'} 
+响应: {'success': True, 'id': 'ejmGetAll_1766559134432191', 'ret': [[]]}
+2025-12-24 14:52:14 | INFO | - | - | ws_request:ws_send_and_wait:140 - ejmGetAll 获取所有外部轴信息响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:14 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"iomGetAllIOSignalActions_1766559134807610","ret":[[]]}
+2025-12-24 14:52:14 | INFO | - | - | ws_request:ws_send_and_wait:83 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息 请求: {'func': 'simArcs.iomGetAllIOSignalActions', 'args': [], 'id': 'iomGetAllIOSignalActions_1766559134807610'} 
+响应: {'success': True, 'id': 'iomGetAllIOSignalActions_1766559134807610', 'ret': [[]]}
+2025-12-24 14:52:14 | INFO | - | - | ws_request:ws_send_and_wait:140 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:15 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"rmGetAll_1766559135194761","ret":[[{"joint_metrics":[7,7,7,7,7,7],"joint_min_strokes":[-170.00000000001,-110.00000000001,-108.00000000001,-200.00000000001,-118.00000000001,-350.0...
+2025-12-24 14:52:15 | INFO | - | - | ws_request:ws_send_and_wait:83 - rmGetAll_2 获取机器人配置 请求: {'func': 'simArcs.rmGetAll', 'args': [], 'id': 'rmGetAll_1766559135194761'} 
+响应: {'success': True, 'id': 'rmGetAll_1766559135194761', 'ret': [[{'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.00000000001, -110.00000000001, -108.00000000001, -200.00000000001, -118.00000000001, -350.00000000002], 'flange_handle': 36, 'arcs_name': 'off-line1', 'link_handles': [19, 22, 25, 28, 31, 34], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 15, 'joint_handles': [18, 21, 24, 27, 30, 33], 'channel': -1, 'joint_max_strokes': [170.00000000001, 120.00000000001, 152.00000000001, 200.00000000001, 118.00000000001, 350.00000000002], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 16, 'robot_name': 'AIR4_560A'}, {'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.0, -110.0, -108.0, -200.0, -118.0, -350.0], 'flange_handle': 58, 'arcs_name': 'off-line1', 'link_handles': [41, 44, 47, 50, 53, 56], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 37, 'joint_handles': [40, 43, 46, 49, 52, 55], 'channel': 0, 'joint_max_strokes': [170.0, 120.0, 152.0, 200.0, 118.0, 350.0], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 38, 'robot_name': 'AIR4_560A(1)'}, {'joint_metrics': [7, 7, 7, 7, 7, 7], 'joint_min_strokes': [-170.00000000001, -110.00000000001, -108.00000000001, -200.00000000001, -118.00000000001, -350.00000000002], 'flange_handle': 80, 'arcs_name': 'off-line1', 'link_handles': [63, 66, 69, 72, 75, 78], 'joint_types': [0, 0, 0, 0, 0, 0], 'mech_unit_model_list': ['AIR4_560A_V2'], 'robot_handle': 59, 'joint_handles': [62, 65, 68, 71, 74, 77], 'channel': 0, 'joint_max_strokes': [170.00000000001, 120.00000000001, 152.00000000001, 200.00000000001, 118.00000000001, 350.00000000002], 'joint_count': 6, 'robot_type': 0, 'mech_unit_model': 'AIR4_560A_V2', 'base_handle': 60, 'robot_name': 'AIR4_560A'}]]}
+2025-12-24 14:52:15 | INFO | - | - | ws_request:ws_send_and_wait:140 - rmGetAll_2 获取机器人配置响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:15 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamStopPushMessageForTeachingPath_1766559135567967","ret":[]}
+2025-12-24 14:52:15 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamStopPushMessageForTeachingPath 关闭示教器 请求: {'func': 'simArcs.aamStopPushMessageForTeachingPath', 'args': [], 'id': 'aamStopPushMessageForTeachingPath_1766559135567967'} 
+响应: {'success': True, 'id': 'aamStopPushMessageForTeachingPath_1766559135567967', 'ret': []}
+2025-12-24 14:52:15 | INFO | - | - | ws_request:ws_send_and_wait:87 - aamStopPushMessageForTeachingPath 关闭示教器 响应为空数组[]，已跳过断言
+2025-12-24 14:52:15 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamSetWobjToBaseTr_1766559135637452","ret":[[0.0,0.0,0.0,0.0,0.0,0.0,1.0]]}
+2025-12-24 14:52:15 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamSetWobjToBaseTr 设置工件坐标系 请求: {'func': 'simArcs.aamSetWobjToBaseTr', 'args': [0, 0, 'collect_point_path', -1], 'id': 'aamSetWobjToBaseTr_1766559135637452'} 
+响应: {'success': True, 'id': 'aamSetWobjToBaseTr_1766559135637452', 'ret': [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]}
+2025-12-24 14:52:15 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamSetWobjToBaseTr 设置工件坐标系响应成功，总耗时: 0.31s，None重试: 0次
+2025-12-24 14:52:16 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamGetTeachingPath_1766559136252855","ret":[1073741826,"collect_point_path",59,[]]}
+2025-12-24 14:52:16 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamGetTeachingPath 获取当前采集示教点集 请求: {'func': 'simArcs.aamGetTeachingPath', 'args': [1073741826], 'id': 'aamGetTeachingPath_1766559136252855'} 
+响应: {'success': True, 'id': 'aamGetTeachingPath_1766559136252855', 'ret': [1073741826, 'collect_point_path', 59, []]}
+2025-12-24 14:52:16 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamGetTeachingPath 获取当前采集示教点集响应成功，总耗时: 0.09s，None重试: 0次
+2025-12-24 14:52:16 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"id":"aamGetPathTipType_1766559136655444","error":"{\n\"level\": 2,\n\"message\": \"参数无效\",\n\"time\": 1766559135\n}"}
+2025-12-24 14:52:16 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamGetPathTipType 获取选择采集点集路径的坐标系类型 请求: {'func': 'simArcs.aamGetPathTipType', 'args': [0, 0, '1073741826'], 'id': 'aamGetPathTipType_1766559136655444'} 
+响应: {'success': False, 'id': 'aamGetPathTipType_1766559136655444', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559135\n}'}
+2025-12-24 14:52:16 | ERROR | - | - | ws_request:ws_send_and_wait:115 - aamGetPathTipType 获取选择采集点集路径的坐标系类型 失败: {'success': False, 'id': 'aamGetPathTipType_1766559136655444', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559135\n}'} 
+2025-12-24 14:52:16 | WARNING | - | - | harness:send_request:53 - aamGetPathTipType_1766559136655444 断言失败！
+2025-12-24 14:52:16 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amSwitchChannel_1766559136731741","ret":[true]}
+2025-12-24 14:52:16 | INFO | - | - | ws_request:ws_send_and_wait:83 - amSwitchChannel 切换通道 请求: {'func': 'simArcs.amSwitchChannel', 'args': [0, 0], 'id': 'amSwitchChannel_1766559136731741'} 
+响应: {'success': True, 'id': 'amSwitchChannel_1766559136731741', 'ret': [True]}
+2025-12-24 14:52:16 | INFO | - | - | ws_request:ws_send_and_wait:140 - amSwitchChannel 切换通道响应成功，总耗时: 0.25s，None重试: 0次
+2025-12-24 14:52:17 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamSetWobjToBaseTr_1766559137283666","ret":[[0.0,0.0,0.0,0.0,0.0,0.0,1.0]]}
+2025-12-24 14:52:17 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamSetWobjToBaseTr 设置工件坐标系和机器人base之间的pose 请求: {'func': 'simArcs.aamSetWobjToBaseTr', 'args': [0, 0, '1073741826', -1], 'id': 'aamSetWobjToBaseTr_1766559137283666'} 
+响应: {'success': True, 'id': 'aamSetWobjToBaseTr_1766559137283666', 'ret': [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]}
+2025-12-24 14:52:17 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamSetWobjToBaseTr 设置工件坐标系和机器人base之间的pose响应成功，总耗时: 0.32s，None重试: 0次
+2025-12-24 14:52:18 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamStopPushMessageForTeachingPath_1766559137910128","ret":[]}
+2025-12-24 14:52:18 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamStopPushMessageForTeachingPath 关闭示教器界面停止推流 请求: {'func': 'simArcs.aamStopPushMessageForTeachingPath', 'args': [], 'id': 'aamStopPushMessageForTeachingPath_1766559137910128'} 
+响应: {'success': True, 'id': 'aamStopPushMessageForTeachingPath_1766559137910128', 'ret': []}
+2025-12-24 14:52:18 | INFO | - | - | ws_request:ws_send_and_wait:87 - aamStopPushMessageForTeachingPath 关闭示教器界面停止推流 响应为空数组[]，已跳过断言
+2025-12-24 14:52:18 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamStartPushMessageForTeachingPath_1766559138003207","ret":[]}
+2025-12-24 14:52:18 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamStartPushMessageForTeachingPath 打开示教器界面开始推流 请求: {'func': 'simArcs.aamStartPushMessageForTeachingPath', 'args': [0, 0, '1073741826'], 'id': 'aamStartPushMessageForTeachingPath_1766559138003207'} 
+响应: {'success': True, 'id': 'aamStartPushMessageForTeachingPath_1766559138003207', 'ret': []}
+2025-12-24 14:52:18 | INFO | - | - | ws_request:ws_send_and_wait:87 - aamStartPushMessageForTeachingPath 打开示教器界面开始推流 响应为空数组[]，已跳过断言
+2025-12-24 14:52:18 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetManuSpeed_1766559138129557","ret":[true,100]}
+2025-12-24 14:52:18 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetManuSpeed 获取移动速率 请求: {'func': 'simArcs.amGetManuSpeed', 'args': [0, 0], 'id': 'amGetManuSpeed_1766559138129557'} 
+响应: {'success': True, 'id': 'amGetManuSpeed_1766559138129557', 'ret': [True, 100]}
+2025-12-24 14:52:18 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetManuSpeed 获取移动速率响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:52:18 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"amGetManuAxisMode_1766559138563120","ret":[true,1]}
+2025-12-24 14:52:18 | INFO | - | - | ws_request:ws_send_and_wait:83 - amGetManuAxisMode 获取轴模式 请求: {'func': 'simArcs.amGetManuAxisMode', 'args': [0], 'id': 'amGetManuAxisMode_1766559138563120'} 
+响应: {'success': True, 'id': 'amGetManuAxisMode_1766559138563120', 'ret': [True, 1]}
+2025-12-24 14:52:18 | INFO | - | - | ws_request:ws_send_and_wait:140 - amGetManuAxisMode 获取轴模式响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamGetWobjHandleForTeachingPath_1766559138938044","ret":[-1]}
+2025-12-24 14:52:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamGetWobjHandleForTeachingPath 根据机器人句柄和路径名称得到工件坐标系的句柄 请求: {'func': 'simArcs.aamGetWobjHandleForTeachingPath', 'args': [0, 0, '1073741826'], 'id': 'aamGetWobjHandleForTeachingPath_1766559138938044'} 
+响应: {'success': True, 'id': 'aamGetWobjHandleForTeachingPath_1766559138938044', 'ret': [-1]}
+2025-12-24 14:52:19 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamGetWobjHandleForTeachingPath 根据机器人句柄和路径名称得到工件坐标系的句柄响应成功，总耗时: 0.07s，None重试: 0次
+2025-12-24 14:52:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"id":"aamRemoveRobotAndExJointStatusRecord_1766559139312778","error":"{\n\"level\": 2,\n\"message\": \"参数无效\",\n\"time\": 1766559138\n}"}
+2025-12-24 14:52:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamRemoveRobotAndExJointStatusRecord 删除点位 请求: {'func': 'simArcs.aamRemoveRobotAndExJointStatusRecord', 'args': [0, 0, 1, '1073741826'], 'id': 'aamRemoveRobotAndExJointStatusRecord_1766559139312778'} 
+响应: {'success': False, 'id': 'aamRemoveRobotAndExJointStatusRecord_1766559139312778', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'}
+2025-12-24 14:52:19 | ERROR | - | - | ws_request:ws_send_and_wait:115 - aamRemoveRobotAndExJointStatusRecord 删除点位 失败: {'success': False, 'id': 'aamRemoveRobotAndExJointStatusRecord_1766559139312778', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'} 
+2025-12-24 14:52:19 | WARNING | - | - | harness:send_request:53 - aamRemoveRobotAndExJointStatusRecord_1766559139312778 断言失败！
+2025-12-24 14:52:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"id":"aamSetSpeedRaitoOfPathPoint_1766559139382852","error":"{\n\"level\": 2,\n\"message\": \"参数无效\",\n\"time\": 1766559138\n}"}
+2025-12-24 14:52:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamSetSpeedRaitoOfPathPoint 设置选中点位的速率 请求: {'func': 'simArcs.aamSetSpeedRaitoOfPathPoint', 'args': [0, 0, '1073741826', [{'point_index': 0, 'speed': 30}, {'point_index': 1, 'speed': 30}]], 'id': 'aamSetSpeedRaitoOfPathPoint_1766559139382852'} 
+响应: {'success': False, 'id': 'aamSetSpeedRaitoOfPathPoint_1766559139382852', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'}
+2025-12-24 14:52:19 | ERROR | - | - | ws_request:ws_send_and_wait:115 - aamSetSpeedRaitoOfPathPoint 设置选中点位的速率 失败: {'success': False, 'id': 'aamSetSpeedRaitoOfPathPoint_1766559139382852', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'} 
+2025-12-24 14:52:19 | WARNING | - | - | harness:send_request:53 - aamSetSpeedRaitoOfPathPoint_1766559139382852 断言失败！
+2025-12-24 14:52:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"id":"aamSetMoveModeOfPathPoint_1766559139512642","error":"{\n\"level\": 2,\n\"message\": \"参数无效\",\n\"time\": 1766559138\n}"}
+2025-12-24 14:52:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamSetMoveModeOfPathPoint 设置选中点位的运动模式 请求: {'func': 'simArcs.aamSetMoveModeOfPathPoint', 'args': [0, 0, '1073741826', [{'point_index': 0, 'move_mode': 2}, {'point_index': 1, 'move_mode': 2}]], 'id': 'aamSetMoveModeOfPathPoint_1766559139512642'} 
+响应: {'success': False, 'id': 'aamSetMoveModeOfPathPoint_1766559139512642', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'}
+2025-12-24 14:52:19 | ERROR | - | - | ws_request:ws_send_and_wait:115 - aamSetMoveModeOfPathPoint 设置选中点位的运动模式 失败: {'success': False, 'id': 'aamSetMoveModeOfPathPoint_1766559139512642', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'} 
+2025-12-24 14:52:19 | WARNING | - | - | harness:send_request:53 - aamSetMoveModeOfPathPoint_1766559139512642 断言失败！
+2025-12-24 14:52:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"id":"aamSetSlipPercentageOfPathPoint_1766559139637618","error":"{\n\"level\": 2,\n\"message\": \"参数无效\",\n\"time\": 1766559138\n}"}
+2025-12-24 14:52:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamSetSlipPercentageOfPathPoint 设置选中点位的平滑度百分比 请求: {'func': 'simArcs.aamSetSlipPercentageOfPathPoint', 'args': [0, 0, '1073741826', [{'point_index': 0, 'slip_percentage': 40}, {'point_index': 1, 'slip_percentage': 40}]], 'id': 'aamSetSlipPercentageOfPathPoint_1766559139637618'} 
+响应: {'success': False, 'id': 'aamSetSlipPercentageOfPathPoint_1766559139637618', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'}
+2025-12-24 14:52:19 | ERROR | - | - | ws_request:ws_send_and_wait:115 - aamSetSlipPercentageOfPathPoint 设置选中点位的平滑度百分比 失败: {'success': False, 'id': 'aamSetSlipPercentageOfPathPoint_1766559139637618', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'} 
+2025-12-24 14:52:19 | WARNING | - | - | harness:send_request:53 - aamSetSlipPercentageOfPathPoint_1766559139637618 断言失败！
+2025-12-24 14:52:19 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"id":"aamGenerateArlProgramFromRecords_1766559139761026","error":"{\n\"level\": 2,\n\"message\": \"参数无效\",\n\"time\": 1766559138\n}"}
+2025-12-24 14:52:19 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamGenerateArlProgramFromRecords 根据示教器生成的点位生成arl程序 请求: {'func': 'simArcs.aamGenerateArlProgramFromRecords', 'args': [0, 0, '1073741826', 1, 'program.arl', 1, [{'io_signal_groups': [{'io_index': -1, 'io_type': -1, 'io_status': True}]}, {'io_signal_groups': [{'io_index': -1, 'io_type': -1, 'io_status': True}]}]], 'id': 'aamGenerateArlProgramFromRecords_1766559139761026'} 
+响应: {'success': False, 'id': 'aamGenerateArlProgramFromRecords_1766559139761026', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'}
+2025-12-24 14:52:19 | ERROR | - | - | ws_request:ws_send_and_wait:115 - aamGenerateArlProgramFromRecords 根据示教器生成的点位生成arl程序 失败: {'success': False, 'id': 'aamGenerateArlProgramFromRecords_1766559139761026', 'error': '{\n"level": 2,\n"message": "参数无效",\n"time": 1766559138\n}'} 
+2025-12-24 14:52:19 | WARNING | - | - | harness:send_request:53 - aamGenerateArlProgramFromRecords_1766559139761026 断言失败！
+2025-12-24 14:52:20 | INFO | - | - | websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"id":"aamUpdateTeachingPath_1766559139887321","ret":[true]}
+2025-12-24 14:52:20 | INFO | - | - | ws_request:ws_send_and_wait:83 - aamUpdateTeachingPath 在更新示教器界面的示教点集数据之后更新到左侧树 请求: {'func': 'simArcs.aamUpdateTeachingPath', 'args': [1073741826, '1073741826', 59], 'id': 'aamUpdateTeachingPath_1766559139887321'} 
+响应: {'success': True, 'id': 'aamUpdateTeachingPath_1766559139887321', 'ret': [True]}
+2025-12-24 14:52:20 | INFO | - | - | ws_request:ws_send_and_wait:140 - aamUpdateTeachingPath 在更新示教器界面的示教点集数据之后更新到左侧树响应成功，总耗时: 0.12s，None重试: 0次
+2025-12-24 14:52:20 | INFO | - | - | test_amteaching:test_full_teaching_workflow:47 - 验证通过: ARL ID = 1073741825
