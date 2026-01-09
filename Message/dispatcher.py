@@ -62,7 +62,6 @@ class MessageDispatcher:
             parsed = json.loads(raw)
         except Exception:
             raise NonJsonMessageError(raw)
-
         if isinstance(parsed, dict):
             if parsed.get("message") == "ptcloud_pod_connect_success":
                 logger.info(f"{desc} 云端Pod连接成功: {raw}")

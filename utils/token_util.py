@@ -84,6 +84,7 @@ def get_headers(token):
         "Authorization": f"{token}"
     }
 
+
 def logout(token):
     """
     退出登录

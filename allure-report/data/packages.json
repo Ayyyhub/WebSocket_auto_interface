@@ -1,0 +1,194 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "tests",
+    "children" : [ {
+      "name" : "e2e.test_amteaching",
+      "children" : [ {
+        "name" : "执行完整的示教流程：初始化 -> 加载模型 -> 启动控制 -> 示教",
+        "uid" : "bb39dca8e86c3d3",
+        "parentUid" : "93d7de056b0d94b020a8a2497a14c68e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1767078396847,
+          "stop" : 1767078440674,
+          "duration" : 43827
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "e2e.test_amteaching"
+    }, {
+      "name" : "unit",
+      "children" : [ {
+        "name" : "test_ahmGetHierarchy",
+        "children" : [ {
+          "name" : "test_ahmGetHierarchy_with_full_context",
+          "uid" : "8c9a0d3e0a657a19",
+          "parentUid" : "6a5d868781f76f45cd3494287b1929e0",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078440696,
+            "stop" : 1767078444260,
+            "duration" : 3564
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "6a5d868781f76f45cd3494287b1929e0"
+      }, {
+        "name" : "test_amStartJog",
+        "children" : [ {
+          "name" : "test_amStartJog_with_enable_should_success",
+          "uid" : "1bdea6320de2e5a9",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078445435,
+            "stop" : 1767078445875,
+            "duration" : 440
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "test_amStartJog_boundary_speed",
+          "uid" : "7d5676f2e20fa9a",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078447054,
+            "stop" : 1767078447490,
+            "duration" : 436
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "test_jog_preconditions[False-True-True-True-True]",
+          "uid" : "a84b707eddf621e6",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078447514,
+            "stop" : 1767078448980,
+            "duration" : 1466
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "True", "True", "False", "True", "True" ]
+        }, {
+          "name" : "test_jog_preconditions[True-False-True-True-True]",
+          "uid" : "f8081f784af3c225",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078449011,
+            "stop" : 1767078450225,
+            "duration" : 1214
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "False", "True", "True", "True", "True" ]
+        }, {
+          "name" : "test_jog_preconditions[True-True-False-True-True]",
+          "uid" : "370d772def59a304",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078450245,
+            "stop" : 1767078451224,
+            "duration" : 979
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "True", "True", "True", "False", "True" ]
+        }, {
+          "name" : "test_jog_preconditions[True-True-True-False-True]",
+          "uid" : "c936cd5ca49995d8",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078451237,
+            "stop" : 1767078452710,
+            "duration" : 1473
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "True", "False", "True", "True", "True" ]
+        }, {
+          "name" : "test_jog_with_bad_enable[enable_args0-True]",
+          "uid" : "eaf454ea2caf3618",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078452728,
+            "stop" : 1767078454343,
+            "duration" : 1615
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "[0, False]", "True" ]
+        }, {
+          "name" : "test_jog_with_bad_enable[enable_args1-True]",
+          "uid" : "95a17cc1bbf32664",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078454360,
+            "stop" : 1767078455693,
+            "duration" : 1333
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "[0, None]", "True" ]
+        }, {
+          "name" : "test_jog_with_bad_target_args[jog_args0-True]",
+          "uid" : "bb37971f51fcd037",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078455712,
+            "stop" : 1767078457320,
+            "duration" : 1608
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "True", "[0, 6, 1]" ]
+        }, {
+          "name" : "test_jog_with_bad_target_args[jog_args1-True]",
+          "uid" : "b75e63779b401e8a",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078457332,
+            "stop" : 1767078458934,
+            "duration" : 1602
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "True", "[0, 1, 2]" ]
+        }, {
+          "name" : "test_jog_with_bad_target_args[jog_args2-True]",
+          "uid" : "37f0fc029e962973",
+          "parentUid" : "f62cde568a161f18e14c61174c82a450",
+          "status" : "passed",
+          "time" : {
+            "start" : 1767078458953,
+            "stop" : 1767078460555,
+            "duration" : 1602
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "True", "[0, 1, 100]" ]
+        } ],
+        "uid" : "f62cde568a161f18e14c61174c82a450"
+      } ],
+      "uid" : "75187c4e7b9e817ec4b35e41a566952d"
+    } ],
+    "uid" : "bf49149a3821e34f7608bb6885d52868"
+  } ]
+}

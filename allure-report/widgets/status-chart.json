@@ -1,0 +1,131 @@
+[ {
+  "uid" : "95a17cc1bbf32664",
+  "name" : "test_jog_with_bad_enable[enable_args1-True]",
+  "time" : {
+    "start" : 1767078454360,
+    "stop" : 1767078455693,
+    "duration" : 1333
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a84b707eddf621e6",
+  "name" : "test_jog_preconditions[False-True-True-True-True]",
+  "time" : {
+    "start" : 1767078447514,
+    "stop" : 1767078448980,
+    "duration" : 1466
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bb39dca8e86c3d3",
+  "name" : "执行完整的示教流程：初始化 -> 加载模型 -> 启动控制 -> 示教",
+  "time" : {
+    "start" : 1767078396847,
+    "stop" : 1767078440674,
+    "duration" : 43827
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bb37971f51fcd037",
+  "name" : "test_jog_with_bad_target_args[jog_args0-True]",
+  "time" : {
+    "start" : 1767078455712,
+    "stop" : 1767078457320,
+    "duration" : 1608
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c936cd5ca49995d8",
+  "name" : "test_jog_preconditions[True-True-True-False-True]",
+  "time" : {
+    "start" : 1767078451237,
+    "stop" : 1767078452710,
+    "duration" : 1473
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f8081f784af3c225",
+  "name" : "test_jog_preconditions[True-False-True-True-True]",
+  "time" : {
+    "start" : 1767078449011,
+    "stop" : 1767078450225,
+    "duration" : 1214
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b75e63779b401e8a",
+  "name" : "test_jog_with_bad_target_args[jog_args1-True]",
+  "time" : {
+    "start" : 1767078457332,
+    "stop" : 1767078458934,
+    "duration" : 1602
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "37f0fc029e962973",
+  "name" : "test_jog_with_bad_target_args[jog_args2-True]",
+  "time" : {
+    "start" : 1767078458953,
+    "stop" : 1767078460555,
+    "duration" : 1602
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "370d772def59a304",
+  "name" : "test_jog_preconditions[True-True-False-True-True]",
+  "time" : {
+    "start" : 1767078450245,
+    "stop" : 1767078451224,
+    "duration" : 979
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "eaf454ea2caf3618",
+  "name" : "test_jog_with_bad_enable[enable_args0-True]",
+  "time" : {
+    "start" : 1767078452728,
+    "stop" : 1767078454343,
+    "duration" : 1615
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7d5676f2e20fa9a",
+  "name" : "test_amStartJog_boundary_speed",
+  "time" : {
+    "start" : 1767078447054,
+    "stop" : 1767078447490,
+    "duration" : 436
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1bdea6320de2e5a9",
+  "name" : "test_amStartJog_with_enable_should_success",
+  "time" : {
+    "start" : 1767078445435,
+    "stop" : 1767078445875,
+    "duration" : 440
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8c9a0d3e0a657a19",
+  "name" : "test_ahmGetHierarchy_with_full_context",
+  "time" : {
+    "start" : 1767078440696,
+    "stop" : 1767078444260,
+    "duration" : 3564
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

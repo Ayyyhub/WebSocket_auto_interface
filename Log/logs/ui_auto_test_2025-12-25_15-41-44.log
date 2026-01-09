@@ -1,0 +1,26 @@
+2025-12-25 15:41:44 | INFO |token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2025-12-25 15:41:44 | INFO |conftest:ws_client:46 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2025-12-25 15:41:45 | INFO |websocket_client:on_message:26 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-25 15:41:53 | INFO |conftest:ws_client:58 - 主动断连后，再次Websocket connected！
+2025-12-25 15:41:53 | INFO |websocket_client:on_message:26 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-25 15:41:53 | INFO |dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2025-12-25 15:41:53 | INFO |dispatcher:_parse_raw:68 - loadModel 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-25 15:41:53 | INFO |dispatcher:_parse_raw:68 - loadModel 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2025-12-25 15:41:54 | INFO |websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"ret":[15],"id":"loadModel_1766648513660622"}
+2025-12-25 15:41:54 | INFO |ws_request:ws_send_and_wait:83 - loadModel 请求: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1766648513660622'} 
+响应: {'success': True, 'ret': [15], 'id': 'loadModel_1766648513660622'}
+2025-12-25 15:41:54 | INFO |ws_request:ws_send_and_wait:140 - loadModel响应成功，总耗时: 0.86s，None重试: 0次
+2025-12-25 15:41:54 | INFO |websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":true,"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1766648514836763"}
+2025-12-25 15:41:54 | INFO |ws_request:ws_send_and_wait:83 - getObjectPosition 请求: {'func': 'sim.getObjectPosition', 'args': [15, -1], 'id': 'getObjectPosition_1766648514836763'} 
+响应: {'success': True, 'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1766648514836763'}
+2025-12-25 15:41:54 | INFO |ws_request:ws_send_and_wait:140 - getObjectPosition响应成功，总耗时: 0.11s，None重试: 0次
+2025-12-25 15:41:55 | INFO |websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"error":"No such function: simArcs.webMoveObject","id":"webMoveObject_1766648515262677"}
+2025-12-25 15:41:55 | INFO |ws_request:ws_send_and_wait:83 - webMoveObject 请求: {'func': 'simArcs.webMoveObject', 'args': [15, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1766648515262677'} 
+响应: {'success': False, 'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1766648515262677'}
+2025-12-25 15:41:55 | ERROR |ws_request:ws_send_and_wait:115 - webMoveObject 失败: {'success': False, 'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1766648515262677'} 
+2025-12-25 15:41:55 | WARNING |harness:send_request:63 - webMoveObject_1766648515262677 断言失败！
+2025-12-25 15:41:55 | INFO |websocket_client:on_message:26 - [WSClient] 收到原始数据: {"success":false,"error":"No such function: simArcs.webGetHandleType","id":"webGetHandleType_1766648515326224"}
+2025-12-25 15:41:55 | INFO |ws_request:ws_send_and_wait:83 - webGetHandleType 请求: {'func': 'simArcs.webGetHandleType', 'args': [15], 'id': 'webGetHandleType_1766648515326224'} 
+响应: {'success': False, 'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1766648515326224'}
+2025-12-25 15:41:55 | ERROR |ws_request:ws_send_and_wait:115 - webGetHandleType 失败: {'success': False, 'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1766648515326224'} 
+2025-12-25 15:41:55 | WARNING |harness:send_request:63 - webGetHandleType_1766648515326224 断言失败！

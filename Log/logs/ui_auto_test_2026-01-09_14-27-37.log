@@ -1,0 +1,6 @@
+2026-01-09 14:27:42 | INFO | - | users:on_start:33 - Locust 目标用户数: 1
+2026-01-09 14:27:42 | INFO | - | account_pool:_ensure_accounts_loaded:58 - 从配置文件加载了 3 个账号
+2026-01-09 14:27:42 | INFO | - | account_pool:_ensure_accounts_loaded:81 - 账号池已加载 1 个账号（目标用户数: 1）
+2026-01-09 14:27:42 | INFO | - | websocket_client:connect:79 - WebSocket 连接成功，耗时: 0.11s
+2026-01-09 14:27:42 | INFO | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2026-01-09 14:27:43 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}

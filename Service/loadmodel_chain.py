@@ -6,7 +6,9 @@ from utils.logger import logger
 
 class LoadModel:
     loadObj_id = None
-
+    loadObj_type = None
+    workbench_point_id = None
+    robot_point_id = None
 
     def __init__(self,ws_client):
         self.ws_client = ws_client
@@ -31,39 +33,44 @@ class LoadModel:
             send_request(self.ws_client, "simArcs.webMoveObject", [LoadModel.loadObj_id, [0, 0, 0], -1, 4], "webMoveObject 对象移动")
 
 
-            # 20. 获取handle类型
-            send_request(self.ws_client, "simArcs.webGetHandleType", [LoadModel.loadObj_id], "webGetHandleType 获取加载模型的handle类型")
+            # 20. 获取加载的模型机器人的handle类型
+            response_webGetHandleType=send_request(self.ws_client, "simArcs.webGetHandleType", [LoadModel.loadObj_id], "webGetHandleType 获取加载模型的handle类型")
+            loadObj_type=None
+            if response_webGetHandleType and response_webGetHandleType.get("success") and "ret" in response_webGetHandleType and response_webGetHandleType["ret"]:
+                loadObj_type=response_webGetHandleType["ret"][0]
+                logger.info(f"[PERF] webGetHandleType 获取加载的模型机器人的handle类型: {loadObj_type}")
+            else:
+                logger.warning(f"[PERF] ahmCreateHierarchyElement 创建节点失败或返回空: {response_webGetHandleType}")
 
-
-            # 21. 创建节点
+            # 21. 创建工作台节点
             # args 控制器的工作台通道，节点类型
-            response_ahmCreateHierarchyElement1 = send_request(self.ws_client, "simArcs.ahmCreateHierarchyElement", [0, 1], "ahmCreateHierarchyElement 创建节点")
-            workbench_id = None
+            response_ahmCreateHierarchyElement1 = send_request(self.ws_client, "simArcs.ahmCreateHierarchyElement", [0, 1], "ahmCreateHierarchyElement 创建工作台节点成功")
+            workbench_point_id = None
             if response_ahmCreateHierarchyElement1 and response_ahmCreateHierarchyElement1.get("success") and "ret" in response_ahmCreateHierarchyElement1 and response_ahmCreateHierarchyElement1["ret"]:
-                workbench_id = response_ahmCreateHierarchyElement1["ret"][0]
-                logger.info(f"[PERF] ahmCreateHierarchyElement 创建工作台节点成功，对象ID: {workbench_id}")
+                workbench_point_id = response_ahmCreateHierarchyElement1["ret"][0]
+                logger.info(f"[PERF] ahmCreateHierarchyElement 创建工作台节点成功，对象ID: {workbench_point_id}")
             else:
                 logger.warning(f"[PERF] ahmCreateHierarchyElement 创建节点失败或返回空: {response_ahmCreateHierarchyElement1}")
 
-            # 22. 设置父节点
+            # 22. 设置工作台父节点
             # args 节点ID，父节点ID
-            send_request(self.ws_client, "simArcs.ahmSetElementParent", [workbench_id, 0], "ahmSetElementParent1 设置工作台父节点")
+            send_request(self.ws_client, "simArcs.ahmSetElementParent", [workbench_point_id, 0], "ahmSetElementParent1 设置工作台父节点")
 
-            # 23. 创建节点
-            response_ahmCreateHierarchyElement2 = send_request(self.ws_client, "simArcs.ahmCreateHierarchyElement", [LoadModel.loadObj_id, 2], "ahmCreateHierarchyElement 创建节点")
-            robot_id = None
+
+            # 23. 创建机器人节点
+            response_ahmCreateHierarchyElement2 = send_request(self.ws_client, "simArcs.ahmCreateHierarchyElement", [LoadModel.loadObj_id, loadObj_type], "ahmCreateHierarchyElement 创建机器人节点")
+            robot_point_id = None
             if response_ahmCreateHierarchyElement2 and response_ahmCreateHierarchyElement2.get("success") and "ret" in response_ahmCreateHierarchyElement2 and response_ahmCreateHierarchyElement2["ret"]:
-                robot_id = response_ahmCreateHierarchyElement2["ret"][0]
-                logger.info(f"[PERF] ahmCreateHierarchyElement 创建机器人的节点成功，对象ID: {robot_id}")
+                robot_point_id = response_ahmCreateHierarchyElement2["ret"][0]
+                logger.info(f"[PERF] ahmCreateHierarchyElement 创建机器人的节点成功，对象ID: {robot_point_id}")
             else:
                 logger.warning(f"[PERF] ahmCreateHierarchyElement 创建机器人的节点失败或返回空: {response_ahmCreateHierarchyElement2}")
 
-
-            # 24. 设置父节点
-            send_request(self.ws_client, "simArcs.ahmSetElementParent", [robot_id, workbench_id], "ahmSetElementParent 设置机器人的父节点")
+            # 24. 设置机器人的父节点
+            send_request(self.ws_client, "simArcs.ahmSetElementParent", [robot_point_id, workbench_point_id], "ahmSetElementParent 设置机器人的父节点")
 
             # # 24.1 获取节点名称
-            # req_ahmGetElementName = {"func": "simArcs.ahmGetElementName", "args": [robot_id],"id": "ahmGetElementName"}
+            # req_ahmGetElementName = {"func": "simArcs.ahmGetElementName", "args": [robot_point_id],"id": "ahmGetElementName"}
             # ws_send_and_wait(req_ahmGetElementName,"req_ahmGetElementName 获取节点名称")
 
             # 25. 获取场景树

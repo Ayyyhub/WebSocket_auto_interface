@@ -13,7 +13,6 @@ def test_amStartJog_with_enable_should_success(ws_client, jog_context):
         [0, 1, 1],
         "start jog"
     )
-
     assert resp["success"] is True and resp["ret"] == [True], \
         f"断言失败：success={resp['success']}，ret={resp['ret']}"
 

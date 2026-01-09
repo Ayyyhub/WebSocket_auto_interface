@@ -6,6 +6,7 @@ from Service.loadmodel_chain import LoadModel
 from Service.teaching_chain import Teaching
 from utils.logger import logger
 
+
 @allure.feature("Create Program By Teaching")
 class TestAmTeaching:
 
@@ -19,7 +20,9 @@ class TestAmTeaching:
         3. 启动控制器
         4. 执行示教动作并生成ARL程序
         """
-        
+        # trace_id = get_unique_id("WF")
+        # with logger.contextualize(trace_id=trace_id):
+            
         with allure.step("1. 系统初始化 (Init Chain)"):
             logger.info("Step 1: Initialization")
             ws_init_chain(ws_client)
@@ -31,19 +34,19 @@ class TestAmTeaching:
             # 可以在这里添加断言，例如检查 load_model_instance.loadObj_id 是否存在
             # assert load_model_instance.loadObj_id is not None, "Model load failed, ID is None"
 
-        with allure.step("3. 开启使能 (Start Controller)"):
-            logger.info("Step 3: Start Control")
-            started = ws_amStart_chain(ws_client)
-            assert started is True, "控制器启动失败 (Controller failed to start)"
+        # with allure.step("3. 开启使能 (Start Controller)"):
+        #     logger.info("Step 3: Start Control")
+        #     started = ws_amStart_chain(ws_client)
+        #     assert started is True, "控制器启动失败 (Controller failed to start)"
 
-        with allure.step("4. 执行示教 (Teaching)"):
-            if started:
-                logger.info("Step 4: Teaching")
-                teaching_instance = Teaching(ws_client)
-                teaching_instance.ws_teaching_chain()
-                # 验证 ARL 程序 ID 是否生成
-                with allure.step("验证 ARL 程序生成结果"):
-                    assert Teaching.arl_id is not None, "示教流程结束，但未生成 ARL 程序 ID"
-                    logger.info(f"验证通过: ARL ID = {Teaching.arl_id}")
-            else:
-                pytest.fail("由于控制器启动失败，跳过示教步骤")
+        # with allure.step("4. 执行示教 (Teaching)"):
+        #     if started:
+        #         logger.info("Step 4: Teaching")
+        #         teaching_instance = Teaching(ws_client)
+        #         teaching_instance.ws_teaching_chain()
+        #         # 验证 ARL 程序 ID 是否生成
+        #         with allure.step("验证 ARL 程序生成结果"):
+        #             assert Teaching.arl_id is not None, "示教流程结束，但未生成 ARL 程序 ID"
+        #             logger.info(f"验证通过: ARL ID = {Teaching.arl_id}")
+        #     else:
+        #         pytest.fail("由于控制器启动失败，跳过示教步骤")

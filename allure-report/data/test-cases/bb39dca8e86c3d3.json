@@ -1,0 +1,216 @@
+{
+  "uid" : "bb39dca8e86c3d3",
+  "name" : "执行完整的示教流程：初始化 -> 加载模型 -> 启动控制 -> 示教",
+  "fullName" : "tests.e2e.test_amteaching.TestAmTeaching#test_full_teaching_workflow",
+  "historyId" : "a1d331abc8cf2dfaa72a961db2fca0a0",
+  "time" : {
+    "start" : 1767078396847,
+    "stop" : 1767078440674,
+    "duration" : 43827
+  },
+  "description" : "\n        完整流程测试：\n        1. 系统初始化\n        2. 加载模型\n        3. 启动控制器\n        4. 执行示教动作并生成ARL程序\n        ",
+  "descriptionHtml" : "<pre><code>    完整流程测试：\n    1. 系统初始化\n    2. 加载模型\n    3. 启动控制器\n    4. 执行示教动作并生成ARL程序\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "_case_trace",
+    "time" : {
+      "start" : 1767078396836,
+      "stop" : 1767078396836,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "ws_client",
+    "time" : {
+      "start" : 1767078387764,
+      "stop" : 1767078396835,
+      "duration" : 9071
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "description" : "\n        完整流程测试：\n        1. 系统初始化\n        2. 加载模型\n        3. 启动控制器\n        4. 执行示教动作并生成ARL程序\n        ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "1. 系统初始化 (Init Chain)",
+      "time" : {
+        "start" : 1767078396847,
+        "stop" : 1767078402241,
+        "duration" : 5394
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "2. 加载模型 (Load Model)",
+      "time" : {
+        "start" : 1767078402241,
+        "stop" : 1767078407339,
+        "duration" : 5098
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "3. 开启使能 (Start Controller)",
+      "time" : {
+        "start" : 1767078407339,
+        "stop" : 1767078422898,
+        "duration" : 15559
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "4. 执行示教 (Teaching)",
+      "time" : {
+        "start" : 1767078422898,
+        "stop" : 1767078440674,
+        "duration" : 17776
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "验证 ARL 程序生成结果",
+        "time" : {
+          "start" : 1767078440673,
+          "stop" : 1767078440674,
+          "duration" : 1
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false,
+        "stepsCount" : 0
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 1
+    } ],
+    "attachments" : [ {
+      "uid" : "881ef24f2a7b6309",
+      "name" : "log",
+      "source" : "881ef24f2a7b6309.txt",
+      "type" : "text/plain",
+      "size" : 111
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 5
+  },
+  "afterStages" : [ {
+    "name" : "_case_trace::0",
+    "time" : {
+      "start" : 1767078440677,
+      "stop" : 1767078440677,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "ws_client::0",
+    "time" : {
+      "start" : 1767078460578,
+      "stop" : 1767078460579,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "Create Program By Teaching"
+  }, {
+    "name" : "story",
+    "value" : "Complete Teaching Process"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests.e2e"
+  }, {
+    "name" : "suite",
+    "value" : "test_amteaching"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestAmTeaching"
+  }, {
+    "name" : "host",
+    "value" : "AE-CSC-250616"
+  }, {
+    "name" : "thread",
+    "value" : "14140-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.e2e.test_amteaching"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "bb39dca8e86c3d3.json",
+  "parameterValues" : [ ]
+}

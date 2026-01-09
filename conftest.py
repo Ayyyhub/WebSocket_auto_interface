@@ -7,14 +7,25 @@ from Connection.websocket_client import WSClient
 from core.ws_request import ws_clear_pending
 from utils.token_util import load_config, get_token,logout
 from utils.logger import logger
+from utils.timestamp import get_unique_id
+
+# 确保项目根目录在 sys.path 中，防止导入模块报错
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 
 # 注册 unit_fixtures 插件
 pytest_plugins = [
     "tests.unit_fixtures.amStartJog_context",
+    "tests.unit_fixtures.ahmGetHierarchy_context",
 ]
 
-# 确保项目根目录在 sys.path 中，防止导入模块报错
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+@pytest.fixture(autouse=True)
+def _case_trace():
+    trace_id = get_unique_id("CASE")
+    with logger.contextualize(trace_id=trace_id):
+        yield
+
 
 # Session 级别的 fixture 只有在 所有测试用例都跑完 之后才会执行 teardown
 @pytest.fixture(scope="session")
@@ -73,3 +84,5 @@ def ws_client():
     # 7. 退出登录
     # if token:
     #     logout(token)
+
+ 

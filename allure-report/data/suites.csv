@@ -1,0 +1,29 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Dec 30 15:07:34 CST 2025","Tue Dec 30 15:07:35 CST 2025","1333","tests.unit","test_amStartJog","","","","test_jog_with_bad_enable[enable_args1-True]",""
+"passed","Tue Dec 30 15:07:27 CST 2025","Tue Dec 30 15:07:28 CST 2025","1466","tests.unit","test_amStartJog","","","","test_jog_preconditions[False-True-True-True-True]",""
+"passed","Tue Dec 30 15:06:36 CST 2025","Tue Dec 30 15:07:20 CST 2025","43827","tests.e2e","test_amteaching","TestAmTeaching","","","执行完整的示教流程：初始化 -> 加载模型 -> 启动控制 -> 示教","
+        完整流程测试：
+        1. 系统初始化
+        2. 加载模型
+        3. 启动控制器
+        4. 执行示教动作并生成ARL程序
+        "
+"passed","Tue Dec 30 15:07:35 CST 2025","Tue Dec 30 15:07:37 CST 2025","1608","tests.unit","test_amStartJog","","","","test_jog_with_bad_target_args[jog_args0-True]",""
+"passed","Tue Dec 30 15:07:31 CST 2025","Tue Dec 30 15:07:32 CST 2025","1473","tests.unit","test_amStartJog","","","","test_jog_preconditions[True-True-True-False-True]",""
+"passed","Tue Dec 30 15:07:29 CST 2025","Tue Dec 30 15:07:30 CST 2025","1214","tests.unit","test_amStartJog","","","","test_jog_preconditions[True-False-True-True-True]",""
+"passed","Tue Dec 30 15:07:37 CST 2025","Tue Dec 30 15:07:38 CST 2025","1602","tests.unit","test_amStartJog","","","","test_jog_with_bad_target_args[jog_args1-True]",""
+"passed","Tue Dec 30 15:07:38 CST 2025","Tue Dec 30 15:07:40 CST 2025","1602","tests.unit","test_amStartJog","","","","test_jog_with_bad_target_args[jog_args2-True]",""
+"passed","Tue Dec 30 15:07:30 CST 2025","Tue Dec 30 15:07:31 CST 2025","979","tests.unit","test_amStartJog","","","","test_jog_preconditions[True-True-False-True-True]",""
+"passed","Tue Dec 30 15:07:32 CST 2025","Tue Dec 30 15:07:34 CST 2025","1615","tests.unit","test_amStartJog","","","","test_jog_with_bad_enable[enable_args0-True]",""
+"passed","Tue Dec 30 15:07:27 CST 2025","Tue Dec 30 15:07:27 CST 2025","436","tests.unit","test_amStartJog","","","","test_amStartJog_boundary_speed","
+    使用 jog_context 准备的正常流程上下文
+    测试第三个参数异常情况
+    "
+"passed","Tue Dec 30 15:07:25 CST 2025","Tue Dec 30 15:07:25 CST 2025","440","tests.unit","test_amStartJog","","","","test_amStartJog_with_enable_should_success","
+    使用 jog_context 准备的正常流程上下文
+    测试正常启动 JOG
+    "
+"passed","Tue Dec 30 15:07:20 CST 2025","Tue Dec 30 15:07:24 CST 2025","3564","tests.unit","test_ahmGetHierarchy","","","","test_ahmGetHierarchy_with_full_context","
+    完整上下文：加载模型 -> 创建工作台/机器人节点 -> 设置父子关系
+    目标接口：获取场景树
+    "

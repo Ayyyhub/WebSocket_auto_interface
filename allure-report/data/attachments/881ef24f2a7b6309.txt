@@ -1,0 +1,2 @@
+2025-12-30 15:06:27 [[32mINFO[0m] Websocket connected
+2025-12-30 15:06:36 [[32mINFO[0m] Websocket connected

@@ -1,0 +1,145 @@
+2026-01-06 17:33:22 | INFO | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2026-01-06 17:33:22 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-01-06 17:33:22 | INFO | - | websocket_client:connect:79 - WebSocket 连接成功，耗时: 0.11s
+2026-01-06 17:33:23 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-01-06 17:33:23 | INFO | - | websocket_client:connect:79 - WebSocket 连接成功，耗时: 0.11s
+2026-01-06 17:33:23 | INFO | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2026-01-06 17:33:23 | INFO | - | dispatcher:_parse_raw:68 - loadModel 加载模型 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-01-06 17:33:23 | INFO | - | dispatcher:_parse_raw:68 - loadModel 加载模型 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-01-06 17:33:24 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692003874468","ret":[587],"success":true}
+2026-01-06 17:33:24 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692003874468'}
+2026-01-06 17:33:24 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692003874468', 'ret': [587], 'success': True}
+2026-01-06 17:33:24 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-01-06 17:33:27 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692006298424","ret":[609],"success":true}
+2026-01-06 17:33:27 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692006298424'}
+2026-01-06 17:33:27 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692006298424', 'ret': [609], 'success': True}
+2026-01-06 17:33:27 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.75s，None重试: 0次
+2026-01-06 17:33:30 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692009634553","ret":[631],"success":true}
+2026-01-06 17:33:30 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692009634553'}
+2026-01-06 17:33:30 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692009634553', 'ret': [631], 'success': True}
+2026-01-06 17:33:30 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.76s，None重试: 0次
+2026-01-06 17:33:32 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692011973258","ret":[653],"success":true}
+2026-01-06 17:33:32 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692011973258'}
+2026-01-06 17:33:32 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692011973258', 'ret': [653], 'success': True}
+2026-01-06 17:33:32 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.77s，None重试: 0次
+2026-01-06 17:33:36 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692015563900","ret":[675],"success":true}
+2026-01-06 17:33:36 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692015563900'}
+2026-01-06 17:33:36 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692015563900', 'ret': [675], 'success': True}
+2026-01-06 17:33:36 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.78s，None重试: 0次
+2026-01-06 17:33:39 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692018910013","ret":[697],"success":true}
+2026-01-06 17:33:39 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692018910013'}
+2026-01-06 17:33:39 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692018910013', 'ret': [697], 'success': True}
+2026-01-06 17:33:39 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.82s，None重试: 0次
+2026-01-06 17:33:42 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692022098095","ret":[719],"success":true}
+2026-01-06 17:33:42 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692022098095'}
+2026-01-06 17:33:42 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692022098095', 'ret': [719], 'success': True}
+2026-01-06 17:33:42 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.75s，None重试: 0次
+2026-01-06 17:33:46 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692025281572","ret":[741],"success":true}
+2026-01-06 17:33:46 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692025281572'}
+2026-01-06 17:33:46 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692025281572', 'ret': [741], 'success': True}
+2026-01-06 17:33:46 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.78s，None重试: 0次
+2026-01-06 17:33:50 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692029258229","ret":[763],"success":true}
+2026-01-06 17:33:50 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692029258229'}
+2026-01-06 17:33:50 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692029258229', 'ret': [763], 'success': True}
+2026-01-06 17:33:50 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.78s，None重试: 0次
+2026-01-06 17:33:53 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692032934772","ret":[785],"success":true}
+2026-01-06 17:33:53 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692032934772'}
+2026-01-06 17:33:53 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692032934772', 'ret': [785], 'success': True}
+2026-01-06 17:33:53 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-01-06 17:33:57 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692036324719","ret":[807],"success":true}
+2026-01-06 17:33:57 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692036324719'}
+2026-01-06 17:33:57 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692036324719', 'ret': [807], 'success': True}
+2026-01-06 17:33:57 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.81s，None重试: 0次
+2026-01-06 17:33:59 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692038632256","ret":[829],"success":true}
+2026-01-06 17:33:59 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692038632256'}
+2026-01-06 17:33:59 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692038632256', 'ret': [829], 'success': True}
+2026-01-06 17:33:59 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.76s，None重试: 0次
+2026-01-06 17:34:03 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692042368402","ret":[851],"success":true}
+2026-01-06 17:34:03 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692042368402'}
+2026-01-06 17:34:03 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692042368402', 'ret': [851], 'success': True}
+2026-01-06 17:34:03 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.75s，None重试: 0次
+2026-01-06 17:34:06 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692045761443","ret":[873],"success":true}
+2026-01-06 17:34:06 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692045761443'}
+2026-01-06 17:34:06 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692045761443', 'ret': [873], 'success': True}
+2026-01-06 17:34:06 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.74s，None重试: 0次
+2026-01-06 17:34:10 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692049134585","ret":[895],"success":true}
+2026-01-06 17:34:10 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692049134585'}
+2026-01-06 17:34:10 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692049134585', 'ret': [895], 'success': True}
+2026-01-06 17:34:10 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.99s，None重试: 0次
+2026-01-06 17:34:12 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692051946013","ret":[917],"success":true}
+2026-01-06 17:34:12 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692051946013'}
+2026-01-06 17:34:12 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692051946013', 'ret': [917], 'success': True}
+2026-01-06 17:34:12 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.81s，None重试: 0次
+2026-01-06 17:34:16 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692055447041","ret":[939],"success":true}
+2026-01-06 17:34:16 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692055447041'}
+2026-01-06 17:34:16 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692055447041', 'ret': [939], 'success': True}
+2026-01-06 17:34:16 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.80s，None重试: 0次
+2026-01-06 17:34:18 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692057795983","ret":[961],"success":true}
+2026-01-06 17:34:18 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692057795983'}
+2026-01-06 17:34:18 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692057795983', 'ret': [961], 'success': True}
+2026-01-06 17:34:18 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.87s，None重试: 0次
+2026-01-06 17:34:22 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692061314192","ret":[983],"success":true}
+2026-01-06 17:34:22 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692061314192'}
+2026-01-06 17:34:22 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692061314192', 'ret': [983], 'success': True}
+2026-01-06 17:34:22 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.79s，None重试: 0次
+2026-01-06 17:34:25 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692064351132","ret":[1005],"success":true}
+2026-01-06 17:34:25 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692064351132'}
+2026-01-06 17:34:25 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692064351132', 'ret': [1005], 'success': True}
+2026-01-06 17:34:25 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.76s，None重试: 0次
+2026-01-06 17:34:27 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692066669373","ret":[1027],"success":true}
+2026-01-06 17:34:27 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692066669373'}
+2026-01-06 17:34:27 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692066669373', 'ret': [1027], 'success': True}
+2026-01-06 17:34:27 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.85s，None重试: 0次
+2026-01-06 17:34:31 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692070319529","ret":[1049],"success":true}
+2026-01-06 17:34:31 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692070319529'}
+2026-01-06 17:34:31 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692070319529', 'ret': [1049], 'success': True}
+2026-01-06 17:34:31 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.85s，None重试: 0次
+2026-01-06 17:34:35 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692074323987","ret":[1071],"success":true}
+2026-01-06 17:34:35 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692074323987'}
+2026-01-06 17:34:35 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692074323987', 'ret': [1071], 'success': True}
+2026-01-06 17:34:35 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.87s，None重试: 0次
+2026-01-06 17:34:37 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692076730373","ret":[1093],"success":true}
+2026-01-06 17:34:37 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692076730373'}
+2026-01-06 17:34:37 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692076730373', 'ret': [1093], 'success': True}
+2026-01-06 17:34:37 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.75s，None重试: 0次
+2026-01-06 17:34:41 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692080412891","ret":[1115],"success":true}
+2026-01-06 17:34:41 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692080412891'}
+2026-01-06 17:34:41 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692080412891', 'ret': [1115], 'success': True}
+2026-01-06 17:34:41 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.86s，None重试: 0次
+2026-01-06 17:34:44 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692083312591","ret":[1137],"success":true}
+2026-01-06 17:34:44 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692083312591'}
+2026-01-06 17:34:44 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692083312591', 'ret': [1137], 'success': True}
+2026-01-06 17:34:44 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.84s，None重试: 0次
+2026-01-06 17:34:48 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692087247856","ret":[1159],"success":true}
+2026-01-06 17:34:48 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692087247856'}
+2026-01-06 17:34:48 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692087247856', 'ret': [1159], 'success': True}
+2026-01-06 17:34:48 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.81s，None重试: 0次
+2026-01-06 17:34:50 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692090198269","ret":[1181],"success":true}
+2026-01-06 17:34:50 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692090198269'}
+2026-01-06 17:34:50 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692090198269', 'ret': [1181], 'success': True}
+2026-01-06 17:34:50 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.76s，None重试: 0次
+2026-01-06 17:34:54 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692093664622","ret":[1203],"success":true}
+2026-01-06 17:34:54 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692093664622'}
+2026-01-06 17:34:54 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692093664622', 'ret': [1203], 'success': True}
+2026-01-06 17:34:54 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.82s，None重试: 0次
+2026-01-06 17:34:57 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692097040706","ret":[1225],"success":true}
+2026-01-06 17:34:57 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692097040706'}
+2026-01-06 17:34:57 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692097040706', 'ret': [1225], 'success': True}
+2026-01-06 17:34:57 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.88s，None重试: 0次
+2026-01-06 17:35:01 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692101116522","ret":[1247],"success":true}
+2026-01-06 17:35:01 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692101116522'}
+2026-01-06 17:35:01 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692101116522', 'ret': [1247], 'success': True}
+2026-01-06 17:35:01 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.87s，None重试: 0次
+2026-01-06 17:35:05 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692104715077","ret":[1269],"success":true}
+2026-01-06 17:35:05 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692104715077'}
+2026-01-06 17:35:05 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692104715077', 'ret': [1269], 'success': True}
+2026-01-06 17:35:05 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.86s，None重试: 0次
+2026-01-06 17:35:08 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692107710340","ret":[1291],"success":true}
+2026-01-06 17:35:08 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692107710340'}
+2026-01-06 17:35:08 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692107710340', 'ret': [1291], 'success': True}
+2026-01-06 17:35:08 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.80s，None重试: 0次
+2026-01-06 17:35:12 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"id":"loadModel_1767692111509339","ret":[1313],"success":true}
+2026-01-06 17:35:12 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1767692111509339'}
+2026-01-06 17:35:12 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'id': 'loadModel_1767692111509339', 'ret': [1313], 'success': True}
+2026-01-06 17:35:12 | INFO | - | ws_request:ws_send_and_wait:141 - loadModel 加载模型 接口响应成功，总耗时: 0.85s，None重试: 0次
+2026-01-06 17:35:16 | INFO | - | users:on_stop:65 - [Locust] WebSocket 连接已关闭

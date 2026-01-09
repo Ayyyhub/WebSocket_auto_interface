@@ -79,8 +79,9 @@ def ws_send_and_wait(req, desc, expect_success=True, expect_ret=None, max_none_r
             logger.error(f"{desc}收到非json响应 (已忽略错误)")
             return None
         raise AssertionError(f"{desc}收到非json响应")
-    print("\n")
-    logger.info(f"{desc} 请求: {req} \n响应: {parsed_response}")
+
+    logger.info(f"请求体: {req}")
+    logger.info(f"响应体: {parsed_response}")
 
     # ret 为空数组时,断言宽容通过
     if parsed_response == [] or (isinstance(parsed_response, dict) and parsed_response.get("ret") == []):
@@ -137,7 +138,7 @@ def ws_send_and_wait(req, desc, expect_success=True, expect_ret=None, max_none_r
 
 
     #======  正常通过：计算耗时、记录成功统计  =======
-    logger.info(f"{desc}响应成功，总耗时: {elapsed:.2f}s，None重试: {none_count}次")
+    logger.info(f"{desc} 接口响应成功，总耗时: {elapsed:.2f}s，None重试: {none_count}次")
     result_stats.append({
         "desc": desc,
         "none_count": none_count,

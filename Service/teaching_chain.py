@@ -52,7 +52,7 @@ class Teaching:
             # 替换点位0
             send_request(self.ws_client, "simArcs.aamReplaceRobotAndExJointStatus", [0, 0, 0, 'collect_point_path', 0], "aamReplaceRobotAndExJointStatus 替换点位", owner=self)
             # 点2轨迹回溯
-            send_request(self.ws_client, "simArcs.aamTrajectoryBacktrackingPtpPose", [0, 0, 0, 'collect_point_path', 2, loadmodel_instance.loadObj_id, 100], "aamTrajectoryBacktrackingPtpPose 轨迹回溯", owner=self)
+            send_request(self.ws_client, "simArcs.aamTrajectoryBacktrackingPtpPose", [0, 0, 'collect_point_path', 2, loadmodel_instance.loadObj_id, 100], "aamTrajectoryBacktrackingPtpPose 轨迹回溯", owner=self)
 
 
             # === 2. 点击生成程序流程 ===
