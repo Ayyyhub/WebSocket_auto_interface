@@ -33,7 +33,7 @@ def configure_logger():
 
     # 用于文件归档
     logger.add(
-        "Log/logs/ui_auto_test_{time:YYYY-MM-DD_HH-mm-ss}.log",
+        "Log/logs/test_auto_test_{time:YYYY-MM-DD_HH-mm-ss}.log",
         rotation="1000 MB", # 这个1000MB是不是不太合理，如果我的日志多了超过1000了那不就糟了
         retention="3 days",
         level=log_level,

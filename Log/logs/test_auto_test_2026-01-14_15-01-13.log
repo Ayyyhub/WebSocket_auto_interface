@@ -1,0 +1,3 @@
+2026-01-14 15:01:18 | INFO | - | users:on_start:33 - Locust 目标用户数: 1
+2026-01-14 15:01:18 | INFO | - | account_pool:_ensure_accounts_loaded:58 - 从配置文件加载了 3 个账号
+2026-01-14 15:01:18 | INFO | - | account_pool:_ensure_accounts_loaded:81 - 账号池已加载 1 个账号（目标用户数: 1）

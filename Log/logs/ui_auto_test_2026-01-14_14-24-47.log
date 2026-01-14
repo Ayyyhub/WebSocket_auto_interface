@@ -1,0 +1,43 @@
+2026-01-14 14:25:00 | INFO | - | users:on_start:33 - Locust 目标用户数: 1
+2026-01-14 14:25:00 | INFO | - | account_pool:_ensure_accounts_loaded:58 - 从配置文件加载了 3 个账号
+2026-01-14 14:25:00 | INFO | - | account_pool:_ensure_accounts_loaded:81 - 账号池已加载 1 个账号（目标用户数: 1）
+2026-01-14 14:25:01 | INFO | - | websocket_client:connect:79 - WebSocket 连接成功，耗时: 0.10s
+2026-01-14 14:25:01 | INFO | - | users:on_start:57 - [Locust] User pt99 建立 WebSocket 链接成功！
+2026-01-14 14:25:01 | INFO | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2026-01-14 14:25:01 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-01-14 14:25:01 | INFO | - | dispatcher:_parse_raw:67 - amStart 开启使能 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-01-14 14:25:06 | INFO | - | dispatcher:wait_for_response:93 - amStart 开启使能收到None，重试(1/3)...
+2026-01-14 14:25:11 | INFO | - | dispatcher:wait_for_response:93 - amStart 开启使能收到None，重试(2/3)...
+2026-01-14 14:25:16 | INFO | - | ws_request:ws_send_and_wait:49 - amStart 开启使能连续3次无响应
+2026-01-14 14:25:16 | ERROR | - | ws_request:ws_send_and_wait:62 - amStart 开启使能连续3次无响应 (已忽略错误)
+2026-01-14 14:25:20 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"success":false,"error":"No such function: simArcs.amGetAll","id":"amGetAll_1768371919997162"}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'simArcs.amGetAll', 'args': [], 'id': 'amGetAll_1768371919997162'}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'success': False, 'error': 'No such function: simArcs.amGetAll', 'id': 'amGetAll_1768371919997162'}
+2026-01-14 14:25:20 | ERROR | - | ws_request:ws_send_and_wait:116 - amGetAll 获取所有控制器 失败: {'success': False, 'error': 'No such function: simArcs.amGetAll', 'id': 'amGetAll_1768371919997162'} 
+2026-01-14 14:25:20 | WARNING | - | harness:send_request:62 - amGetAll_1768371919997162 断言失败！
+2026-01-14 14:25:20 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"success":false,"error":"No such function: simArcs.amGetVisualSimulationState","id":"amGetVisualSimulationState_1768371920096561"}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'simArcs.amGetVisualSimulationState', 'args': [], 'id': 'amGetVisualSimulationState_1768371920096561'}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'success': False, 'error': 'No such function: simArcs.amGetVisualSimulationState', 'id': 'amGetVisualSimulationState_1768371920096561'}
+2026-01-14 14:25:20 | ERROR | - | ws_request:ws_send_and_wait:116 - amGetVisualSimulationState 获取可视化仿真状态 失败: {'success': False, 'error': 'No such function: simArcs.amGetVisualSimulationState', 'id': 'amGetVisualSimulationState_1768371920096561'} 
+2026-01-14 14:25:20 | WARNING | - | harness:send_request:62 - amGetVisualSimulationState_1768371920096561 断言失败！
+2026-01-14 14:25:20 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"success":false,"error":"No such function: simArcs.amGetControlMode","id":"amGetControlMode_1768371920226667"}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'simArcs.amGetControlMode', 'args': [0], 'id': 'amGetControlMode_1768371920226667'}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'success': False, 'error': 'No such function: simArcs.amGetControlMode', 'id': 'amGetControlMode_1768371920226667'}
+2026-01-14 14:25:20 | ERROR | - | ws_request:ws_send_and_wait:116 - amGetControlMode 获取控制模式 失败: {'success': False, 'error': 'No such function: simArcs.amGetControlMode', 'id': 'amGetControlMode_1768371920226667'} 
+2026-01-14 14:25:20 | WARNING | - | harness:send_request:62 - amGetControlMode_1768371920226667 断言失败！
+2026-01-14 14:25:20 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"success":false,"error":"No such function: simArcs.amGetPowerState","id":"amGetPowerState_1768371920359025"}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'simArcs.amGetPowerState', 'args': [0], 'id': 'amGetPowerState_1768371920359025'}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'success': False, 'error': 'No such function: simArcs.amGetPowerState', 'id': 'amGetPowerState_1768371920359025'}
+2026-01-14 14:25:20 | ERROR | - | ws_request:ws_send_and_wait:116 - amGetPowerState 获取使能状态 失败: {'success': False, 'error': 'No such function: simArcs.amGetPowerState', 'id': 'amGetPowerState_1768371920359025'} 
+2026-01-14 14:25:20 | WARNING | - | harness:send_request:62 - amGetPowerState_1768371920359025 断言失败！
+2026-01-14 14:25:20 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"success":false,"error":"No such function: simArcs.amSetEnableButtonState","id":"amSetEnableButtonState_1768371920475503"}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'simArcs.amSetEnableButtonState', 'args': [0, False], 'id': 'amSetEnableButtonState_1768371920475503'}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'success': False, 'error': 'No such function: simArcs.amSetEnableButtonState', 'id': 'amSetEnableButtonState_1768371920475503'}
+2026-01-14 14:25:20 | ERROR | - | ws_request:ws_send_and_wait:116 - req_amSetEnableButtonState 使能下电 失败: {'success': False, 'error': 'No such function: simArcs.amSetEnableButtonState', 'id': 'amSetEnableButtonState_1768371920475503'} 
+2026-01-14 14:25:20 | WARNING | - | harness:send_request:62 - amSetEnableButtonState_1768371920475503 断言失败！
+2026-01-14 14:25:20 | INFO | - | websocket_client:on_message:30 - [WSClient] 收到原始数据: {"success":false,"error":"No such function: simArcs.amSetEnableButtonState","id":"amSetEnableButtonState_1768371920611483"}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:83 - 请求体: {'func': 'simArcs.amSetEnableButtonState', 'args': [0, True], 'id': 'amSetEnableButtonState_1768371920611483'}
+2026-01-14 14:25:20 | INFO | - | ws_request:ws_send_and_wait:84 - 响应体: {'success': False, 'error': 'No such function: simArcs.amSetEnableButtonState', 'id': 'amSetEnableButtonState_1768371920611483'}
+2026-01-14 14:25:20 | ERROR | - | ws_request:ws_send_and_wait:116 - req_amSetEnableButtonState 使能上电 失败: {'success': False, 'error': 'No such function: simArcs.amSetEnableButtonState', 'id': 'amSetEnableButtonState_1768371920611483'} 
+2026-01-14 14:25:20 | WARNING | - | harness:send_request:62 - amSetEnableButtonState_1768371920611483 断言失败！
+2026-01-14 14:25:21 | INFO | - | users:on_stop:103 - [Locust] User pt99 WebSocket 连接已关闭

@@ -64,20 +64,20 @@ def load_model(user_instance):
             user_instance.ws_client, 
             "sim.loadModel", 
             ["public/models/robot/AIR4_560A/AIR4_560A.m"],
-            "loadModel 加载模型"
+            "loadModel 加载模型单接口"
         )
         elapsed_time = (time.perf_counter() - start_time) * 1000
         
         # 业务断言
         success, error_msg = assert_response_locust(
             response,
-            "loadModel 加载模型",
+            "loadModel 加载模型单接口",
             expect_success=True,
             expect_fields=["ret"]
         )
-        
+        # 断言失败时，主动“造”一条 ASSERTION 请求给 Locust
         if not success:
-            report_assertion_failure("loadModel 加载模型", error_msg, elapsed_time)
+            report_assertion_failure("loadModel 加载模型单接口", error_msg, elapsed_time)
             
     except Exception as e:
         logger.error(f"[Locust] load_model 失败: {e}")

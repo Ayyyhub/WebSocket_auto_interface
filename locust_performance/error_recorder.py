@@ -83,6 +83,11 @@ class ErrorRecorder:
     
     def export_to_json(self, filepath="locust_errors.json"):
         """导出错误详情到JSON文件"""
+        import os
+        # 如果是相对路径，保存到 locust_performance 目录
+        if not os.path.isabs(filepath):
+            base_dir = os.path.dirname(__file__)
+            filepath = os.path.join(base_dir, filepath)
         with self._lock:
             data = {
                 "export_time": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
@@ -106,10 +111,10 @@ class ErrorRecorder:
             self._errors.clear()
 
 
-
-
 # 全局错误记录器实例
 error_recorder = ErrorRecorder()
+
+
 
 
 def on_request_failure(request_type, name, response_time, response_length, exception=None, **kwargs):

@@ -54,10 +54,10 @@ class BaseRobotUser(User):
             self.ws_client.connect()
             
             if self.ws_client.connected:
-                print(f"User {user_id} 建立 WebSocket 链接成功！")
+                logger.info(f"[Locust] User {user_id} 建立 WebSocket 链接成功！")
                 ws_clear_pending(self.ws_client)
             else:
-                print(f"User {user_id} 连接虽然没报错，但状态为未连接")
+                logger.warning(f"[Locust] User {user_id} 连接虽然没报错，但状态为未连接")
 
         except Exception as e:
             print(f"[Locust] User 初始化失败: {e}")

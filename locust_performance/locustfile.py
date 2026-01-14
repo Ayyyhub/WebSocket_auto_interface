@@ -1,4 +1,5 @@
 # locustfile.py
+# 一个用户就是一个实例==协程
 from locust import task, between
 from core.harness import send_request
 from locust_performance.request_recorder import record_request
@@ -8,6 +9,33 @@ import locust_performance.response_time_monitor  # P1: 响应时间监控
 import locust_performance.error_recorder  # P1: 错误详情记录
 import locust_performance.scenarios_stats  # P1: 场景级统计
 import locust_performance.runtime_customed  # P2: UI压测持续时间功能
+
+class ComplexTask(BaseRobotUser):
+    """
+    压测场景 0：复杂场景
+    """
+    wait_time = between(1, 3)
+
+    @task(5)
+    def load_model_flow_task(self):
+        """任务：加载模型流程"""
+       
+        record_request(self, "loadModel 加载模型链路", load_model_flow, self)
+    @task(1)
+    def full_teaching_task(self):
+        """任务：完整示教流程"""
+        record_request(self,"full_teaching_flow 完整示教流程", full_teaching_flow,self)
+    @task(3)
+    # self 是 QuickInterfaceTask 的实例，它继承自 BaseRobotUser
+    # self 都代表是当前这个用户实例（QuickInterfaceTask → BaseRobotUser）
+    def load_model_task(self):
+        """任务：加载模型单接口"""
+        # load_model(self)
+        # 必须这样写，UI 才能看到数据，调用 load_model 函数，并上报到 monitors.py 里
+        # self.record_request("loadModel 加载模型", load_model, self)
+        record_request(self, "loadModel 加载模型单接口", load_model, self)
+
+
 
 class LoadModelTask(BaseRobotUser):
     """
@@ -19,7 +47,7 @@ class LoadModelTask(BaseRobotUser):
     def load_model_flow_task(self):
         """任务：加载模型流程"""
        
-        record_request(self, "loadModel 加载模型单接口", load_model_flow, self)
+        record_request(self, "loadModel 加载模型链路", load_model_flow, self)
 
 
 
