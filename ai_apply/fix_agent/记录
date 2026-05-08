@@ -1,0 +1,41 @@
+1、问题：
+
+那我们这里为什么不这么做呢？现在我们是结构化输出后然后用skill_dispatch去查然后调用具体的skill是吗？我理解是不是可以在create_agent的参数tool里面就直接做了？
+
+
+2、答案：
+
+你理解得没错，技术上可以用 create_react_agent 把 skill 注册成 tool，让 AI 自己决定调哪个。
+
+但我们的场景不适合这么做，原因是：
+
+1. 路由是确定性的，不需要 AI 判断
+
+AI 已经通过 ERROR_ANALYSIS_TOOL 返回了 error_category = "wrong_test_data"，接下来查字典派给 skill 是确定的事。让 AI 再决定"要不要调 WrongTestDataSkill"是多余的——它肯定会调，因为分类已经是它自己给的了。
+
+2. 多一轮 AI 调用 = 多花钱、多耗时
+
+现在的做法（1 次 AI 调用）:
+  AI 分类 → 代码查字典 → skill 执行
+
+create_react_agent 做法（至少 2-3 次 AI 调用）:
+  AI 分类 → AI 决定调哪个 tool → 执行 tool → AI 看结果决定下一步 → ...
+wrong_test_data 和 environment_issue 完全不需要 AI 参与，用 create_react_agent 反而每轮都要过一遍 AI。
+
+3. 可靠性
+
+代码路由	create_react_agent
+查字典 get_skill("wrong_test_data")	100% 准确	-
+AI 自己选 tool	-	可能选错
+确定性 skill（不调 AI）	直接执行，0 token	AI 还是在决策环里，花 token
+
+4. create_react_agent 适合的场景
+
+不是不能用，而是适合不确定要走哪条路的场景，比如：
+
+AI 需要试多个方案，看哪个有效
+AI 需要根据 tool 返回结果动态调整策略
+任务没有清晰的步骤
+我们的修复流程是固定的：分类 → 修 → 测 → 通过/再来。步骤确定，用代码编排比让 AI 自由发挥更可靠。
+
+总结：create_react_agent 让 AI 当决策者，适合探索性任务。我们的场景路径是确定的，让 AI 只做分类（1 次调用），剩下用代码做，更快更省更稳。

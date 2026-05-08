@@ -1,5 +1,5 @@
 import pytest
-from core.harness import send_request
+from core.request_invoker import send_request
 
 def test_ahmGetHierarchy_with_full_context(ws_client, loadmodel_context_builder):
     """

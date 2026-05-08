@@ -1,4 +1,4 @@
-from core.harness import send_request
+from core.request_invoker import send_request
 
 class GetAll4:
     def __init__(self, ws_client):

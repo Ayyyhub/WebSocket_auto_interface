@@ -1,0 +1,8 @@
+# 大模型配置
+
+# OpenAI 兼容接口
+api_url: "https://yinli.one/v1/chat/completions"
+api_key: "${OPENAI_API_KEY}"
+model: "gpt-4o"
+temperature: 0.3
+max_tokens: 4096

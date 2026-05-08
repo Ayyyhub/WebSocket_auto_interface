@@ -1,0 +1,235 @@
+2026-05-08 10:14:25 | INFO | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2026-05-08 10:14:25 | INFO | - | conftest:ws_client:56 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2026-05-08 10:14:25 | INFO | - | websocket_client:connect:78 - WebSocket 连接成功，耗时: 0.10s
+2026-05-08 10:14:26 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-08 10:14:33 | INFO | - | conftest:ws_client:68 - 主动断连后，再次Websocket connected！
+2026-05-08 10:14:33 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-08 10:14:33 | INFO | - | websocket_client:connect:78 - WebSocket 连接成功，耗时: 0.10s
+2026-05-08 10:14:33 | INFO | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2026-05-08 10:14:33 | INFO | CASE_1778206473605302 | dispatcher:_parse_raw:67 - 正常加载模型文件 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-08 10:14:33 | INFO | CASE_1778206473605302 | dispatcher:_parse_raw:67 - 正常加载模型文件 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-08 10:14:38 | INFO | CASE_1778206473605302 | dispatcher:wait_for_response:93 - 正常加载模型文件收到None，重试(1/3)...
+2026-05-08 10:14:43 | INFO | CASE_1778206473605302 | dispatcher:wait_for_response:93 - 正常加载模型文件收到None，重试(2/3)...
+2026-05-08 10:14:48 | INFO | CASE_1778206473605302 | request_invoker:_ws_send_and_wait:33 - 正常加载模型文件连续3次无响应
+2026-05-08 10:14:48 | ERROR | CASE_1778206473605302 | request_invoker:_ws_send_and_wait:38 - 正常加载模型文件连续3次无响应 (已忽略错误)
+2026-05-08 10:14:54 | INFO | CASE_1778206489123076 | dispatcher:wait_for_response:93 - 测试模型路径边界值收到None，重试(1/3)...
+2026-05-08 10:14:59 | INFO | CASE_1778206489123076 | dispatcher:wait_for_response:93 - 测试模型路径边界值收到None，重试(2/3)...
+2026-05-08 10:15:04 | INFO | CASE_1778206489123076 | request_invoker:_ws_send_and_wait:33 - 测试模型路径边界值连续3次无响应
+2026-05-08 10:15:04 | ERROR | CASE_1778206489123076 | request_invoker:_ws_send_and_wait:38 - 测试模型路径边界值连续3次无响应 (已忽略错误)
+2026-05-08 10:15:04 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"185: in sim.loadModel: file does not exist.","id":"loadModel_1778206504179324","success":false}
+2026-05-08 10:15:04 | INFO | CASE_1778206504178312 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': [12345], 'id': 'loadModel_1778206504179324'}
+2026-05-08 10:15:04 | INFO | CASE_1778206504178312 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': '185: in sim.loadModel: file does not exist.', 'id': 'loadModel_1778206504179324', 'success': False}
+2026-05-08 10:15:04 | ERROR | CASE_1778206504178312 | assertions:validate_response:75 - 模型路径参数类型错误 失败: {'error': '185: in sim.loadModel: file does not exist.', 'id': 'loadModel_1778206504179324', 'success': False}
+2026-05-08 10:15:04 | WARNING | CASE_1778206504178312 | request_invoker:send_request:105 - loadModel_1778206504179324 断言失败！
+2026-05-08 10:15:09 | INFO | CASE_1778206504612828 | dispatcher:wait_for_response:93 - 违反业务规则，传递无效的模型路径收到None，重试(1/3)...
+2026-05-08 10:15:14 | INFO | CASE_1778206504612828 | dispatcher:wait_for_response:93 - 违反业务规则，传递无效的模型路径收到None，重试(2/3)...
+2026-05-08 10:15:19 | INFO | CASE_1778206504612828 | request_invoker:_ws_send_and_wait:33 - 违反业务规则，传递无效的模型路径连续3次无响应
+2026-05-08 10:15:19 | ERROR | CASE_1778206504612828 | request_invoker:_ws_send_and_wait:38 - 违反业务规则，传递无效的模型路径连续3次无响应 (已忽略错误)
+2026-05-08 10:15:19 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"185: in sim.loadModel: the function requires more arguments.","id":"loadModel_1778206519648840","success":false}
+2026-05-08 10:15:19 | INFO | CASE_1778206519647843 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': [], 'id': 'loadModel_1778206519648840'}
+2026-05-08 10:15:19 | INFO | CASE_1778206519647843 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': '185: in sim.loadModel: the function requires more arguments.', 'id': 'loadModel_1778206519648840', 'success': False}
+2026-05-08 10:15:19 | ERROR | CASE_1778206519647843 | assertions:validate_response:75 - 调用不存在的函数名称 失败: {'error': '185: in sim.loadModel: the function requires more arguments.', 'id': 'loadModel_1778206519648840', 'success': False}
+2026-05-08 10:15:19 | WARNING | CASE_1778206519647843 | request_invoker:send_request:105 - loadModel_1778206519648840 断言失败！
+2026-05-08 10:15:20 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"185: in sim.loadModel: the function requires more arguments.","id":"loadModel_1778206519985679","success":false}
+2026-05-08 10:15:20 | INFO | CASE_1778206519985679 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': [None], 'id': 'loadModel_1778206519985679'}
+2026-05-08 10:15:20 | INFO | CASE_1778206519985679 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': '185: in sim.loadModel: the function requires more arguments.', 'id': 'loadModel_1778206519985679', 'success': False}
+2026-05-08 10:15:20 | ERROR | CASE_1778206519985679 | assertions:validate_response:75 - 模型路径参数传递 null 失败: {'error': '185: in sim.loadModel: the function requires more arguments.', 'id': 'loadModel_1778206519985679', 'success': False}
+2026-05-08 10:15:20 | WARNING | CASE_1778206519985679 | request_invoker:send_request:105 - loadModel_1778206519985679 断言失败！
+2026-05-08 10:15:20 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[1.1205300092697,-1.8998004198074,1.079717874527]],"id":"getObjectPosition_1778206520370611","success":true}
+2026-05-08 10:15:20 | INFO | CASE_1778206520368619 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [0, -1], 'id': 'getObjectPosition_1778206520370611'}
+2026-05-08 10:15:20 | INFO | CASE_1778206520368619 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[1.1205300092697, -1.8998004198074, 1.079717874527]], 'id': 'getObjectPosition_1778206520370611', 'success': True}
+2026-05-08 10:15:20 | INFO | CASE_1778206520368619 | assertions:validate_response:89 - 正常获取对象位置 接口响应成功，总耗时: 0.06s，None重试: 0次
+2026-05-08 10:15:20 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.75]],"id":"getObjectPosition_1778206520740965","success":true}
+2026-05-08 10:15:20 | INFO | CASE_1778206520740965 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [1, -1], 'id': 'getObjectPosition_1778206520740965'}
+2026-05-08 10:15:20 | INFO | CASE_1778206520740965 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.75]], 'id': 'getObjectPosition_1778206520740965', 'success': True}
+2026-05-08 10:15:20 | INFO | CASE_1778206520740965 | assertions:validate_response:89 - 测试 relative_to_object_id 的边界值 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-08 10:15:21 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"185: in sim.getObjectPosition: one of the function's argument type is not correct.","id":"getObjectPosition_1778206521120884","success":false}
+2026-05-08 10:15:21 | INFO | CASE_1778206521120884 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': ['not_a_number', -1], 'id': 'getObjectPosition_1778206521120884'}
+2026-05-08 10:15:21 | INFO | CASE_1778206521120884 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': "185: in sim.getObjectPosition: one of the function's argument type is not correct.", 'id': 'getObjectPosition_1778206521120884', 'success': False}
+2026-05-08 10:15:21 | ERROR | CASE_1778206521120884 | assertions:validate_response:75 - object_id 参数类型错误 失败: {'error': "185: in sim.getObjectPosition: one of the function's argument type is not correct.", 'id': 'getObjectPosition_1778206521120884', 'success': False}
+2026-05-08 10:15:21 | WARNING | CASE_1778206521120884 | request_invoker:send_request:105 - getObjectPosition_1778206521120884 断言失败！
+2026-05-08 10:15:21 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"185: in sim.getObjectPosition: object does not exist.","id":"getObjectPosition_1778206521502914","success":false}
+2026-05-08 10:15:21 | INFO | CASE_1778206521501879 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [-999, -1], 'id': 'getObjectPosition_1778206521502914'}
+2026-05-08 10:15:21 | INFO | CASE_1778206521501879 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': '185: in sim.getObjectPosition: object does not exist.', 'id': 'getObjectPosition_1778206521502914', 'success': False}
+2026-05-08 10:15:21 | ERROR | CASE_1778206521501879 | assertions:validate_response:75 - 违反业务规则，传递无效的 object_id 失败: {'error': '185: in sim.getObjectPosition: object does not exist.', 'id': 'getObjectPosition_1778206521502914', 'success': False}
+2026-05-08 10:15:21 | WARNING | CASE_1778206521501879 | request_invoker:send_request:105 - getObjectPosition_1778206521502914 断言失败！
+2026-05-08 10:15:21 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"185: in sim.getObjectPosition: the function requires more arguments.","id":"getObjectPosition_1778206521868031","success":false}
+2026-05-08 10:15:21 | INFO | CASE_1778206521867033 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [None, -1], 'id': 'getObjectPosition_1778206521868031'}
+2026-05-08 10:15:21 | INFO | CASE_1778206521867033 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': '185: in sim.getObjectPosition: the function requires more arguments.', 'id': 'getObjectPosition_1778206521868031', 'success': False}
+2026-05-08 10:15:21 | ERROR | CASE_1778206521867033 | assertions:validate_response:75 - object_id 参数传递 null 失败: {'error': '185: in sim.getObjectPosition: the function requires more arguments.', 'id': 'getObjectPosition_1778206521868031', 'success': False}
+2026-05-08 10:15:22 | WARNING | CASE_1778206521867033 | request_invoker:send_request:105 - getObjectPosition_1778206521868031 断言失败！
+2026-05-08 10:15:22 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.webMoveObject","id":"webMoveObject_1778206522241676","success":false}
+2026-05-08 10:15:22 | INFO | CASE_1778206522240678 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [0, 0.0, -1, 0], 'id': 'webMoveObject_1778206522241676'}
+2026-05-08 10:15:22 | INFO | CASE_1778206522240678 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206522241676', 'success': False}
+2026-05-08 10:15:22 | ERROR | CASE_1778206522240678 | assertions:validate_response:75 - 正常移动对象到目标位置 失败: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206522241676', 'success': False}
+2026-05-08 10:15:22 | WARNING | CASE_1778206522240678 | request_invoker:send_request:105 - webMoveObject_1778206522241676 断言失败！
+2026-05-08 10:15:22 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.webMoveObject","id":"webMoveObject_1778206522629590","success":false}
+2026-05-08 10:15:22 | INFO | CASE_1778206522629590 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [1, 0.0, -1, 0], 'id': 'webMoveObject_1778206522629590'}
+2026-05-08 10:15:22 | INFO | CASE_1778206522629590 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206522629590', 'success': False}
+2026-05-08 10:15:22 | ERROR | CASE_1778206522629590 | assertions:validate_response:75 - 测试 position 的边界值 失败: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206522629590', 'success': False}
+2026-05-08 10:15:22 | WARNING | CASE_1778206522629590 | request_invoker:send_request:105 - webMoveObject_1778206522629590 断言失败！
+2026-05-08 10:15:23 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.webMoveObject","id":"webMoveObject_1778206523008521","success":false}
+2026-05-08 10:15:23 | INFO | CASE_1778206523008521 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': ['not_a_number', 0.0, -1, 0], 'id': 'webMoveObject_1778206523008521'}
+2026-05-08 10:15:23 | INFO | CASE_1778206523008521 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206523008521', 'success': False}
+2026-05-08 10:15:23 | ERROR | CASE_1778206523008521 | assertions:validate_response:75 - position 参数类型错误 失败: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206523008521', 'success': False}
+2026-05-08 10:15:23 | WARNING | CASE_1778206523008521 | request_invoker:send_request:105 - webMoveObject_1778206523008521 断言失败！
+2026-05-08 10:15:23 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.webMoveObject","id":"webMoveObject_1778206523370534","success":false}
+2026-05-08 10:15:23 | INFO | CASE_1778206523370534 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [-999, 0.0, -1, 0], 'id': 'webMoveObject_1778206523370534'}
+2026-05-08 10:15:23 | INFO | CASE_1778206523370534 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206523370534', 'success': False}
+2026-05-08 10:15:23 | ERROR | CASE_1778206523370534 | assertions:validate_response:75 - 违反业务规则，传递超出范围的 position 失败: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206523370534', 'success': False}
+2026-05-08 10:15:23 | WARNING | CASE_1778206523370534 | request_invoker:send_request:105 - webMoveObject_1778206523370534 断言失败！
+2026-05-08 10:15:23 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.webMoveObject","id":"webMoveObject_1778206523751942","success":false}
+2026-05-08 10:15:23 | INFO | CASE_1778206523749924 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [None, 0.0, -1, 0], 'id': 'webMoveObject_1778206523751942'}
+2026-05-08 10:15:23 | INFO | CASE_1778206523749924 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206523751942', 'success': False}
+2026-05-08 10:15:23 | ERROR | CASE_1778206523749924 | assertions:validate_response:75 - position 参数传递 null 失败: {'error': 'No such function: simArcs.webMoveObject', 'id': 'webMoveObject_1778206523751942', 'success': False}
+2026-05-08 10:15:24 | WARNING | CASE_1778206523749924 | request_invoker:send_request:105 - webMoveObject_1778206523751942 断言失败！
+2026-05-08 10:15:24 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.webGetHandleType","id":"webGetHandleType_1778206524127452","success":false}
+2026-05-08 10:15:24 | INFO | CASE_1778206524124466 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [0], 'id': 'webGetHandleType_1778206524127452'}
+2026-05-08 10:15:24 | INFO | CASE_1778206524124466 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1778206524127452', 'success': False}
+2026-05-08 10:15:24 | ERROR | CASE_1778206524124466 | assertions:validate_response:75 - 正常获取对象的句柄类型 失败: {'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1778206524127452', 'success': False}
+2026-05-08 10:15:24 | WARNING | CASE_1778206524124466 | request_invoker:send_request:105 - webGetHandleType_1778206524127452 断言失败！
+2026-05-08 10:15:24 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.webGetHandleType","id":"webGetHandleType_1778206524509795","success":false}
+2026-05-08 10:15:24 | INFO | CASE_1778206524509795 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': ['not_a_number'], 'id': 'webGetHandleType_1778206524509795'}
+2026-05-08 10:15:24 | INFO | CASE_1778206524509795 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1778206524509795', 'success': False}
+2026-05-08 10:15:24 | ERROR | CASE_1778206524509795 | assertions:validate_response:75 - object_id 参数类型错误 失败: {'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1778206524509795', 'success': False}
+2026-05-08 10:15:24 | WARNING | CASE_1778206524509795 | request_invoker:send_request:105 - webGetHandleType_1778206524509795 断言失败！
+2026-05-08 10:15:24 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.webGetHandleType","id":"webGetHandleType_1778206524878643","success":false}
+2026-05-08 10:15:24 | INFO | CASE_1778206524876623 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [-999], 'id': 'webGetHandleType_1778206524878643'}
+2026-05-08 10:15:24 | INFO | CASE_1778206524876623 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1778206524878643', 'success': False}
+2026-05-08 10:15:24 | ERROR | CASE_1778206524876623 | assertions:validate_response:75 - 违反业务规则，传递无效的 object_id 失败: {'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1778206524878643', 'success': False}
+2026-05-08 10:15:25 | WARNING | CASE_1778206524876623 | request_invoker:send_request:105 - webGetHandleType_1778206524878643 断言失败！
+2026-05-08 10:15:25 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.webGetHandleType","id":"webGetHandleType_1778206525247389","success":false}
+2026-05-08 10:15:25 | INFO | CASE_1778206525247389 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [None], 'id': 'webGetHandleType_1778206525247389'}
+2026-05-08 10:15:25 | INFO | CASE_1778206525247389 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1778206525247389', 'success': False}
+2026-05-08 10:15:25 | ERROR | CASE_1778206525247389 | assertions:validate_response:75 - object_id 参数传递 null 失败: {'error': 'No such function: simArcs.webGetHandleType', 'id': 'webGetHandleType_1778206525247389', 'success': False}
+2026-05-08 10:15:25 | WARNING | CASE_1778206525247389 | request_invoker:send_request:105 - webGetHandleType_1778206525247389 断言失败！
+2026-05-08 10:15:25 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206525631428","success":false}
+2026-05-08 10:15:25 | INFO | CASE_1778206525630433 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [0, 0], 'id': 'ahmCreateHierarchyElement_1778206525631428'}
+2026-05-08 10:15:25 | INFO | CASE_1778206525630433 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206525631428', 'success': False}
+2026-05-08 10:15:25 | ERROR | CASE_1778206525630433 | assertions:validate_response:75 - 正常创建层级节点 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206525631428', 'success': False}
+2026-05-08 10:15:25 | WARNING | CASE_1778206525630433 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206525631428 断言失败！
+2026-05-08 10:15:26 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206526025815","success":false}
+2026-05-08 10:15:26 | INFO | CASE_1778206526025815 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [0, 0], 'id': 'ahmCreateHierarchyElement_1778206526025815'}
+2026-05-08 10:15:26 | INFO | CASE_1778206526025815 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206526025815', 'success': False}
+2026-05-08 10:15:26 | ERROR | CASE_1778206526025815 | assertions:validate_response:75 - 测试 parent_id 的边界值 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206526025815', 'success': False}
+2026-05-08 10:15:26 | WARNING | CASE_1778206526025815 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206526025815 断言失败！
+2026-05-08 10:15:26 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206526404435","success":false}
+2026-05-08 10:15:26 | INFO | CASE_1778206526404435 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': ['not_a_number', 0], 'id': 'ahmCreateHierarchyElement_1778206526404435'}
+2026-05-08 10:15:26 | INFO | CASE_1778206526404435 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206526404435', 'success': False}
+2026-05-08 10:15:26 | ERROR | CASE_1778206526404435 | assertions:validate_response:75 - element_type 参数类型错误 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206526404435', 'success': False}
+2026-05-08 10:15:26 | WARNING | CASE_1778206526404435 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206526404435 断言失败！
+2026-05-08 10:15:26 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206526755228","success":false}
+2026-05-08 10:15:26 | INFO | CASE_1778206526754234 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [-999, 0], 'id': 'ahmCreateHierarchyElement_1778206526755228'}
+2026-05-08 10:15:26 | INFO | CASE_1778206526754234 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206526755228', 'success': False}
+2026-05-08 10:15:26 | ERROR | CASE_1778206526754234 | assertions:validate_response:75 - 违反业务规则，传递无效的 element_type 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206526755228', 'success': False}
+2026-05-08 10:15:27 | WARNING | CASE_1778206526754234 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206526755228 断言失败！
+2026-05-08 10:15:27 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206527127811","success":false}
+2026-05-08 10:15:27 | INFO | CASE_1778206527126817 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [None, 0], 'id': 'ahmCreateHierarchyElement_1778206527127811'}
+2026-05-08 10:15:27 | INFO | CASE_1778206527126817 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206527127811', 'success': False}
+2026-05-08 10:15:27 | ERROR | CASE_1778206527126817 | assertions:validate_response:75 - element_type 参数传递 null 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206527127811', 'success': False}
+2026-05-08 10:15:27 | WARNING | CASE_1778206527126817 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206527127811 断言失败！
+2026-05-08 10:15:27 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206527498223","success":false}
+2026-05-08 10:15:27 | INFO | CASE_1778206527498223 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [0, 0], 'id': 'ahmSetElementParent_1778206527498223'}
+2026-05-08 10:15:27 | INFO | CASE_1778206527498223 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206527498223', 'success': False}
+2026-05-08 10:15:27 | ERROR | CASE_1778206527498223 | assertions:validate_response:75 - 正常设置工作台父节点 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206527498223', 'success': False}
+2026-05-08 10:15:27 | WARNING | CASE_1778206527498223 | request_invoker:send_request:105 - ahmSetElementParent_1778206527498223 断言失败！
+2026-05-08 10:15:27 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206527907829","success":false}
+2026-05-08 10:15:27 | INFO | CASE_1778206527907829 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [0, 0], 'id': 'ahmSetElementParent_1778206527907829'}
+2026-05-08 10:15:27 | INFO | CASE_1778206527907829 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206527907829', 'success': False}
+2026-05-08 10:15:27 | ERROR | CASE_1778206527907829 | assertions:validate_response:75 - 对 workbench_point_id 参数进行边界值测试 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206527907829', 'success': False}
+2026-05-08 10:15:28 | WARNING | CASE_1778206527907829 | request_invoker:send_request:105 - ahmSetElementParent_1778206527907829 断言失败！
+2026-05-08 10:15:28 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206528287483","success":false}
+2026-05-08 10:15:28 | INFO | CASE_1778206528286485 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': ['not_a_number', 0], 'id': 'ahmSetElementParent_1778206528287483'}
+2026-05-08 10:15:28 | INFO | CASE_1778206528286485 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206528287483', 'success': False}
+2026-05-08 10:15:28 | ERROR | CASE_1778206528286485 | assertions:validate_response:75 - workbench_point_id 参数类型错误 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206528287483', 'success': False}
+2026-05-08 10:15:28 | WARNING | CASE_1778206528286485 | request_invoker:send_request:105 - ahmSetElementParent_1778206528287483 断言失败！
+2026-05-08 10:15:28 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206528627287","success":false}
+2026-05-08 10:15:28 | INFO | CASE_1778206528627287 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [0], 'id': 'ahmSetElementParent_1778206528627287'}
+2026-05-08 10:15:28 | INFO | CASE_1778206528627287 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206528627287', 'success': False}
+2026-05-08 10:15:28 | ERROR | CASE_1778206528627287 | assertions:validate_response:75 - 缺少 workbench_point_id 参数 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206528627287', 'success': False}
+2026-05-08 10:15:28 | WARNING | CASE_1778206528627287 | request_invoker:send_request:105 - ahmSetElementParent_1778206528627287 断言失败！
+2026-05-08 10:15:29 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206529009264","success":false}
+2026-05-08 10:15:29 | INFO | CASE_1778206529008266 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [-999, 0], 'id': 'ahmSetElementParent_1778206529009264'}
+2026-05-08 10:15:29 | INFO | CASE_1778206529008266 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206529009264', 'success': False}
+2026-05-08 10:15:29 | ERROR | CASE_1778206529008266 | assertions:validate_response:75 - 传入无效的 workbench_point_id 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206529009264', 'success': False}
+2026-05-08 10:15:29 | WARNING | CASE_1778206529008266 | request_invoker:send_request:105 - ahmSetElementParent_1778206529009264 断言失败！
+2026-05-08 10:15:29 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206529379574","success":false}
+2026-05-08 10:15:29 | INFO | CASE_1778206529378605 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [-999, 0], 'id': 'ahmSetElementParent_1778206529379574'}
+2026-05-08 10:15:29 | INFO | CASE_1778206529378605 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206529379574', 'success': False}
+2026-05-08 10:15:29 | ERROR | CASE_1778206529378605 | assertions:validate_response:75 - 未调用 simArcs.ahmCreateHierarchyElement 就直接调用该接口 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206529379574', 'success': False}
+2026-05-08 10:15:29 | WARNING | CASE_1778206529378605 | request_invoker:send_request:105 - ahmSetElementParent_1778206529379574 断言失败！
+2026-05-08 10:15:29 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206529753232","success":false}
+2026-05-08 10:15:29 | INFO | CASE_1778206529752234 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [None, 0], 'id': 'ahmSetElementParent_1778206529753232'}
+2026-05-08 10:15:29 | INFO | CASE_1778206529752234 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206529753232', 'success': False}
+2026-05-08 10:15:29 | ERROR | CASE_1778206529752234 | assertions:validate_response:75 - workbench_point_id 参数传 null 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206529753232', 'success': False}
+2026-05-08 10:15:30 | WARNING | CASE_1778206529752234 | request_invoker:send_request:105 - ahmSetElementParent_1778206529753232 断言失败！
+2026-05-08 10:15:30 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206530128022","success":false}
+2026-05-08 10:15:30 | INFO | CASE_1778206530128022 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [0, 0], 'id': 'ahmCreateHierarchyElement_1778206530128022'}
+2026-05-08 10:15:30 | INFO | CASE_1778206530128022 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206530128022', 'success': False}
+2026-05-08 10:15:30 | ERROR | CASE_1778206530128022 | assertions:validate_response:75 - 正常创建机器人节点 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206530128022', 'success': False}
+2026-05-08 10:15:30 | WARNING | CASE_1778206530128022 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206530128022 断言失败！
+2026-05-08 10:15:30 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206530521620","success":false}
+2026-05-08 10:15:30 | INFO | CASE_1778206530521620 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [0, 0], 'id': 'ahmCreateHierarchyElement_1778206530521620'}
+2026-05-08 10:15:30 | INFO | CASE_1778206530521620 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206530521620', 'success': False}
+2026-05-08 10:15:30 | ERROR | CASE_1778206530521620 | assertions:validate_response:75 - 对 loadObj_id 参数进行边界值测试 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206530521620', 'success': False}
+2026-05-08 10:15:30 | WARNING | CASE_1778206530521620 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206530521620 断言失败！
+2026-05-08 10:15:30 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206530892909","success":false}
+2026-05-08 10:15:30 | INFO | CASE_1778206530892909 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': ['not_a_number', 0], 'id': 'ahmCreateHierarchyElement_1778206530892909'}
+2026-05-08 10:15:30 | INFO | CASE_1778206530892909 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206530892909', 'success': False}
+2026-05-08 10:15:30 | ERROR | CASE_1778206530892909 | assertions:validate_response:75 - loadObj_id 参数类型错误 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206530892909', 'success': False}
+2026-05-08 10:15:31 | WARNING | CASE_1778206530892909 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206530892909 断言失败！
+2026-05-08 10:15:31 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206531258012","success":false}
+2026-05-08 10:15:31 | INFO | CASE_1778206531258012 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [0], 'id': 'ahmCreateHierarchyElement_1778206531258012'}
+2026-05-08 10:15:31 | INFO | CASE_1778206531258012 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206531258012', 'success': False}
+2026-05-08 10:15:31 | ERROR | CASE_1778206531258012 | assertions:validate_response:75 - 缺少 loadObj_id 参数 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206531258012', 'success': False}
+2026-05-08 10:15:31 | WARNING | CASE_1778206531258012 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206531258012 断言失败！
+2026-05-08 10:15:31 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206531639589","success":false}
+2026-05-08 10:15:31 | INFO | CASE_1778206531637599 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [-999, 0], 'id': 'ahmCreateHierarchyElement_1778206531639589'}
+2026-05-08 10:15:31 | INFO | CASE_1778206531637599 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206531639589', 'success': False}
+2026-05-08 10:15:31 | ERROR | CASE_1778206531637599 | assertions:validate_response:75 - 传入无效的 loadObj_id 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206531639589', 'success': False}
+2026-05-08 10:15:32 | WARNING | CASE_1778206531637599 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206531639589 断言失败！
+2026-05-08 10:15:32 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmCreateHierarchyElement","id":"ahmCreateHierarchyElement_1778206532017100","success":false}
+2026-05-08 10:15:32 | INFO | CASE_1778206532015096 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [None, 0], 'id': 'ahmCreateHierarchyElement_1778206532017100'}
+2026-05-08 10:15:32 | INFO | CASE_1778206532015096 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206532017100', 'success': False}
+2026-05-08 10:15:32 | ERROR | CASE_1778206532015096 | assertions:validate_response:75 - loadObj_id 参数传 null 失败: {'error': 'No such function: simArcs.ahmCreateHierarchyElement', 'id': 'ahmCreateHierarchyElement_1778206532017100', 'success': False}
+2026-05-08 10:15:32 | WARNING | CASE_1778206532015096 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778206532017100 断言失败！
+2026-05-08 10:15:32 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206532384532","success":false}
+2026-05-08 10:15:32 | INFO | CASE_1778206532384532 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [0, 0], 'id': 'ahmSetElementParent_1778206532384532'}
+2026-05-08 10:15:32 | INFO | CASE_1778206532384532 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206532384532', 'success': False}
+2026-05-08 10:15:32 | ERROR | CASE_1778206532384532 | assertions:validate_response:75 - 正常设置机器人父节点 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206532384532', 'success': False}
+2026-05-08 10:15:32 | WARNING | CASE_1778206532384532 | request_invoker:send_request:105 - ahmSetElementParent_1778206532384532 断言失败！
+2026-05-08 10:15:32 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206532776051","success":false}
+2026-05-08 10:15:32 | INFO | CASE_1778206532776051 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [0, 0], 'id': 'ahmSetElementParent_1778206532776051'}
+2026-05-08 10:15:32 | INFO | CASE_1778206532776051 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206532776051', 'success': False}
+2026-05-08 10:15:32 | ERROR | CASE_1778206532776051 | assertions:validate_response:75 - 对 robot_point_id 参数进行边界值测试 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206532776051', 'success': False}
+2026-05-08 10:15:33 | WARNING | CASE_1778206532776051 | request_invoker:send_request:105 - ahmSetElementParent_1778206532776051 断言失败！
+2026-05-08 10:15:33 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206533150461","success":false}
+2026-05-08 10:15:33 | INFO | CASE_1778206533150461 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': ['not_a_number', 0], 'id': 'ahmSetElementParent_1778206533150461'}
+2026-05-08 10:15:33 | INFO | CASE_1778206533150461 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206533150461', 'success': False}
+2026-05-08 10:15:33 | ERROR | CASE_1778206533150461 | assertions:validate_response:75 - workbench_point_id 参数类型错误 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206533150461', 'success': False}
+2026-05-08 10:15:33 | WARNING | CASE_1778206533150461 | request_invoker:send_request:105 - ahmSetElementParent_1778206533150461 断言失败！
+2026-05-08 10:15:33 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206533507287","success":false}
+2026-05-08 10:15:33 | INFO | CASE_1778206533506313 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [0], 'id': 'ahmSetElementParent_1778206533507287'}
+2026-05-08 10:15:33 | INFO | CASE_1778206533506313 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206533507287', 'success': False}
+2026-05-08 10:15:33 | ERROR | CASE_1778206533506313 | assertions:validate_response:75 - 缺少 robot_point_id 参数 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206533507287', 'success': False}
+2026-05-08 10:15:33 | WARNING | CASE_1778206533506313 | request_invoker:send_request:105 - ahmSetElementParent_1778206533507287 断言失败！
+2026-05-08 10:15:33 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206533885448","success":false}
+2026-05-08 10:15:33 | INFO | CASE_1778206533885448 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [-999, 0], 'id': 'ahmSetElementParent_1778206533885448'}
+2026-05-08 10:15:33 | INFO | CASE_1778206533885448 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206533885448', 'success': False}
+2026-05-08 10:15:33 | ERROR | CASE_1778206533885448 | assertions:validate_response:75 - 传入无效的 workbench_point_id 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206533885448', 'success': False}
+2026-05-08 10:15:34 | WARNING | CASE_1778206533885448 | request_invoker:send_request:105 - ahmSetElementParent_1778206533885448 断言失败！
+2026-05-08 10:15:34 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmSetElementParent","id":"ahmSetElementParent_1778206534258194","success":false}
+2026-05-08 10:15:34 | INFO | CASE_1778206534257198 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [None, 0], 'id': 'ahmSetElementParent_1778206534258194'}
+2026-05-08 10:15:34 | INFO | CASE_1778206534257198 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206534258194', 'success': False}
+2026-05-08 10:15:34 | ERROR | CASE_1778206534257198 | assertions:validate_response:75 - robot_point_id 参数传 null 失败: {'error': 'No such function: simArcs.ahmSetElementParent', 'id': 'ahmSetElementParent_1778206534258194', 'success': False}
+2026-05-08 10:15:34 | WARNING | CASE_1778206534257198 | request_invoker:send_request:105 - ahmSetElementParent_1778206534258194 断言失败！
+2026-05-08 10:15:34 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmGetHierarchy","id":"ahmGetHierarchy_1778206534633190","success":false}
+2026-05-08 10:15:34 | INFO | CASE_1778206534633190 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1778206534633190'}
+2026-05-08 10:15:34 | INFO | CASE_1778206534633190 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmGetHierarchy', 'id': 'ahmGetHierarchy_1778206534633190', 'success': False}
+2026-05-08 10:15:34 | ERROR | CASE_1778206534633190 | assertions:validate_response:75 - 正常获取场景树 失败: {'error': 'No such function: simArcs.ahmGetHierarchy', 'id': 'ahmGetHierarchy_1778206534633190', 'success': False}
+2026-05-08 10:15:35 | WARNING | CASE_1778206534633190 | request_invoker:send_request:105 - ahmGetHierarchy_1778206534633190 断言失败！
+2026-05-08 10:15:35 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"error":"No such function: simArcs.ahmGetHierarchy","id":"ahmGetHierarchy_1778206535021611","success":false}
+2026-05-08 10:15:35 | INFO | CASE_1778206535021611 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1778206535021611'}
+2026-05-08 10:15:35 | INFO | CASE_1778206535021611 | request_invoker:_ws_send_and_wait:52 - 响应体: {'error': 'No such function: simArcs.ahmGetHierarchy', 'id': 'ahmGetHierarchy_1778206535021611', 'success': False}
+2026-05-08 10:15:35 | ERROR | CASE_1778206535021611 | assertions:validate_response:75 - 系统状态异常时调用接口 失败: {'error': 'No such function: simArcs.ahmGetHierarchy', 'id': 'ahmGetHierarchy_1778206535021611', 'success': False}
+2026-05-08 10:15:35 | WARNING | CASE_1778206535021611 | request_invoker:send_request:105 - ahmGetHierarchy_1778206535021611 断言失败！

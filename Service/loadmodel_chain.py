@@ -1,4 +1,4 @@
-from core.harness import send_request
+from core.request_invoker import send_request
 from Service.getalll4_chain import GetAll4
 from utils.logger import logger
 
@@ -75,9 +75,9 @@ class LoadModel:
 
             # 25. 获取场景树
             send_request(self.ws_client,"simArcs.ahmGetHierarchy",[],"ahmGetHierarchy 获取场景树")
-
-            getall4= GetAll4(ws_client=self.ws_client)
-            getall4.ws_getall4_chain()
+            
+            # getall4
+            GetAll4(ws_client=self.ws_client).ws_getall4_chain()
 
 
         except Exception as e:

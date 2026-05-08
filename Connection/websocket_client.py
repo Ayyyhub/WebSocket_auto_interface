@@ -1,5 +1,4 @@
 import queue
-from socket import timeout
 import socket
 import websocket
 import threading
@@ -9,9 +8,9 @@ from utils.logger import logger
 socket.setdefaulttimeout(10)
 
 
-""" 封装一个’连接层‘的可复用的 WebSocket 客户端类 """
+""" 封装一个 ‘连接层’ 的可复用的 WebSocket 客户端类 """
 # 连接层（Connection Layer）
-# - 关注连接生命周期：建连、断连、重连、心跳保活、并发安全
+# - 关注对象连接生命周期：建连、断连、重连、心跳保活、并发安全
 # - 对事件回调的行为验证： on_open 、 on_message 、 on_error 、 on_close
 # - 针对异常网络条件的健壮性：超时、半开连接、服务器关闭、TLS/认证错误
 

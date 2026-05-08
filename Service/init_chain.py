@@ -1,4 +1,4 @@
-from core.harness import send_request
+from core.request_invoker import send_request
 
 """ 执行1-15号初始化接口 """
 

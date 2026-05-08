@@ -1,0 +1,456 @@
+2026-05-08 17:26:27 | INFO | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2026-05-08 17:26:27 | INFO | - | conftest:ws_client:56 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2026-05-08 17:26:27 | INFO | - | websocket_client:connect:78 - WebSocket 连接成功，耗时: 0.10s
+2026-05-08 17:26:28 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-08 17:26:35 | INFO | - | conftest:ws_client:68 - 主动断连后，再次Websocket connected！
+2026-05-08 17:26:35 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-08 17:26:35 | INFO | - | websocket_client:connect:78 - WebSocket 连接成功，耗时: 0.11s
+2026-05-08 17:26:35 | INFO | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2026-05-08 17:26:35 | INFO | CASE_1778232395796870 | dispatcher:_parse_raw:67 - loadModel 加载模型 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-08 17:26:35 | INFO | CASE_1778232395796870 | dispatcher:_parse_raw:67 - loadModel 加载模型 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-08 17:26:36 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[15],"id":"loadModel_1778232395797868","success":true}
+2026-05-08 17:26:36 | INFO | CASE_1778232395796870 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232395797868'}
+2026-05-08 17:26:36 | INFO | CASE_1778232395796870 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [15], 'id': 'loadModel_1778232395797868', 'success': True}
+2026-05-08 17:26:36 | INFO | CASE_1778232395796870 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.71s，None重试: 0次
+2026-05-08 17:26:36 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232396813545","success":true}
+2026-05-08 17:26:36 | INFO | CASE_1778232395796870 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [15, -1], 'id': 'getObjectPosition_1778232396813545'}
+2026-05-08 17:26:36 | INFO | CASE_1778232395796870 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232396813545', 'success': True}
+2026-05-08 17:26:36 | INFO | CASE_1778232395796870 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.13s，None重试: 0次
+2026-05-08 17:26:37 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232397255429","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:26:37 | INFO | CASE_1778232395796870 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [15, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232397255429'}
+2026-05-08 17:26:37 | INFO | CASE_1778232395796870 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232397255429', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:26:37 | ERROR | CASE_1778232395796870 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232397255429', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:26:37 | WARNING | CASE_1778232395796870 | request_invoker:send_request:105 - webMoveObject_1778232397255429 断言失败！
+2026-05-08 17:26:42 | INFO | CASE_1778232397960803 | dispatcher:wait_for_response:93 - loadModel 加载模型 [boundary]收到None，重试(1/3)...
+2026-05-08 17:26:47 | INFO | CASE_1778232397960803 | dispatcher:wait_for_response:93 - loadModel 加载模型 [boundary]收到None，重试(2/3)...
+2026-05-08 17:26:52 | INFO | CASE_1778232397960803 | request_invoker:_ws_send_and_wait:33 - loadModel 加载模型 [boundary]连续3次无响应
+2026-05-08 17:26:52 | ERROR | CASE_1778232397960803 | request_invoker:_ws_send_and_wait:38 - loadModel 加载模型 [boundary]连续3次无响应 (已忽略错误)
+2026-05-08 17:26:53 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"loadModel_1778232413014452","success":false,"error":"185: in sim.loadModel: file does not exist."}
+2026-05-08 17:26:53 | INFO | CASE_1778232413013455 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': [12345], 'id': 'loadModel_1778232413014452'}
+2026-05-08 17:26:53 | INFO | CASE_1778232413013455 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'loadModel_1778232413014452', 'success': False, 'error': '185: in sim.loadModel: file does not exist.'}
+2026-05-08 17:26:53 | ERROR | CASE_1778232413013455 | assertions:validate_response:75 - loadModel 加载模型 [wrong_arg_type] 失败: {'id': 'loadModel_1778232413014452', 'success': False, 'error': '185: in sim.loadModel: file does not exist.'}
+2026-05-08 17:26:53 | WARNING | CASE_1778232413013455 | request_invoker:send_request:105 - loadModel_1778232413014452 断言失败！
+2026-05-08 17:26:58 | INFO | CASE_1778232413382501 | dispatcher:wait_for_response:93 - loadModel 加载模型 [violation]收到None，重试(1/3)...
+2026-05-08 17:27:03 | INFO | CASE_1778232413382501 | dispatcher:wait_for_response:93 - loadModel 加载模型 [violation]收到None，重试(2/3)...
+2026-05-08 17:27:08 | INFO | CASE_1778232413382501 | request_invoker:_ws_send_and_wait:33 - loadModel 加载模型 [violation]连续3次无响应
+2026-05-08 17:27:08 | ERROR | CASE_1778232413382501 | request_invoker:_ws_send_and_wait:38 - loadModel 加载模型 [violation]连续3次无响应 (已忽略错误)
+2026-05-08 17:27:08 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"loadModel_1778232428420934","success":false,"error":"185: in sim.loadModel: the function requires more arguments."}
+2026-05-08 17:27:08 | INFO | CASE_1778232428420934 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': [None], 'id': 'loadModel_1778232428420934'}
+2026-05-08 17:27:08 | INFO | CASE_1778232428420934 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'loadModel_1778232428420934', 'success': False, 'error': '185: in sim.loadModel: the function requires more arguments.'}
+2026-05-08 17:27:08 | ERROR | CASE_1778232428420934 | assertions:validate_response:75 - loadModel 加载模型 [null_args] 失败: {'id': 'loadModel_1778232428420934', 'success': False, 'error': '185: in sim.loadModel: the function requires more arguments.'}
+2026-05-08 17:27:08 | WARNING | CASE_1778232428420934 | request_invoker:send_request:105 - loadModel_1778232428420934 断言失败！
+2026-05-08 17:27:09 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[37],"id":"loadModel_1778232428772433","success":true}
+2026-05-08 17:27:09 | INFO | CASE_1778232428771435 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232428772433'}
+2026-05-08 17:27:09 | INFO | CASE_1778232428771435 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [37], 'id': 'loadModel_1778232428772433', 'success': True}
+2026-05-08 17:27:09 | INFO | CASE_1778232428771435 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.74s，None重试: 0次
+2026-05-08 17:27:09 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232429824166","success":true}
+2026-05-08 17:27:09 | INFO | CASE_1778232428771435 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [37, -1], 'id': 'getObjectPosition_1778232429824166'}
+2026-05-08 17:27:09 | INFO | CASE_1778232428771435 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232429824166', 'success': True}
+2026-05-08 17:27:09 | INFO | CASE_1778232428771435 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-08 17:27:10 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[1.1205300092697,-1.8998004198074,1.079717874527]],"id":"getObjectPosition_1778232430251863","success":true}
+2026-05-08 17:27:10 | INFO | CASE_1778232428771435 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [0, -1], 'id': 'getObjectPosition_1778232430251863'}
+2026-05-08 17:27:10 | INFO | CASE_1778232428771435 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[1.1205300092697, -1.8998004198074, 1.079717874527]], 'id': 'getObjectPosition_1778232430251863', 'success': True}
+2026-05-08 17:27:10 | INFO | CASE_1778232428771435 | assertions:validate_response:89 - getObjectPosition 获取对象位置 [boundary] 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-08 17:27:11 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[59],"id":"loadModel_1778232430649789","success":true}
+2026-05-08 17:27:11 | INFO | CASE_1778232430648826 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232430649789'}
+2026-05-08 17:27:11 | INFO | CASE_1778232430648826 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [59], 'id': 'loadModel_1778232430649789', 'success': True}
+2026-05-08 17:27:11 | INFO | CASE_1778232430648826 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-08 17:27:11 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232431685210","success":true}
+2026-05-08 17:27:11 | INFO | CASE_1778232430648826 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [59, -1], 'id': 'getObjectPosition_1778232431685210'}
+2026-05-08 17:27:11 | INFO | CASE_1778232430648826 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232431685210', 'success': True}
+2026-05-08 17:27:11 | INFO | CASE_1778232430648826 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:12 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"getObjectPosition_1778232432113184","success":false,"error":"185: in sim.getObjectPosition: one of the function's argument type is not correct."}
+2026-05-08 17:27:12 | INFO | CASE_1778232430648826 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': ['not_a_number', -1], 'id': 'getObjectPosition_1778232432113184'}
+2026-05-08 17:27:12 | INFO | CASE_1778232430648826 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'getObjectPosition_1778232432113184', 'success': False, 'error': "185: in sim.getObjectPosition: one of the function's argument type is not correct."}
+2026-05-08 17:27:12 | ERROR | CASE_1778232430648826 | assertions:validate_response:75 - getObjectPosition 获取对象位置 [wrong_arg_type] 失败: {'id': 'getObjectPosition_1778232432113184', 'success': False, 'error': "185: in sim.getObjectPosition: one of the function's argument type is not correct."}
+2026-05-08 17:27:12 | WARNING | CASE_1778232430648826 | request_invoker:send_request:105 - getObjectPosition_1778232432113184 断言失败！
+2026-05-08 17:27:13 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[81],"id":"loadModel_1778232432479312","success":true}
+2026-05-08 17:27:13 | INFO | CASE_1778232432478314 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232432479312'}
+2026-05-08 17:27:13 | INFO | CASE_1778232432478314 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [81], 'id': 'loadModel_1778232432479312', 'success': True}
+2026-05-08 17:27:13 | INFO | CASE_1778232432478314 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-08 17:27:13 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232433514288","success":true}
+2026-05-08 17:27:13 | INFO | CASE_1778232432478314 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [81, -1], 'id': 'getObjectPosition_1778232433514288'}
+2026-05-08 17:27:13 | INFO | CASE_1778232432478314 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232433514288', 'success': True}
+2026-05-08 17:27:13 | INFO | CASE_1778232432478314 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:13 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"getObjectPosition_1778232433939623","success":false,"error":"185: in sim.getObjectPosition: object does not exist."}
+2026-05-08 17:27:14 | INFO | CASE_1778232432478314 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [-999, -1], 'id': 'getObjectPosition_1778232433939623'}
+2026-05-08 17:27:14 | INFO | CASE_1778232432478314 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'getObjectPosition_1778232433939623', 'success': False, 'error': '185: in sim.getObjectPosition: object does not exist.'}
+2026-05-08 17:27:14 | ERROR | CASE_1778232432478314 | assertions:validate_response:75 - getObjectPosition 获取对象位置 [violation] 失败: {'id': 'getObjectPosition_1778232433939623', 'success': False, 'error': '185: in sim.getObjectPosition: object does not exist.'}
+2026-05-08 17:27:14 | WARNING | CASE_1778232432478314 | request_invoker:send_request:105 - getObjectPosition_1778232433939623 断言失败！
+2026-05-08 17:27:15 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[103],"id":"loadModel_1778232434308823","success":true}
+2026-05-08 17:27:15 | INFO | CASE_1778232434307795 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232434308823'}
+2026-05-08 17:27:15 | INFO | CASE_1778232434307795 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [103], 'id': 'loadModel_1778232434308823', 'success': True}
+2026-05-08 17:27:15 | INFO | CASE_1778232434307795 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-08 17:27:15 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232435357803","success":true}
+2026-05-08 17:27:15 | INFO | CASE_1778232434307795 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [103, -1], 'id': 'getObjectPosition_1778232435357803'}
+2026-05-08 17:27:15 | INFO | CASE_1778232434307795 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232435357803', 'success': True}
+2026-05-08 17:27:15 | INFO | CASE_1778232434307795 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:15 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"getObjectPosition_1778232435766397","success":false,"error":"185: in sim.getObjectPosition: the function requires more arguments."}
+2026-05-08 17:27:15 | INFO | CASE_1778232434307795 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [None, -1], 'id': 'getObjectPosition_1778232435766397'}
+2026-05-08 17:27:15 | INFO | CASE_1778232434307795 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'getObjectPosition_1778232435766397', 'success': False, 'error': '185: in sim.getObjectPosition: the function requires more arguments.'}
+2026-05-08 17:27:15 | ERROR | CASE_1778232434307795 | assertions:validate_response:75 - getObjectPosition 获取对象位置 [null_args] 失败: {'id': 'getObjectPosition_1778232435766397', 'success': False, 'error': '185: in sim.getObjectPosition: the function requires more arguments.'}
+2026-05-08 17:27:16 | WARNING | CASE_1778232434307795 | request_invoker:send_request:105 - getObjectPosition_1778232435766397 断言失败！
+2026-05-08 17:27:16 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[125],"id":"loadModel_1778232436147711","success":true}
+2026-05-08 17:27:16 | INFO | CASE_1778232436146718 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232436147711'}
+2026-05-08 17:27:16 | INFO | CASE_1778232436146718 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [125], 'id': 'loadModel_1778232436147711', 'success': True}
+2026-05-08 17:27:16 | INFO | CASE_1778232436146718 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-08 17:27:17 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232437157667","success":true}
+2026-05-08 17:27:17 | INFO | CASE_1778232436146718 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [125, -1], 'id': 'getObjectPosition_1778232437157667'}
+2026-05-08 17:27:17 | INFO | CASE_1778232436146718 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232437157667', 'success': True}
+2026-05-08 17:27:17 | INFO | CASE_1778232436146718 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.10s，None重试: 0次
+2026-05-08 17:27:17 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232437566553","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:17 | INFO | CASE_1778232436146718 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [125, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232437566553'}
+2026-05-08 17:27:17 | INFO | CASE_1778232436146718 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232437566553', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:17 | ERROR | CASE_1778232436146718 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232437566553', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:17 | WARNING | CASE_1778232436146718 | request_invoker:send_request:105 - webMoveObject_1778232437566553 断言失败！
+2026-05-08 17:27:18 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[147],"id":"loadModel_1778232437971531","success":true}
+2026-05-08 17:27:18 | INFO | CASE_1778232437970534 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232437971531'}
+2026-05-08 17:27:18 | INFO | CASE_1778232437970534 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [147], 'id': 'loadModel_1778232437971531', 'success': True}
+2026-05-08 17:27:18 | INFO | CASE_1778232437970534 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-08 17:27:19 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232438984367","success":true}
+2026-05-08 17:27:19 | INFO | CASE_1778232437970534 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [147, -1], 'id': 'getObjectPosition_1778232438984367'}
+2026-05-08 17:27:19 | INFO | CASE_1778232437970534 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232438984367', 'success': True}
+2026-05-08 17:27:19 | INFO | CASE_1778232437970534 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-08 17:27:19 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232439408893","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:19 | INFO | CASE_1778232437970534 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [147, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232439408893'}
+2026-05-08 17:27:19 | INFO | CASE_1778232437970534 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232439408893', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:19 | ERROR | CASE_1778232437970534 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232439408893', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:19 | WARNING | CASE_1778232437970534 | request_invoker:send_request:105 - webMoveObject_1778232439408893 断言失败！
+2026-05-08 17:27:20 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[169],"id":"loadModel_1778232439804039","success":true}
+2026-05-08 17:27:20 | INFO | CASE_1778232439803043 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232439804039'}
+2026-05-08 17:27:20 | INFO | CASE_1778232439803043 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [169], 'id': 'loadModel_1778232439804039', 'success': True}
+2026-05-08 17:27:20 | INFO | CASE_1778232439803043 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.69s，None重试: 0次
+2026-05-08 17:27:20 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232440810433","success":true}
+2026-05-08 17:27:20 | INFO | CASE_1778232439803043 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [169, -1], 'id': 'getObjectPosition_1778232440810433'}
+2026-05-08 17:27:20 | INFO | CASE_1778232439803043 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232440810433', 'success': True}
+2026-05-08 17:27:20 | INFO | CASE_1778232439803043 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.10s，None重试: 0次
+2026-05-08 17:27:21 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232441220942","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:21 | INFO | CASE_1778232439803043 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [169, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232441220942'}
+2026-05-08 17:27:21 | INFO | CASE_1778232439803043 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232441220942', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:21 | ERROR | CASE_1778232439803043 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232441220942', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:21 | WARNING | CASE_1778232439803043 | request_invoker:send_request:105 - webMoveObject_1778232441220942 断言失败！
+2026-05-08 17:27:22 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[191],"id":"loadModel_1778232441618871","success":true}
+2026-05-08 17:27:22 | INFO | CASE_1778232441617842 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232441618871'}
+2026-05-08 17:27:22 | INFO | CASE_1778232441617842 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [191], 'id': 'loadModel_1778232441618871', 'success': True}
+2026-05-08 17:27:22 | INFO | CASE_1778232441617842 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.67s，None重试: 0次
+2026-05-08 17:27:22 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232442604094","success":true}
+2026-05-08 17:27:22 | INFO | CASE_1778232441617842 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [191, -1], 'id': 'getObjectPosition_1778232442604094'}
+2026-05-08 17:27:22 | INFO | CASE_1778232441617842 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232442604094', 'success': True}
+2026-05-08 17:27:22 | INFO | CASE_1778232441617842 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:23 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232443030411","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:23 | INFO | CASE_1778232441617842 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [191, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232443030411'}
+2026-05-08 17:27:23 | INFO | CASE_1778232441617842 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232443030411', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:23 | ERROR | CASE_1778232441617842 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232443030411', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:23 | WARNING | CASE_1778232441617842 | request_invoker:send_request:105 - webMoveObject_1778232443030411 断言失败！
+2026-05-08 17:27:24 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[213],"id":"loadModel_1778232443417043","success":true}
+2026-05-08 17:27:24 | INFO | CASE_1778232443416077 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232443417043'}
+2026-05-08 17:27:24 | INFO | CASE_1778232443416077 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [213], 'id': 'loadModel_1778232443417043', 'success': True}
+2026-05-08 17:27:24 | INFO | CASE_1778232443416077 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.71s，None重试: 0次
+2026-05-08 17:27:24 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232444435437","success":true}
+2026-05-08 17:27:24 | INFO | CASE_1778232443416077 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [213, -1], 'id': 'getObjectPosition_1778232444435437'}
+2026-05-08 17:27:24 | INFO | CASE_1778232443416077 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232444435437', 'success': True}
+2026-05-08 17:27:24 | INFO | CASE_1778232443416077 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:24 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232444858555","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:24 | INFO | CASE_1778232443416077 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [213, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232444858555'}
+2026-05-08 17:27:24 | INFO | CASE_1778232443416077 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232444858555', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:24 | ERROR | CASE_1778232443416077 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232444858555', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:25 | WARNING | CASE_1778232443416077 | request_invoker:send_request:105 - webMoveObject_1778232444858555 断言失败！
+2026-05-08 17:27:25 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[235],"id":"loadModel_1778232445242768","success":true}
+2026-05-08 17:27:25 | INFO | CASE_1778232445241770 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232445242768'}
+2026-05-08 17:27:25 | INFO | CASE_1778232445241770 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [235], 'id': 'loadModel_1778232445242768', 'success': True}
+2026-05-08 17:27:25 | INFO | CASE_1778232445241770 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.71s，None重试: 0次
+2026-05-08 17:27:26 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232446259508","success":true}
+2026-05-08 17:27:26 | INFO | CASE_1778232445241770 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [235, -1], 'id': 'getObjectPosition_1778232446259508'}
+2026-05-08 17:27:26 | INFO | CASE_1778232445241770 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232446259508', 'success': True}
+2026-05-08 17:27:26 | INFO | CASE_1778232445241770 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:26 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232446683603","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:26 | INFO | CASE_1778232445241770 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [235, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232446683603'}
+2026-05-08 17:27:26 | INFO | CASE_1778232445241770 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232446683603', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:26 | ERROR | CASE_1778232445241770 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232446683603', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:27 | WARNING | CASE_1778232445241770 | request_invoker:send_request:105 - webMoveObject_1778232446683603 断言失败！
+2026-05-08 17:27:27 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[257],"id":"loadModel_1778232447083116","success":true}
+2026-05-08 17:27:27 | INFO | CASE_1778232447083116 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232447083116'}
+2026-05-08 17:27:27 | INFO | CASE_1778232447083116 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [257], 'id': 'loadModel_1778232447083116', 'success': True}
+2026-05-08 17:27:27 | INFO | CASE_1778232447083116 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-08 17:27:28 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232448090713","success":true}
+2026-05-08 17:27:28 | INFO | CASE_1778232447083116 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [257, -1], 'id': 'getObjectPosition_1778232448090713'}
+2026-05-08 17:27:28 | INFO | CASE_1778232447083116 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232448090713', 'success': True}
+2026-05-08 17:27:28 | INFO | CASE_1778232447083116 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:28 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232448516176","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:28 | INFO | CASE_1778232447083116 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [257, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232448516176'}
+2026-05-08 17:27:28 | INFO | CASE_1778232447083116 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232448516176', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:28 | ERROR | CASE_1778232447083116 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232448516176', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:28 | WARNING | CASE_1778232447083116 | request_invoker:send_request:105 - webMoveObject_1778232448516176 断言失败！
+2026-05-08 17:27:29 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[279],"id":"loadModel_1778232448920041","success":true}
+2026-05-08 17:27:29 | INFO | CASE_1778232448920041 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232448920041'}
+2026-05-08 17:27:29 | INFO | CASE_1778232448920041 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [279], 'id': 'loadModel_1778232448920041', 'success': True}
+2026-05-08 17:27:29 | INFO | CASE_1778232448920041 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.69s，None重试: 0次
+2026-05-08 17:27:30 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232449923246","success":true}
+2026-05-08 17:27:30 | INFO | CASE_1778232448920041 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [279, -1], 'id': 'getObjectPosition_1778232449923246'}
+2026-05-08 17:27:30 | INFO | CASE_1778232448920041 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232449923246', 'success': True}
+2026-05-08 17:27:30 | INFO | CASE_1778232448920041 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:30 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232450332504","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:30 | INFO | CASE_1778232448920041 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [279, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232450332504'}
+2026-05-08 17:27:30 | INFO | CASE_1778232448920041 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232450332504', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:30 | ERROR | CASE_1778232448920041 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232450332504', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:30 | WARNING | CASE_1778232448920041 | request_invoker:send_request:105 - webMoveObject_1778232450332504 断言失败！
+2026-05-08 17:27:31 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[301],"id":"loadModel_1778232450737777","success":true}
+2026-05-08 17:27:31 | INFO | CASE_1778232450737777 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232450737777'}
+2026-05-08 17:27:31 | INFO | CASE_1778232450737777 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [301], 'id': 'loadModel_1778232450737777', 'success': True}
+2026-05-08 17:27:31 | INFO | CASE_1778232450737777 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.69s，None重试: 0次
+2026-05-08 17:27:31 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232451741123","success":true}
+2026-05-08 17:27:31 | INFO | CASE_1778232450737777 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [301, -1], 'id': 'getObjectPosition_1778232451741123'}
+2026-05-08 17:27:31 | INFO | CASE_1778232450737777 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232451741123', 'success': True}
+2026-05-08 17:27:31 | INFO | CASE_1778232450737777 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.10s，None重试: 0次
+2026-05-08 17:27:32 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232452147443","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:32 | INFO | CASE_1778232450737777 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [301, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232452147443'}
+2026-05-08 17:27:32 | INFO | CASE_1778232450737777 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232452147443', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:32 | ERROR | CASE_1778232450737777 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232452147443', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:32 | WARNING | CASE_1778232450737777 | request_invoker:send_request:105 - webMoveObject_1778232452147443 断言失败！
+2026-05-08 17:27:33 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[323],"id":"loadModel_1778232452536455","success":true}
+2026-05-08 17:27:33 | INFO | CASE_1778232452535425 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232452536455'}
+2026-05-08 17:27:33 | INFO | CASE_1778232452535425 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [323], 'id': 'loadModel_1778232452536455', 'success': True}
+2026-05-08 17:27:33 | INFO | CASE_1778232452535425 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-08 17:27:33 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232453549877","success":true}
+2026-05-08 17:27:33 | INFO | CASE_1778232452535425 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [323, -1], 'id': 'getObjectPosition_1778232453549877'}
+2026-05-08 17:27:33 | INFO | CASE_1778232452535425 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232453549877', 'success': True}
+2026-05-08 17:27:33 | INFO | CASE_1778232452535425 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:34 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232453972140","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:34 | INFO | CASE_1778232452535425 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [323, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232453972140'}
+2026-05-08 17:27:34 | INFO | CASE_1778232452535425 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232453972140', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:34 | ERROR | CASE_1778232452535425 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232453972140', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:34 | WARNING | CASE_1778232452535425 | request_invoker:send_request:105 - webMoveObject_1778232453972140 断言失败！
+2026-05-08 17:27:35 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[345],"id":"loadModel_1778232454360467","success":true}
+2026-05-08 17:27:35 | INFO | CASE_1778232454360467 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232454360467'}
+2026-05-08 17:27:35 | INFO | CASE_1778232454360467 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [345], 'id': 'loadModel_1778232454360467', 'success': True}
+2026-05-08 17:27:35 | INFO | CASE_1778232454360467 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-08 17:27:35 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232455363083","success":true}
+2026-05-08 17:27:35 | INFO | CASE_1778232454360467 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [345, -1], 'id': 'getObjectPosition_1778232455363083'}
+2026-05-08 17:27:35 | INFO | CASE_1778232454360467 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232455363083', 'success': True}
+2026-05-08 17:27:35 | INFO | CASE_1778232454360467 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:35 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232455786998","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:35 | INFO | CASE_1778232454360467 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [345, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232455786998'}
+2026-05-08 17:27:35 | INFO | CASE_1778232454360467 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232455786998', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:35 | ERROR | CASE_1778232454360467 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232455786998', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:36 | WARNING | CASE_1778232454360467 | request_invoker:send_request:105 - webMoveObject_1778232455786998 断言失败！
+2026-05-08 17:27:36 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[367],"id":"loadModel_1778232456171320","success":true}
+2026-05-08 17:27:36 | INFO | CASE_1778232456171320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232456171320'}
+2026-05-08 17:27:36 | INFO | CASE_1778232456171320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [367], 'id': 'loadModel_1778232456171320', 'success': True}
+2026-05-08 17:27:36 | INFO | CASE_1778232456171320 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-08 17:27:37 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232457176056","success":true}
+2026-05-08 17:27:37 | INFO | CASE_1778232456171320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [367, -1], 'id': 'getObjectPosition_1778232457176056'}
+2026-05-08 17:27:37 | INFO | CASE_1778232456171320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232457176056', 'success': True}
+2026-05-08 17:27:37 | INFO | CASE_1778232456171320 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-08 17:27:37 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232457601439","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:37 | INFO | CASE_1778232456171320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [367, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232457601439'}
+2026-05-08 17:27:37 | INFO | CASE_1778232456171320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232457601439', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:37 | ERROR | CASE_1778232456171320 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232457601439', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:37 | WARNING | CASE_1778232456171320 | request_invoker:send_request:105 - webMoveObject_1778232457601439 断言失败！
+2026-05-08 17:27:38 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[389],"id":"loadModel_1778232458002774","success":true}
+2026-05-08 17:27:38 | INFO | CASE_1778232458001751 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232458002774'}
+2026-05-08 17:27:38 | INFO | CASE_1778232458001751 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [389], 'id': 'loadModel_1778232458002774', 'success': True}
+2026-05-08 17:27:38 | INFO | CASE_1778232458001751 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-08 17:27:39 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232459007932","success":true}
+2026-05-08 17:27:39 | INFO | CASE_1778232458001751 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [389, -1], 'id': 'getObjectPosition_1778232459007932'}
+2026-05-08 17:27:39 | INFO | CASE_1778232458001751 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232459007932', 'success': True}
+2026-05-08 17:27:39 | INFO | CASE_1778232458001751 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-08 17:27:39 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232459432789","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:39 | INFO | CASE_1778232458001751 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [389, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232459432789'}
+2026-05-08 17:27:39 | INFO | CASE_1778232458001751 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232459432789', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:39 | ERROR | CASE_1778232458001751 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232459432789', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:39 | WARNING | CASE_1778232458001751 | request_invoker:send_request:105 - webMoveObject_1778232459432789 断言失败！
+2026-05-08 17:27:40 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[411],"id":"loadModel_1778232459844264","success":true}
+2026-05-08 17:27:40 | INFO | CASE_1778232459843245 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232459844264'}
+2026-05-08 17:27:40 | INFO | CASE_1778232459843245 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [411], 'id': 'loadModel_1778232459844264', 'success': True}
+2026-05-08 17:27:40 | INFO | CASE_1778232459843245 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.75s，None重试: 0次
+2026-05-08 17:27:41 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232460906243","success":true}
+2026-05-08 17:27:41 | INFO | CASE_1778232459843245 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [411, -1], 'id': 'getObjectPosition_1778232460906243'}
+2026-05-08 17:27:41 | INFO | CASE_1778232459843245 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232460906243', 'success': True}
+2026-05-08 17:27:41 | INFO | CASE_1778232459843245 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:41 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232461327845","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:41 | INFO | CASE_1778232459843245 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [411, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232461327845'}
+2026-05-08 17:27:41 | INFO | CASE_1778232459843245 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232461327845', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:41 | ERROR | CASE_1778232459843245 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232461327845', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:41 | WARNING | CASE_1778232459843245 | request_invoker:send_request:105 - webMoveObject_1778232461327845 断言失败！
+2026-05-08 17:27:42 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[433],"id":"loadModel_1778232461733455","success":true}
+2026-05-08 17:27:42 | INFO | CASE_1778232461733455 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232461733455'}
+2026-05-08 17:27:42 | INFO | CASE_1778232461733455 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [433], 'id': 'loadModel_1778232461733455', 'success': True}
+2026-05-08 17:27:42 | INFO | CASE_1778232461733455 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.68s，None重试: 0次
+2026-05-08 17:27:42 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232462718406","success":true}
+2026-05-08 17:27:42 | INFO | CASE_1778232461733455 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [433, -1], 'id': 'getObjectPosition_1778232462718406'}
+2026-05-08 17:27:42 | INFO | CASE_1778232461733455 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232462718406', 'success': True}
+2026-05-08 17:27:42 | INFO | CASE_1778232461733455 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-08 17:27:43 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232463140236","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:43 | INFO | CASE_1778232461733455 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [433, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232463140236'}
+2026-05-08 17:27:43 | INFO | CASE_1778232461733455 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232463140236', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:43 | ERROR | CASE_1778232461733455 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232463140236', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:43 | WARNING | CASE_1778232461733455 | request_invoker:send_request:105 - webMoveObject_1778232463140236 断言失败！
+2026-05-08 17:27:44 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[455],"id":"loadModel_1778232463547943","success":true}
+2026-05-08 17:27:44 | INFO | CASE_1778232463546900 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232463547943'}
+2026-05-08 17:27:44 | INFO | CASE_1778232463546900 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [455], 'id': 'loadModel_1778232463547943', 'success': True}
+2026-05-08 17:27:44 | INFO | CASE_1778232463546900 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.74s，None重试: 0次
+2026-05-08 17:27:44 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232464603159","success":true}
+2026-05-08 17:27:44 | INFO | CASE_1778232463546900 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [455, -1], 'id': 'getObjectPosition_1778232464603159'}
+2026-05-08 17:27:44 | INFO | CASE_1778232463546900 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232464603159', 'success': True}
+2026-05-08 17:27:44 | INFO | CASE_1778232463546900 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.10s，None重试: 0次
+2026-05-08 17:27:45 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232465010835","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:45 | INFO | CASE_1778232463546900 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [455, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232465010835'}
+2026-05-08 17:27:45 | INFO | CASE_1778232463546900 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232465010835', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:45 | ERROR | CASE_1778232463546900 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232465010835', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:45 | WARNING | CASE_1778232463546900 | request_invoker:send_request:105 - webMoveObject_1778232465010835 断言失败！
+2026-05-08 17:27:46 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[477],"id":"loadModel_1778232465419944","success":true}
+2026-05-08 17:27:46 | INFO | CASE_1778232465419944 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232465419944'}
+2026-05-08 17:27:46 | INFO | CASE_1778232465419944 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [477], 'id': 'loadModel_1778232465419944', 'success': True}
+2026-05-08 17:27:46 | INFO | CASE_1778232465419944 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.69s，None重试: 0次
+2026-05-08 17:27:46 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232466416255","success":true}
+2026-05-08 17:27:46 | INFO | CASE_1778232465419944 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [477, -1], 'id': 'getObjectPosition_1778232466416255'}
+2026-05-08 17:27:46 | INFO | CASE_1778232465419944 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232466416255', 'success': True}
+2026-05-08 17:27:46 | INFO | CASE_1778232465419944 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:46 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232466829102","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:46 | INFO | CASE_1778232465419944 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [477, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232466829102'}
+2026-05-08 17:27:46 | INFO | CASE_1778232465419944 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232466829102', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:46 | ERROR | CASE_1778232465419944 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232466829102', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:47 | WARNING | CASE_1778232465419944 | request_invoker:send_request:105 - webMoveObject_1778232466829102 断言失败！
+2026-05-08 17:27:47 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[499],"id":"loadModel_1778232467230220","success":true}
+2026-05-08 17:27:47 | INFO | CASE_1778232467229203 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232467230220'}
+2026-05-08 17:27:47 | INFO | CASE_1778232467229203 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [499], 'id': 'loadModel_1778232467230220', 'success': True}
+2026-05-08 17:27:47 | INFO | CASE_1778232467229203 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.71s，None重试: 0次
+2026-05-08 17:27:48 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232468260513","success":true}
+2026-05-08 17:27:48 | INFO | CASE_1778232467229203 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [499, -1], 'id': 'getObjectPosition_1778232468260513'}
+2026-05-08 17:27:48 | INFO | CASE_1778232467229203 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232468260513', 'success': True}
+2026-05-08 17:27:48 | INFO | CASE_1778232467229203 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.10s，None重试: 0次
+2026-05-08 17:27:48 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232468671993","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:48 | INFO | CASE_1778232467229203 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [499, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232468671993'}
+2026-05-08 17:27:48 | INFO | CASE_1778232467229203 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232468671993', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:48 | ERROR | CASE_1778232467229203 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232468671993', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:49 | WARNING | CASE_1778232467229203 | request_invoker:send_request:105 - webMoveObject_1778232468671993 断言失败！
+2026-05-08 17:27:49 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[521],"id":"loadModel_1778232469076554","success":true}
+2026-05-08 17:27:49 | INFO | CASE_1778232469076554 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232469076554'}
+2026-05-08 17:27:49 | INFO | CASE_1778232469076554 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [521], 'id': 'loadModel_1778232469076554', 'success': True}
+2026-05-08 17:27:49 | INFO | CASE_1778232469076554 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.71s，None重试: 0次
+2026-05-08 17:27:50 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232470094608","success":true}
+2026-05-08 17:27:50 | INFO | CASE_1778232469076554 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [521, -1], 'id': 'getObjectPosition_1778232470094608'}
+2026-05-08 17:27:50 | INFO | CASE_1778232469076554 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232470094608', 'success': True}
+2026-05-08 17:27:50 | INFO | CASE_1778232469076554 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.10s，None重试: 0次
+2026-05-08 17:27:50 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232470505501","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:50 | INFO | CASE_1778232469076554 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [521, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232470505501'}
+2026-05-08 17:27:50 | INFO | CASE_1778232469076554 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232470505501', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:50 | ERROR | CASE_1778232469076554 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232470505501', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:50 | WARNING | CASE_1778232469076554 | request_invoker:send_request:105 - webMoveObject_1778232470505501 断言失败！
+2026-05-08 17:27:51 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[543],"id":"loadModel_1778232470914098","success":true}
+2026-05-08 17:27:51 | INFO | CASE_1778232470914098 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232470914098'}
+2026-05-08 17:27:51 | INFO | CASE_1778232470914098 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [543], 'id': 'loadModel_1778232470914098', 'success': True}
+2026-05-08 17:27:51 | INFO | CASE_1778232470914098 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-08 17:27:52 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232471921668","success":true}
+2026-05-08 17:27:52 | INFO | CASE_1778232470914098 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [543, -1], 'id': 'getObjectPosition_1778232471921668'}
+2026-05-08 17:27:52 | INFO | CASE_1778232470914098 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232471921668', 'success': True}
+2026-05-08 17:27:52 | INFO | CASE_1778232470914098 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-08 17:27:52 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232472344668","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:52 | INFO | CASE_1778232470914098 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [543, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232472344668'}
+2026-05-08 17:27:52 | INFO | CASE_1778232470914098 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232472344668', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:52 | ERROR | CASE_1778232470914098 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232472344668', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:52 | WARNING | CASE_1778232470914098 | request_invoker:send_request:105 - webMoveObject_1778232472344668 断言失败！
+2026-05-08 17:27:53 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[565],"id":"loadModel_1778232472747367","success":true}
+2026-05-08 17:27:53 | INFO | CASE_1778232472746374 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232472747367'}
+2026-05-08 17:27:53 | INFO | CASE_1778232472746374 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [565], 'id': 'loadModel_1778232472747367', 'success': True}
+2026-05-08 17:27:53 | INFO | CASE_1778232472746374 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-08 17:27:53 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232473763447","success":true}
+2026-05-08 17:27:53 | INFO | CASE_1778232472746374 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [565, -1], 'id': 'getObjectPosition_1778232473763447'}
+2026-05-08 17:27:53 | INFO | CASE_1778232472746374 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232473763447', 'success': True}
+2026-05-08 17:27:53 | INFO | CASE_1778232472746374 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.10s，None重试: 0次
+2026-05-08 17:27:54 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232474172186","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:54 | INFO | CASE_1778232472746374 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [565, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232474172186'}
+2026-05-08 17:27:54 | INFO | CASE_1778232472746374 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232474172186', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:54 | ERROR | CASE_1778232472746374 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232474172186', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:54 | WARNING | CASE_1778232472746374 | request_invoker:send_request:105 - webMoveObject_1778232474172186 断言失败！
+2026-05-08 17:27:55 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[587],"id":"loadModel_1778232474568831","success":true}
+2026-05-08 17:27:55 | INFO | CASE_1778232474568831 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232474568831'}
+2026-05-08 17:27:55 | INFO | CASE_1778232474568831 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [587], 'id': 'loadModel_1778232474568831', 'success': True}
+2026-05-08 17:27:55 | INFO | CASE_1778232474568831 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.75s，None重试: 0次
+2026-05-08 17:27:55 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232475638612","success":true}
+2026-05-08 17:27:55 | INFO | CASE_1778232474568831 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [587, -1], 'id': 'getObjectPosition_1778232475638612'}
+2026-05-08 17:27:55 | INFO | CASE_1778232474568831 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232475638612', 'success': True}
+2026-05-08 17:27:55 | INFO | CASE_1778232474568831 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:56 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232476063775","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:56 | INFO | CASE_1778232474568831 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [587, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232476063775'}
+2026-05-08 17:27:56 | INFO | CASE_1778232474568831 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232476063775', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:56 | ERROR | CASE_1778232474568831 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232476063775', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:56 | WARNING | CASE_1778232474568831 | request_invoker:send_request:105 - webMoveObject_1778232476063775 断言失败！
+2026-05-08 17:27:57 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[609],"id":"loadModel_1778232476448155","success":true}
+2026-05-08 17:27:57 | INFO | CASE_1778232476448155 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232476448155'}
+2026-05-08 17:27:57 | INFO | CASE_1778232476448155 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [609], 'id': 'loadModel_1778232476448155', 'success': True}
+2026-05-08 17:27:57 | INFO | CASE_1778232476448155 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.71s，None重试: 0次
+2026-05-08 17:27:57 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232477468212","success":true}
+2026-05-08 17:27:57 | INFO | CASE_1778232476448155 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [609, -1], 'id': 'getObjectPosition_1778232477468212'}
+2026-05-08 17:27:57 | INFO | CASE_1778232476448155 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232477468212', 'success': True}
+2026-05-08 17:27:57 | INFO | CASE_1778232476448155 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:27:57 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232477878631","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:57 | INFO | CASE_1778232476448155 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [609, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232477878631'}
+2026-05-08 17:27:57 | INFO | CASE_1778232476448155 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232477878631', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:57 | ERROR | CASE_1778232476448155 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232477878631', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:58 | WARNING | CASE_1778232476448155 | request_invoker:send_request:105 - webMoveObject_1778232477878631 断言失败！
+2026-05-08 17:27:59 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[631],"id":"loadModel_1778232478286301","success":true}
+2026-05-08 17:27:59 | INFO | CASE_1778232478286301 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232478286301'}
+2026-05-08 17:27:59 | INFO | CASE_1778232478286301 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [631], 'id': 'loadModel_1778232478286301', 'success': True}
+2026-05-08 17:27:59 | INFO | CASE_1778232478286301 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-08 17:27:59 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232479319107","success":true}
+2026-05-08 17:27:59 | INFO | CASE_1778232478286301 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [631, -1], 'id': 'getObjectPosition_1778232479319107'}
+2026-05-08 17:27:59 | INFO | CASE_1778232478286301 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232479319107', 'success': True}
+2026-05-08 17:27:59 | INFO | CASE_1778232478286301 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-08 17:27:59 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232479746166","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:27:59 | INFO | CASE_1778232478286301 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [631, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232479746166'}
+2026-05-08 17:27:59 | INFO | CASE_1778232478286301 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232479746166', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:27:59 | ERROR | CASE_1778232478286301 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232479746166', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:28:00 | WARNING | CASE_1778232478286301 | request_invoker:send_request:105 - webMoveObject_1778232479746166 断言失败！
+2026-05-08 17:28:00 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[653],"id":"loadModel_1778232480130113","success":true}
+2026-05-08 17:28:00 | INFO | CASE_1778232480130113 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232480130113'}
+2026-05-08 17:28:00 | INFO | CASE_1778232480130113 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [653], 'id': 'loadModel_1778232480130113', 'success': True}
+2026-05-08 17:28:00 | INFO | CASE_1778232480130113 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.71s，None重试: 0次
+2026-05-08 17:28:01 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232481150439","success":true}
+2026-05-08 17:28:01 | INFO | CASE_1778232480130113 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [653, -1], 'id': 'getObjectPosition_1778232481150439'}
+2026-05-08 17:28:01 | INFO | CASE_1778232480130113 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232481150439', 'success': True}
+2026-05-08 17:28:01 | INFO | CASE_1778232480130113 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:28:01 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232481575208","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:28:01 | INFO | CASE_1778232480130113 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [653, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232481575208'}
+2026-05-08 17:28:01 | INFO | CASE_1778232480130113 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232481575208', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:28:01 | ERROR | CASE_1778232480130113 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232481575208', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:28:01 | WARNING | CASE_1778232480130113 | request_invoker:send_request:105 - webMoveObject_1778232481575208 断言失败！
+2026-05-08 17:28:02 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[675],"id":"loadModel_1778232481960749","success":true}
+2026-05-08 17:28:02 | INFO | CASE_1778232481960749 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232481960749'}
+2026-05-08 17:28:02 | INFO | CASE_1778232481960749 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [675], 'id': 'loadModel_1778232481960749', 'success': True}
+2026-05-08 17:28:02 | INFO | CASE_1778232481960749 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-08 17:28:03 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232482993738","success":true}
+2026-05-08 17:28:03 | INFO | CASE_1778232481960749 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [675, -1], 'id': 'getObjectPosition_1778232482993738'}
+2026-05-08 17:28:03 | INFO | CASE_1778232481960749 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232482993738', 'success': True}
+2026-05-08 17:28:03 | INFO | CASE_1778232481960749 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-08 17:28:03 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232483422584","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:28:03 | INFO | CASE_1778232481960749 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [675, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232483422584'}
+2026-05-08 17:28:03 | INFO | CASE_1778232481960749 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232483422584', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:28:03 | ERROR | CASE_1778232481960749 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232483422584', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:28:03 | WARNING | CASE_1778232481960749 | request_invoker:send_request:105 - webMoveObject_1778232483422584 断言失败！
+2026-05-08 17:28:04 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[697],"id":"loadModel_1778232483807593","success":true}
+2026-05-08 17:28:04 | INFO | CASE_1778232483807593 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232483807593'}
+2026-05-08 17:28:04 | INFO | CASE_1778232483807593 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [697], 'id': 'loadModel_1778232483807593', 'success': True}
+2026-05-08 17:28:04 | INFO | CASE_1778232483807593 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-08 17:28:04 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232484854366","success":true}
+2026-05-08 17:28:04 | INFO | CASE_1778232483807593 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [697, -1], 'id': 'getObjectPosition_1778232484854366'}
+2026-05-08 17:28:04 | INFO | CASE_1778232483807593 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232484854366', 'success': True}
+2026-05-08 17:28:04 | INFO | CASE_1778232483807593 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-08 17:28:05 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232485279474","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:28:05 | INFO | CASE_1778232483807593 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [697, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232485279474'}
+2026-05-08 17:28:05 | INFO | CASE_1778232483807593 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232485279474', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:28:05 | ERROR | CASE_1778232483807593 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232485279474', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:28:05 | WARNING | CASE_1778232483807593 | request_invoker:send_request:105 - webMoveObject_1778232485279474 断言失败！
+2026-05-08 17:28:06 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[719],"id":"loadModel_1778232485680198","success":true}
+2026-05-08 17:28:06 | INFO | CASE_1778232485680198 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778232485680198'}
+2026-05-08 17:28:06 | INFO | CASE_1778232485680198 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [719], 'id': 'loadModel_1778232485680198', 'success': True}
+2026-05-08 17:28:06 | INFO | CASE_1778232485680198 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.71s，None重试: 0次
+2026-05-08 17:28:06 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"ret":[[0.0,0.0,0.0]],"id":"getObjectPosition_1778232486696807","success":true}
+2026-05-08 17:28:06 | INFO | CASE_1778232485680198 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [719, -1], 'id': 'getObjectPosition_1778232486696807'}
+2026-05-08 17:28:06 | INFO | CASE_1778232485680198 | request_invoker:_ws_send_and_wait:52 - 响应体: {'ret': [[0.0, 0.0, 0.0]], 'id': 'getObjectPosition_1778232486696807', 'success': True}
+2026-05-08 17:28:06 | INFO | CASE_1778232485680198 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-08 17:28:07 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778232487123228","success":false,"error":"No such function: simArcs.webMoveObject"}
+2026-05-08 17:28:07 | INFO | CASE_1778232485680198 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [719, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778232487123228'}
+2026-05-08 17:28:07 | INFO | CASE_1778232485680198 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778232487123228', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:28:07 | ERROR | CASE_1778232485680198 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778232487123228', 'success': False, 'error': 'No such function: simArcs.webMoveObject'}
+2026-05-08 17:28:07 | WARNING | CASE_1778232485680198 | request_invoker:send_request:105 - webMoveObject_1778232487123228 断言失败！

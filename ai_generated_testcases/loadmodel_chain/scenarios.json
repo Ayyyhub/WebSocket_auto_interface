@@ -1,0 +1,769 @@
+{
+  "interfaces": [
+    {
+      "func": "sim.loadModel",
+      "description": "加载指定路径的模型文件到仿真环境中，返回模型的唯一标识符。",
+      "test_scenarios": [
+        {
+          "name": "test_loadModel_normal",
+          "description": "正常加载一个存在且可读的模型文件。",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "模型文件路径存在且可读"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回值包含模型标识符",
+              "error字段为空或不存在"
+            ]
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_loadModel_boundary_empty_path",
+          "description": "测试边界情况，模型路径为空字符串。",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "模型路径为空字符串"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'模型文件路径无效'"
+            ]
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_loadModel_wrong_arg_type",
+          "description": "模型路径传入整数类型。",
+          "category": "wrong_arg_type",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "模型路径传入整数类型"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'模型文件路径无效'"
+            ]
+          },
+          "args": [
+            12345
+          ]
+        },
+        {
+          "name": "test_loadModel_missing_args",
+          "description": "缺少模型路径参数。",
+          "category": "missing_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "缺少模型路径参数"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'模型文件路径无效'"
+            ]
+          },
+          "args": []
+        },
+        {
+          "name": "test_loadModel_violation_nonexistent_path",
+          "description": "传入的模型路径不存在。",
+          "category": "violation",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "模型路径不存在"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'模型文件路径无效'"
+            ]
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_loadModel_null_args",
+          "description": "模型路径传入null值。",
+          "category": "null_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "模型路径传入null值"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'模型文件路径无效'"
+            ]
+          },
+          "args": [
+            null
+          ]
+        },
+        {
+          "name": "test_loadModel_invalid_func",
+          "description": "调用不存在的函数名称。",
+          "category": "invalid_func",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "调用不存在的函数名称"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'函数不存在'"
+            ]
+          },
+          "args": []
+        }
+      ]
+    },
+    {
+      "func": "sim.getObjectPosition",
+      "description": "获取指定对象的当前位置。",
+      "test_scenarios": [
+        {
+          "name": "test_getObjectPosition_normal",
+          "description": "正常获取已加载模型的对象位置。",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "对象标识符有效，坐标系为-1"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回值包含x, y, z坐标",
+              "error字段为空或不存在"
+            ]
+          },
+          "args": [
+            0,
+            -1
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_violation_invalid_obj_id",
+          "description": "传入无效的对象标识符。",
+          "category": "violation",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "对象标识符无效"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'对象标识符不存在'"
+            ]
+          },
+          "args": [
+            -999,
+            -1
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_wrong_arg_type",
+          "description": "对象标识符传入字符串类型。",
+          "category": "wrong_arg_type",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "对象标识符传入字符串类型"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'对象标识符不存在'"
+            ]
+          },
+          "args": [
+            "not_a_number",
+            -1
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_missing_args",
+          "description": "缺少对象标识符参数。",
+          "category": "missing_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "缺少对象标识符参数"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'对象标识符不存在'"
+            ]
+          },
+          "args": [
+            -1
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_null_args",
+          "description": "对象标识符传入null值。",
+          "category": "null_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "对象标识符传入null值"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'对象标识符不存在'"
+            ]
+          },
+          "args": [
+            null,
+            -1
+          ]
+        }
+      ]
+    },
+    {
+      "func": "simArcs.webMoveObject",
+      "description": "移动指定对象到目标位置。",
+      "test_scenarios": [
+        {
+          "name": "test_webMoveObject_normal",
+          "description": "正常移动对象到目标位置。",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "对象标识符有效，目标位置在范围内，坐标系为-1，模式为4"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回值为空列表",
+              "error字段为空或不存在"
+            ]
+          },
+          "args": [
+            0,
+            0.0,
+            -1,
+            0
+          ]
+        },
+        {
+          "name": "test_webMoveObject_boundary_position",
+          "description": "测试目标位置的边界值（如-1000或1000）。",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "目标位置取边界值-1000或1000"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回值为空列表",
+              "error字段为空或不存在"
+            ]
+          },
+          "args": [
+            0,
+            -1000,
+            -1,
+            0
+          ]
+        },
+        {
+          "name": "test_webMoveObject_violation_out_of_range_position",
+          "description": "目标位置超出范围（如-1001或1001）。",
+          "category": "violation",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "目标位置超出范围"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'目标位置超出有效范围'"
+            ]
+          },
+          "args": [
+            -999,
+            0.0,
+            -1,
+            0
+          ]
+        },
+        {
+          "name": "test_webMoveObject_wrong_arg_type",
+          "description": "目标位置传入字符串类型。",
+          "category": "wrong_arg_type",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "目标位置传入字符串类型"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'目标位置超出有效范围'"
+            ]
+          },
+          "args": [
+            "not_a_number",
+            0.0,
+            -1,
+            0
+          ]
+        },
+        {
+          "name": "test_webMoveObject_missing_args",
+          "description": "缺少目标位置参数。",
+          "category": "missing_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "缺少目标位置参数"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'目标位置超出有效范围'"
+            ]
+          },
+          "args": [
+            0.0,
+            -1,
+            0
+          ]
+        },
+        {
+          "name": "test_webMoveObject_null_args",
+          "description": "目标位置传入null值。",
+          "category": "null_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "目标位置传入null值"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回错误信息'目标位置超出有效范围'"
+            ]
+          },
+          "args": [
+            null,
+            0.0,
+            -1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "func": "simArcs.ahmSetElementParent",
+      "description": "设置工作台父节点",
+      "test_scenarios": [
+        {
+          "name": "test_ahmSetElementParent_normal",
+          "description": "正常场景，提供有效的 workbench_point_id 和固定值 0",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "提供有效的 workbench_point_id 和 0"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回 success 为 true",
+              "返回值为空列表"
+            ]
+          },
+          "args": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_boundary_workbench_point_id",
+          "description": "边界值测试，workbench_point_id 为最小正整数",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "对 workbench_point_id 参数做边界测试"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回 success 为 true",
+              "返回值为空列表"
+            ]
+          },
+          "args": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_wrong_arg_type_workbench_point_id",
+          "description": "workbench_point_id 参数类型错误，传递字符串",
+          "category": "wrong_arg_type",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "workbench_point_id 传字符串"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 'workbench_point_id 参数无效'"
+            ]
+          },
+          "args": [
+            "not_a_number",
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_missing_workbench_point_id",
+          "description": "缺少 workbench_point_id 参数",
+          "category": "missing_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "缺少 workbench_point_id 参数"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 'workbench_point_id 参数缺失'"
+            ]
+          },
+          "args": [
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_violation_no_create",
+          "description": "未调用 simArcs.ahmCreateHierarchyElement 就直接调用本接口",
+          "category": "violation",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "未满足前置条件，直接调用接口"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 'workbench_point_id 参数无效'"
+            ]
+          },
+          "args": [
+            -999,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_null_workbench_point_id",
+          "description": "workbench_point_id 参数传 null",
+          "category": "null_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "workbench_point_id 参数传 null"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 'workbench_point_id 参数无效'"
+            ]
+          },
+          "args": [
+            null,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "func": "simArcs.ahmCreateHierarchyElement",
+      "description": "创建机器人节点",
+      "test_scenarios": [
+        {
+          "name": "test_ahmCreateHierarchyElement_normal",
+          "description": "正常场景，提供有效的 loadObj_id 和 loadObj_type",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "提供有效的 loadObj_id 和 loadObj_type"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回 success 为 true",
+              "返回值为包含机器人节点 ID 的列表"
+            ]
+          },
+          "args": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_boundary_loadObj_id",
+          "description": "边界值测试，loadObj_id 为最小正整数",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "对 loadObj_id 参数做边界测试"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回 success 为 true",
+              "返回值为包含机器人节点 ID 的列表"
+            ]
+          },
+          "args": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_wrong_arg_type_loadObj_id",
+          "description": "loadObj_id 参数类型错误，传递字符串",
+          "category": "wrong_arg_type",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "loadObj_id 传字符串"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 '参数无效'"
+            ]
+          },
+          "args": [
+            "not_a_number",
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_missing_loadObj_id",
+          "description": "缺少 loadObj_id 参数",
+          "category": "missing_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "缺少 loadObj_id 参数"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 'loadObj_id 参数缺失'"
+            ]
+          },
+          "args": [
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_violation_no_loadModel",
+          "description": "未调用 sim.loadModel 就直接调用本接口",
+          "category": "violation",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "未满足前置条件，直接调用接口"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 '参数无效'"
+            ]
+          },
+          "args": [
+            -999,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_null_loadObj_id",
+          "description": "loadObj_id 参数传 null",
+          "category": "null_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "loadObj_id 参数传 null"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 '参数无效'"
+            ]
+          },
+          "args": [
+            null,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "func": "simArcs.ahmSetElementParent",
+      "description": "设置机器人的父节点",
+      "test_scenarios": [
+        {
+          "name": "test_ahmSetElementParent_robot_normal",
+          "description": "正常场景，提供有效的 robot_point_id 和 workbench_point_id",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "提供有效的 robot_point_id 和 workbench_point_id"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回 success 为 true",
+              "返回值为空列表"
+            ]
+          },
+          "args": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_robot_boundary_robot_point_id",
+          "description": "边界值测试，robot_point_id 为最小正整数",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "对 robot_point_id 参数做边界测试"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回 success 为 true",
+              "返回值为空列表"
+            ]
+          },
+          "args": [
+            0,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_robot_wrong_arg_type_robot_point_id",
+          "description": "robot_point_id 参数类型错误，传递字符串",
+          "category": "wrong_arg_type",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "robot_point_id 传字符串"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 '参数无效'"
+            ]
+          },
+          "args": [
+            "not_a_number",
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_robot_missing_robot_point_id",
+          "description": "缺少 robot_point_id 参数",
+          "category": "missing_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "缺少 robot_point_id 参数"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 'robot_point_id 参数缺失'"
+            ]
+          },
+          "args": [
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_robot_violation_no_create",
+          "description": "未调用 simArcs.ahmCreateHierarchyElement 就直接调用本接口",
+          "category": "violation",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "未满足前置条件，直接调用接口"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 '参数无效'"
+            ]
+          },
+          "args": [
+            -999,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmSetElementParent_robot_null_robot_point_id",
+          "description": "robot_point_id 参数传 null",
+          "category": "null_args",
+          "priority": 2,
+          "target_params": {
+            "param_hint": "robot_point_id 参数传 null"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 '参数无效'"
+            ]
+          },
+          "args": [
+            null,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "func": "simArcs.ahmGetHierarchy",
+      "description": "获取场景树的层级结构",
+      "test_scenarios": [
+        {
+          "name": "test_ahmGetHierarchy_normal",
+          "description": "正常场景，场景树已初始化",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "场景树已初始化"
+          },
+          "expected": {
+            "should_success": true,
+            "assertions": [
+              "返回 success 为 true",
+              "返回值为场景树的层级结构"
+            ]
+          },
+          "args": []
+        },
+        {
+          "name": "test_ahmGetHierarchy_violation_no_init",
+          "description": "场景树未初始化时调用接口",
+          "category": "violation",
+          "priority": 1,
+          "target_params": {
+            "param_hint": "场景树未初始化"
+          },
+          "expected": {
+            "should_success": false,
+            "assertions": [
+              "返回 error 包含 '场景树获取失败'"
+            ]
+          },
+          "args": []
+        }
+      ]
+    }
+  ]
+}

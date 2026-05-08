@@ -1,0 +1,756 @@
+{
+  "interfaces": [
+    {
+      "func": "sim.loadModel",
+      "seq": 1,
+      "business_meaning": "加载指定路径的模型文件，返回模型的唯一标识符，用于后续操作。",
+      "interface_type": "command",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "model_path",
+          "type": "str",
+          "required": 0,
+          "valid_range": "文件路径字符串",
+          "boundary_values": [],
+          "enum_values": [],
+          "special_char_limit": "路径中不能包含非法字符，如\\/:*?\"<>|",
+          "depends_on": ""
+        }
+      ],
+      "expected_response": {
+        "success": "bool, 必填, 表示请求是否成功",
+        "ret": {
+          "type": "list[int]",
+          "description": "返回加载模型的唯一标识符",
+          "structure": "ret[0] 为模型的唯一标识符",
+          "example": "[12345]"
+        },
+        "error": "str, 失败时的错误信息",
+        "abnormal_responses": [
+          {
+            "scenario": "文件路径不存在或非法",
+            "success": false,
+            "error": "模型路径无效或文件不存在"
+          },
+          {
+            "scenario": "系统资源不足",
+            "success": false,
+            "error": "加载模型失败，系统资源不足"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [],
+        "data_flow": [],
+        "system_state": "系统处于可加载模型的状态"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "int",
+            "consumed_by": "sim.getObjectPosition",
+            "as_param_index": 0,
+            "desc": "用于获取对象位置"
+          },
+          {
+            "field": "ret[0]",
+            "type": "int",
+            "consumed_by": "simArcs.webMoveObject",
+            "as_param_index": 0,
+            "desc": "用于移动对象"
+          },
+          {
+            "field": "ret[0]",
+            "type": "int",
+            "consumed_by": "simArcs.webGetHandleType",
+            "as_param_index": 0,
+            "desc": "用于获取对象的 handle 类型"
+          },
+          {
+            "field": "ret[0]",
+            "type": "int",
+            "consumed_by": "simArcs.ahmCreateHierarchyElement",
+            "as_param_index": 0,
+            "desc": "用于创建工作台节点"
+          }
+        ],
+        "state_change": "系统新增一个模型对象"
+      },
+      "business_rules": [
+        "重复调用会加载多个模型，需确保模型路径唯一性",
+        "幂等性：路径相同的模型不会重复加载"
+      ]
+    },
+    {
+      "func": "sim.getObjectPosition",
+      "seq": 2,
+      "business_meaning": "获取指定对象的当前位置，用于后续计算或验证。",
+      "interface_type": "query",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "object_id",
+          "type": "int",
+          "required": 0,
+          "valid_range": "正整数",
+          "boundary_values": [
+            "0",
+            "最大值"
+          ],
+          "enum_values": [],
+          "special_char_limit": "",
+          "depends_on": "sim.loadModel.ret[0]"
+        },
+        {
+          "index": 1,
+          "params_name": "relative_to",
+          "type": "int",
+          "required": 0,
+          "valid_range": "-1 表示绝对坐标",
+          "boundary_values": [
+            "-1"
+          ],
+          "enum_values": [
+            "-1"
+          ],
+          "special_char_limit": "",
+          "depends_on": ""
+        }
+      ],
+      "expected_response": {
+        "success": "bool, 必填, 表示请求是否成功",
+        "ret": {
+          "type": "list[float]",
+          "description": "返回对象的三维坐标",
+          "structure": "ret[0:2] 分别为 x, y, z 坐标",
+          "example": "[0.0, 0.0, 0.0]"
+        },
+        "error": "str, 失败时的错误信息",
+        "abnormal_responses": [
+          {
+            "scenario": "object_id 无效",
+            "success": false,
+            "error": "对象 ID 无效或不存在"
+          },
+          {
+            "scenario": "系统状态异常",
+            "success": false,
+            "error": "无法获取对象位置，系统状态异常"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "使用加载模型的唯一标识符"
+          }
+        ],
+        "system_state": "系统中已加载模型"
+      },
+      "downstream": {
+        "produces": [],
+        "state_change": "无状态改变"
+      },
+      "business_rules": [
+        "幂等性：同一对象 ID 的调用返回相同结果",
+        "异常处理：需验证 object_id 是否有效"
+      ]
+    },
+    {
+      "func": "simArcs.webMoveObject",
+      "seq": 3,
+      "business_meaning": "移动指定对象到目标位置，更新其坐标。",
+      "interface_type": "command",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "object_id",
+          "type": "int",
+          "required": 0,
+          "valid_range": "正整数",
+          "boundary_values": [
+            "0",
+            "最大值"
+          ],
+          "enum_values": [],
+          "special_char_limit": "",
+          "depends_on": "sim.loadModel.ret[0]"
+        },
+        {
+          "index": 1,
+          "params_name": "target_position",
+          "type": "list[float]",
+          "required": 0,
+          "valid_range": "坐标范围 -1000~1000",
+          "boundary_values": [
+            "-1000",
+            "1000"
+          ],
+          "enum_values": [],
+          "special_char_limit": "",
+          "depends_on": ""
+        },
+        {
+          "index": 2,
+          "params_name": "relative_to",
+          "type": "int",
+          "required": 0,
+          "valid_range": "-1 表示绝对坐标",
+          "boundary_values": [
+            "-1"
+          ],
+          "enum_values": [
+            "-1"
+          ],
+          "special_char_limit": "",
+          "depends_on": ""
+        },
+        {
+          "index": 3,
+          "params_name": "move_type",
+          "type": "int",
+          "required": 0,
+          "valid_range": "枚举值 1-5",
+          "boundary_values": [
+            "1",
+            "5"
+          ],
+          "enum_values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "special_char_limit": "",
+          "depends_on": ""
+        }
+      ],
+      "expected_response": {
+        "success": "bool, 必填, 表示请求是否成功",
+        "ret": {
+          "type": "list[float]",
+          "description": "返回移动后对象的三维坐标",
+          "structure": "ret[0:2] 分别为 x, y, z 坐标",
+          "example": "[0.0, 0.0, 0.0]"
+        },
+        "error": "str, 失败时的错误信息",
+        "abnormal_responses": [
+          {
+            "scenario": "object_id 无效",
+            "success": false,
+            "error": "对象 ID 无效或不存在"
+          },
+          {
+            "scenario": "目标位置越界",
+            "success": false,
+            "error": "目标位置超出有效范围"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "使用加载模型的唯一标识符"
+          }
+        ],
+        "system_state": "系统中已加载模型"
+      },
+      "downstream": {
+        "produces": [],
+        "state_change": "更新对象的三维坐标"
+      },
+      "business_rules": [
+        "幂等性：相同目标位置的重复调用不会改变结果",
+        "异常处理：需验证目标位置是否在有效范围内"
+      ]
+    },
+    {
+      "func": "simArcs.webGetHandleType",
+      "seq": 4,
+      "business_meaning": "获取指定对象的 handle 类型，用于后续操作。",
+      "interface_type": "query",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "object_id",
+          "type": "int",
+          "required": 0,
+          "valid_range": "正整数",
+          "boundary_values": [
+            "0",
+            "最大值"
+          ],
+          "enum_values": [],
+          "special_char_limit": "",
+          "depends_on": "sim.loadModel.ret[0]"
+        }
+      ],
+      "expected_response": {
+        "success": "bool, 必填, 表示请求是否成功",
+        "ret": {
+          "type": "list[int]",
+          "description": "返回对象的 handle 类型",
+          "structure": "ret[0] 为 handle 类型",
+          "example": "[2]"
+        },
+        "error": "str, 失败时的错误信息",
+        "abnormal_responses": [
+          {
+            "scenario": "object_id 无效",
+            "success": false,
+            "error": "对象 ID 无效或不存在"
+          },
+          {
+            "scenario": "系统状态异常",
+            "success": false,
+            "error": "无法获取 handle 类型，系统状态异常"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "使用加载模型的唯一标识符"
+          }
+        ],
+        "system_state": "系统中已加载模型"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "int",
+            "consumed_by": "simArcs.ahmCreateHierarchyElement",
+            "as_param_index": 1,
+            "desc": "用于创建工作台节点"
+          }
+        ],
+        "state_change": "无状态改变"
+      },
+      "business_rules": [
+        "幂等性：同一对象 ID 的调用返回相同结果",
+        "异常处理：需验证 object_id 是否有效"
+      ]
+    },
+    {
+      "func": "simArcs.ahmCreateHierarchyElement",
+      "seq": 5,
+      "business_meaning": "创建工作台或机器人节点，返回节点 ID。",
+      "interface_type": "command",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "object_id",
+          "type": "int",
+          "required": 1,
+          "valid_range": "正整数",
+          "boundary_values": [
+            "0",
+            "最大值"
+          ],
+          "enum_values": [],
+          "special_char_limit": "",
+          "depends_on": "sim.loadModel.ret[0]"
+        },
+        {
+          "index": 1,
+          "params_name": "handle_type",
+          "type": "int",
+          "required": 1,
+          "valid_range": "枚举值 0-5",
+          "boundary_values": [
+            "0",
+            "5"
+          ],
+          "enum_values": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "special_char_limit": "",
+          "depends_on": "simArcs.webGetHandleType.ret[0]"
+        }
+      ],
+      "expected_response": {
+        "success": "bool, 必填, 表示请求是否成功",
+        "ret": {
+          "type": "list[int]",
+          "description": "返回创建的节点 ID",
+          "structure": "ret[0] 为节点 ID",
+          "example": "[67890]"
+        },
+        "error": "str, 失败时的错误信息",
+        "abnormal_responses": [
+          {
+            "scenario": "object_id 或 handle_type 无效",
+            "success": false,
+            "error": "参数无效，无法创建节点"
+          },
+          {
+            "scenario": "系统状态异常",
+            "success": false,
+            "error": "无法创建节点，系统状态异常"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel",
+          "simArcs.webGetHandleType"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "使用加载模型的唯一标识符"
+          },
+          {
+            "from_func": "simArcs.webGetHandleType",
+            "from_field": "ret[0]",
+            "to_param_index": 1,
+            "desc": "使用对象的 handle 类型"
+          }
+        ],
+        "system_state": "系统中已加载模型"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "int",
+            "consumed_by": "simArcs.ahmSetElementParent",
+            "as_param_index": 0,
+            "desc": "用于设置工作台或机器人的父节点"
+          }
+        ],
+        "state_change": "系统新增一个层级节点"
+      },
+      "business_rules": [
+        "重复调用会创建多个节点，需确保节点唯一性",
+        "异常处理：需验证 object_id 和 handle_type 是否有效"
+      ]
+    },
+    {
+      "func": "simArcs.ahmSetElementParent",
+      "seq": 6,
+      "business_meaning": "设置工作台父节点，定义场景层级关系。",
+      "interface_type": "command",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "workbench_point_id",
+          "type": "int",
+          "required": 0,
+          "valid_range": "非负整数",
+          "boundary_values": [
+            "0"
+          ],
+          "enum_values": [],
+          "special_char_limit": "无",
+          "depends_on": "simArcs.ahmCreateHierarchyElement 的返回值"
+        },
+        {
+          "index": 1,
+          "params_name": "parent_id",
+          "type": "int",
+          "required": 0,
+          "valid_range": "非负整数",
+          "boundary_values": [
+            "0"
+          ],
+          "enum_values": [],
+          "special_char_limit": "无",
+          "depends_on": ""
+        }
+      ],
+      "expected_response": {
+        "success": "bool, 必填, 表示请求是否成功",
+        "ret": {
+          "type": "空列表[]",
+          "description": "无返回值",
+          "structure": "无",
+          "example": "[]"
+        },
+        "error": "str, 失败时的错误信息, 成功时通常为空或不存在",
+        "abnormal_responses": [
+          {
+            "scenario": "workbench_point_id 无效或未初始化",
+            "success": false,
+            "error": "Invalid workbench_point_id"
+          },
+          {
+            "scenario": "系统状态不允许设置父节点",
+            "success": false,
+            "error": "Parent node setting failed due to system state"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "simArcs.ahmCreateHierarchyElement"
+        ],
+        "data_flow": [
+          {
+            "from_func": "simArcs.ahmCreateHierarchyElement",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "工作台节点 ID 作为父节点参数"
+          }
+        ],
+        "system_state": "工作台节点必须已创建"
+      },
+      "downstream": {
+        "produces": [],
+        "state_change": "工作台节点的父节点被设置"
+      },
+      "business_rules": [
+        "必须在工作台节点创建后调用",
+        "幂等性：重复调用相同参数不会改变系统状态"
+      ]
+    },
+    {
+      "func": "simArcs.ahmCreateHierarchyElement",
+      "seq": 7,
+      "business_meaning": "创建机器人节点，用于场景树的层级定义。",
+      "interface_type": "command",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "loadObj_id",
+          "type": "int",
+          "required": 0,
+          "valid_range": "非负整数",
+          "boundary_values": [
+            "0"
+          ],
+          "enum_values": [],
+          "special_char_limit": "无",
+          "depends_on": "sim.loadModel 的返回值"
+        },
+        {
+          "index": 1,
+          "params_name": "loadObj_type",
+          "type": "int",
+          "required": 0,
+          "valid_range": "非负整数",
+          "boundary_values": [
+            "0"
+          ],
+          "enum_values": [],
+          "special_char_limit": "无",
+          "depends_on": "simArcs.webGetHandleType 的返回值"
+        }
+      ],
+      "expected_response": {
+        "success": "bool, 必填, 表示请求是否成功",
+        "ret": {
+          "type": "list[int]",
+          "description": "机器人节点 ID",
+          "structure": "返回值列表的第一个元素为节点 ID",
+          "example": "[1024]"
+        },
+        "error": "str, 失败时的错误信息, 成功时通常为空或不存在",
+        "abnormal_responses": [
+          {
+            "scenario": "loadObj_id 无效或未初始化",
+            "success": false,
+            "error": "Invalid loadObj_id"
+          },
+          {
+            "scenario": "loadObj_type 无效或未初始化",
+            "success": false,
+            "error": "Invalid loadObj_type"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel",
+          "simArcs.webGetHandleType"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "加载模型的对象 ID"
+          },
+          {
+            "from_func": "simArcs.webGetHandleType",
+            "from_field": "ret[0]",
+            "to_param_index": 1,
+            "desc": "加载模型的类型"
+          }
+        ],
+        "system_state": "模型必须已加载，且类型已获取"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "int",
+            "consumed_by": "simArcs.ahmSetElementParent",
+            "as_param_index": 0,
+            "desc": "机器人节点 ID 作为父节点参数"
+          }
+        ],
+        "state_change": "机器人节点被创建"
+      },
+      "business_rules": [
+        "必须在模型加载和类型获取后调用",
+        "幂等性：重复调用相同参数不会改变系统状态"
+      ]
+    },
+    {
+      "func": "simArcs.ahmSetElementParent",
+      "seq": 8,
+      "business_meaning": "设置机器人的父节点，定义场景层级关系。",
+      "interface_type": "command",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "robot_point_id",
+          "type": "int",
+          "required": 0,
+          "valid_range": "非负整数",
+          "boundary_values": [
+            "0"
+          ],
+          "enum_values": [],
+          "special_char_limit": "无",
+          "depends_on": "simArcs.ahmCreateHierarchyElement 的返回值"
+        },
+        {
+          "index": 1,
+          "params_name": "workbench_point_id",
+          "type": "int",
+          "required": 0,
+          "valid_range": "非负整数",
+          "boundary_values": [
+            "0"
+          ],
+          "enum_values": [],
+          "special_char_limit": "无",
+          "depends_on": "simArcs.ahmCreateHierarchyElement 的返回值"
+        }
+      ],
+      "expected_response": {
+        "success": "bool, 必填, 表示请求是否成功",
+        "ret": {
+          "type": "空列表[]",
+          "description": "无返回值",
+          "structure": "无",
+          "example": "[]"
+        },
+        "error": "str, 失败时的错误信息, 成功时通常为空或不存在",
+        "abnormal_responses": [
+          {
+            "scenario": "robot_point_id 无效或未初始化",
+            "success": false,
+            "error": "Invalid robot_point_id"
+          },
+          {
+            "scenario": "workbench_point_id 无效或未初始化",
+            "success": false,
+            "error": "Invalid workbench_point_id"
+          },
+          {
+            "scenario": "系统状态不允许设置父节点",
+            "success": false,
+            "error": "Parent node setting failed due to system state"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "simArcs.ahmCreateHierarchyElement"
+        ],
+        "data_flow": [
+          {
+            "from_func": "simArcs.ahmCreateHierarchyElement",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "机器人节点 ID 作为父节点参数"
+          },
+          {
+            "from_func": "simArcs.ahmCreateHierarchyElement",
+            "from_field": "ret[0]",
+            "to_param_index": 1,
+            "desc": "工作台节点 ID 作为父节点参数"
+          }
+        ],
+        "system_state": "机器人节点和工作台节点必须已创建"
+      },
+      "downstream": {
+        "produces": [],
+        "state_change": "机器人节点的父节点被设置"
+      },
+      "business_rules": [
+        "必须在机器人节点和工作台节点创建后调用",
+        "幂等性：重复调用相同参数不会改变系统状态"
+      ]
+    },
+    {
+      "func": "simArcs.ahmGetHierarchy",
+      "seq": 9,
+      "business_meaning": "获取场景树，返回当前场景的层级结构。",
+      "interface_type": "query",
+      "params": [],
+      "expected_response": {
+        "success": "bool, 必填, 表示请求是否成功",
+        "ret": {
+          "type": "list[dict]",
+          "description": "场景树的层级结构",
+          "structure": "每个字典表示一个节点，包含节点 ID 和父节点 ID",
+          "example": "[{\"id\": 1024, \"parent_id\": 0}, {\"id\": 1025, \"parent_id\": 1024}]"
+        },
+        "error": "str, 失败时的错误信息, 成功时通常为空或不存在",
+        "abnormal_responses": [
+          {
+            "scenario": "场景树为空或未初始化",
+            "success": false,
+            "error": "Hierarchy is empty or uninitialized"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [],
+        "data_flow": [],
+        "system_state": "场景树必须已初始化"
+      },
+      "downstream": {
+        "produces": [],
+        "state_change": "无"
+      },
+      "business_rules": [
+        "查询型接口，不改变系统状态",
+        "重复调用不会影响场景树内容"
+      ]
+    }
+  ]
+}

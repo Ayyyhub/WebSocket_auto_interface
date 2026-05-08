@@ -111,3 +111,25 @@ class MessageDispatcher:
 
             logger.info(f"{desc} 收到无id系统消息: {parsed}，继续等待真实响应")
 
+
+# ==================== Dispatcher 注册表 ====================
+# 一个 ws_client 连接 → 唯一一个 MessageDispatcher 实例
+
+_dispatchers = {}
+
+
+def get_dispatcher(ws_client):
+    """根据 ws_client 获取或创建其对应的 MessageDispatcher"""
+    if ws_client is None:
+        raise ValueError("ws_client 不能为空")
+    key = id(ws_client)
+    if key not in _dispatchers:
+        _dispatchers[key] = MessageDispatcher(ws_client)
+    return _dispatchers[key]
+
+
+def clear_pending(ws_client):
+    """清理当前 ws_client 对应的 dispatcher 缓存"""
+    if ws_client:
+        get_dispatcher(ws_client).clear_pending()
+

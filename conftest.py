@@ -4,7 +4,7 @@ import pytest
 import sys
 import os
 from Connection.websocket_client import WSClient
-from core.ws_request import ws_clear_pending
+from Message.dispatcher import clear_pending as ws_clear_pending
 from utils.token_util import load_config, get_token,logout
 from utils.logger import logger
 from utils.timestamp import get_unique_id
@@ -13,11 +13,11 @@ from utils.timestamp import get_unique_id
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 
-# 注册 unit_fixtures 插件
-pytest_plugins = [
-    "tests.unit_fixtures.amStartJog_context",
-    "tests.unit_fixtures.ahmGetHierarchy_context",
-]
+# # 注册 unit_fixtures 插件
+# pytest_plugins = [
+#     "tests.unit.unit_fixtures.amStartJog_context",
+#     "tests.unit.unit_fixtures.ahmGetHierarchy_context",
+# ]
 
 
 @pytest.fixture(autouse=True)
@@ -59,7 +59,7 @@ def ws_client():
     client = WSClient(ws_url, user_id, token)
     
     # 4. 建立连接
-    # WSClient.connect() 内部已实现了线程启动和连接等待逻辑
+    # client.connect() 内部已实现了线程启动和连接等待逻辑
     try:
         client.connect()
         time.sleep(5)

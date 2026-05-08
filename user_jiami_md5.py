@@ -1,23 +1,30 @@
-import hashlib
+import hashlib  # 确保导入hashlib模块
+
+
+def md5_single(s: str) -> str:
+    """单次MD5加密工具函数（32位小写）"""
+    return hashlib.md5(s.encode('utf-8')).hexdigest()
 
 
 def jiami():
-    # 输入数据
-    data = "AE11a5c73bd6ba8b939a17acad53caf85a2c"
-    #data = "PeiTian_admin1"     # e2ab3ddd4ae58fd3b2320b418f96f7f5
-    # data = "zx6900653"
+    # 输入待加密数据
+    data = input("请输入要加密的密码：")
+    name = input("请输入被加密的账号：")
 
-    # 创建MD5对象
-    md5_hash = hashlib.md5()
+    # 第一次MD5加密
+    first_md5 = md5_single(data)
+    # 第二次MD5加密（对第一次加密结果再加密）
+    second_md5 = md5_single(name+first_md5)
 
-    # 更新MD5对象，将输入数据进行加密
-    md5_hash.update(data.encode('utf-8'))
+    # 输出过程与最终结果（方便调试）
+    print(f"第一次MD5(32位小写)：{first_md5}")
+    print(f"第二次MD5(32位小写)：{second_md5}")
 
-    # 获取32位小写MD5值
-    md5_value = md5_hash.hexdigest()
+    return second_md5
 
-    # 输出加密后的MD5值
-    print(f"MD5 (32位小写): {md5_value}")
 
 if __name__ == "__main__":
-    jiami()
+    # 执行两次加密并获取结果
+    final_result = jiami()
+    # 若仅需最终结果，可单独打印：
+    # print(f"两次加密最终结果：{final_result}")

@@ -1,5 +1,5 @@
 import pytest
-from core.harness import send_request
+from core.request_invoker import send_request
 
 
 def test_amStartJog_with_enable_should_success(ws_client, jog_context):
@@ -31,6 +31,7 @@ def test_amStartJog_boundary_speed(ws_client, jog_context):
         f"断言失败：success={resp['success']}，ret={resp['ret']}"
 
 
+# 一个工厂夹具 + 参数化测试的组合模式，用来构建测试前置条件。
 @pytest.mark.parametrize(
     "do_start,do_enable,do_switch,do_push,expect_success",
     [

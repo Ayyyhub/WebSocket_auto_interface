@@ -2,7 +2,7 @@ from Service.getalll4_chain import GetAll4
 from Service.loadmodel_chain import LoadModel
 from Service.newpoint_chain import NewPoint
 from utils.logger import logger
-from core.harness import send_request
+from core.request_invoker import send_request
 
 class Teaching:
     # 示教点集 ID
@@ -184,7 +184,7 @@ class Teaching:
                          [Teaching.collect_point_path_id,str(Teaching.collect_point_path_id),loadmodel_instance.loadObj_id],
                          "aamUpdateTeachingPath 在更新示教器界面的示教点集数据之后更新到左侧树")
 
-            # getall4
+            
 
 
         except Exception as ex:

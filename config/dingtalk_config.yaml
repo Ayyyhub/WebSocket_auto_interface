@@ -1,0 +1,11 @@
+# 钉钉开放平台 API 配置
+# 用于从钉钉文档获取接口定义
+
+app_key: "dingcw4gtzmqqwarrxs5"
+app_secret: "vFjWHDEma7BE9ofR5Dihz5jiGRAZB8HDDPx8-uqt1vc3yGTUpj5B8uxhTahva0vr"
+doc_key: "b9Y4gmKWrPl6dGYAsQ7nyeqBJGXn6lpz"
+corp_id: "ding7643c622e9eb8d4735c2f4657eb6378f"
+operator_id: "919286298"
+
+# 缓存配置
+cache_ttl_hours: 24
