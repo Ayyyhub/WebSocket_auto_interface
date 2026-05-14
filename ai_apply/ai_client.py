@@ -24,13 +24,42 @@ import yaml
 from openai import OpenAI
 
 
+def _resolve_env_vars(obj):
+    """递归解析 dict/list 中的 ${ENV_VAR} 占位符"""
+    if isinstance(obj, str):
+        return re.sub(r'\$\{(\w+)\}', lambda m: os.environ.get(m.group(1), m.group(0)), obj)
+    if isinstance(obj, dict):
+        return {k: _resolve_env_vars(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_resolve_env_vars(v) for v in obj]
+    return obj
+
+
+def _load_dotenv():
+    """加载项目根目录下的 .env 文件到 os.environ"""
+    dotenv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+    if not os.path.exists(dotenv_path):
+        return
+    with open(dotenv_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            key, value = key.strip(), value.strip()
+            if key and key not in os.environ:
+                os.environ[key] = value
+
+
 def load_llm_config(config_path: str = None) -> dict:
     if config_path is None:
         config_path = os.path.join(
             os.path.dirname(os.path.dirname(__file__)), "config", "llm_config.yaml"
         )
+    _load_dotenv()
     with open(config_path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+        config = yaml.safe_load(f)
+    return _resolve_env_vars(config)
 
 
 # ===================== Tool Schema 定义 =====================
