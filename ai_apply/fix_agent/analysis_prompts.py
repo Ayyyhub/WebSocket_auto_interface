@@ -31,6 +31,15 @@ ANALYSIS_SYSTEM_PROMPT = """\
 
 6. **uncertain** — 无法确定原因
 
+## 关键区分规则
+
+- **如果测试断言是 `assert resp.get("success") == False` 但服务端实际返回了 success=True**，
+  这说明服务端对该异常参数做了容错处理，测试的预期结果写反了，应归类为 **wrong_scenario_logic**（需要修改 expected.should_success 为 True），
+  而不是 wrong_test_data（修改参数没有意义，因为参数是故意构造的异常值）。
+
+- **只有当测试的预期方向正确（异常参数期望失败，且确实失败了），但参数本身不够精确时**，
+  才归类为 wrong_test_data。
+
 ## 输出要求
 
 - 用中文描述 root_cause

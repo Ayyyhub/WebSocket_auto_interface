@@ -67,5 +67,5 @@ def route_after_retest(state: dict) -> str:
         logger.info("路由: 达到最大重试 %d 次 → END", max_retries)
         return "end"
 
-    logger.info("路由: 第 %d 次重试 → analyze_failure", retry_count)
-    return "analyze_failure"
+    logger.info("路由: 第 %d 次重试 → parse_pytest_output", retry_count)
+    return "parse_pytest_output"

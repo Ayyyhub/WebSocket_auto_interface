@@ -15,12 +15,12 @@ import os
 import subprocess
 import sys
 
+import yaml
+
 # 将 ai_apply 目录加入 path
 _AI_APPLY_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _AI_APPLY_DIR not in sys.path:
     sys.path.insert(0, _AI_APPLY_DIR)
-
-from fix_agent.graph import build_fix_graph
 
 logging.basicConfig(
     level=logging.INFO,
@@ -29,12 +29,70 @@ logging.basicConfig(
 )
 logger = logging.getLogger("fix_agent.runner")
 
+from fix_agent.graph import build_fix_graph
+
+
+def _is_interrupted(app, config) -> bool:
+    """检查 graph 是否在 interrupt 处暂停"""
+    try:
+        state = app.get_state(config)
+        return state.next is not None and len(state.next) > 0
+    except Exception:
+        return False
+
+
+def _print_summary(state: dict):
+    """输出修复结果汇总"""
+    print("\n" + "=" * 60)
+    print("Fix Agent 完成")
+    print("=" * 60)
+    print(f"重试次数: {state.get('retry_count', 0)}")
+    print(f"最终结果: {'全部通过' if state.get('all_passed') else '仍有失败'}")
+
+    history = state.get("history", [])
+    if history:
+        print("\n修复历史:")
+        for h in history:
+            print(f"  第 {h.get('retry', '?')} 次: "
+                  f"分类={h.get('category', '?')}, "
+                  f"动作={h.get('action', '?')}, "
+                  f"结果={h.get('result', '?')}")
+    
+
+def _setup_langsmith():
+    """从 llm_config.yaml 读取 LangSmith 配置并设置为环境变量"""
+    # _AI_APPLY_DIR = ai_apply/，config 在上级 auto_Interface/config/
+    config_path = os.path.join(
+        os.path.dirname(_AI_APPLY_DIR), "config", "llm_config.yaml"
+    )
+    if not os.path.exists(config_path):
+        logger.warning("未找到 llm_config.yaml: %s", config_path)
+        return
+
+    with open(config_path, "r", encoding="utf-8") as f:
+        config = yaml.safe_load(f)
+
+    env_map = {
+        "LANGSMITH_API_KEY": config.get("LANGSMITH_API_KEY"),
+        "LANGSMITH_TRACING": config.get("LANGSMITH_TRACING"),
+        "LANGSMITH_PROJECT": config.get("LANGSMITH_PROJECT"),
+        "LANGCHAIN_API_KEY": config.get("LANGCHAIN_API_KEY"),
+        "LANGCHAIN_TRACING_V2": config.get("LANGCHAIN_TRACING_V2"),
+    }
+    for key, value in env_map.items():
+        if value and not os.environ.get(key):
+            os.environ[key] = str(value)
+            logger.info("LangSmith 环境变量: %s=***已设置***", key)
+
+    if os.environ.get("LANGSMITH_API_KEY"):
+        logger.info("LangSmith 追踪已启用，项目: %s", os.environ.get("LANGSMITH_PROJECT", "default"))
+
 
 def run_pytest(test_file: str) -> str:
     """执行 pytest 并返回输出"""
     result = subprocess.run(
-        ["pytest", test_file, "-v", "--tb=short"],
-        capture_output=True, text=True, timeout=120,
+        ["pytest", test_file, "-v", "--tb=short", "-o", "addopts="],
+        capture_output=True, text=True, timeout=300,
     )
     return result.stdout + "\n" + result.stderr
 
@@ -68,11 +126,15 @@ def prompt_human_decision(state: dict) -> dict:
     print("  [y] 批准修复")
     print("  [n] 拒绝，让 AI 重新分析")
     print("  [m] 手动修改修复方案")
+    print("  [q] 退出 fix_agent")
 
     while True:
         choice = input("\n> ").strip().lower()
         if choice in ("y", "yes", "approve"):
             return {"human_decision": "approve"}
+        elif choice in ("q", "quit", "exit"):
+            print("退出 fix_agent")
+            sys.exit(0)
         elif choice in ("n", "no", "reject"):
             return {"human_decision": "reject"}
         elif choice in ("m", "modify"):
@@ -93,6 +155,8 @@ def prompt_human_decision(state: dict) -> dict:
 
 
 def main():
+    _setup_langsmith()
+
     parser = argparse.ArgumentParser(description="LangGraph Test Fix Agent")
     parser.add_argument("--dir", required=True,
                         help="ai_generated_testcases 下的目录名")
@@ -108,11 +172,8 @@ def main():
                         help="使用 SQLite 持久化（支持崩溃恢复）")
     args = parser.parse_args()
 
-    # 定位输出目录
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    output_dir = os.path.join(
-        os.path.dirname(base_dir), "ai_generated_testcases", args.dir
-    )
+    # 定位输出目录: ai_apply/ai_generated_testcases/<dir>
+    output_dir = os.path.join(_AI_APPLY_DIR, "ai_generated_testcases", args.dir)
     if not os.path.isdir(output_dir):
         print(f"目录不存在: {output_dir}")
         sys.exit(1)
@@ -176,36 +237,10 @@ def main():
                 initial_state = None  # 后续继续不需要初始状态
             else:
                 raise
-
     # 输出汇总
     _print_summary(result)
 
 
-def _is_interrupted(app, config) -> bool:
-    """检查 graph 是否在 interrupt 处暂停"""
-    try:
-        state = app.get_state(config)
-        return state.next is not None and len(state.next) > 0
-    except Exception:
-        return False
-
-
-def _print_summary(state: dict):
-    """输出修复结果汇总"""
-    print("\n" + "=" * 60)
-    print("Fix Agent 完成")
-    print("=" * 60)
-    print(f"重试次数: {state.get('retry_count', 0)}")
-    print(f"最终结果: {'全部通过' if state.get('all_passed') else '仍有失败'}")
-
-    history = state.get("history", [])
-    if history:
-        print("\n修复历史:")
-        for h in history:
-            print(f"  第 {h.get('retry', '?')} 次: "
-                  f"分类={h.get('category', '?')}, "
-                  f"动作={h.get('action', '?')}, "
-                  f"结果={h.get('result', '?')}")
 
 
 if __name__ == "__main__":

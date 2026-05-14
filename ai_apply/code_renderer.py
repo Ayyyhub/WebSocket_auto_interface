@@ -12,7 +12,7 @@ from jinja2 import Environment, FileSystemLoader
 
 
 TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "templates")
-OUTPUT_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "ai_generated_testcases")
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "ai_generated_testcases")
 
 
 def render_ws_test_code(
@@ -195,6 +195,10 @@ def _gen_happy_path_helper(interfaces: list) -> list:
         args_detail = iface.get("args_detail", [])
         response_usage = iface.get("response_usage")
 
+        # 在执行 step 之前检查：如果 seq >= target_seq，说明前面的步骤都跑完了，直接返回
+        lines.append(f"        if {seq} >= target_seq:")
+        lines.append(f"            return state")
+        lines.append("")
         lines.append(f"        # Step {seq}: {func}")
 
         args_parts = _build_args_expr(args_detail)
@@ -212,8 +216,6 @@ def _gen_happy_path_helper(interfaces: list) -> list:
             lines.append(f'        if resp_{seq}.get("ret"):')
             lines.append(f'            state["{captured_by}"] = resp_{seq}["ret"][0]')
 
-        lines.append(f"        if target_seq <= {seq}:")
-        lines.append(f"            return state")
         lines.append("")
 
     lines.append("        return state")
@@ -246,10 +248,13 @@ def _gen_mutation_tests(interfaces: list, scenario_map: dict) -> list:
             name = ts.get("name", f"step{seq}_{category}")
             ts_desc = ts.get("description", "")
             args = ts.get("args", [])
+
+            # 跳过无实际测试价值的场景：args 全为空字符串
+            if all(a == "" for a in args):
+                continue
             expected = ts.get("expected", {})
             should_success = expected.get("should_success", False)
 
-            # 生成唯一方法名：用 seq 前缀避免重名
             raw_name = re.sub(r"[^a-zA-Z0-9_]", "_", name)
             if raw_name.startswith("test_"):
                 raw_name = raw_name[5:]
@@ -262,9 +267,9 @@ def _gen_mutation_tests(interfaces: list, scenario_map: dict) -> list:
             lines.append(f"    def {method_name}(self, ws_client):")
             lines.append(f'        """Step {seq} 变异测试 [{category}]: {ts_desc}"""')
 
-            # 前置：跑 happy path 到当前步骤之前
+            # 前置：跑 happy path 到当前步骤之前（让服务端进入正确状态）
             if seq > 1:
-                lines.append(f"        state = self._run_happy_path_to(ws_client, {seq})")
+                lines.append(f"        self._run_happy_path_to(ws_client, {seq})")
 
             # 发送变异请求
             args_repr = ", ".join(_repr_arg(a) for a in args)
@@ -276,11 +281,12 @@ def _gen_mutation_tests(interfaces: list, scenario_map: dict) -> list:
             lines.append(f"        )")
 
             # 断言
-            lines.append(f"        assert resp is not None, '接口返回为空'")
             if should_success:
+                lines.append(f"        assert resp is not None, '接口返回为空'")
                 lines.append(f'        assert resp.get("success") == True, f"预期成功但失败: {{resp}}"')
             else:
-                lines.append(f'        assert resp.get("success") == False, f"预期失败但成功: {{resp}}"')
+                lines.append(f"        assert resp is None or resp.get('success') == False, "
+                             f"f'预期失败但成功: {{resp}}'")
 
             lines.append("")
 

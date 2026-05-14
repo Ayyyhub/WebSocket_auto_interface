@@ -1,0 +1,345 @@
+{
+  "workflow_name": "loadmodel_chain",
+  "summary": "",
+  "source_file": "loadmodel_chain.py",
+  "source_code": "from core.request_invoker import send_request\nfrom Service.getalll4_chain import GetAll4\nfrom utils.logger import logger\n\n\"\"\"加载模型工作流\"\"\"\n\nclass LoadModel:\n    object_handle = None\n    loadObj_type = None\n    obj_id = None\n    robot_point_id = None\n\n    def __init__(self,ws_client):\n        self.ws_client = ws_client\n\n    # 执行16-28号核心功能接口（加载模型）\n    def ws_loadmodel_chain(self):\n        try:\n            # 16. 加载模型\n            response_loadModel = send_request(self.ws_client, \"sim.loadModel\", [\"public/models/robot/AIR4_560A/AIR4_560A.m\"], \"loadModel 加载模型\")\n            if response_loadModel and response_loadModel.get(\"success\") and \"ret\" in response_loadModel and response_loadModel[\"ret\"]:\n                LoadModel.object_handle = response_loadModel[\"ret\"][0]\n                logger.info(f\"[PERF] loadModel 加载模型成功，对象ID: {LoadModel.object_handle}\")\n            else:\n                logger.warning(f\"[PERF] loadModel 加载模型失败或返回空: {response_loadModel}\")\n\n\n            # 17. 获取对象位置\n            send_request(self.ws_client, \"sim.getObjectPosition\", [LoadModel.object_handle, -1], \"getObjectPosition 获取对象位置\")\n\n            # 18. 对象移动\n            # args: 模型handle,[x,y,z]移动,参考对象handle\"只有-1(world)和-11(parent)\"，单位\n            send_request(self.ws_client, \"simArcs.webMoveObject\", [LoadModel.object_handle, [0, 0, 0], -1, 4], \"webMoveObject 对象移动\")\n\n\n            # 19. 获取加载的模型机器人的handle类型\n            response_webGetHandleType=send_request(self.ws_client, \"simArcs.webGetHandleType\", [LoadModel.object_handle], \"webGetHandleType 获取加载模型的handle类型\")\n            loadObj_type=None\n            if response_webGetHandleType and response_webGetHandleType.get(\"success\") and \"ret\" in response_webGetHandleType and response_webGetHandleType[\"ret\"]:\n                loadObj_type=response_webGetHandleType[\"ret\"][0]\n                logger.info(f\"[PERF] webGetHandleType 获取加载的模型机器人的handle类型: {loadObj_type}\")\n            else:\n                logger.warning(f\"[PERF] ahmCreateHierarchyElement 创建节点失败或返回空: {response_webGetHandleType}\")\n\n            # 20. 创建节点\n            # args 控制器的工作台通道，节点类型\n            response_ahmCreateHierarchyElement1 = send_request(self.ws_client, \"simArcs.ahmCreateHierarchyElement\", [LoadModel.object_handle, 2], \"ahmCreateHierarchyElement 创建工作台节点成功\")\n            obj_id = None\n            if response_ahmCreateHierarchyElement1 and response_ahmCreateHierarchyElement1.get(\"success\") and \"ret\" in response_ahmCreateHierarchyElement1 and response_ahmCreateHierarchyElement1[\"ret\"]:\n                obj_id = response_ahmCreateHierarchyElement1[\"ret\"][0]\n                logger.info(f\"[PERF] ahmCreateHierarchyElement 创建机器人，设置工作台节点成功，对象ID: {obj_id}\")\n            else:\n                logger.warning(f\"[PERF] ahmCreateHierarchyElement 创建节点失败或返回空: {response_ahmCreateHierarchyElement1}\")\n\n            # 21. 设置工作台父节点\n            # args 节点ID，父节点ID\n            send_request(self.ws_client, \"simArcs.ahmSetElementParent\", [obj_id, -1], \"ahmSetElementParent1 设置工作台父节点\")\n\n            \n            # 22. 获取节点名称\n            req_ahmGetElementName = {\"func\": \"simArcs.ahmGetElementName\", \"args\": [obj_id],\"id\": \"ahmGetElementName\"}\n            send_request(req_ahmGetElementName,\"req_ahmGetElementName 获取节点名称\")\n\n            # 23. 获取场景树\n            send_request(self.ws_client,\"simArcs.ahmGetHierarchy\",[],\"ahmGetHierarchy 获取场景树\")\n            \n            # getall4\n            GetAll4(ws_client=self.ws_client).ws_getall4_chain()\n\n\n        except Exception as e:\n            logger.error(f\"异常:{e}\")\n\n",
+  "interfaces": [
+    {
+      "seq": 1,
+      "func": "sim.loadModel",
+      "desc": "loadModel 加载模型",
+      "call_type": "capture_response",
+      "args_detail": [
+        {
+          "index": 0,
+          "value": "public/models/robot/AIR4_560A/AIR4_560A.m",
+          "source": "literal"
+        }
+      ],
+      "args": [
+        "public/models/robot/AIR4_560A/AIR4_560A.m"
+      ],
+      "response_usage": {
+        "captured_by": "LoadModel.object_handle",
+        "extract_path": "response_loadModel['ret'][0]"
+      },
+      "upstream": [],
+      "downstream": [
+        "sim.getObjectPosition",
+        "simArcs.webMoveObject",
+        "simArcs.webGetHandleType",
+        "simArcs.ahmCreateHierarchyElement"
+      ],
+      "dingtalk_params": [
+        {
+          "name": "file_path",
+          "description": "模型文件路径"
+        },
+        {
+          "name": "object_handle",
+          "description": "加载后的模型handle"
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "func": "sim.getObjectPosition",
+      "desc": "getObjectPosition 获取对象位置",
+      "call_type": "fire_and_forget",
+      "args_detail": [
+        {
+          "index": 0,
+          "value": "<STATE:LoadModel.object_handle>",
+          "source": "state:LoadModel.object_handle"
+        },
+        {
+          "index": 1,
+          "value": -1,
+          "source": "literal"
+        }
+      ],
+      "args": [
+        "<STATE:LoadModel.object_handle>",
+        -1
+      ],
+      "response_usage": null,
+      "upstream": [
+        "sim.loadModel"
+      ],
+      "downstream": [],
+      "dingtalk_params": [
+        {
+          "name": "object_handle",
+          "description": "对象handle"
+        },
+        {
+          "name": "relative_to_handle",
+          "description": "相对handle\n*   \\-1: 相对于世界\n    \n*   \\-11: 相对于父对象"
+        },
+        {
+          "name": "position",
+          "description": "位置[x, y, z]，单位：m"
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "func": "simArcs.webMoveObject",
+      "desc": "webMoveObject 对象移动",
+      "call_type": "fire_and_forget",
+      "args_detail": [
+        {
+          "index": 0,
+          "value": "<STATE:LoadModel.object_handle>",
+          "source": "state:LoadModel.object_handle"
+        },
+        {
+          "index": 1,
+          "value": [
+            0,
+            0,
+            0
+          ],
+          "source": "literal"
+        },
+        {
+          "index": 2,
+          "value": -1,
+          "source": "literal"
+        },
+        {
+          "index": 3,
+          "value": 4,
+          "source": "literal"
+        }
+      ],
+      "args": [
+        "<STATE:LoadModel.object_handle>",
+        [
+          0,
+          0,
+          0
+        ],
+        -1,
+        4
+      ],
+      "response_usage": null,
+      "upstream": [
+        "sim.loadModel"
+      ],
+      "downstream": [],
+      "dingtalk_params": [
+        {
+          "name": "object_handle",
+          "description": "模型handle"
+        },
+        {
+          "name": "delta_dist",
+          "description": "相对于自身而言，x，y，z轴的变化量数组，[∆x, ∆y, ∆z]，正数代表向轴的正方向移动，负数代表向轴的负方向移动；相对于世界，那么就代表目标值"
+        },
+        {
+          "name": "relative_to_object_handle",
+          "description": "参考对象handle，默认-1，可省略\n*    -1: world \n    \n*    -11: parent\n    \n*   场景中存在handle的对象"
+        },
+        {
+          "name": "unit",
+          "description": "单位，1:mm，2:cm，3:dm，4:m，可省略，默认是m"
+        },
+        {
+          "name": "success",
+          "description": "成功返回true,失败返回false"
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "func": "simArcs.webGetHandleType",
+      "desc": "webGetHandleType 获取加载模型的handle类型",
+      "call_type": "capture_response",
+      "args_detail": [
+        {
+          "index": 0,
+          "value": "<STATE:LoadModel.object_handle>",
+          "source": "state:LoadModel.object_handle"
+        }
+      ],
+      "args": [
+        "<STATE:LoadModel.object_handle>"
+      ],
+      "response_usage": {
+        "captured_by": "loadObj_type",
+        "extract_path": "response_webGetHandleType['ret'][0]"
+      },
+      "upstream": [
+        "sim.loadModel"
+      ],
+      "downstream": [],
+      "dingtalk_params": [
+        {
+          "name": "handle",
+          "description": "对象句柄，可能场景中真实存在对象（如机器人、外部轴、工具等），也可能是虚拟的handle（如arl_handle）"
+        },
+        {
+          "name": "handle_type",
+          "description": "handle类型，无效返回-1\n0: 控制器，目前只支持1个\n1: 工作台（通道），一个控制器最多支持6个\n2: 机器人\n3: 外部轴\n4:  工具\n5:  路径\n6:  坐标系\n7:  模型\n8: arl程序\n9: 示教点集\n10: \"模型\"类型的子节点类型\n11: 运动设备\n12: 传送带"
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "func": "simArcs.ahmCreateHierarchyElement",
+      "desc": "ahmCreateHierarchyElement 创建工作台节点成功",
+      "call_type": "capture_response",
+      "args_detail": [
+        {
+          "index": 0,
+          "value": "<STATE:LoadModel.object_handle>",
+          "source": "state:LoadModel.object_handle"
+        },
+        {
+          "index": 1,
+          "value": 2,
+          "source": "literal"
+        }
+      ],
+      "args": [
+        "<STATE:LoadModel.object_handle>",
+        2
+      ],
+      "response_usage": {
+        "captured_by": "obj_id",
+        "extract_path": "response_ahmCreateHierarchyElement1['ret'][0]"
+      },
+      "upstream": [
+        "sim.loadModel"
+      ],
+      "downstream": [
+        "simArcs.ahmSetElementParent"
+      ],
+      "dingtalk_params": [
+        {
+          "name": "obj_handle",
+          "description": "对象handle\n对于控制器来说，目前只传0；\n工作台（通道），取值[0, 5]\n机器人~模型传对应的handle\narl程序传对应的handle\n采集点位路径 传对应的handle"
+        },
+        {
+          "name": "obj_type",
+          "description": "节点类型\n0: 控制器，目前只支持1个\n1: 工作台（通道），一个控制器最多支持6个\n2: 机器人\n3: 外部轴\n4:  工具\n5:  路径\n6:  坐标系\n7:  模型\n8: arl程序\n9: 采集点位路径\n10: \"模型\"类型的子节点类型\n11: 运动设备\n12: 传送带"
+        },
+        {
+          "name": "obj_id",
+          "description": "节点id"
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "func": "simArcs.ahmSetElementParent",
+      "desc": "ahmSetElementParent1 设置工作台父节点",
+      "call_type": "fire_and_forget",
+      "args_detail": [
+        {
+          "index": 0,
+          "value": "<变量: obj_id>",
+          "source": "state: obj_id"
+        },
+        {
+          "index": 1,
+          "value": -1,
+          "source": "literal"
+        }
+      ],
+      "args": [
+        "<变量: obj_id>",
+        -1
+      ],
+      "response_usage": null,
+      "upstream": [
+        "simArcs.ahmCreateHierarchyElement"
+      ],
+      "downstream": [],
+      "dingtalk_params": [
+        {
+          "name": "obj_id",
+          "description": "节点id"
+        },
+        {
+          "name": "parent_id",
+          "description": "父节点id"
+        },
+        {
+          "name": "target_handle",
+          "description": "安装目标handle，默认-1,可省略，目前只支持外部轴安装点"
+        }
+      ]
+    },
+    {
+      "seq": 7,
+      "func": "simArcs.ahmGetHierarchy",
+      "desc": "ahmGetHierarchy 获取场景树",
+      "call_type": "fire_and_forget",
+      "args_detail": [],
+      "args": [],
+      "response_usage": null,
+      "upstream": [],
+      "downstream": [],
+      "dingtalk_params": [
+        {
+          "name": "scene_hierarchy",
+          "description": "场景树json字符串，需要转一下"
+        }
+      ]
+    }
+  ],
+  "state_flow": [
+    {
+      "var_name": "LoadModel.object_handle",
+      "produced_by": "sim.loadModel",
+      "consumed_by": [
+        "sim.getObjectPosition",
+        "simArcs.webMoveObject",
+        "simArcs.webGetHandleType",
+        "simArcs.ahmCreateHierarchyElement"
+      ],
+      "extract_path": "response_loadModel['ret'][0]"
+    },
+    {
+      "var_name": "loadObj_type",
+      "produced_by": "simArcs.webGetHandleType",
+      "consumed_by": [],
+      "extract_path": "response_webGetHandleType['ret'][0]"
+    },
+    {
+      "var_name": "obj_id",
+      "produced_by": "simArcs.ahmCreateHierarchyElement",
+      "consumed_by": [
+        "simArcs.ahmSetElementParent"
+      ],
+      "extract_path": "response_ahmCreateHierarchyElement1['ret'][0]"
+    }
+  ],
+  "sub_workflows": [
+    {
+      "target_class": "GetAll4",
+      "target_method": "ws_getall4_chain",
+      "source_file": "Service.getall4.py",
+      "passed_params": {
+        "ws_client": "self.ws_client"
+      }
+    }
+  ],
+  "control_flow": {
+    "has_try_except": true,
+    "delays": [],
+    "conditionals": [
+      {
+        "condition": "response_loadModel and response_loadModel.get('success') and 'ret' in response_loadModel"
+      },
+      {
+        "condition": "response_webGetHandleType and response_webGetHandleType.get('success') and 'ret' in response_webGetHandleType"
+      },
+      {
+        "condition": "response_ahmCreateHierarchyElement1 and response_ahmCreateHierarchyElement1.get('success') and 'ret' in response_ahmCreateHierarchyElement1"
+      }
+    ]
+  }
+}

@@ -134,12 +134,16 @@ def format_semantics_for_generator(semantics: dict) -> str:
     """
     lines = []
     for i, iface in enumerate(semantics.get("interfaces", []), 1):
+        if not isinstance(iface, dict):
+            continue
         lines.append(f"### 接口 {i}: {iface['func']}")
         lines.append(f"业务含义: {iface.get('business_meaning', '')}")
 
         if iface.get("params"):
             lines.append("参数约束:")
             for p in iface["params"]:
+                if not isinstance(p, dict):
+                    continue
                 required_mark = "必填" if p.get("required") else "选填"
                 constraint_parts = [f"业务类型={p.get('business_type', '未知')}"]
                 if p.get("valid_range"):

@@ -12,6 +12,11 @@ from typing import Optional
 from ai_client import AIClient, SCENARIOS_TOOL
 
 
+# 因为你的 prompt 里的 JSON 格式只是给 AI 看的示例，
+# 但 AI 的输出是被 SCENARIOS_TOOL schema（在 ai_client.py 里）约束的。
+# OpenAi的Function Calling / Tool Use 机制就是 schema，它里面 should_success 不在 required 里，AI 就会偷懒不填。
+# 而且 schema 里也没有 description 告诉 AI 这个字段必须填、该填什么。
+
 SYSTEM_PROMPT = """你是一个专业的 WebSocket 接口测试工程师。
 
 你会收到：
@@ -81,11 +86,37 @@ def generate_test_scenarios(
     user_content += "请基于以上信息设计测试场景方向，不需要生成具体测试数据。"
 
     client = AIClient(config=config)
-    return client.call(
+    result = client.call(
         system_prompt=SYSTEM_PROMPT,
         user_message=user_content,
         tool=SCENARIOS_TOOL,
     )
+
+    # 确定性补全：如果 AI 没填 should_success，根据 category 自动设置
+    _ensure_should_success(result)
+    return result
+
+
+def _ensure_should_success(data: dict):
+    """
+    根据 category 确定性设置 should_success。
+    normal → True, 其他所有异常类型 → False
+    """
+    fail_categories = {
+        "wrong_arg_type", "missing_args", "violation",
+        "invalid_func", "null_args", "boundary",
+    }
+
+    for iface in data.get("interfaces", []):
+        if not isinstance(iface, dict):
+            continue
+        for sc in iface.get("test_scenarios", []):
+            if not isinstance(sc, dict):
+                continue
+            expected = sc.setdefault("expected", {})
+            if expected.get("should_success") is None:
+                category = sc.get("category", "")
+                expected["should_success"] = category not in fail_categories
 
 
 if __name__ == "__main__":

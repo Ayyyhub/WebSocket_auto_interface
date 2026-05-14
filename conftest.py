@@ -73,7 +73,13 @@ def ws_client():
 
     # 连接建立后，清理消息层缓存
     ws_clear_pending(client)
-        
+
+    # 初始化后端插件（加载 simArcs 等模块）
+    from Service.init_chain import ws_init_chain
+    logger.info("正在执行 init_chain 初始化后端插件...")
+    ws_init_chain(client)
+    logger.info("init_chain 初始化完成")
+
     # 5. 将客户端实例传递给测试用例
     yield client
     

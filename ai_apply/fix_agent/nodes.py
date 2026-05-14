@@ -16,7 +16,7 @@ if _AI_APPLY_DIR not in sys.path:
     sys.path.insert(0, _AI_APPLY_DIR)
 
 from ai_client import AIClient
-from code_renderer import render_and_save
+from code_renderer import render_and_save_workflow
 
 from .schemas import ERROR_ANALYSIS_TOOL
 from .analysis_prompts import ANALYSIS_SYSTEM_PROMPT
@@ -30,14 +30,15 @@ def _run_pytest(test_file: str) -> str:
     """执行 pytest 并返回输出"""
     try:
         # 等价于你在终端里手动敲：pytest test_loadmodel_chain.py -v --tb=short
+        # addopts= 强制清空所有这些全局默认参数，让这次 pytest 运行只使用你在列表中显式写出来的参数，完全忽略配置文件里的设置
         result = subprocess.run(
-            ["pytest", test_file, "-v", "--tb=short"],
-            capture_output=True, text=True, timeout=120,
+            ["pytest", test_file, "-v", "--tb=short", "-o", "addopts="],
+            capture_output=True, text=True, timeout=300,
         )
         # 执行完后 result.stdout + "\n" + result.stderr 拿到完整的 pytest 输出文本，后面用正则解析哪些用例失败了。
         return result.stdout + "\n" + result.stderr
     except subprocess.TimeoutExpired:
-        return "FAILED - pytest 执行超时（120s）"
+        return "FAILED - pytest 执行超时（300s）"
     except Exception as e:
         return f"FAILED - pytest 执行异常: {e}"
 
@@ -108,7 +109,7 @@ def parse_pytest_output(state: dict) -> dict:
 
     failed_tests = []
     # 匹配 FAILED 行
-    failed_pattern = re.compile(r"FAILED\s+(.+?)::(\w+)::(\w+)\s*-")
+    failed_pattern = re.compile(r"FAILED\s+(.+?)::(\w+)::(\w+)")
     # 匹配 AssertionError 或 Error 信息
     error_blocks = re.split(r"={3,}\s*FAILURES\s*={3,}", raw)
 
@@ -158,6 +159,170 @@ def parse_pytest_output(state: dict) -> dict:
     }
 
 
+def analyze_failure(state: dict) -> dict:
+    """AI 分析失败原因并分类"""
+
+    failed_tests = state.get("failed_tests", [])
+    if not failed_tests:
+        return {"error_category": "uncertain", "root_cause": "无失败用例", "affected_interfaces": []}
+
+    logger.info("AI 分析失败原因（第 %d 次重试）", state.get("retry_count", 0))
+
+    # 构建上下文：失败信息 + 相关语义 + 当前场景
+    user_parts = ["## 测试失败信息\n"]
+    for ft in failed_tests:
+        user_parts.append(f"- 测试: {ft['test_name']}")
+        user_parts.append(f"  错误: {ft['error_message']}")
+        if ft.get("traceback"):
+            user_parts.append(f"  Traceback:\n```\n{ft['traceback']}\n```")
+        user_parts.append("")
+
+    # 添加 pytest summary（包含关键的断言文本，如"预期失败但成功"）
+    raw_output = state.get("pytest_output", "")
+    if "FAILED" in raw_output:
+        summary_start = raw_output.rfind("short test summary")
+        if summary_start > 0:
+            user_parts.append("## pytest 失败摘要\n")
+            user_parts.append("```")
+            user_parts.append(raw_output[summary_start:summary_start + 1500])
+            user_parts.append("```\n")
+
+    # 添加受影响接口的语义信息
+    affected = set()
+    for ft in failed_tests:
+        # 从测试名提取接口函数名，如 test_loadModel_normal -> loadModel
+        name = ft["test_name"]
+        for iface in state.get("semantics", {}).get("interfaces", []):
+            if iface["func"].split(".")[-1] in name:
+                affected.add(iface["func"])
+
+    if affected:
+        user_parts.append("## 相关接口语义信息\n")
+        for iface in state.get("semantics", {}).get("interfaces", []):
+            if iface["func"] in affected:
+                user_parts.append(f"### {iface['func']}")
+                user_parts.append(f"业务含义: {iface.get('business_meaning', '')}")
+                if iface.get("params"):
+                    user_parts.append("参数约束:")
+                    for p in iface["params"]:
+                        user_parts.append(f"  - {p.get('params_name', p.get('index', '?'))}: "
+                                         f"类型={p.get('type', '?')}, "
+                                         f"范围={p.get('valid_range', '?')}, "
+                                         f"枚举={p.get('enum_values', [])}")
+                user_parts.append("")
+
+    # 添加当前场景数据（仅受影响接口），重点包含 expected 信息
+    if affected:
+        user_parts.append("## 当前测试场景（重点关注 expected.should_success）\n")
+        for iface in state.get("scenarios", {}).get("interfaces", []):
+            if iface["func"] in affected:
+                user_parts.append(f"### {iface['func']}")
+                for s in iface.get("test_scenarios", []):
+                    # 只展示与失败用例相关的场景
+                    scenario_name = s.get("name", "")
+                    if any(scenario_name in ft["test_name"] for ft in failed_tests):
+                        user_parts.append(
+                            f"- **{scenario_name}** ({s['category']})\n"
+                            f"  args={s.get('args', [])}\n"
+                            f"  expected.should_success={s.get('expected', {}).get('should_success', '?')}\n"
+                            f"  expected.assertions={s.get('expected', {}).get('assertions', [])}"
+                        )
+                user_parts.append("")
+
+    # 添加历史修复记录（避免重复策略）
+    history = state.get("history", [])
+    if history:
+        user_parts.append("## 之前的修复尝试（请勿重复相同策略）\n")
+        for h in history:
+            user_parts.append(f"- 第 {h['retry']} 次: category={h['category']}, "
+                             f"action={h['action']}, 结果={h['result']}")
+
+    user_message = "\n".join(user_parts)
+
+    # 调用 AI
+    client = AIClient()
+    try:
+        result = client.call(
+            system_prompt=ANALYSIS_SYSTEM_PROMPT,
+            user_message=user_message,
+            tool=ERROR_ANALYSIS_TOOL,
+        )
+    except Exception as e:
+        logger.error("AI 分析失败: %s", e)
+        return {
+            "error_category": "uncertain",
+            "root_cause": f"AI 调用失败: {e}",
+            "affected_interfaces": list(affected),
+            "fix_proposal_confidence": 0.0,
+        }
+
+    category = result.get("error_category", "uncertain")
+
+    # 启发式修正：如果断言特征明确是"预期失败但成功"，纠正为 wrong_scenario_logic
+    if category in ("uncertain", "wrong_test_data"):
+        raw = state.get("pytest_output", "")
+        # 检查是否所有失败都是"预期失败但实际成功"的模式
+        expect_fail_but_pass = (
+            "预期失败但成功" in raw
+            or "预期成功但失败" not in raw and 'assert resp.get("success") == False' in raw
+            or "expected to fail but succeeded" in raw.lower()
+        )
+        if expect_fail_but_pass:
+            category = "wrong_scenario_logic"
+            result["root_cause"] = (
+                "服务端对异常参数做了容错处理，接口返回了 success=True，"
+                "但测试预期 success=False。应修改 expected.should_success 为 True。"
+            )
+            logger.info("启发式修正: %s → wrong_scenario_logic", result.get("error_category"))
+
+    return {
+        "error_category": category,
+        "root_cause": result.get("root_cause", ""),
+        "affected_interfaces": result.get("affected_interfaces", list(affected)),
+        "fix_proposal_confidence": result.get("confidence", 0.5),
+    }
+
+
+def skill_dispatch(state: dict) -> dict:
+    """
+    Skill 调度节点：根据 error_category 查找并执行对应 skill。
+    替代原先的 propose_fix（通用 AI 修复）和 handle_environment（环境终止）。
+    """
+
+    from .skills.registry import SkillRegistry
+
+    # # 1. 拿到 AI 分析出的错误分类
+    category = state.get("error_category", "uncertain")
+    
+    # # 2. 从注册表里找对应的 skill
+    registry = SkillRegistry()
+    skill = registry.get_skill(category)
+
+    # # 3. 如果没找到，使用 uncertain 回退
+    if skill is None:
+        logger.warning("未找到 category=%s 的 skill，使用 uncertain 回退", category)
+        skill = registry.get_skill("uncertain")
+
+    logger.info("调度 skill: %s (category=%s, deterministic=%s)",
+                skill.name, skill.category, skill.is_deterministic)
+
+    # # 4. 交给 skill 执行，拿到修复方案
+    result = skill.execute(state)
+
+    # 记录到历史
+    history = state.get("history", [])
+    history.append({
+        "retry": state.get("retry_count", 0),
+        "category": category,
+        "action": result.get("fix_action", ""),
+        "result": f"skill:{skill.name}",
+    })
+    result["history"] = history
+
+    return result
+
+
+# interrupt 写在 graph.py里面，interrupt_before=["human_review"]
 def human_review(state: dict) -> dict:
     """
     人工审核节点。
@@ -170,17 +335,28 @@ def human_review(state: dict) -> dict:
     if decision:
         logger.info("人工审核结果: %s", decision)
         if decision == "modify" and state.get("human_modification"):
-            return {"fix_details": state["human_modification"].get("fix_details", state.get("fix_details", []))}
+            return {"fix_details": 
+            state["human_modification"].get("fix_details", 
+            state.get("fix_details", []))}
     return {}
 
 
 def apply_fix(state: dict) -> dict:
-    """按修复方案修改 scenarios.json"""
+    """按修复方案修改 scenarios.json，修改前备份原文件"""
 
     fix_details = state.get("fix_details", [])
     if not fix_details:
         logger.warning("无修复方案可执行")
         return {}
+
+    # 修改前备份 scenarios.json
+    out_dir = state["test_output_dir"]
+    import shutil
+    scenarios_path = os.path.join(out_dir, "scenarios.json")
+    backup_path = os.path.join(out_dir, "scenarios_before_fix.json")
+    if os.path.exists(scenarios_path) and not os.path.exists(backup_path):
+        shutil.copy2(scenarios_path, backup_path)
+        logger.info("已备份原文件: scenarios_before_fix.json")
 
     scenarios = state["scenarios"]
     applied = 0
@@ -216,6 +392,9 @@ def apply_fix(state: dict) -> dict:
                     scenario["args"] = new_value
                     applied += 1
                 elif field == "expected.should_success":
+                    # 将字符串 "true"/"false" 转为布尔值
+                    if isinstance(new_value, str):
+                        new_value = new_value.lower() == "true"
                     scenario.setdefault("expected", {})["should_success"] = new_value
                     applied += 1
                 elif field == "expected.assertions":
@@ -242,13 +421,25 @@ def apply_fix(state: dict) -> dict:
 
 
 def re_render(state: dict) -> dict:
-    """重新渲染测试代码"""
+    """重新渲染测试代码，渲染前备份原文件"""
 
+    import shutil
     scenario_name = state["scenario_name"]
     scenarios = state["scenarios"]
 
+    # 渲染前备份原测试文件
+    out_dir = state["test_output_dir"]
+    test_files = [f for f in os.listdir(out_dir) if f.startswith("test_") and f.endswith(".py")]
+    for tf in test_files:
+        src = os.path.join(out_dir, tf)
+        backup = os.path.join(out_dir, tf.replace(".py", "_before_fix.py"))
+        if os.path.exists(src) and not os.path.exists(backup):
+            shutil.copy2(src, backup)
+            logger.info("已备份原文件: %s", backup)
+    workflow = state.get("workflow", {})
+
     logger.info("重新渲染测试代码: %s", scenario_name)
-    file_path = render_and_save(scenario_name, scenarios)
+    file_path = render_and_save_workflow(scenario_name, workflow, scenarios)
     logger.info("渲染完成: %s", file_path)
 
     return {"re_rendered": True}
@@ -301,128 +492,3 @@ def retest(state: dict) -> dict:
     }
 
 
-def analyze_failure(state: dict) -> dict:
-    """AI 分析失败原因并分类"""
-
-    failed_tests = state.get("failed_tests", [])
-    if not failed_tests:
-        return {"error_category": "uncertain", "root_cause": "无失败用例", "affected_interfaces": []}
-
-    logger.info("AI 分析失败原因（第 %d 次重试）", state.get("retry_count", 0))
-
-    # 构建上下文：失败信息 + 相关语义 + 当前场景
-    user_parts = ["## 测试失败信息\n"]
-    for ft in failed_tests:
-        user_parts.append(f"- 测试: {ft['test_name']}")
-        user_parts.append(f"  错误: {ft['error_message']}")
-        if ft.get("traceback"):
-            user_parts.append(f"  Traceback:\n```\n{ft['traceback']}\n```")
-        user_parts.append("")
-
-    # 添加受影响接口的语义信息
-    affected = set()
-    for ft in failed_tests:
-        # 从测试名提取接口函数名，如 test_loadModel_normal -> loadModel
-        name = ft["test_name"]
-        for iface in state.get("semantics", {}).get("interfaces", []):
-            if iface["func"].split(".")[-1] in name:
-                affected.add(iface["func"])
-
-    if affected:
-        user_parts.append("## 相关接口语义信息\n")
-        for iface in state.get("semantics", {}).get("interfaces", []):
-            if iface["func"] in affected:
-                user_parts.append(f"### {iface['func']}")
-                user_parts.append(f"业务含义: {iface.get('business_meaning', '')}")
-                if iface.get("params"):
-                    user_parts.append("参数约束:")
-                    for p in iface["params"]:
-                        user_parts.append(f"  - {p.get('params_name', p.get('index', '?'))}: "
-                                         f"类型={p.get('type', '?')}, "
-                                         f"范围={p.get('valid_range', '?')}, "
-                                         f"枚举={p.get('enum_values', [])}")
-                user_parts.append("")
-
-    # 添加当前场景数据（仅受影响接口）
-    if affected:
-        user_parts.append("## 当前测试场景\n")
-        for iface in state.get("scenarios", {}).get("interfaces", []):
-            if iface["func"] in affected:
-                user_parts.append(f"### {iface['func']}")
-                for s in iface.get("test_scenarios", []):
-                    user_parts.append(f"- {s['name']} ({s['category']}): args={s.get('args', [])}, "
-                                     f"expected={s.get('expected', {})}")
-                user_parts.append("")
-
-    # 添加历史修复记录（避免重复策略）
-    history = state.get("history", [])
-    if history:
-        user_parts.append("## 之前的修复尝试（请勿重复相同策略）\n")
-        for h in history:
-            user_parts.append(f"- 第 {h['retry']} 次: category={h['category']}, "
-                             f"action={h['action']}, 结果={h['result']}")
-
-    user_message = "\n".join(user_parts)
-
-    # 调用 AI
-    client = AIClient()
-    try:
-        result = client.call(
-            system_prompt=ANALYSIS_SYSTEM_PROMPT,
-            user_message=user_message,
-            tool=ERROR_ANALYSIS_TOOL,
-        )
-    except Exception as e:
-        logger.error("AI 分析失败: %s", e)
-        return {
-            "error_category": "uncertain",
-            "root_cause": f"AI 调用失败: {e}",
-            "affected_interfaces": list(affected),
-            "fix_proposal_confidence": 0.0,
-        }
-
-    return {
-        "error_category": result.get("error_category", "uncertain"),
-        "root_cause": result.get("root_cause", ""),
-        "affected_interfaces": result.get("affected_interfaces", list(affected)),
-        "fix_proposal_confidence": result.get("confidence", 0.5),
-    }
-
-
-def skill_dispatch(state: dict) -> dict:
-    """
-    Skill 调度节点：根据 error_category 查找并执行对应 skill。
-    替代原先的 propose_fix（通用 AI 修复）和 handle_environment（环境终止）。
-    """
-
-    from .skills.registry import SkillRegistry
-
-    # # 1. 拿到 AI 分析出的错误分类
-    category = state.get("error_category", "uncertain")
-    
-    # # 2. 从注册表里找对应的 skill
-    registry = SkillRegistry()
-    skill = registry.get_skill(category)
-
-    # # 3. 如果没找到，使用 uncertain 回退
-    if skill is None:
-        logger.warning("未找到 category=%s 的 skill，使用 uncertain 回退", category)
-        skill = registry.get_skill("uncertain")
-
-    logger.info("调度 skill: %s (category=%s, deterministic=%s)",
-                skill.name, skill.category, skill.is_deterministic)
-
-    # # 4. 交给 skill 执行，拿到修复方案
-    result = skill.execute(state)
-
-    # 记录到历史
-    history = state.get("history", [])
-    history.append({
-        "retry": state.get("retry_count", 0),
-        "category": category,
-        "action": result.get("fix_action", ""),
-        "result": f"skill:{skill.name}",
-    })
-    result["history"] = history
-
-    return result

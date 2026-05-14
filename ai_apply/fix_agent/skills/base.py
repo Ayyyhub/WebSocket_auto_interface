@@ -14,11 +14,9 @@ logger = logging.getLogger("fix_agent.skills")
 class BaseFixSkill(ABC):
     """
     所有修复 skill 的抽象基类。
-
     子类必须设置:
         - category: ErrorCategory 值字符串
         - name: 日志用的人类可读名称
-
     子类必须实现:
         - execute(state: dict) -> dict
     """

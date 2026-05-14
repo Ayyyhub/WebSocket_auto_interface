@@ -1,0 +1,789 @@
+{
+  "interfaces": [
+    {
+      "func": "sim.loadModel",
+      "description": "loadModel 加载模型",
+      "test_scenarios": [
+        {
+          "name": "test_loadModel_normal",
+          "description": "正常加载有效模型路径",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "路径": "public/models/robot/AIR4_560A/AIR4_560A.m"
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_loadModel_boundary_empty_path",
+          "description": "路径为空字符串（边界值）",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "路径": ""
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            "\"public/models/robot/AIR4_560A/AIR4_560A.m\""
+          ]
+        },
+        {
+          "name": "test_loadModel_wrong_arg_type_path",
+          "description": "路径参数类型为非字符串（错误类型）",
+          "category": "wrong_arg_type",
+          "priority": 3,
+          "target_params": {
+            "路径": 12345
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            12345
+          ]
+        },
+        {
+          "name": "test_loadModel_missing_args",
+          "description": "缺少路径参数（应使用空数组或未传参数）",
+          "category": "missing_args",
+          "priority": 4,
+          "target_params": {
+            "路径": ""
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": []
+        },
+        {
+          "name": "test_loadModel_violation_invalid_path",
+          "description": "模型路径无效或不存在（业务规则违反）",
+          "category": "violation",
+          "priority": 5,
+          "target_params": {
+            "路径": "invalid/path/to/model.m"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_loadModel_invalid_func",
+          "description": "调用不存在的接口",
+          "category": "invalid_func",
+          "priority": 6,
+          "target_params": {},
+          "expected": {
+            "should_success": false
+          },
+          "args": []
+        },
+        {
+          "name": "test_loadModel_null_args",
+          "description": "路径参数为null",
+          "category": "null_args",
+          "priority": 7,
+          "target_params": {
+            "路径": null
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "func": "sim.getObjectPosition",
+      "description": "getObjectPosition 获取对象位置",
+      "test_scenarios": [
+        {
+          "name": "test_getObjectPosition_normal",
+          "description": "正常获取已加载模型对象位置",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "对象句柄": "handle_12345"
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            "",
+            0
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_boundary_invalid_handle",
+          "description": "对象句柄为空字符串（边界值）",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "对象句柄": ""
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            "",
+            -1
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_wrong_arg_type_handle",
+          "description": "对象句柄参数为非字符串（错误类型）",
+          "category": "wrong_arg_type",
+          "priority": 3,
+          "target_params": {
+            "对象句柄": 12345
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            12345,
+            0
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_missing_args",
+          "description": "缺少对象句柄参数",
+          "category": "missing_args",
+          "priority": 4,
+          "target_params": {
+            "对象句柄": ""
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            0
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_violation_invalid_handle",
+          "description": "对象句柄无效或未加载模型（业务规则违反）",
+          "category": "violation",
+          "priority": 5,
+          "target_params": {
+            "对象句柄": "invalid_handle"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            "",
+            0
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_invalid_func",
+          "description": "调用不存在的接口",
+          "category": "invalid_func",
+          "priority": 6,
+          "target_params": {},
+          "expected": {
+            "should_success": false
+          },
+          "args": []
+        },
+        {
+          "name": "test_getObjectPosition_null_args",
+          "description": "对象句柄为null",
+          "category": "null_args",
+          "target_params": {
+            "对象句柄": null
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            null,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "func": "simArcs.webMoveObject",
+      "description": "webMoveObject 对象移动",
+      "test_scenarios": [
+        {
+          "name": "test_webMoveObject_normal",
+          "description": "正常移动对象到目标位置",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "对象句柄": "handle_12345",
+            "目标位置": [
+              1,
+              2,
+              3
+            ],
+            "操作类型": "1"
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            "",
+            0.0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "test_webMoveObject_boundary_invalid_position",
+          "description": "目标位置为极端空间坐标（边界值）",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "对象句柄": "handle_12345",
+            "目标位置": [
+              -1000000000.0,
+              1000000000.0,
+              0
+            ],
+            "操作类型": "2"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            -1,
+            0.0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "test_webMoveObject_wrong_arg_type_handle",
+          "description": "对象句柄为非字符串（错误类型）",
+          "category": "wrong_arg_type",
+          "priority": 3,
+          "target_params": {
+            "对象句柄": 12345,
+            "目标位置": [
+              0,
+              0,
+              0
+            ],
+            "操作类型": "3"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            12345,
+            0.0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "test_webMoveObject_missing_args",
+          "description": "缺少对象句柄或目标位置",
+          "category": "missing_args",
+          "priority": 4,
+          "target_params": {
+            "对象句柄": "",
+            "目标位置": [
+              0,
+              0,
+              0
+            ],
+            "操作类型": "1"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            0.0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "test_webMoveObject_violation_invalid_handle",
+          "description": "对象句柄无效或未加载模型（业务规则违反）",
+          "category": "violation",
+          "priority": 5,
+          "target_params": {
+            "对象句柄": "invalid_handle",
+            "目标位置": [
+              0,
+              0,
+              0
+            ],
+            "操作类型": "2"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            "",
+            0.0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "test_webMoveObject_invalid_func",
+          "description": "调用不存在的接口",
+          "category": "invalid_func",
+          "priority": 6,
+          "target_params": {},
+          "expected": {
+            "should_success": false
+          },
+          "args": []
+        },
+        {
+          "name": "test_webMoveObject_null_args",
+          "description": "对象句柄或目标位置为null",
+          "category": "null_args",
+          "priority": 7,
+          "target_params": {
+            "对象句柄": null,
+            "目标位置": null,
+            "操作类型": null
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            null,
+            0.0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "func": "simArcs.webGetHandleType",
+      "description": "webGetHandleType 获取加载模型的handle类型",
+      "test_scenarios": [
+        {
+          "name": "test_webGetHandleType_normal",
+          "description": "正常获取句柄类型",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "对象句柄": "handle_12345"
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_webGetHandleType_boundary_empty_handle",
+          "description": "对象句柄为空字符串（边界值）",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "对象句柄": ""
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_webGetHandleType_wrong_arg_type_handle",
+          "description": "对象句柄为非字符串（错误类型）",
+          "category": "wrong_arg_type",
+          "priority": 3,
+          "target_params": {
+            "对象句柄": 12345
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            12345
+          ]
+        },
+        {
+          "name": "test_webGetHandleType_missing_args",
+          "description": "缺少对象句柄参数",
+          "category": "missing_args",
+          "priority": 4,
+          "target_params": {
+            "对象句柄": ""
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": []
+        },
+        {
+          "name": "test_webGetHandleType_violation_invalid_handle",
+          "description": "对象句柄无效或未加载模型（业务规则违反）",
+          "category": "violation",
+          "priority": 5,
+          "target_params": {
+            "对象句柄": "invalid_handle"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_webGetHandleType_invalid_func",
+          "description": "调用不存在的接口",
+          "category": "invalid_func",
+          "priority": 6,
+          "target_params": {},
+          "expected": {
+            "should_success": false
+          },
+          "args": []
+        },
+        {
+          "name": "test_webGetHandleType_null_args",
+          "description": "对象句柄为null",
+          "category": "null_args",
+          "target_params": {
+            "对象句柄": null
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "func": "simArcs.ahmCreateHierarchyElement",
+      "description": "ahmCreateHierarchyElement 创建工作台节点成功",
+      "test_scenarios": [
+        {
+          "name": "test_ahmCreateHierarchyElement_normal",
+          "description": "正常创建工作台节点",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "模型对象句柄": "handle_12345",
+            "父节点ID": -1
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            "",
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_boundary_invalid_parent_id",
+          "description": "父节点ID为极端值（边界值）",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "模型对象句柄": "handle_12345",
+            "父节点ID": 2147483647
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            "",
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_wrong_arg_type_handle",
+          "description": "模型对象句柄为非字符串（错误类型）",
+          "category": "wrong_arg_type",
+          "priority": 3,
+          "target_params": {
+            "模型对象句柄": 12345,
+            "父节点ID": -1
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            12345,
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_missing_args",
+          "description": "缺少模型对象句柄或父节点ID",
+          "category": "missing_args",
+          "priority": 4,
+          "target_params": {
+            "模型对象句柄": "",
+            "父节点ID": null
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_violation_invalid_handle",
+          "description": "模型对象句柄无效或未加载模型（业务规则违反）",
+          "category": "violation",
+          "priority": 5,
+          "target_params": {
+            "模型对象句柄": "invalid_handle",
+            "父节点ID": -1
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            "",
+            0
+          ]
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_invalid_func",
+          "description": "调用不存在的接口",
+          "category": "invalid_func",
+          "priority": 6,
+          "target_params": {},
+          "expected": {
+            "should_success": false
+          },
+          "args": []
+        },
+        {
+          "name": "test_ahmCreateHierarchyElement_null_args",
+          "description": "模型对象句柄或父节点ID为null",
+          "category": "null_args",
+          "priority": 7,
+          "target_params": {
+            "模型对象句柄": null,
+            "父节点ID": null
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            null,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "func": "sim.loadModel",
+      "description": "加载模型接口，用于初始化模型对象，为后续操作提供基础对象句柄。",
+      "test_scenarios": [
+        {
+          "name": "test_loadModel_normal",
+          "description": "正常加载存在的模型路径，返回模型句柄。",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "模型路径": "有效模型路径"
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_loadModel_boundary_empty_path",
+          "description": "模型路径为空字符串，测试边界条件。",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "模型路径": ""
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            "\"public/models/robot/AIR4_560A/AIR4_560A.m\""
+          ]
+        },
+        {
+          "name": "test_loadModel_wrong_arg_type",
+          "description": "模型路径参数传入整数类型，类型错误。",
+          "category": "wrong_arg_type",
+          "priority": 2,
+          "target_params": {
+            "模型路径": 12345
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            12345
+          ]
+        },
+        {
+          "name": "test_loadModel_missing_args",
+          "description": "未传入模型路径参数，缺少参数。",
+          "category": "missing_args",
+          "priority": 2,
+          "target_params": {
+            "模型路径": null
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": []
+        },
+        {
+          "name": "test_loadModel_violation_duplicate_load",
+          "description": "重复加载同一模型，违反资源管理规则（假设系统不允许重复加载同一模型）。",
+          "category": "violation",
+          "priority": 3,
+          "target_params": {
+            "模型路径": "已加载的模型路径"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            ""
+          ]
+        },
+        {
+          "name": "test_loadModel_invalid_func",
+          "description": "调用不存在的加载模型接口。",
+          "category": "invalid_func",
+          "priority": 3,
+          "target_params": {},
+          "expected": {
+            "should_success": false
+          },
+          "args": []
+        },
+        {
+          "name": "test_loadModel_null_args",
+          "description": "模型路径参数传null，测试空值场景。",
+          "category": "null_args",
+          "priority": 2,
+          "target_params": {
+            "模型路径": null
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "func": "sim.getObjectPosition",
+      "description": "获取已加载模型中指定对象的当前位置。",
+      "test_scenarios": [
+        {
+          "name": "test_getObjectPosition_normal",
+          "description": "正常调用，获取有效对象位置。",
+          "category": "normal",
+          "priority": 1,
+          "target_params": {
+            "对象句柄": "有效对象句柄",
+            "位置参数": 0
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            "",
+            0
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_boundary_invalid_handle",
+          "description": "对象句柄为无效值，超出有效范围。",
+          "category": "boundary",
+          "priority": 2,
+          "target_params": {
+            "对象句柄": "无效句柄"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            "",
+            -1
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_wrong_arg_type",
+          "description": "对象句柄参数传入字符串类型，类型错误。",
+          "category": "wrong_arg_type",
+          "priority": 2,
+          "target_params": {
+            "对象句柄": "字符串类型"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            12345,
+            0
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_missing_args",
+          "description": "未传入对象句柄参数，缺少参数。",
+          "category": "missing_args",
+          "priority": 2,
+          "target_params": {
+            "对象句柄": null
+          },
+          "expected": {
+            "should_success": true
+          },
+          "args": [
+            0
+          ]
+        },
+        {
+          "name": "test_getObjectPosition_violation_invalid_handle",
+          "description": "调用时对象句柄对应的对象不存在，违反业务规则。",
+          "category": "violation",
+          "priority": 3,
+          "target_params": {
+            "对象句柄": "已删除或不存在的句柄"
+          },
+          "expected": {
+            "should_success": false
+          },
+          "args": [
+            "",
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

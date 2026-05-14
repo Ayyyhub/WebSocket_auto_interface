@@ -156,9 +156,13 @@ SCENARIOS_TOOL = {
                                         "expected": {
                                             "type": "object",
                                             "properties": {
-                                                "should_success": {"type": "boolean"},
+                                                "should_success": {
+                                                    "type": "boolean",
+                                                    "description": "该场景是否预期接口返回成功。normal=true，异常场景=false",
+                                                },
                                                 "assertions": {"type": "array", "items": {"type": "string"}},
                                             },
+                                            "required": ["should_success"],
                                         },
                                     },
                                     "required": ["name", "category", "args", "expected"],

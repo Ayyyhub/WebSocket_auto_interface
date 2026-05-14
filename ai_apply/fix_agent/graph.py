@@ -70,7 +70,7 @@ def build_fix_graph(use_sqlite: bool = False, sqlite_path: str = None):
     })
 
     graph.add_conditional_edges("retest", route_after_retest, {
-        "analyze_failure": "analyze_failure",
+        "parse_pytest_output": "parse_pytest_output",
         "end": END,
     })
 
@@ -88,7 +88,8 @@ def build_fix_graph(use_sqlite: bool = False, sqlite_path: str = None):
         from langgraph.checkpoint.memory import MemorySaver
         checkpointer = MemorySaver()
 
+    # 当工作流马上要跑到 human_review 这个节点时，自动停下来，等待人工操作！
     return graph.compile(
         checkpointer=checkpointer,
-        interrupt_before=["human_review"],
+        interrupt_before=["human_review"],  # 如果把这个关了就是自动模式，默认return "apply_fix"
     )

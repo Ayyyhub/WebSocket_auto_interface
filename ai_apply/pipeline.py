@@ -13,11 +13,14 @@ AI 生成式接口自动化测试 - 主流程入口（7 步解耦架构）
 每一步产出独立产物，出问题可精确定位到具体步骤。
 
 用法:
-  python pipeline.py loadmodel               # 解析 loadmodel_chain
-  python pipeline.py ../Service/init_chain.py  # 解析指定文件
+  python pipeline.py loadmodel_chain          # 解析 loadmodel_chain
+  python pipeline.py ../Service/init_chain    # 解析指定文件
   python pipeline.py --execute                # 生成后立即执行
   python pipeline.py --refresh-docs           # 强制刷新钉钉文档缓存
   python pipeline.py --step 3 loadmodel       # 只运行第 3 步（调试用）
+  
+  测试运行：pytest ai_apply\ai_generated_testcases\loadmodel_chain_1778655077.229336\test_loadmodel_chain_1778655077_229336_workflow.py -v -o addopts=
+  agent修复：python -m fix_agent.runner --dir loadmodel_chain_1778742785.217146 --execute
 """
 
 import argparse
@@ -32,11 +35,12 @@ from ai_client import load_llm_config
 from data_builder import TestDataBuilder
 from code_renderer import render_and_save_workflow
 from dingtalk_doc import DingTalkDocClient
+from local_doc import LocalDocClient
 import datetime
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 SERVICE_DIR = os.path.join(os.path.dirname(_HERE), "Service")
-OUTPUT_DIR = os.path.join(os.path.dirname(_HERE), "ai_generated_testcases")
+OUTPUT_DIR = os.path.join(_HERE, "ai_generated_testcases")
 
 
 def _output_dir(scenario_name: str) -> str:
@@ -81,7 +85,7 @@ def run(source: str = None, execute: bool = False, refresh_docs: bool = False,
         if source.endswith(".py"):
             target_file = os.path.abspath(source)
         else:
-            target_file = os.path.join(SERVICE_DIR, f"{source}_chain.py")
+            target_file = os.path.join(SERVICE_DIR, f"{source}.py")
         scenario_name = os.path.splitext(os.path.basename(target_file))[0]
     else:
         target_file = None
@@ -128,39 +132,54 @@ def run(source: str = None, execute: bool = False, refresh_docs: bool = False,
         api_text = format_for_ai(raw_workflow)
         print(f"跳步：加载已有 raw_interfaces.json（{len(interfaces)} 个接口）")
 
-    # ========== ② 钉钉文档获取（可选） ==========
-    dingtalk_docs = None
+    # ========== ② 接口文档获取（本地 MD 优先 + 钉钉文档可选） ==========
+    docs = None
     if step is None or step == 2:
+        print("\n" + "=" * 60)
+        print("② 接口文档获取")
+        print("=" * 60)
+
+        interface_names = [iface["func"] for iface in interfaces]
+
+        # 优先：本地 MD 文档
+        local_client = LocalDocClient()
+        local_docs = local_client.get_interface_docs(interface_names)
+        print(f"本地文档: 匹配 {len(local_docs)}/{len(interface_names)} 个接口")
+
+        # 可选：钉钉文档（--refresh-docs 时额外获取）
+        dingtalk_docs = None
         if refresh_docs:
-            print("\n" + "=" * 60)
-            print("② 从钉钉文档获取接口完整定义")
-            print("=" * 60)
-
-            doc_skill = DingTalkDocClient()
-            interface_names = [iface["func"] for iface in interfaces]
-            print(f"需要获取 {len(interface_names)} 个接口的文档\n")
-
-            dingtalk_docs = doc_skill.get_interface_docs(
-                interface_names, force_refresh=refresh_docs
+            print("从钉钉文档获取接口补充信息...")
+            dt_client = DingTalkDocClient()
+            dingtalk_docs = dt_client.get_interface_docs(
+                interface_names, force_refresh=True
             )
-
             if dingtalk_docs:
-                docs_path = _save_json(dingtalk_docs, out_dir, "dingtalk_docs.json")
                 cache_count = sum(1 for d in dingtalk_docs.values() if d.get("source") == "cache")
                 api_count = sum(1 for d in dingtalk_docs.values() if d.get("source") == "api")
-                print(f"产物: {docs_path}")
-                print(f"来源: {cache_count} 缓存, {api_count} API")
-            else:
-                print("未获取到钉钉文档，继续使用本地数据")
+                print(f"钉钉文档: {cache_count} 缓存, {api_count} API")
         else:
-            print("\n② 跳过钉钉文档获取（使用 --refresh-docs 启用）")
-            # 尝试加载已有缓存
-            dingtalk_docs = _load_json(out_dir, "dingtalk_docs.json")
+            print("跳过钉钉文档获取（使用 --refresh-docs 启用）")
+
+        # 合并：本地文档为基础，钉钉文档覆盖补充
+        docs = local_docs
+        if dingtalk_docs:
+            for name, dt_doc in dingtalk_docs.items():
+                if name in docs:
+                    docs[name].update(dt_doc)
+                else:
+                    docs[name] = dt_doc
+
+        if docs:
+            docs_path = _save_json(docs, out_dir, "dingtalk_docs.json")
+            print(f"产物: {docs_path}")
+        else:
+            print("未获取到任何文档，继续使用 AST 提取信息")
 
         if step == 2:
             return
     else:
-        dingtalk_docs = _load_json(out_dir, "dingtalk_docs.json")
+        docs = _load_json(out_dir, "dingtalk_docs.json")
 
     # ========== ③ 确定性工作流分析 ==========
     workflow = None
@@ -170,7 +189,7 @@ def run(source: str = None, execute: bool = False, refresh_docs: bool = False,
         print("=" * 60)
 
         workflow = parse_workflow_enhanced(target_file)
-        workflow = merge_with_dingtalk_docs(workflow, dingtalk_docs)
+        workflow = merge_with_dingtalk_docs(workflow, docs)
 
         wf_path = _save_json(workflow, out_dir, "workflow.json")
         print(f"产物: {wf_path}")
@@ -217,8 +236,12 @@ def run(source: str = None, execute: bool = False, refresh_docs: bool = False,
                             continue
                         print(f"  重试耗尽，接受已有结果")
 
-                    all_semantics["interfaces"].extend(result_ifaces)
-                    print(f"  完成（{len(result_ifaces)}/{len(batch)} 个接口）")
+                    # 过滤掉 AI 返回的非 dict 元素（偶尔会混入字符串）
+                    valid_ifaces = [i for i in result_ifaces if isinstance(i, dict)]
+                    if len(valid_ifaces) < len(result_ifaces):
+                        print(f"  警告: 过滤掉 {len(result_ifaces) - len(valid_ifaces)} 个非法元素")
+                    all_semantics["interfaces"].extend(valid_ifaces)
+        
                     break
                 except json.JSONDecodeError:
                     print(f"  第 {attempt + 1} 次尝试失败，重试...")
@@ -265,8 +288,8 @@ def run(source: str = None, execute: bool = False, refresh_docs: bool = False,
                         config=llm_config,
                     )
                     result_ifaces = batch_result.get("interfaces", [])
-
-                    # 校验：AI 必须返回与输入数量一致的接口
+                    # 过滤 AI 返回的非 dict 元素
+                    result_ifaces = [i for i in result_ifaces if isinstance(i, dict)]
                     if len(result_ifaces) < len(batch):
                         missing = len(batch) - len(result_ifaces)
                         print(f"  警告: 输入 {len(batch)} 个接口，AI 只返回 {len(result_ifaces)} 个"

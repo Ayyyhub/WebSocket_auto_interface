@@ -39,6 +39,9 @@ class TestDataBuilder:
 
         return scenarios
 
+
+# ==================== 构建传参 ====================
+
     def _build_args(self, category: str, constraints: list, scenario: dict) -> list:
         if category == "invalid_func":
             return []

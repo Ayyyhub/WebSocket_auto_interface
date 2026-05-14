@@ -1,0 +1,141 @@
+{
+  "sim.loadModel": {
+    "func": "sim.loadModel",
+    "description": "",
+    "params": [
+      {
+        "name": "file_path",
+        "description": "模型文件路径"
+      },
+      {
+        "name": "object_handle",
+        "description": "加载后的模型handle"
+      }
+    ],
+    "request_example": "{  <br>    \"func\":\"sim.loadModel\",  <br>    \"args\":\\[\"/home/zongxiyang/Downloads/ae\\_model\\_test.ttm\"\\]  <br>}",
+    "response_example": "{  <br>    \"ret\": \\[  <br>        1302  <br>    \\],  <br>    \"success\": true  <br>}",
+    "source": "local_md"
+  },
+  "sim.getObjectPosition": {
+    "func": "sim.getObjectPosition",
+    "description": "",
+    "params": [
+      {
+        "name": "object_handle",
+        "description": "对象handle"
+      },
+      {
+        "name": "relative_to_handle",
+        "description": "相对handle\n*   \\-1: 相对于世界\n    \n*   \\-11: 相对于父对象"
+      },
+      {
+        "name": "position",
+        "description": "位置[x, y, z]，单位：m"
+      }
+    ],
+    "request_example": "{  <br>    \"func\":\"sim.getObjectPosition\",  <br>    \"args\":\\[15, -1\\]  <br>}",
+    "response_example": "{  <br>    \"success\": true,  <br>    \"ret\": \\[  <br>        \\[  <br>            -0.175,  <br>            0.2,  <br>            0.0  <br>        \\]  <br>    \\]  <br>}",
+    "source": "local_md"
+  },
+  "simArcs.webMoveObject": {
+    "func": "simArcs.webMoveObject",
+    "description": "",
+    "params": [
+      {
+        "name": "object_handle",
+        "description": "模型handle"
+      },
+      {
+        "name": "delta_dist",
+        "description": "相对于自身而言，x，y，z轴的变化量数组，[∆x, ∆y, ∆z]，正数代表向轴的正方向移动，负数代表向轴的负方向移动；相对于世界，那么就代表目标值"
+      },
+      {
+        "name": "relative_to_object_handle",
+        "description": "参考对象handle，默认-1，可省略\n*    -1: world \n    \n*    -11: parent\n    \n*   场景中存在handle的对象"
+      },
+      {
+        "name": "unit",
+        "description": "单位，1:mm，2:cm，3:dm，4:m，可省略，默认是m"
+      },
+      {
+        "name": "success",
+        "description": "成功返回true,失败返回false"
+      }
+    ],
+    "request_example": "{  <br>    \"func\": \"simArcs.webMoveObject\",  <br>    \"args\": \\[  <br>        15,  <br>        \\[0.1,0,0\\],  <br>        -1,  <br>        3  <br>    \\]  <br>}",
+    "response_example": "{  <br>    \"ret\": \\[  <br>        true  <br>    \\],  <br>    \"success\": true  <br>}",
+    "source": "local_md"
+  },
+  "simArcs.webGetHandleType": {
+    "func": "simArcs.webGetHandleType",
+    "description": "",
+    "params": [
+      {
+        "name": "handle",
+        "description": "对象句柄，可能场景中真实存在对象（如机器人、外部轴、工具等），也可能是虚拟的handle（如arl_handle）"
+      },
+      {
+        "name": "handle_type",
+        "description": "handle类型，无效返回-1\n0: 控制器，目前只支持1个\n1: 工作台（通道），一个控制器最多支持6个\n2: 机器人\n3: 外部轴\n4:  工具\n5:  路径\n6:  坐标系\n7:  模型\n8: arl程序\n9: 示教点集\n10: \"模型\"类型的子节点类型\n11: 运动设备\n12: 传送带"
+      }
+    ],
+    "request_example": "{  <br>    \"func\":\"simArcs.webGetHandleType\",  <br>    \"args\":\\[15\\]  <br>}",
+    "response_example": "{  <br>    \"ret\": \\[0\\],  <br>    \"success\": true  <br>}",
+    "source": "local_md"
+  },
+  "simArcs.ahmCreateHierarchyElement": {
+    "func": "simArcs.ahmCreateHierarchyElement",
+    "description": "",
+    "params": [
+      {
+        "name": "obj_handle",
+        "description": "对象handle\n对于控制器来说，目前只传0；\n工作台（通道），取值[0, 5]\n机器人~模型传对应的handle\narl程序传对应的handle\n采集点位路径 传对应的handle"
+      },
+      {
+        "name": "obj_type",
+        "description": "节点类型\n0: 控制器，目前只支持1个\n1: 工作台（通道），一个控制器最多支持6个\n2: 机器人\n3: 外部轴\n4:  工具\n5:  路径\n6:  坐标系\n7:  模型\n8: arl程序\n9: 采集点位路径\n10: \"模型\"类型的子节点类型\n11: 运动设备\n12: 传送带"
+      },
+      {
+        "name": "obj_id",
+        "description": "节点id"
+      }
+    ],
+    "request_example": "{  <br>    \"func\":\"simArcs.ahmCreateHierarchyElement\",  <br>    \"args\":\\[15, 2\\]  <br>}",
+    "response_example": "{  <br>    \"ret\": \\[3\\],  <br>    \"success\": true  <br>}",
+    "source": "local_md"
+  },
+  "simArcs.ahmSetElementParent": {
+    "func": "simArcs.ahmSetElementParent",
+    "description": "",
+    "params": [
+      {
+        "name": "obj_id",
+        "description": "节点id"
+      },
+      {
+        "name": "parent_id",
+        "description": "父节点id"
+      },
+      {
+        "name": "target_handle",
+        "description": "安装目标handle，默认-1,可省略，目前只支持外部轴安装点"
+      }
+    ],
+    "request_example": "{  <br>    \"func\":\"simArcs.ahmSetElementParent\",  <br>    \"args\":\\[7, 8, 18\\]  <br>}",
+    "response_example": "{  <br>    \"ret\": \\[\\],  <br>    \"success\": true  <br>}",
+    "source": "local_md"
+  },
+  "simArcs.ahmGetHierarchy": {
+    "func": "simArcs.ahmGetHierarchy",
+    "description": "",
+    "params": [
+      {
+        "name": "scene_hierarchy",
+        "description": "场景树json字符串，需要转一下"
+      }
+    ],
+    "request_example": "{  <br>    \"func\":\"simArcs.ahmGetHierarchy\",  <br>    \"args\":\\[\\]  <br>}",
+    "response_example": "{\"success\":true,\"ret\":\\[\"\\[\\n{\\n\\\"children\\\": \\[\\],\\n\\\"obj\\_collapsed\\\": 0,\\n\\\"obj\\_handle\\\": 0,\\n\\\"obj\\_id\\\": 0,\\n\\\"obj\\_layers\\\": 1,\\n\\\"obj\\_name\\\": \\\"ARCS1\\\",\\n\\\"obj\\_selectable\\\": 1,\\n\\\"obj\\_type\\\": 0,\\n\\\"obj\\_unique\\_name\\\": \\\"ARCS1\\\"\\n},\\n{\\n\\\"children\\\": \\[\\],\\n\\\"obj\\_collapsed\\\": 0,\\n\\\"obj\\_handle\\\": 15,\\n\\\"obj\\_id\\\": 7,\\n\\\"obj\\_layers\\\": 1,\\n\\\"obj\\_name\\\": \\\"AIR4\\_560A\\\",\\n\\\"obj\\_selectable\\\": 1,\\n\\\"obj\\_type\\\": 2,\\n\\\"obj\\_unique\\_name\\\": \\\"AIR4\\_560A\\_1\\\"\\n},\\n{\\n\\\"children\\\": \\[\\],\\n\\\"obj\\_collapsed\\\": 0,\\n\\\"obj\\_handle\\\": 37,\\n\\\"obj\\_id\\\": 8,\\n\\\"obj\\_layers\\\": 1,\\n\\\"obj\\_name\\\": \\\"AIR4\\_560A\\\",\\n\\\"obj\\_selectable\\\": 1,\\n\\\"obj\\_type\\\": 2,\\n\\\"obj\\_unique\\_name\\\": \\\"AIR4\\_560A\\_2\\\"\\n}\\n\\]\"\\]}",
+    "source": "local_md"
+  }
+}

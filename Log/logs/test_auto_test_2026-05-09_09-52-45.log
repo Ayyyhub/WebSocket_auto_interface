@@ -1,0 +1,23 @@
+2026-05-09 09:52:45 | INFO | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2026-05-09 09:52:45 | INFO | - | conftest:ws_client:56 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2026-05-09 09:52:45 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-09 09:52:45 | INFO | - | websocket_client:connect:78 - WebSocket 连接成功，耗时: 0.11s
+2026-05-09 09:52:53 | INFO | - | conftest:ws_client:68 - 主动断连后，再次Websocket connected！
+2026-05-09 09:52:53 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-09 09:52:53 | INFO | - | websocket_client:connect:78 - WebSocket 连接成功，耗时: 0.11s
+2026-05-09 09:52:53 | INFO | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2026-05-09 09:52:53 | INFO | CASE_1778291573735145 | dispatcher:_parse_raw:67 - loadModel 加载模型 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-09 09:52:53 | INFO | CASE_1778291573735145 | dispatcher:_parse_raw:67 - loadModel 加载模型 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-09 09:52:54 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"loadModel_1778291573737140","ret":[763],"success":true}
+2026-05-09 09:52:54 | INFO | CASE_1778291573735145 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778291573737140'}
+2026-05-09 09:52:54 | INFO | CASE_1778291573735145 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'loadModel_1778291573737140', 'ret': [763], 'success': True}
+2026-05-09 09:52:54 | INFO | CASE_1778291573735145 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.84s，None重试: 0次
+2026-05-09 09:52:54 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"getObjectPosition_1778291574886878","ret":[[0.0,0.0,0.0]],"success":true}
+2026-05-09 09:52:55 | INFO | CASE_1778291573735145 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [763, -1], 'id': 'getObjectPosition_1778291574886878'}
+2026-05-09 09:52:55 | INFO | CASE_1778291573735145 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'getObjectPosition_1778291574886878', 'ret': [[0.0, 0.0, 0.0]], 'success': True}
+2026-05-09 09:52:55 | INFO | CASE_1778291573735145 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-09 09:52:55 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"id":"webMoveObject_1778291575305643","error":"No such function: simArcs.webMoveObject","success":false}
+2026-05-09 09:52:55 | INFO | CASE_1778291573735145 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [763, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778291575305643'}
+2026-05-09 09:52:55 | INFO | CASE_1778291573735145 | request_invoker:_ws_send_and_wait:52 - 响应体: {'id': 'webMoveObject_1778291575305643', 'error': 'No such function: simArcs.webMoveObject', 'success': False}
+2026-05-09 09:52:55 | ERROR | CASE_1778291573735145 | assertions:validate_response:75 - webMoveObject 对象移动 失败: {'id': 'webMoveObject_1778291575305643', 'error': 'No such function: simArcs.webMoveObject', 'success': False}
+2026-05-09 09:52:55 | WARNING | CASE_1778291573735145 | request_invoker:send_request:105 - webMoveObject_1778291575305643 断言失败！

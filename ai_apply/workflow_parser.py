@@ -207,6 +207,11 @@ def format_for_ai(workflow: dict) -> str:
         lines.append(f"### 接口 {iface.get('seq', '?')}: {iface.get('func', '?')}")
         lines.append(f"描述: {iface.get('desc', '')}")
         lines.append(f"参数: {args_str}")
+        # 补充文档中的参数说明
+        if iface.get("dingtalk_params"):
+            lines.append("文档参数定义:")
+            for p in iface["dingtalk_params"]:
+                lines.append(f"  - {p.get('name', '?')}: {p.get('description', '')}")
         lines.append("")
 
     return "\n".join(lines)

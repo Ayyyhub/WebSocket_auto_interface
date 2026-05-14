@@ -1,0 +1,357 @@
+2026-05-13 15:27:52 | INFO | - | token_util:get_token:39 - 正在使用用户 AE1 进行登录！
+2026-05-13 15:27:52 | INFO | - | conftest:ws_client:56 - 正在连接 WebSocket: ws://10.20.220.251/wspod/rest/rlws
+2026-05-13 15:27:52 | INFO | - | websocket_client:connect:78 - WebSocket 连接成功，耗时: 0.10s
+2026-05-13 15:27:53 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-13 15:28:00 | INFO | - | conftest:ws_client:68 - 主动断连后，再次Websocket connected！
+2026-05-13 15:28:00 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-13 15:28:00 | INFO | - | websocket_client:connect:78 - WebSocket 连接成功，耗时: 0.10s
+2026-05-13 15:28:00 | INFO | - | dispatcher:clear_pending:56 - 已清空 MessageDispatcher 的待决消息缓存
+2026-05-13 15:28:00 | INFO | - | conftest:ws_client:79 - 正在执行 init_chain 初始化后端插件...
+2026-05-13 15:28:00 | INFO | - | dispatcher:_parse_raw:67 - wsRemoteApi.require 加载后端simArcs的入口 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-13 15:28:00 | INFO | - | dispatcher:_parse_raw:67 - wsRemoteApi.require 加载后端simArcs的入口 云端Pod连接成功: {"code":200,"data":"","message":"ptcloud_pod_connect_success"}
+2026-05-13 15:28:00 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"require_1778657280413893","ret":[]}
+2026-05-13 15:28:00 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'wsRemoteApi.require', 'args': ['simArcs', 'simAssimp', 'simStepOrIges', 'simIK'], 'id': 'require_1778657280413893'}
+2026-05-13 15:28:00 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'require_1778657280413893', 'ret': []}
+2026-05-13 15:28:00 | INFO | - | assertions:validate_response:66 - wsRemoteApi.require 加载后端simArcs的入口 响应为空数组[]，已跳过断言
+2026-05-13 15:28:01 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webGetAllSceneNames_1778657281095860","ret":[["new_scene"]]}
+2026-05-13 15:28:01 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetAllSceneNames', 'args': [], 'id': 'webGetAllSceneNames_1778657281095860'}
+2026-05-13 15:28:01 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webGetAllSceneNames_1778657281095860', 'ret': [['new_scene']]}
+2026-05-13 15:28:01 | INFO | - | assertions:validate_response:89 - webGetAllSceneNames 获取所有场景 接口响应成功，总耗时: 0.10s，None重试: 0次
+2026-05-13 15:28:01 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getSelectedSceneID_1778657281494056","ret":[0]}
+2026-05-13 15:28:01 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getSelectedSceneID', 'args': [], 'id': 'getSelectedSceneID_1778657281494056'}
+2026-05-13 15:28:01 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getSelectedSceneID_1778657281494056', 'ret': [0]}
+2026-05-13 15:28:01 | INFO | - | assertions:validate_response:89 - getSelectedSceneID 当前场景id 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:01 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"switchToScene_1778657281868607","ret":[0]}
+2026-05-13 15:28:01 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.switchToScene', 'args': [0], 'id': 'switchToScene_1778657281868607'}
+2026-05-13 15:28:01 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'switchToScene_1778657281868607', 'ret': [0]}
+2026-05-13 15:28:01 | INFO | - | assertions:validate_response:89 - switchToScene 切换场景 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:02 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"afmGetAll_1778657282243963","ret":[[]]}
+2026-05-13 15:28:02 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.afmGetAll', 'args': [], 'id': 'afmGetAll_1778657282243963'}
+2026-05-13 15:28:02 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'afmGetAll_1778657282243963', 'ret': [[]]}
+2026-05-13 15:28:02 | INFO | - | assertions:validate_response:89 - afmGetAll 获取所有坐标信息 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:02 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"rmGetAll_1778657282619540","ret":[[]]}
+2026-05-13 15:28:02 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.rmGetAll', 'args': [], 'id': 'rmGetAll_1778657282619540'}
+2026-05-13 15:28:02 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'rmGetAll_1778657282619540', 'ret': [[]]}
+2026-05-13 15:28:02 | INFO | - | assertions:validate_response:89 - rmGetAll 获取机器人配置 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:03 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"amGetAll_1778657282996860","ret":[[{"ip":"127.0.0.1","is_local":true,"port":50001,"name":"off-line1","state":0},{"ip":"213.65.69.1","is_local":false,"port":50001,"name":"on-line1...
+2026-05-13 15:28:03 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.amGetAll', 'args': [], 'id': 'amGetAll_1778657282996860'}
+2026-05-13 15:28:03 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'amGetAll_1778657282996860', 'ret': [[{'ip': '127.0.0.1', 'is_local': True, 'port': 50001, 'name': 'off-line1', 'state': 0}, {'ip': '213.65.69.1', 'is_local': False, 'port': 50001, 'name': 'on-line1', 'state': 0}]]}
+2026-05-13 15:28:03 | INFO | - | assertions:validate_response:89 - amGetAll 获取所有控制器 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:03 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"aamGetAll_1778657283369551","ret":[[]]}
+2026-05-13 15:28:03 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.aamGetAll', 'args': [], 'id': 'aamGetAll_1778657283369551'}
+2026-05-13 15:28:03 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'aamGetAll_1778657283369551', 'ret': [[]]}
+2026-05-13 15:28:03 | INFO | - | assertions:validate_response:89 - aamGetAll 获取所有arl程序信息 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:03 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"ahmRebuildHierarchy_1778657283767441","ret":[]}
+2026-05-13 15:28:03 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmRebuildHierarchy', 'args': [], 'id': 'ahmRebuildHierarchy_1778657283767441'}
+2026-05-13 15:28:03 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'ahmRebuildHierarchy_1778657283767441', 'ret': []}
+2026-05-13 15:28:03 | INFO | - | assertions:validate_response:66 - ahmRebuildHierarchy 重新构建树 响应为空数组[]，已跳过断言
+2026-05-13 15:28:04 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"ahmGetHierarchy_1778657284134028","ret":["[]"]}
+2026-05-13 15:28:04 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1778657284134028'}
+2026-05-13 15:28:04 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'ahmGetHierarchy_1778657284134028', 'ret': ['[]']}
+2026-05-13 15:28:04 | INFO | - | assertions:validate_response:89 - ahmGetHierarchy 获取场景树 接口响应成功，总耗时: 0.06s，None重试: 0次
+2026-05-13 15:28:04 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"ejmGetAll_1778657284496194","ret":[[]]}
+2026-05-13 15:28:04 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ejmGetAll', 'args': [], 'id': 'ejmGetAll_1778657284496194'}
+2026-05-13 15:28:04 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'ejmGetAll_1778657284496194', 'ret': [[]]}
+2026-05-13 15:28:04 | INFO | - | assertions:validate_response:89 - ejmGetAll 获取所有外部轴信息 接口响应成功，总耗时: 0.08s，None重试: 0次
+2026-05-13 15:28:04 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"iomGetAllIOSignalActions_1778657284873776","ret":[[]]}
+2026-05-13 15:28:04 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.iomGetAllIOSignalActions', 'args': [], 'id': 'iomGetAllIOSignalActions_1778657284873776'}
+2026-05-13 15:28:04 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'iomGetAllIOSignalActions_1778657284873776', 'ret': [[]]}
+2026-05-13 15:28:04 | INFO | - | assertions:validate_response:89 - iomGetAllIOSignalActions 得到当前场景中信号的属性信息 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:05 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"amGetAll_1778657285248848","ret":[[{"ip":"127.0.0.1","is_local":true,"port":50001,"name":"off-line1","state":0},{"ip":"213.65.69.1","is_local":false,"port":50001,"name":"on-line1...
+2026-05-13 15:28:05 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.amGetAll', 'args': [], 'id': 'amGetAll_1778657285248848'}
+2026-05-13 15:28:05 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'amGetAll_1778657285248848', 'ret': [[{'ip': '127.0.0.1', 'is_local': True, 'port': 50001, 'name': 'off-line1', 'state': 0}, {'ip': '213.65.69.1', 'is_local': False, 'port': 50001, 'name': 'on-line1', 'state': 0}]]}
+2026-05-13 15:28:05 | INFO | - | assertions:validate_response:89 - amGetAll_2 获取所有控制器 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:05 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"amGetVisualSimulationState_1778657285626107","ret":[false]}
+2026-05-13 15:28:05 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.amGetVisualSimulationState', 'args': [], 'id': 'amGetVisualSimulationState_1778657285626107'}
+2026-05-13 15:28:05 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'amGetVisualSimulationState_1778657285626107', 'ret': [False]}
+2026-05-13 15:28:05 | INFO | - | assertions:validate_response:89 - amGetVisualSimulationState 获取可视化仿真状态 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:06 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webGetCollisionDetectionStatus_1778657285999992","ret":[false]}
+2026-05-13 15:28:06 | INFO | - | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetCollisionDetectionStatus', 'args': [], 'id': 'webGetCollisionDetectionStatus_1778657285999992'}
+2026-05-13 15:28:06 | INFO | - | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webGetCollisionDetectionStatus_1778657285999992', 'ret': [False]}
+2026-05-13 15:28:06 | INFO | - | assertions:validate_response:89 - webGetCollisionDetectionStatus 获取碰撞检测状态 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:06 | INFO | - | conftest:ws_client:81 - init_chain 初始化完成
+2026-05-13 15:28:07 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657286374314","ret":[15]}
+2026-05-13 15:28:07 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657286374314'}
+2026-05-13 15:28:07 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657286374314', 'ret': [15]}
+2026-05-13 15:28:07 | INFO | CASE_1778657286373320 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.74s，None重试: 0次
+2026-05-13 15:28:07 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657287419882","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:07 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [15, -1], 'id': 'getObjectPosition_1778657287419882'}
+2026-05-13 15:28:07 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657287419882', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:07 | INFO | CASE_1778657286373320 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-13 15:28:07 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webMoveObject_1778657287837702","ret":[true]}
+2026-05-13 15:28:07 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [15, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778657287837702'}
+2026-05-13 15:28:07 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webMoveObject_1778657287837702', 'ret': [True]}
+2026-05-13 15:28:07 | INFO | CASE_1778657286373320 | assertions:validate_response:89 - webMoveObject 对象移动 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:08 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1778657288215108","ret":[2]}
+2026-05-13 15:28:08 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [15], 'id': 'webGetHandleType_1778657288215108'}
+2026-05-13 15:28:08 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webGetHandleType_1778657288215108', 'ret': [2]}
+2026-05-13 15:28:08 | INFO | CASE_1778657286373320 | assertions:validate_response:89 - webGetHandleType 获取加载模型的handle类型 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:08 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"ahmCreateHierarchyElement_1778657288587104","ret":[0]}
+2026-05-13 15:28:08 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [15, 2], 'id': 'ahmCreateHierarchyElement_1778657288587104'}
+2026-05-13 15:28:08 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'ahmCreateHierarchyElement_1778657288587104', 'ret': [0]}
+2026-05-13 15:28:08 | INFO | CASE_1778657286373320 | assertions:validate_response:89 - ahmCreateHierarchyElement 创建工作台节点成功 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:09 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"ahmSetElementParent_1778657288963014","ret":[]}
+2026-05-13 15:28:09 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmSetElementParent', 'args': [0, -1], 'id': 'ahmSetElementParent_1778657288963014'}
+2026-05-13 15:28:09 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'ahmSetElementParent_1778657288963014', 'ret': []}
+2026-05-13 15:28:09 | INFO | CASE_1778657286373320 | assertions:validate_response:66 - ahmSetElementParent1 设置工作台父节点 响应为空数组[]，已跳过断言
+2026-05-13 15:28:09 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"ahmGetHierarchy_1778657289358096","ret":["[\n{\n\"children\": [],\n\"obj_collapsed\": 0,\n\"obj_handle\": 15,\n\"obj_id\": 0,\n\"obj_ip\": \"\",\n\"obj_layers\": 1,\n\"obj_name\"...
+2026-05-13 15:28:09 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmGetHierarchy', 'args': [], 'id': 'ahmGetHierarchy_1778657289358096'}
+2026-05-13 15:28:09 | INFO | CASE_1778657286373320 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'ahmGetHierarchy_1778657289358096', 'ret': ['[\n{\n"children": [],\n"obj_collapsed": 0,\n"obj_handle": 15,\n"obj_id": 0,\n"obj_ip": "",\n"obj_layers": 1,\n"obj_name": "AIR4_560A",\n"obj_selectable": 1,\n"obj_sn": "",\n"obj_type": 2,\n"obj_unique_name": "AIR4_560A"\n}\n]']}
+2026-05-13 15:28:09 | INFO | CASE_1778657286373320 | assertions:validate_response:89 - ahmGetHierarchy 获取场景树 接口响应成功，总耗时: 0.05s，None重试: 0次
+2026-05-13 15:28:09 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"loadModel_1778657289732096","error":"185: in sim.loadModel: file does not exist."}
+2026-05-13 15:28:09 | INFO | CASE_1778657289732096 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': [12345], 'id': 'loadModel_1778657289732096'}
+2026-05-13 15:28:09 | INFO | CASE_1778657289732096 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'loadModel_1778657289732096', 'error': '185: in sim.loadModel: file does not exist.'}
+2026-05-13 15:28:09 | ERROR | CASE_1778657289732096 | assertions:validate_response:75 - loadModel 加载模型 [wrong_arg_type] 失败: {'success': False, 'id': 'loadModel_1778657289732096', 'error': '185: in sim.loadModel: file does not exist.'}
+2026-05-13 15:28:10 | WARNING | CASE_1778657289732096 | request_invoker:send_request:105 - loadModel_1778657289732096 断言失败！
+2026-05-13 15:28:10 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"loadModel_1778657290099918","error":"185: in sim.loadModel: the function requires more arguments."}
+2026-05-13 15:28:10 | INFO | CASE_1778657290097921 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': [None], 'id': 'loadModel_1778657290099918'}
+2026-05-13 15:28:10 | INFO | CASE_1778657290097921 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'loadModel_1778657290099918', 'error': '185: in sim.loadModel: the function requires more arguments.'}
+2026-05-13 15:28:10 | ERROR | CASE_1778657290097921 | assertions:validate_response:75 - loadModel 加载模型 [null_args] 失败: {'success': False, 'id': 'loadModel_1778657290099918', 'error': '185: in sim.loadModel: the function requires more arguments.'}
+2026-05-13 15:28:10 | WARNING | CASE_1778657290097921 | request_invoker:send_request:105 - loadModel_1778657290099918 断言失败！
+2026-05-13 15:28:11 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657290468839","ret":[37]}
+2026-05-13 15:28:11 | INFO | CASE_1778657290468839 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657290468839'}
+2026-05-13 15:28:11 | INFO | CASE_1778657290468839 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657290468839', 'ret': [37]}
+2026-05-13 15:28:11 | INFO | CASE_1778657290468839 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.71s，None重试: 0次
+2026-05-13 15:28:11 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"getObjectPosition_1778657291480844","error":"185: in sim.getObjectPosition: one of the function's argument type is not correct."}
+2026-05-13 15:28:11 | INFO | CASE_1778657290468839 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': ['', -1], 'id': 'getObjectPosition_1778657291480844'}
+2026-05-13 15:28:11 | INFO | CASE_1778657290468839 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'getObjectPosition_1778657291480844', 'error': "185: in sim.getObjectPosition: one of the function's argument type is not correct."}
+2026-05-13 15:28:11 | ERROR | CASE_1778657290468839 | assertions:validate_response:75 - getObjectPosition 获取对象位置 [boundary] 失败: {'success': False, 'id': 'getObjectPosition_1778657291480844', 'error': "185: in sim.getObjectPosition: one of the function's argument type is not correct."}
+2026-05-13 15:28:11 | WARNING | CASE_1778657290468839 | request_invoker:send_request:105 - getObjectPosition_1778657291480844 断言失败！
+2026-05-13 15:28:12 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657291897019","ret":[59]}
+2026-05-13 15:28:12 | INFO | CASE_1778657291897019 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657291897019'}
+2026-05-13 15:28:12 | INFO | CASE_1778657291897019 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657291897019', 'ret': [59]}
+2026-05-13 15:28:12 | INFO | CASE_1778657291897019 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.72s，None重试: 0次
+2026-05-13 15:28:13 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"getObjectPosition_1778657292916900","error":"185: in sim.getObjectPosition: object does not exist."}
+2026-05-13 15:28:13 | INFO | CASE_1778657291897019 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [12345, -1], 'id': 'getObjectPosition_1778657292916900'}
+2026-05-13 15:28:13 | INFO | CASE_1778657291897019 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'getObjectPosition_1778657292916900', 'error': '185: in sim.getObjectPosition: object does not exist.'}
+2026-05-13 15:28:13 | ERROR | CASE_1778657291897019 | assertions:validate_response:75 - getObjectPosition 获取对象位置 [wrong_arg_type] 失败: {'success': False, 'id': 'getObjectPosition_1778657292916900', 'error': '185: in sim.getObjectPosition: object does not exist.'}
+2026-05-13 15:28:13 | WARNING | CASE_1778657291897019 | request_invoker:send_request:105 - getObjectPosition_1778657292916900 断言失败！
+2026-05-13 15:28:14 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657293340337","ret":[81]}
+2026-05-13 15:28:14 | INFO | CASE_1778657293339220 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657293340337'}
+2026-05-13 15:28:14 | INFO | CASE_1778657293339220 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657293340337', 'ret': [81]}
+2026-05-13 15:28:14 | INFO | CASE_1778657293339220 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-13 15:28:14 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"getObjectPosition_1778657294370118","error":"185: in sim.getObjectPosition: object does not exist."}
+2026-05-13 15:28:14 | INFO | CASE_1778657293339220 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [-1], 'id': 'getObjectPosition_1778657294370118'}
+2026-05-13 15:28:14 | INFO | CASE_1778657293339220 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'getObjectPosition_1778657294370118', 'error': '185: in sim.getObjectPosition: object does not exist.'}
+2026-05-13 15:28:14 | ERROR | CASE_1778657293339220 | assertions:validate_response:75 - getObjectPosition 获取对象位置 [missing_args] 失败: {'success': False, 'id': 'getObjectPosition_1778657294370118', 'error': '185: in sim.getObjectPosition: object does not exist.'}
+2026-05-13 15:28:14 | WARNING | CASE_1778657293339220 | request_invoker:send_request:105 - getObjectPosition_1778657294370118 断言失败！
+2026-05-13 15:28:15 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657294787666","ret":[103]}
+2026-05-13 15:28:15 | INFO | CASE_1778657294786659 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657294787666'}
+2026-05-13 15:28:15 | INFO | CASE_1778657294786659 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657294787666', 'ret': [103]}
+2026-05-13 15:28:15 | INFO | CASE_1778657294786659 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-13 15:28:15 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"getObjectPosition_1778657295786764","error":"185: in sim.getObjectPosition: one of the function's argument type is not correct."}
+2026-05-13 15:28:15 | INFO | CASE_1778657294786659 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': ['', -1], 'id': 'getObjectPosition_1778657295786764'}
+2026-05-13 15:28:15 | INFO | CASE_1778657294786659 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'getObjectPosition_1778657295786764', 'error': "185: in sim.getObjectPosition: one of the function's argument type is not correct."}
+2026-05-13 15:28:15 | ERROR | CASE_1778657294786659 | assertions:validate_response:75 - getObjectPosition 获取对象位置 [violation] 失败: {'success': False, 'id': 'getObjectPosition_1778657295786764', 'error': "185: in sim.getObjectPosition: one of the function's argument type is not correct."}
+2026-05-13 15:28:16 | WARNING | CASE_1778657294786659 | request_invoker:send_request:105 - getObjectPosition_1778657295786764 断言失败！
+2026-05-13 15:28:16 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657296206839","ret":[125]}
+2026-05-13 15:28:16 | INFO | CASE_1778657296206839 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657296206839'}
+2026-05-13 15:28:16 | INFO | CASE_1778657296206839 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657296206839', 'ret': [125]}
+2026-05-13 15:28:16 | INFO | CASE_1778657296206839 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-13 15:28:17 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"getObjectPosition_1778657297209277","error":"185: in sim.getObjectPosition: the function requires more arguments."}
+2026-05-13 15:28:17 | INFO | CASE_1778657296206839 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [None, -1], 'id': 'getObjectPosition_1778657297209277'}
+2026-05-13 15:28:17 | INFO | CASE_1778657296206839 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'getObjectPosition_1778657297209277', 'error': '185: in sim.getObjectPosition: the function requires more arguments.'}
+2026-05-13 15:28:17 | ERROR | CASE_1778657296206839 | assertions:validate_response:75 - getObjectPosition 获取对象位置 [null_args] 失败: {'success': False, 'id': 'getObjectPosition_1778657297209277', 'error': '185: in sim.getObjectPosition: the function requires more arguments.'}
+2026-05-13 15:28:17 | WARNING | CASE_1778657296206839 | request_invoker:send_request:105 - getObjectPosition_1778657297209277 断言失败！
+2026-05-13 15:28:18 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657297625167","ret":[147]}
+2026-05-13 15:28:18 | INFO | CASE_1778657297625167 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657297625167'}
+2026-05-13 15:28:18 | INFO | CASE_1778657297625167 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657297625167', 'ret': [147]}
+2026-05-13 15:28:18 | INFO | CASE_1778657297625167 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-13 15:28:18 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657298654271","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:18 | INFO | CASE_1778657297625167 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [147, -1], 'id': 'getObjectPosition_1778657298654271'}
+2026-05-13 15:28:18 | INFO | CASE_1778657297625167 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657298654271', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:18 | INFO | CASE_1778657297625167 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-13 15:28:19 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"webMoveObject_1778657299070896","error":"185: in sim.genericFunctionHandler: read in arg 1 (object_handle): expected int"}
+2026-05-13 15:28:19 | INFO | CASE_1778657297625167 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': ['', 0.0, -1, 1], 'id': 'webMoveObject_1778657299070896'}
+2026-05-13 15:28:19 | INFO | CASE_1778657297625167 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'webMoveObject_1778657299070896', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (object_handle): expected int'}
+2026-05-13 15:28:19 | ERROR | CASE_1778657297625167 | assertions:validate_response:75 - webMoveObject 对象移动 [boundary] 失败: {'success': False, 'id': 'webMoveObject_1778657299070896', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (object_handle): expected int'}
+2026-05-13 15:28:19 | WARNING | CASE_1778657297625167 | request_invoker:send_request:105 - webMoveObject_1778657299070896 断言失败！
+2026-05-13 15:28:20 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657299444924","ret":[169]}
+2026-05-13 15:28:20 | INFO | CASE_1778657299444924 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657299444924'}
+2026-05-13 15:28:20 | INFO | CASE_1778657299444924 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657299444924', 'ret': [169]}
+2026-05-13 15:28:20 | INFO | CASE_1778657299444924 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-13 15:28:20 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657300477168","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:20 | INFO | CASE_1778657299444924 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [169, -1], 'id': 'getObjectPosition_1778657300477168'}
+2026-05-13 15:28:20 | INFO | CASE_1778657299444924 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657300477168', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:20 | INFO | CASE_1778657299444924 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-13 15:28:20 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"webMoveObject_1778657300886734","error":"185: in sim.genericFunctionHandler: read in arg 2 (target_position): expected array (simGetStackTableInfo(stack, 0) returned -3)"}
+2026-05-13 15:28:20 | INFO | CASE_1778657299444924 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [12345, 0.0, -1, 1], 'id': 'webMoveObject_1778657300886734'}
+2026-05-13 15:28:20 | INFO | CASE_1778657299444924 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'webMoveObject_1778657300886734', 'error': '185: in sim.genericFunctionHandler: read in arg 2 (target_position): expected array (simGetStackTableInfo(stack, 0) returned -3)'}
+2026-05-13 15:28:20 | ERROR | CASE_1778657299444924 | assertions:validate_response:75 - webMoveObject 对象移动 [wrong_arg_type] 失败: {'success': False, 'id': 'webMoveObject_1778657300886734', 'error': '185: in sim.genericFunctionHandler: read in arg 2 (target_position): expected array (simGetStackTableInfo(stack, 0) returned -3)'}
+2026-05-13 15:28:21 | WARNING | CASE_1778657299444924 | request_invoker:send_request:105 - webMoveObject_1778657300886734 断言失败！
+2026-05-13 15:28:21 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657301265094","ret":[191]}
+2026-05-13 15:28:21 | INFO | CASE_1778657301265094 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657301265094'}
+2026-05-13 15:28:21 | INFO | CASE_1778657301265094 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657301265094', 'ret': [191]}
+2026-05-13 15:28:21 | INFO | CASE_1778657301265094 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.70s，None重试: 0次
+2026-05-13 15:28:22 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657302272887","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:22 | INFO | CASE_1778657301265094 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [191, -1], 'id': 'getObjectPosition_1778657302272887'}
+2026-05-13 15:28:22 | INFO | CASE_1778657301265094 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657302272887', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:22 | INFO | CASE_1778657301265094 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-13 15:28:22 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"webMoveObject_1778657302695036","error":"185: in sim.genericFunctionHandler: read in arg 2 (target_position): expected array (simGetStackTableInfo(stack, 0) returned -3)"}
+2026-05-13 15:28:22 | INFO | CASE_1778657301265094 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [0.0, -1, 1], 'id': 'webMoveObject_1778657302695036'}
+2026-05-13 15:28:22 | INFO | CASE_1778657301265094 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'webMoveObject_1778657302695036', 'error': '185: in sim.genericFunctionHandler: read in arg 2 (target_position): expected array (simGetStackTableInfo(stack, 0) returned -3)'}
+2026-05-13 15:28:22 | ERROR | CASE_1778657301265094 | assertions:validate_response:75 - webMoveObject 对象移动 [missing_args] 失败: {'success': False, 'id': 'webMoveObject_1778657302695036', 'error': '185: in sim.genericFunctionHandler: read in arg 2 (target_position): expected array (simGetStackTableInfo(stack, 0) returned -3)'}
+2026-05-13 15:28:23 | WARNING | CASE_1778657301265094 | request_invoker:send_request:105 - webMoveObject_1778657302695036 断言失败！
+2026-05-13 15:28:23 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657303072017","ret":[213]}
+2026-05-13 15:28:23 | INFO | CASE_1778657303071023 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657303072017'}
+2026-05-13 15:28:23 | INFO | CASE_1778657303071023 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657303072017', 'ret': [213]}
+2026-05-13 15:28:23 | INFO | CASE_1778657303071023 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.74s，None重试: 0次
+2026-05-13 15:28:24 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657304111774","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:24 | INFO | CASE_1778657303071023 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [213, -1], 'id': 'getObjectPosition_1778657304111774'}
+2026-05-13 15:28:24 | INFO | CASE_1778657303071023 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657304111774', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:24 | INFO | CASE_1778657303071023 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-13 15:28:24 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"webMoveObject_1778657304525039","error":"185: in sim.genericFunctionHandler: read in arg 1 (object_handle): expected int"}
+2026-05-13 15:28:24 | INFO | CASE_1778657303071023 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': ['', 0.0, -1, 1], 'id': 'webMoveObject_1778657304525039'}
+2026-05-13 15:28:24 | INFO | CASE_1778657303071023 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'webMoveObject_1778657304525039', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (object_handle): expected int'}
+2026-05-13 15:28:24 | ERROR | CASE_1778657303071023 | assertions:validate_response:75 - webMoveObject 对象移动 [violation] 失败: {'success': False, 'id': 'webMoveObject_1778657304525039', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (object_handle): expected int'}
+2026-05-13 15:28:24 | WARNING | CASE_1778657303071023 | request_invoker:send_request:105 - webMoveObject_1778657304525039 断言失败！
+2026-05-13 15:28:25 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657304906463","ret":[235]}
+2026-05-13 15:28:25 | INFO | CASE_1778657304905469 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657304906463'}
+2026-05-13 15:28:25 | INFO | CASE_1778657304905469 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657304906463', 'ret': [235]}
+2026-05-13 15:28:25 | INFO | CASE_1778657304905469 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.72s，None重试: 0次
+2026-05-13 15:28:26 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657305925592","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:26 | INFO | CASE_1778657304905469 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [235, -1], 'id': 'getObjectPosition_1778657305925592'}
+2026-05-13 15:28:26 | INFO | CASE_1778657304905469 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657305925592', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:26 | INFO | CASE_1778657304905469 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-13 15:28:26 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"webMoveObject_1778657306340686","error":"185: in sim.genericFunctionHandler: read in arg 1 (object_handle): expected int"}
+2026-05-13 15:28:26 | INFO | CASE_1778657304905469 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [None, 0.0, -1, 1], 'id': 'webMoveObject_1778657306340686'}
+2026-05-13 15:28:26 | INFO | CASE_1778657304905469 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'webMoveObject_1778657306340686', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (object_handle): expected int'}
+2026-05-13 15:28:26 | ERROR | CASE_1778657304905469 | assertions:validate_response:75 - webMoveObject 对象移动 [null_args] 失败: {'success': False, 'id': 'webMoveObject_1778657306340686', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (object_handle): expected int'}
+2026-05-13 15:28:26 | WARNING | CASE_1778657304905469 | request_invoker:send_request:105 - webMoveObject_1778657306340686 断言失败！
+2026-05-13 15:28:27 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657306718282","ret":[257]}
+2026-05-13 15:28:27 | INFO | CASE_1778657306718282 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657306718282'}
+2026-05-13 15:28:27 | INFO | CASE_1778657306718282 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657306718282', 'ret': [257]}
+2026-05-13 15:28:27 | INFO | CASE_1778657306718282 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-13 15:28:27 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657307751248","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:27 | INFO | CASE_1778657306718282 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [257, -1], 'id': 'getObjectPosition_1778657307751248'}
+2026-05-13 15:28:27 | INFO | CASE_1778657306718282 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657307751248', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:27 | INFO | CASE_1778657306718282 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-13 15:28:28 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webMoveObject_1778657308168244","ret":[true]}
+2026-05-13 15:28:28 | INFO | CASE_1778657306718282 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [257, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778657308168244'}
+2026-05-13 15:28:28 | INFO | CASE_1778657306718282 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webMoveObject_1778657308168244', 'ret': [True]}
+2026-05-13 15:28:28 | INFO | CASE_1778657306718282 | assertions:validate_response:89 - webMoveObject 对象移动 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:28 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1778657308542041","ret":[-1]}
+2026-05-13 15:28:28 | INFO | CASE_1778657306718282 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [12345], 'id': 'webGetHandleType_1778657308542041'}
+2026-05-13 15:28:28 | INFO | CASE_1778657306718282 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webGetHandleType_1778657308542041', 'ret': [-1]}
+2026-05-13 15:28:28 | INFO | CASE_1778657306718282 | assertions:validate_response:89 - webGetHandleType 获取加载模型的handle类型 [wrong_arg_type] 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:30 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657309364697","ret":[279]}
+2026-05-13 15:28:30 | INFO | CASE_1778657309364697 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657309364697'}
+2026-05-13 15:28:30 | INFO | CASE_1778657309364697 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657309364697', 'ret': [279]}
+2026-05-13 15:28:30 | INFO | CASE_1778657309364697 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.78s，None重试: 0次
+2026-05-13 15:28:30 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657310446584","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:30 | INFO | CASE_1778657309364697 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [279, -1], 'id': 'getObjectPosition_1778657310446584'}
+2026-05-13 15:28:30 | INFO | CASE_1778657309364697 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657310446584', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:30 | INFO | CASE_1778657309364697 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-13 15:28:30 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webMoveObject_1778657310872527","ret":[true]}
+2026-05-13 15:28:30 | INFO | CASE_1778657309364697 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [279, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778657310872527'}
+2026-05-13 15:28:30 | INFO | CASE_1778657309364697 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webMoveObject_1778657310872527', 'ret': [True]}
+2026-05-13 15:28:30 | INFO | CASE_1778657309364697 | assertions:validate_response:89 - webMoveObject 对象移动 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:31 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"webGetHandleType_1778657311247223","error":"185: in sim.genericFunctionHandler: not enough arguments"}
+2026-05-13 15:28:31 | INFO | CASE_1778657309364697 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [None], 'id': 'webGetHandleType_1778657311247223'}
+2026-05-13 15:28:31 | INFO | CASE_1778657309364697 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'webGetHandleType_1778657311247223', 'error': '185: in sim.genericFunctionHandler: not enough arguments'}
+2026-05-13 15:28:31 | ERROR | CASE_1778657309364697 | assertions:validate_response:75 - webGetHandleType 获取加载模型的handle类型 [null_args] 失败: {'success': False, 'id': 'webGetHandleType_1778657311247223', 'error': '185: in sim.genericFunctionHandler: not enough arguments'}
+2026-05-13 15:28:31 | WARNING | CASE_1778657309364697 | request_invoker:send_request:105 - webGetHandleType_1778657311247223 断言失败！
+2026-05-13 15:28:32 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657311623784","ret":[301]}
+2026-05-13 15:28:32 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657311623784'}
+2026-05-13 15:28:32 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657311623784', 'ret': [301]}
+2026-05-13 15:28:32 | INFO | CASE_1778657311623784 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-13 15:28:32 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657312656758","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:32 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [301, -1], 'id': 'getObjectPosition_1778657312656758'}
+2026-05-13 15:28:32 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657312656758', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:32 | INFO | CASE_1778657311623784 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-13 15:28:33 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webMoveObject_1778657313072777","ret":[true]}
+2026-05-13 15:28:33 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [301, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778657313072777'}
+2026-05-13 15:28:33 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webMoveObject_1778657313072777', 'ret': [True]}
+2026-05-13 15:28:33 | INFO | CASE_1778657311623784 | assertions:validate_response:89 - webMoveObject 对象移动 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:33 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1778657313447727","ret":[2]}
+2026-05-13 15:28:33 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [301], 'id': 'webGetHandleType_1778657313447727'}
+2026-05-13 15:28:33 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webGetHandleType_1778657313447727', 'ret': [2]}
+2026-05-13 15:28:33 | INFO | CASE_1778657311623784 | assertions:validate_response:89 - webGetHandleType 获取加载模型的handle类型 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:33 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"ahmCreateHierarchyElement_1778657313822054","error":"185: in sim.genericFunctionHandler: read in arg 1 (obj_handle): expected int"}
+2026-05-13 15:28:33 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': ['', 0], 'id': 'ahmCreateHierarchyElement_1778657313822054'}
+2026-05-13 15:28:33 | INFO | CASE_1778657311623784 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'ahmCreateHierarchyElement_1778657313822054', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (obj_handle): expected int'}
+2026-05-13 15:28:33 | ERROR | CASE_1778657311623784 | assertions:validate_response:75 - ahmCreateHierarchyElement 创建工作台节点成功 [boundary] 失败: {'success': False, 'id': 'ahmCreateHierarchyElement_1778657313822054', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (obj_handle): expected int'}
+2026-05-13 15:28:34 | WARNING | CASE_1778657311623784 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778657313822054 断言失败！
+2026-05-13 15:28:34 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657314205090","ret":[323]}
+2026-05-13 15:28:34 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657314205090'}
+2026-05-13 15:28:34 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657314205090', 'ret': [323]}
+2026-05-13 15:28:34 | INFO | CASE_1778657314204093 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.74s，None重试: 0次
+2026-05-13 15:28:35 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657315245089","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:35 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [323, -1], 'id': 'getObjectPosition_1778657315245089'}
+2026-05-13 15:28:35 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657315245089', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:35 | INFO | CASE_1778657314204093 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-13 15:28:35 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webMoveObject_1778657315668679","ret":[true]}
+2026-05-13 15:28:35 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [323, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778657315668679'}
+2026-05-13 15:28:35 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webMoveObject_1778657315668679', 'ret': [True]}
+2026-05-13 15:28:35 | INFO | CASE_1778657314204093 | assertions:validate_response:89 - webMoveObject 对象移动 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:36 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1778657316044427","ret":[2]}
+2026-05-13 15:28:36 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [323], 'id': 'webGetHandleType_1778657316044427'}
+2026-05-13 15:28:36 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webGetHandleType_1778657316044427', 'ret': [2]}
+2026-05-13 15:28:36 | INFO | CASE_1778657314204093 | assertions:validate_response:89 - webGetHandleType 获取加载模型的handle类型 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:36 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"ahmCreateHierarchyElement_1778657316421496","ret":[1]}
+2026-05-13 15:28:36 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [12345, 0], 'id': 'ahmCreateHierarchyElement_1778657316421496'}
+2026-05-13 15:28:36 | INFO | CASE_1778657314204093 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'ahmCreateHierarchyElement_1778657316421496', 'ret': [1]}
+2026-05-13 15:28:36 | INFO | CASE_1778657314204093 | assertions:validate_response:89 - ahmCreateHierarchyElement 创建工作台节点成功 [wrong_arg_type] 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:37 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657316813199","ret":[345]}
+2026-05-13 15:28:37 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657316813199'}
+2026-05-13 15:28:37 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657316813199', 'ret': [345]}
+2026-05-13 15:28:37 | INFO | CASE_1778657316812203 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.73s，None重试: 0次
+2026-05-13 15:28:37 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657317842311","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:37 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [345, -1], 'id': 'getObjectPosition_1778657317842311'}
+2026-05-13 15:28:37 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657317842311', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:37 | INFO | CASE_1778657316812203 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-13 15:28:38 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webMoveObject_1778657318254235","ret":[true]}
+2026-05-13 15:28:38 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [345, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778657318254235'}
+2026-05-13 15:28:38 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webMoveObject_1778657318254235', 'ret': [True]}
+2026-05-13 15:28:38 | INFO | CASE_1778657316812203 | assertions:validate_response:89 - webMoveObject 对象移动 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:38 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1778657318630410","ret":[2]}
+2026-05-13 15:28:38 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [345], 'id': 'webGetHandleType_1778657318630410'}
+2026-05-13 15:28:38 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webGetHandleType_1778657318630410', 'ret': [2]}
+2026-05-13 15:28:38 | INFO | CASE_1778657316812203 | assertions:validate_response:89 - webGetHandleType 获取加载模型的handle类型 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:39 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"ahmCreateHierarchyElement_1778657319004611","error":"185: in sim.genericFunctionHandler: not enough arguments"}
+2026-05-13 15:28:39 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [0], 'id': 'ahmCreateHierarchyElement_1778657319004611'}
+2026-05-13 15:28:39 | INFO | CASE_1778657316812203 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'ahmCreateHierarchyElement_1778657319004611', 'error': '185: in sim.genericFunctionHandler: not enough arguments'}
+2026-05-13 15:28:39 | ERROR | CASE_1778657316812203 | assertions:validate_response:75 - ahmCreateHierarchyElement 创建工作台节点成功 [missing_args] 失败: {'success': False, 'id': 'ahmCreateHierarchyElement_1778657319004611', 'error': '185: in sim.genericFunctionHandler: not enough arguments'}
+2026-05-13 15:28:39 | WARNING | CASE_1778657316812203 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778657319004611 断言失败！
+2026-05-13 15:28:40 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657319382252","ret":[367]}
+2026-05-13 15:28:40 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657319382252'}
+2026-05-13 15:28:40 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657319382252', 'ret': [367]}
+2026-05-13 15:28:40 | INFO | CASE_1778657319381255 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.72s，None重试: 0次
+2026-05-13 15:28:40 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657320406922","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:40 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [367, -1], 'id': 'getObjectPosition_1778657320406922'}
+2026-05-13 15:28:40 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657320406922', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:40 | INFO | CASE_1778657319381255 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.12s，None重试: 0次
+2026-05-13 15:28:40 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webMoveObject_1778657320825863","ret":[true]}
+2026-05-13 15:28:40 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [367, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778657320825863'}
+2026-05-13 15:28:40 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webMoveObject_1778657320825863', 'ret': [True]}
+2026-05-13 15:28:40 | INFO | CASE_1778657319381255 | assertions:validate_response:89 - webMoveObject 对象移动 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:41 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1778657321201784","ret":[2]}
+2026-05-13 15:28:41 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [367], 'id': 'webGetHandleType_1778657321201784'}
+2026-05-13 15:28:41 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webGetHandleType_1778657321201784', 'ret': [2]}
+2026-05-13 15:28:41 | INFO | CASE_1778657319381255 | assertions:validate_response:89 - webGetHandleType 获取加载模型的handle类型 接口响应成功，总耗时: 0.08s，None重试: 0次
+2026-05-13 15:28:41 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"ahmCreateHierarchyElement_1778657321577837","error":"185: in sim.genericFunctionHandler: read in arg 1 (obj_handle): expected int"}
+2026-05-13 15:28:41 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': ['', 0], 'id': 'ahmCreateHierarchyElement_1778657321577837'}
+2026-05-13 15:28:41 | INFO | CASE_1778657319381255 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'ahmCreateHierarchyElement_1778657321577837', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (obj_handle): expected int'}
+2026-05-13 15:28:41 | ERROR | CASE_1778657319381255 | assertions:validate_response:75 - ahmCreateHierarchyElement 创建工作台节点成功 [violation] 失败: {'success': False, 'id': 'ahmCreateHierarchyElement_1778657321577837', 'error': '185: in sim.genericFunctionHandler: read in arg 1 (obj_handle): expected int'}
+2026-05-13 15:28:42 | WARNING | CASE_1778657319381255 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778657321577837 断言失败！
+2026-05-13 15:28:42 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"loadModel_1778657322042842","ret":[389]}
+2026-05-13 15:28:42 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.loadModel', 'args': ['public/models/robot/AIR4_560A/AIR4_560A.m'], 'id': 'loadModel_1778657322042842'}
+2026-05-13 15:28:42 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'loadModel_1778657322042842', 'ret': [389]}
+2026-05-13 15:28:42 | INFO | CASE_1778657322042842 | assertions:validate_response:89 - loadModel 加载模型 接口响应成功，总耗时: 0.77s，None重试: 0次
+2026-05-13 15:28:43 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"getObjectPosition_1778657323122082","ret":[[0.0,0.0,0.0]]}
+2026-05-13 15:28:43 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'sim.getObjectPosition', 'args': [389, -1], 'id': 'getObjectPosition_1778657323122082'}
+2026-05-13 15:28:43 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'getObjectPosition_1778657323122082', 'ret': [[0.0, 0.0, 0.0]]}
+2026-05-13 15:28:43 | INFO | CASE_1778657322042842 | assertions:validate_response:89 - getObjectPosition 获取对象位置 接口响应成功，总耗时: 0.11s，None重试: 0次
+2026-05-13 15:28:43 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webMoveObject_1778657323531149","ret":[true]}
+2026-05-13 15:28:43 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webMoveObject', 'args': [389, [0, 0, 0], -1, 4], 'id': 'webMoveObject_1778657323531149'}
+2026-05-13 15:28:43 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webMoveObject_1778657323531149', 'ret': [True]}
+2026-05-13 15:28:43 | INFO | CASE_1778657322042842 | assertions:validate_response:89 - webMoveObject 对象移动 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:43 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":true,"id":"webGetHandleType_1778657323906855","ret":[2]}
+2026-05-13 15:28:43 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.webGetHandleType', 'args': [389], 'id': 'webGetHandleType_1778657323906855'}
+2026-05-13 15:28:43 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': True, 'id': 'webGetHandleType_1778657323906855', 'ret': [2]}
+2026-05-13 15:28:43 | INFO | CASE_1778657322042842 | assertions:validate_response:89 - webGetHandleType 获取加载模型的handle类型 接口响应成功，总耗时: 0.07s，None重试: 0次
+2026-05-13 15:28:44 | INFO | - | websocket_client:on_message:29 - [WSClient] 收到原始数据: {"success":false,"id":"ahmCreateHierarchyElement_1778657324283554","error":"185: in sim.genericFunctionHandler: not enough arguments"}
+2026-05-13 15:28:44 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:51 - 请求体: {'func': 'simArcs.ahmCreateHierarchyElement', 'args': [None, 0], 'id': 'ahmCreateHierarchyElement_1778657324283554'}
+2026-05-13 15:28:44 | INFO | CASE_1778657322042842 | request_invoker:_ws_send_and_wait:52 - 响应体: {'success': False, 'id': 'ahmCreateHierarchyElement_1778657324283554', 'error': '185: in sim.genericFunctionHandler: not enough arguments'}
+2026-05-13 15:28:44 | ERROR | CASE_1778657322042842 | assertions:validate_response:75 - ahmCreateHierarchyElement 创建工作台节点成功 [null_args] 失败: {'success': False, 'id': 'ahmCreateHierarchyElement_1778657324283554', 'error': '185: in sim.genericFunctionHandler: not enough arguments'}
+2026-05-13 15:28:44 | WARNING | CASE_1778657322042842 | request_invoker:send_request:105 - ahmCreateHierarchyElement_1778657324283554 断言失败！

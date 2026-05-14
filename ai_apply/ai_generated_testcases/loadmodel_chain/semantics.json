@@ -1,0 +1,498 @@
+{
+  "interfaces": [
+    {
+      "func": "sim.loadModel",
+      "seq": 1,
+      "business_meaning": "加载指定路径的模型文件，为后续操作提供模型对象句柄。",
+      "interface_type": "command",
+      "params": [
+        {
+          "params_name": "模型路径",
+          "type": "str",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [],
+          "enum_values": [],
+          "special_char_limit": ""
+        }
+      ],
+      "expected_response": {
+        "success": true,
+        "ret": {
+          "type": "list[str]",
+          "description": "返回加载模型的对象句柄列表",
+          "structure": "ret[0]为对象句柄字符串",
+          "example": "['handle_12345']"
+        },
+        "error": "",
+        "abnormal_responses": [
+          {
+            "scenario": "模型路径为空或不存在对应模型文件",
+            "success": false,
+            "error": "模型加载失败，路径无效或文件不存在。"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [],
+        "data_flow": [],
+        "system_state": "系统处于准备加载模型的状态"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "str",
+            "consumed_by": "sim.getObjectPosition, simArcs.webMoveObject, simArcs.webGetHandleType, simArcs.ahmCreateHierarchyElement",
+            "as_param_index": 0,
+            "desc": "模型对象句柄，用于后续操作"
+          }
+        ],
+        "state_change": "成功加载模型后，系统状态更新为已加载模型，句柄存储在LoadModel.object_handle"
+      },
+      "business_rules": [
+        "每次加载模型会覆盖之前的模型句柄",
+        "模型路径必须为有效模型文件路径"
+      ]
+    },
+    {
+      "func": "sim.getObjectPosition",
+      "seq": 2,
+      "business_meaning": "获取指定模型对象的当前位置，用于后续的空间操作。",
+      "interface_type": "query",
+      "params": [
+        {
+          "params_name": "对象句柄",
+          "type": "str",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [],
+          "enum_values": [],
+          "special_char_limit": ""
+        },
+        {
+          "params_name": "空间参数",
+          "type": "int",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [
+            "-1"
+          ],
+          "enum_values": [],
+          "special_char_limit": ""
+        }
+      ],
+      "expected_response": {
+        "success": true,
+        "ret": {
+          "type": "list[float]",
+          "description": "对象的空间位置坐标",
+          "structure": "ret[0], ret[1], ret[2]为X, Y, Z坐标值",
+          "example": "[0.0, 0.0, 0.0]"
+        },
+        "error": "",
+        "abnormal_responses": [
+          {
+            "scenario": "对象句柄无效或未加载模型",
+            "success": false,
+            "error": "获取对象位置失败，句柄无效或对象不存在。"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "提供对象句柄"
+          }
+        ],
+        "system_state": "模型已加载，对象句柄有效"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "list[float]",
+            "consumed_by": "",
+            "as_param_index": 0,
+            "desc": "对象的空间位置坐标"
+          }
+        ],
+        "state_change": "无状态变化"
+      },
+      "business_rules": [
+        "对象句柄必须有效且已加载模型",
+        "空间参数-1表示获取当前位置"
+      ]
+    },
+    {
+      "func": "simArcs.webMoveObject",
+      "seq": 3,
+      "business_meaning": "移动指定模型对象到目标位置，用于空间布局或操作演示。",
+      "interface_type": "command",
+      "params": [
+        {
+          "params_name": "对象句柄",
+          "type": "str",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [],
+          "enum_values": [],
+          "special_char_limit": ""
+        },
+        {
+          "params_name": "目标位置坐标",
+          "type": "list[float]",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [],
+          "enum_values": [],
+          "special_char_limit": ""
+        },
+        {
+          "params_name": "空间参数",
+          "type": "int",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [
+            "-1"
+          ],
+          "enum_values": [],
+          "special_char_limit": ""
+        },
+        {
+          "params_name": "操作类型",
+          "type": "int",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [
+            "1-4"
+          ],
+          "enum_values": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "special_char_limit": ""
+        }
+      ],
+      "expected_response": {
+        "success": true,
+        "ret": {},
+        "error": "",
+        "abnormal_responses": [
+          {
+            "scenario": "目标位置参数不正确或对象句柄无效",
+            "success": false,
+            "error": "对象移动失败，参数错误或对象不存在。"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "提供对象句柄"
+          }
+        ],
+        "system_state": "模型已加载，对象句柄有效"
+      },
+      "downstream": {
+        "produces": [],
+        "state_change": "对象位置发生变化"
+      },
+      "business_rules": [
+        "对象句柄必须有效且已加载模型",
+        "目标位置坐标应为有效空间坐标",
+        "操作类型在1-4之间"
+      ]
+    },
+    {
+      "func": "simArcs.webGetHandleType",
+      "seq": 4,
+      "business_meaning": "获取模型对象的句柄类型，用于识别对象的类别或属性。",
+      "interface_type": "query",
+      "params": [
+        {
+          "params_name": "对象句柄",
+          "type": "str",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [],
+          "enum_values": [],
+          "special_char_limit": ""
+        }
+      ],
+      "expected_response": {
+        "success": true,
+        "ret": {
+          "type": "list[str]",
+          "description": "句柄类型列表",
+          "structure": "ret[0]为类型字符串",
+          "example": "['typeA']"
+        },
+        "error": "",
+        "abnormal_responses": [
+          {
+            "scenario": "对象句柄无效或未加载模型",
+            "success": false,
+            "error": "获取句柄类型失败，句柄无效或对象不存在。"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "提供对象句柄"
+          }
+        ],
+        "system_state": "模型已加载，对象句柄有效"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "list[str]",
+            "consumed_by": "",
+            "as_param_index": 0,
+            "desc": "句柄类型"
+          }
+        ],
+        "state_change": "无状态变化"
+      },
+      "business_rules": [
+        "对象句柄必须有效且已加载模型"
+      ]
+    },
+    {
+      "func": "simArcs.ahmCreateHierarchyElement",
+      "seq": 5,
+      "business_meaning": "在场景中创建一个新的工作台节点，用于场景组织和管理。",
+      "interface_type": "query",
+      "params": [
+        {
+          "params_name": "模型对象句柄",
+          "type": "str",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [],
+          "enum_values": [],
+          "special_char_limit": ""
+        },
+        {
+          "params_name": "父节点ID",
+          "type": "int",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [],
+          "enum_values": [],
+          "special_char_limit": ""
+        }
+      ],
+      "expected_response": {
+        "success": true,
+        "ret": {
+          "type": "list[int]",
+          "description": "新创建的节点ID列表",
+          "structure": "ret[0]为节点ID",
+          "example": "[123]"
+        },
+        "error": "",
+        "abnormal_responses": [
+          {
+            "scenario": "模型对象句柄无效或参数错误",
+            "success": false,
+            "error": "创建场景节点失败，参数无效。"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "提供模型对象句柄"
+          }
+        ],
+        "system_state": "模型已加载，模型句柄有效"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "int",
+            "consumed_by": "simArcs.ahmSetElementParent",
+            "as_param_index": 0,
+            "desc": "新创建的场景节点ID"
+          }
+        ],
+        "state_change": "场景结构发生变化"
+      },
+      "business_rules": [
+        "模型对象句柄必须有效且已加载模型",
+        "父节点ID应为场景中的有效节点ID或-1表示根节点"
+      ]
+    },
+    {
+      "func": "sim.loadModel",
+      "seq": 1,
+      "business_meaning": "加载指定路径的模型，初始化模型对象，为后续操作提供基础对象句柄。",
+      "interface_type": "command",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "model_path",
+          "type": "str",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [
+            "\"public/models/robot/AIR4_560A/AIR4_560A.m\""
+          ],
+          "enum_values": [],
+          "special_char_limit": ""
+        }
+      ],
+      "expected_response": {
+        "success": true,
+        "ret": {
+          "type": "list[str]",
+          "description": "加载模型后返回的对象句柄列表",
+          "structure": "ret[0]为模型对象句柄",
+          "example": "[\"handle_12345\"]"
+        },
+        "error": "加载模型失败，请检查模型路径或模型文件是否存在。",
+        "abnormal_responses": [
+          {
+            "scenario": "模型路径为空或格式错误",
+            "success": false,
+            "error": "模型路径不能为空或格式不正确。"
+          },
+          {
+            "scenario": "模型加载失败（如文件不存在或格式错误）",
+            "success": false,
+            "error": "加载模型失败，请检查模型路径或模型文件是否存在。"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [],
+        "data_flow": [],
+        "system_state": "系统处于准备加载模型的状态"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "string",
+            "consumed_by": "后续模型操作接口",
+            "as_param_index": 0,
+            "desc": "模型对象句柄，用于后续操作"
+          }
+        ],
+        "state_change": "成功加载模型后，系统状态更新为已加载模型，句柄存储在系统状态中。"
+      },
+      "business_rules": [
+        "每次加载模型应确保路径正确，避免重复加载同一模型导致资源浪费。",
+        "加载模型为操作行为，具有状态改变性质。"
+      ]
+    },
+    {
+      "func": "sim.getObjectPosition",
+      "seq": 2,
+      "business_meaning": "获取已加载模型中指定对象的当前位置，用于后续的空间操作或状态确认。",
+      "interface_type": "query",
+      "params": [
+        {
+          "index": 0,
+          "params_name": "object_handle",
+          "type": "string",
+          "required": 0,
+          "valid_range": "",
+          "boundary_values": [],
+          "enum_values": [],
+          "special_char_limit": ""
+        },
+        {
+          "index": 1,
+          "params_name": "relative_to",
+          "type": "int",
+          "required": 0,
+          "valid_range": "-1或其他整数值",
+          "boundary_values": [
+            "-1"
+          ],
+          "enum_values": [],
+          "special_char_limit": ""
+        }
+      ],
+      "expected_response": {
+        "success": true,
+        "ret": {
+          "type": "list[float]",
+          "description": "对象的空间位置坐标（x,y,z）",
+          "structure": "ret[0], ret[1], ret[2]分别为x,y,z坐标值",
+          "example": "[1.0, 2.0, 3.0]"
+        },
+        "error": "获取对象位置失败，请确认对象句柄有效且对象存在。",
+        "abnormal_responses": [
+          {
+            "scenario": "对象句柄无效或不存在",
+            "success": false,
+            "error": "对象句柄无效或不存在，无法获取位置。"
+          }
+        ]
+      },
+      "upstream": {
+        "must_call_before": [
+          "sim.loadModel"
+        ],
+        "data_flow": [
+          {
+            "from_func": "sim.loadModel",
+            "from_field": "ret[0]",
+            "to_param_index": 0,
+            "desc": "提供模型对象句柄"
+          }
+        ],
+        "system_state": "模型已成功加载，且对象句柄有效。"
+      },
+      "downstream": {
+        "produces": [
+          {
+            "field": "ret[0]",
+            "type": "list[float]",
+            "consumed_by": "后续空间操作或位置确认接口",
+            "as_param_index": 0,
+            "desc": "对象的空间位置坐标"
+          }
+        ],
+        "state_change": "获取位置不改变系统状态，仅提供空间信息。"
+      },
+      "business_rules": [
+        "确保对象句柄有效且对应的对象存在。",
+        "获取位置为只读操作，不影响模型状态。"
+      ]
+    }
+  ]
+}
